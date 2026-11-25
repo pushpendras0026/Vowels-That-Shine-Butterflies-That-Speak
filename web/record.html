@@ -31,8 +31,9 @@
 <main class="page">
   <p class="kicker">Your voice</p>
   <h1>Record every phoneme</h1>
-  <p class="lead">Read each prompt into the microphone. The recordings are saved on this computer
-    (<span class="mono">data/user_voice/</span>, needs <span class="mono">python tools/serve.py</span>) and replace the downloaded IPA-chart voices and the synthetic voice
+  <p class="lead">Read each prompt into the microphone. The recordings are saved on the server
+    (<span class="mono">data/user_voice/</span>, with <span class="mono">python tools/serve.py</span> or the Streamlit app;
+    online they are kept until the app restarts, so use <b>Download all</b> to keep a copy) and replace the downloaded IPA-chart voices and the synthetic voice
     in the analysis.</p>
   <div class="note">Tips: quiet room, microphone ~20 cm from your mouth, same distance every time. Wait for the red button
     to pulse, then speak. The bar should be green and fill to about half. If it turns red, you're clipping, so
@@ -55,6 +56,7 @@
       <div id="status" class="muted"></div>
     </div>
     <div class="chips" id="chips"></div>
+    <p><a id="dl-all" href="api/voice.zip" download hidden>⬇ Download all recordings (.zip)</a></p>
   </section>
 </main>
 <script type="module" src="js/nav.js"></script>
