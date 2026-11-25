@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUNNING</title>
+<style>
+  :root { --bg:#0f1115; --fg:#e6e6e6; --muted:#9aa0a6; --ok:#3fb950; --bad:#f85149; --line:#2a2f37; }
+  body { background:var(--bg); color:var(--fg); font:14px/1.45 system-ui, sans-serif; margin:0; padding:16px; }
+  h1 { font-size:18px; margin:0 0 4px; }
+  p { color:var(--muted); margin:0 0 12px; }
+  #summary { font:600 20px ui-monospace, monospace; margin:8px 0 12px; }
+  #summary.ok { color:var(--ok); } #summary.bad { color:var(--bad); }
+  .wrap { overflow-x:auto; }
+  table { border-collapse:collapse; font:12px ui-monospace, monospace; min-width:640px; }
+  th, td { border-bottom:1px solid var(--line); padding:3px 8px; text-align:left; white-space:nowrap; }
+  td.num { text-align:right; }
+  .pass { color:var(--ok); } .fail { color:var(--bad); font-weight:700; }
+  h2 { font-size:15px; margin:18px 0 6px; }
+</style>
+</head>
+<body>
+<h1>physics.js conformance</h1>
+<p>web/js/physics.js vs Python reference (web/data/test_vectors.json). Rule: |got−exp| / max(1,|exp|) ≤ tol; strings exact. See docs/CONTRACT.md §6–§7.</p>
+<div id="summary">running…</div>
+<div id="timing"></div>
+<div class="wrap"><table id="cases"><thead><tr><th>#</th><th>result</th><th>case</th><th>fn</th><th>max err</th><th>tol</th><th>ms</th><th>note</th></tr></thead><tbody></tbody></table></div>
+<h2>Helper consistency (vs vowels.json / butterflies.json; not part of the PASS count)</h2>
+<div class="wrap"><table id="extra"><thead><tr><th>result</th><th>check</th><th>max err</th><th>tol</th><th>note</th></tr></thead><tbody></tbody></table></div>
+<script type="module">
+import * as P from "./js/physics.js";
+import { runVectorCases, runExtraChecks, timeFilmRT } from "./js/physics_tests.js";
+
+const fmt = (x) => (Number.isFinite(x) ? x.toExponential(2) : String(x));
+const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const summary = document.getElementById("summary");
+const getJSON = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(`${u}: HTTP ${r.status}`); return r.json(); });
+
+try {
+  await P.loadPhysicsData("data/");
+  const vectors = await getJSON("data/test_vectors.json");
+  const res = runVectorCases(P, vectors);
+  const body = document.querySelector("#cases tbody");
+  body.innerHTML = res.map((r, i) => `<tr><td>${i + 1}</td><td class="${r.pass ? "pass" : "fail"}">${r.pass ? "PASS" : "FAIL"}</td>
+    <td>${esc(r.name)}</td><td>${esc(r.fn)}</td><td class="num">${fmt(r.err)}</td><td class="num">${fmt(r.tol)}</td>
+    <td class="num">${r.ms.toFixed(2)}</td><td>${r.pass ? "" : esc(r.msg)}</td></tr>`).join("");
+  const n = res.filter((r) => r.pass).length;
+  const ok = n === res.length;
+  summary.textContent = `${ok ? "PASS" : "FAIL"} ${n}/${res.length}`;
+  summary.className = ok ? "ok" : "bad";
+  document.title = ok ? "PASS" : "FAIL";
+
+  let extra = [];
+  try { extra = runExtraChecks(P, await getJSON("data/vowels.json"), await getJSON("data/butterflies.json")); }
+  catch (e) { extra = [{ name: "extra checks", err: Infinity, tol: 0, pass: false, msg: e.message }]; }
+  document.querySelector("#extra tbody").innerHTML = extra.map((r) => `<tr><td class="${r.pass ? "pass" : "fail"}">${r.pass ? "PASS" : "FAIL"}</td>
+    <td>${esc(r.name)}</td><td class="num">${fmt(r.err)}</td><td class="num">${fmt(r.tol)}</td><td>${esc(r.msg || "")}</td></tr>`).join("");
+
+  const b = (await getJSON("data/butterflies.json")).items[0];
+  document.getElementById("timing").textContent = `filmRT (941 pts, 45°, unpolarised): ${timeFilmRT(P, b.n, b.d_nm, 300).toFixed(3)} ms/call`;
+} catch (e) {
+  summary.textContent = "FAIL (error: " + e.message + ")";
+  summary.className = "bad";
+  document.title = "FAIL";
+  console.error(e);
+}
+</script>
+</body>
+</html>

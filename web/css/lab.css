@@ -1,0 +1,51 @@
+/* Live Voice Lab (lab.html) — page-specific styles on top of site.css tokens. */
+.lab .lab-head h1 { margin: 6px 0 4px; }
+.lab .lab-head p { margin: 0 0 16px; max-width: 900px; }
+.lab .mono { font-family: var(--mono); }
+.lab .tiny { font-size: 0.8rem; line-height: 1.45; }
+.lab .panel { margin-bottom: 16px; }
+.lab .panel-title { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; font-weight: 600; }
+.lab .panel-title > span:first-child { margin-right: auto; }
+
+.lab .controls .ctl-group, .lab .paint .ctl-group { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-bottom: 10px; }
+.lab .controls input[type=range] { width: 120px; }
+.lab .sep { width: 1px; height: 26px; background: var(--line); margin: 0 4px; }
+.lab .chk { display: inline-flex; gap: 4px; align-items: center; cursor: pointer; }
+.lab .btn:disabled { opacity: 0.45; cursor: default; }
+.lab .btn.small { padding: 4px 10px; font-size: 0.85rem; }
+.lab .btn.rec-on { border-color: var(--bad); color: var(--bad); }
+.lab .status { font-size: 0.9rem; min-height: 1.4em; }
+.lab .status.live { color: var(--ok); }
+.lab .status.err { color: var(--bad); }
+
+.lab .lab-main { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(260px, 1fr); gap: 16px; }
+.lab .side .panel:last-child { margin-bottom: 0; }
+.lab .stage-wrap { margin-bottom: 0; }
+.lab .stage { position: relative; height: 560px; border-radius: 10px; overflow: hidden; background: #000; }
+.lab .stage canvas { display: block; width: 100%; height: 100%; }
+.lab .stage-ui { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; align-items: center; }
+.lab .stage-ui .btn { background: rgba(26, 29, 43, 0.75); }
+.lab .stage-note { position: absolute; bottom: 8px; right: 12px; font-size: 0.75rem; color: var(--muted); pointer-events: none; }
+
+.lab .swatch-row { display: flex; gap: 12px; align-items: stretch; }
+.lab .swatch { width: 92px; min-height: 92px; border-radius: 12px; border: 1px solid var(--line); background: #111;
+  transition: background-color 60ms linear, opacity 120ms linear; flex: none; }
+.lab .readout { font-size: 0.8rem; line-height: 1.5; white-space: pre; overflow-x: auto; }
+.lab .small-canvas { width: 100%; height: 120px; display: block; }
+.lab .gate-canvas { height: 64px; }
+
+.lab .lab-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; }
+.lab .plot { width: 100%; height: 360px; display: block; }
+.lab .iso-read { font-size: 0.82rem; margin-top: 6px; }
+.lab .iso-read .ok { color: var(--ok); }
+.lab .iso-read .warn { color: var(--warn); }
+
+.lab .strip { width: 100%; height: 110px; display: block; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); }
+.lab .explain ol { padding-left: 20px; margin: 0; }
+.lab .explain li { margin-bottom: 8px; }
+.lab .explain h2 { margin-top: 0; font-size: 1.15rem; }
+
+@media (max-width: 980px) {
+  .lab .lab-main, .lab .lab-row { grid-template-columns: minmax(0, 1fr); }
+  .lab .stage { height: 420px; }
+}

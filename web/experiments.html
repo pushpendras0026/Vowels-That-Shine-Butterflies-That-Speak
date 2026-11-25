@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experiments: every phoneme</title>
+<meta name="description" content="Beyond vowels: consonants, affricates and diphthongs as thin films, compared with butterfly films.">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .seg button { appearance: none; border: 0; background: transparent; color: var(--muted); padding: 6px 12px; font: inherit; font-size: .88rem; cursor: pointer; }
+  .seg button.on { background: rgba(143,123,255,.22); color: var(--text); }
+  .cls-h { margin: 18px 0 8px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+  .cls-h h3 { margin: 0; font-size: 1.05rem; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+  .tile { appearance: none; font: inherit; color: var(--text); text-align: center; cursor: pointer; padding: 8px 6px 7px;
+    background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 12px; min-width: 0; position: relative; }
+  .tile:hover, .tile.on { border-color: var(--accent); }
+  .tile.playing { box-shadow: 0 0 0 2px var(--accent-2); }
+  .tile .sw { height: 42px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); }
+  .tile .sym { font-size: 1.25rem; font-weight: 650; margin-top: 4px; font-family: "Charis SIL", "Doulos SIL", "Times New Roman", serif; }
+  .tile .ex { font-size: .78rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tile .badge { position: absolute; top: 3px; right: 3px; font-size: .6rem; padding: 0 5px; background: rgba(7,8,13,.75); }
+  .sw.traj { background-size: 300% 100% !important; animation: slide 4s ease-in-out infinite alternate; }
+  @keyframes slide { from { background-position: 0% 0; } to { background-position: 100% 0; } }
+  @media (prefers-reduced-motion: reduce) { .sw.traj { animation: none; background-size: 100% 100% !important; } }
+  #detail { margin-top: 12px; }
+  .verdict { margin-top: 14px; }
+  .verdict h3 { margin: 0; font-size: 1.05rem; }
+  .proof ol { padding-left: 1.3em; margin: 8px 0; }
+  .proof li { margin: 4px 0; }
+  .proof .claim { font-style: italic; }
+  .check { font-family: var(--mono); font-size: .86rem; background: #0b0d14; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; overflow-x: auto; }
+  .badge.pass { color: var(--ok); border-color: rgba(79,209,139,.5); }
+  .badge.fail { color: var(--bad); border-color: rgba(255,107,107,.5); }
+  .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+  @media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+  canvas.mosaic { display: block; width: 100%; border-radius: 8px; border: 1px solid var(--line); background: #0b0d14; }
+  canvas.ab { height: 280px; }
+  #overview { height: 340px; }
+  .bcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 10px; }
+  .bcard { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+  .bcard .top { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+  .bcard .sym { font-size: 1.2rem; font-weight: 650; font-family: "Charis SIL", "Times New Roman", serif; }
+  .cmp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 8px 0 6px; }
+  .cmp > div { text-align: center; font-size: .74rem; color: var(--muted); min-width: 0; overflow-wrap: anywhere; }
+  .cmp i { display: block; height: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); margin-bottom: 3px; }
+  .angles { height: 14px; border-radius: 7px; border: 1px solid var(--line); }
+  .angle-lbl { display: flex; justify-content: space-between; font-size: .68rem; color: var(--muted); }
+  .kv { font-size: .8rem; color: var(--muted); }
+  .kv b { color: var(--text); font-weight: 600; }
+  .figs { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  figure.fig { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  figure.fig img { width: 100%; display: block; background: #fff; }
+  figure.fig figcaption { padding: 8px 10px; font-size: .86rem; color: var(--muted); }
+  ul.findings li { margin: 6px 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chip { display: inline-flex; flex-direction: column; align-items: center; min-width: 44px; padding: 4px; border: 1px solid var(--line); border-radius: 10px; font-size: .74rem; color: var(--muted); }
+  .chip i { width: 34px; height: 34px; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); margin-bottom: 2px; }
+  .chip b { color: var(--text); font-size: .95rem; font-family: "Charis SIL", "Times New Roman", serif; }
+  .chip.miss i { background: repeating-linear-gradient(45deg, #222 0 4px, #333 4px 8px); }
+  .chip.gap { border: 0; min-width: 10px; }
+  .chip.now { border-color: var(--accent-2); }
+  #word-bar { height: 28px; border-radius: 10px; border: 1px solid var(--line); margin-top: 10px; }
+  #word { width: min(100%, 360px); }
+  details.warn summary { cursor: pointer; color: var(--muted); font-size: .85rem; }
+  details.warn ul { font-size: .8rem; color: var(--muted); }
+  .intro-list li { margin: 5px 0; }
+  .sent { margin: 10px 0; } .ribbon { display: flex; height: 34px; border-radius: 6px; overflow: hidden; margin-top: 4px; }
+  .ribbon i { flex: 1; }
+</style>
+</head>
+<body>
+<nav id="site-nav"></nav>
+<main class="page">
+  <p class="kicker">Experiments</p>
+  <h1 style="margin:0 0 8px">Every phoneme: beyond vowels</h1>
+  <p class="lead">The project started with the 12 vowels. Here we experimented further: plosives, nasals, fricatives,
+    approximants, affricates and diphthongs were each turned into a thin-film stack, and those films were compared with
+    butterfly and beetle films. These are the results. Different classes of sound give different colours, and we
+    report that as a finding.</p>
+  <p class="note" id="voice-toggle"></p>
+  <p class="muted" id="meta">Loading…</p>
+
+  <section class="section" id="sec-intro">
+    <h2>What was done, and how exact it is</h2>
+    <div class="panel">
+      <ol class="intro-list">
+        <li>One real IPA-chart recording per phoneme (Wikimedia Commons). A rule for each class chooses the frames that belong to the
+          target sound: the burst for plosives, the murmur for nasals, the frication for fricatives. Their LPC polynomials are averaged.
+          <span class="badge approx">approx</span></li>
+        <li>That polynomial is the film. Layer peeling turns it into a stack whose reflectance is the polynomial's response, and from that
+          we get a colour under D65. <span class="badge exact">exact</span> for the polynomial as given.</li>
+        <li>Swatches here use the full-band mapping on a realizable film, in reflection (the same convention as the frame strips). On-screen
+          brightness is exposure-normalised. <span class="badge art">artistic</span> (display only)</li>
+        <li>The "film's voice" (<span class="mono">audio_synth</span>) is the same polynomial spoken again with an excitation that suits its class:
+          glottal pulses, noise, mixed, or burst. <span class="badge approx">approx</span></li>
+        <li>Each phoneme's film is compared with butterfly films by reflectance spectrum and colour. Phonemes are not compared by spectrogram.
+          The "twin" is a stack made of real materials that has the same colour. <span class="badge approx">approx</span></li>
+      </ol>
+      <div class="note" style="margin-top:10px">
+        <b>Honest caveats</b>
+        <ul style="margin:6px 0 0">
+          <li><b>All-pole envelope.</b> LPC models only poles. Nasals also have zeros, from the nasal side branch. In fricatives and plosives the
+            sound source sits <i>inside</i> the tract (turbulence at a constriction, or the burst at release). Every LPC polynomial with |k| &lt; 1
+            still peels into a passive film, so the <i>colour</i> is well defined. The <i>tube</i> reading of it is only approximate.</li>
+          <li><b>6 modelled phonemes.</b> The recordings for e, ɛ, o, ʒ, tʃ and dʒ could not be downloaded, so these sounds are modelled.
+            e, ɛ and o come from Hillenbrand men's vowel polynomials. ʒ is the ʃ polynomial with voicing, so it has the same colour as ʃ by construction.
+            tʃ and dʒ are LAR mixes: 0.25·t + 0.75·ʃ and 0.25·d + 0.75·ʃ. They carry a <span class="badge approx">modelled</span> badge.</li>
+          <li><b>p, b, t, d use the fallback rule.</b> The burst was detected but failed the "noise-like first 10 ms" test, so all frames were averaged,
+            including the context vowel. Those colours partly belong to the vowel. k and g use the burst rule.</li>
+          <li>There is one speaker per sound, often recorded in a syllable. Diphthongs are interpolated between vowel films (LAR) and were not recorded.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sec-sent" hidden>
+    <h2>Your sentences as colour ribbons <span class="badge exact">colour of each 32 ms film</span></h2>
+    <p class="muted">Every 16 ms frame of the sentence → LPC → film → its colour, left to right in time.</p>
+    <div id="sentences"></div>
+  </section>
+
+  <section class="section" id="sec-chart">
+    <h2>The IPA chart as colours <span class="badge exact">colour of the film</span> <span class="badge art">display</span></h2>
+    <div class="row" style="margin-bottom:6px">
+      <span class="muted">Tap a tile to hear</span>
+      <div class="seg" id="voice-seg" role="group" aria-label="audio source">
+        <button data-v="rec" class="on">recording</button><button data-v="synth">film's voice</button>
+      </div>
+      <span class="badge approx" id="voice-badge">real recording</span>
+    </div>
+    <div id="chart"><div class="empty">Loading sounds…</div></div>
+    <div id="detail"></div>
+  </section>
+
+  <section class="section" id="sec-classes">
+    <h2>Per class: one or two colours, or many?</h2>
+    <p class="muted" style="margin-top:0">The rule: if a class makes the film shine in only one or two colours, we give a mathematical proof of why. Otherwise we show
+      <i>every</i> valid colour the class produced, across recordings, frames and angles, together with its region in the a*b* plane.</p>
+    <div id="classes"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="section" id="sec-bfly">
+    <h2>Phoneme films vs butterfly films <span class="badge approx">idealised 1-D stacks</span></h2>
+    <p class="muted" style="margin-top:0">Each card shows three colours. The phoneme's film is on the left, the nearest butterfly film (idealised 1-D stack) in the middle (ΔE₀₀ = colour difference, r = correlation of the reflectance spectra),
+      and the phoneme's realizable material twin on the right. "Sounds most like" names the butterfly whose voice has the smallest log-spectral distance to the phoneme. The angle strip
+      shows how the film's colour shifts between 0° and 60° (iridescence). <span class="badge exact">film colours</span> <span class="badge approx">twin, voices</span></p>
+    <div class="row" style="margin-bottom:8px"><label for="bfly-class">Class</label> <select id="bfly-class"><option value="">all</option></select></div>
+    <div id="bfly"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="section" id="sec-real">
+    <h2>Real butterfly scales <span class="badge approx">approx</span> <span class="badge art">illustrative thicknesses</span></h2>
+    <p class="muted" style="margin-top:0">The comparison above uses idealised 1-D stacks. Here the same phoneme films are compared with
+      more realistic scale models (<span class="mono">core/butterfly.py</span>): measured chitin dispersion, melanin absorption and backing,
+      5–10 % layer-thickness disorder, lamella tilt and a rough diffraction spread. Some thicknesses are tuned to the published colour and
+      are labelled ILLUSTRATIVE in the model. Each card shows the species' colour at 0°…60°.
+      <span class="badge exact">film colours</span> <span class="badge approx">scale models</span></p>
+    <div id="real-species"><div class="empty">Loading…</div></div>
+    <h3 style="margin:16px 0 6px">Nearest real species for each phoneme</h3>
+    <p class="muted" style="margin-top:0;font-size:.86rem">Nearest = highest correlation of the reflectance spectra over 380–780 nm at 0°.
+      ΔE₀₀ is the colour difference. A negative r means no species has a similar spectral shape.</p>
+    <div id="real-phonemes"></div>
+  </section>
+
+  <section class="section" id="sec-fluor">
+    <h2>Fluorescence under blacklight <span class="badge approx">approx</span> <span class="badge art">QY, dye strength illustrative</span></h2>
+    <p class="muted" style="margin-top:0">Some swallowtails (for example <i>Papilio nireus</i>) carry a fluorescent pigment (papiliochrome) inside their
+      photonic scales. Here every phoneme film is given that dye in every layer (<span class="mono">core/fluorescence.py</span>). It absorbs violet/UV
+      and emits green around 505 nm. The film then decides how much of that light escapes upwards. Switch the light:</p>
+    <div class="row" style="margin-bottom:8px">
+      <div class="seg" id="fluor-seg" role="group" aria-label="illuminant">
+        <button data-m="D65" class="on">daylight D65</button><button data-m="violet">violet 405 nm</button><button data-m="UV">blacklight UV-A 365 nm</button>
+      </div>
+      <span class="muted" id="fluor-note"></span>
+    </div>
+    <div id="fluor-tiles"><div class="empty">Loading…</div></div>
+    <div id="fluor-proof"></div>
+  </section>
+
+  <section class="section" id="sec-find">
+    <h2>Findings</h2>
+    <div id="findings"><div class="empty">Loading…</div></div>
+    <h3 style="margin-top:18px">Figures (research section 10)</h3>
+    <div id="figs"></div>
+  </section>
+
+  <section class="section" id="sec-paint">
+    <h2>Paint a word <span class="badge approx">approximate spelling → sound</span></h2>
+    <div class="panel">
+      <div class="row">
+        <input type="text" id="word" value="butterflies shine" maxlength="60" aria-label="word to paint" autocomplete="off" spellcheck="false">
+        <button class="btn primary" id="word-play">▶ play</button><button class="btn" id="word-stop">■ stop</button>
+      </div>
+      <div id="word-bar"></div>
+      <div class="chips" id="word-chips"></div>
+      <p class="muted" style="font-size:.82rem;margin:10px 0 0">English spelling is not phonetic. This uses a small greedy table: digraphs such as
+        sh, ch, tch, th, ng, ph, ck, qu, ee, oo, ou, ow, oi, ai, igh, er and ar; one letter per sound otherwise; "magic e" lengthens the vowel (make, shine);
+        and a handful of whole words (the, you, hello…). th is always read as voiceless θ except in "the". You can also type IPA symbols directly (ʃ, ŋ, tʃ, eɪ…).
+        A striped chip means that sound is not in the data. Playback strings together each phoneme's clip, cut to 0.45 s each, so it does not blend them into speech.</p>
+    </div>
+  </section>
+
+  <footer class="site">Data: <span class="mono">web/data/sounds.json</span> (<span class="mono">python -m tools.build_sounds</span>) and
+    <span class="mono">web/data/phonemes_experiment.json</span> (<span class="mono">python -m research.run_all</span>, section 10).</footer>
+</main>
+<script type="module" src="js/nav.js"></script>
+<script type="module" src="js/experiments.js"></script>
+</body>
+</html>

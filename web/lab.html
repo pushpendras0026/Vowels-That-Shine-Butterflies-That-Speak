@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Voice Lab</title>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/lab.css">
+</head>
+<body>
+<nav id="site-nav"></nav>
+<script type="module" src="js/nav.js"></script>
+
+<main class="page lab">
+  <header class="lab-head">
+    <h1>Live Voice Lab</h1>
+    <p class="muted">Sing a vowel. Your voice goes through 16 kHz LPC to a 16-section tube, then to the 16-layer film with the same reflection coefficients, then to the colour of that film. The colour is computed live by the same physics as the rest of the project (<code>physics.js</code>, checked against the Python reference).</p>
+  </header>
+
+  <section class="panel controls" aria-label="controls">
+    <div class="ctl-group">
+      <button class="btn primary" id="btn-mic">Start microphone</button>
+      <span class="sep"></span>
+      <label for="sel-demo">Demo without mic</label>
+      <select id="sel-demo"></select>
+      <button class="btn" id="btn-demo">▶ Play demo</button>
+      <label class="chk"><input type="checkbox" id="chk-loop"> loop</label>
+      <label class="chk"><input type="checkbox" id="chk-hear" checked> hear it</label>
+      <button class="btn" id="btn-stop" disabled>■ Stop</button>
+    </div>
+    <div class="ctl-group">
+      <label for="sel-mode">Film mode</label>
+      <select id="sel-mode">
+        <option value="ideal">ideal (n ∝ A)</option>
+        <option value="realizable">realizable (n 1.0–2.5)</option>
+        <option value="materials">materials (snapped)</option>
+      </select>
+      <label for="sel-ill">Illuminant</label>
+      <select id="sel-ill">
+        <option>D65</option><option>A</option><option>F11</option><option>LED</option>
+      </select>
+      <label for="sel-group">Reference voices</label>
+      <select id="sel-group">
+        <option value="men">men</option><option value="women" selected>women</option><option value="children">children</option>
+      </select>
+      <label for="rng-alpha" title="exponential smoothing factor per 16 ms hop, in the log-area domain">Smoothing</label>
+      <input type="range" id="rng-alpha" min="0.05" max="1" step="0.05" value="0.35">
+      <label for="rng-gate" title="how far above the auto-calibrated noise floor the voice must be">Gate margin <span id="gate-val">12</span> dB</label>
+      <input type="range" id="rng-gate" min="4" max="30" step="1" value="12">
+    </div>
+    <div id="status" class="status muted">Idle. Press <b>Start microphone</b> (allow mic access) or <b>Play demo</b>.</div>
+  </section>
+
+  <section class="lab-main">
+    <div class="panel stage-wrap">
+      <div class="panel-title">
+        <span>Your vocal tract as a neon tube light, in a room of recent frames</span>
+        <span class="badge art">glow, room &amp; reflections: artistic</span>
+        <span class="badge exact">colour &amp; radius profile: exact (given the model)</span>
+      </div>
+      <div class="stage" id="stage">
+        <canvas id="three"></canvas>
+        <div class="stage-ui">
+          <button class="btn small" id="btn-view-tract">Tract</button>
+          <button class="btn small" id="btn-view-room">Room</button>
+          <label class="chk small"><input type="checkbox" id="chk-rotate"> auto-rotate</label>
+        </div>
+        <div class="stage-note" id="stage-note">drag to orbit · scroll to zoom</div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="panel">
+        <div class="panel-title"><span>Film colour now</span><span class="badge exact">exact</span></div>
+        <div class="swatch-row">
+          <div class="swatch" id="swatch"></div>
+          <div class="readout mono" id="readout">—</div>
+        </div>
+        <p class="tiny muted">Flat swatch = the film's transmitted colour T under the chosen illuminant. Brightness is scaled to Y = 50 for display <span class="badge art">exposure normalisation</span>. True film Y is shown above.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><span>Area function, glottis → lips</span><span class="badge approx">LPC area estimate</span></div>
+        <canvas id="areas" class="small-canvas"></canvas>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><span>Silence / voicing gate</span></div>
+        <canvas id="gate" class="small-canvas gate-canvas"></canvas>
+        <div class="tiny muted mono" id="gate-read">—</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="lab-row">
+    <div class="panel">
+      <div class="panel-title">
+        <span>F1–F2 vowel chart</span>
+        <span class="badge exact">your F1/F2: LPC poles</span>
+        <span class="badge approx">reference: Hillenbrand 1995 means</span>
+      </div>
+      <canvas id="chart" class="plot"></canvas>
+      <p class="tiny muted">Axes reversed as is usual for vowel charts (F2 decreasing →, F1 increasing ↓). Reference dots are coloured by their own film colour in the current mode and illuminant. Your trail fades over about 3 s.</p>
+    </div>
+    <div class="panel">
+      <div class="panel-title">
+        <span>Isomorphism, live: film T(ν) vs tube P(ω(ν))</span>
+        <span class="badge exact">exact</span>
+      </div>
+      <canvas id="iso" class="plot"></canvas>
+      <div class="iso-read mono" id="iso-read">—</div>
+      <p class="tiny muted">Solid: film transmittance from the Abelès transfer matrices (<code>filmRT</code>) on the film of this mode. Dashed: the lossless tube with the <em>same</em> media, through the exact phase map ω = 2πν/Δν (CONTRACT §4). They coincide to rounding error. Faint: the raw LPC envelope |g/A|² with a closed glottis, peak-aligned. It differs because the film uses the finite glottis R<sub>g</sub> = −0.9 <span class="badge approx">approx</span>. In realizable/materials modes, the orange curve is the voice's own tube, and the gap between it and the film is the fidelity loss. Coloured strip: the visible spectrum <span class="badge art">sRGB approx.</span>. Second tick row: tube frequency f(ν).</p>
+    </div>
+  </section>
+
+  <section class="panel paint">
+    <div class="panel-title">
+      <span>Paint your sentence</span>
+      <span class="badge exact">colours: per-frame film colour</span>
+      <span class="badge art">exposure normalised</span>
+    </div>
+    <div class="ctl-group">
+      <button class="btn" id="btn-rec">● Record</button>
+      <button class="btn" id="btn-clear">Clear</button>
+      <button class="btn" id="btn-png" disabled>⬇ Download PNG</button>
+      <span class="muted tiny" id="rec-info">Records the colour of every voiced 16 ms frame. Silent frames leave dark gaps.</span>
+    </div>
+    <canvas id="strip" class="strip"></canvas>
+  </section>
+
+  <section class="panel explain">
+    <h2>What you are seeing</h2>
+    <ol>
+      <li><b>Capture.</b> Microphone (echo cancellation, noise suppression and AGC are switched off) or a bundled vowel WAV, through an AudioWorklet. A windowed-sinc resampler (anti-aliased at 7.2 kHz) converts to 16 kHz. Frames are 512 samples (32 ms) with a 16 ms hop.</li>
+      <li><b>Gate.</b> RMS above an auto-calibrated noise floor (+ margin, with hysteresis), plus a voicing check: normalised autocorrelation peak at 60–500 Hz ≥ 0.45 and zero-crossing rate ≤ 0.3. Unvoiced frames do not change the shape. The lights fade gently instead.</li>
+      <li><b>LPC → tube.</b> <code>lpc(frame, 16, 0.97)</code> (Levinson–Durbin) gives reflection coefficients k<sub>m</sub>, and from them the areas A<sub>m+1</sub> = A<sub>m</sub>(1+k<sub>m</sub>)/(1−k<sub>m</sub>) (CONTRACT §3). Smoothing is an exponential average of the log-area ratios 2·atanh(k), which is always a stable filter. It is never applied to raw LPC coefficients. <span class="badge approx">area of a real voice: lossless-tube estimate</span></li>
+      <li><b>Tube → film.</b> The finite glottis m<sub>0</sub> is added (R<sub>g</sub> = −0.9, illustrative). Then each layer gets n<sub>i</sub> ∝ A<sub>i</sub> (ideal mode), or the indices are compressed into 1.0–2.5 (realizable), or snapped to MgF₂/SiO₂/chitin/Al₂O₃/ZnS/TiO₂ (materials). Every layer has optical thickness 428.27 nm. <span class="badge exact">ideal</span> <span class="badge approx">realizable / materials</span></li>
+      <li><b>Film → colour.</b> T(λ) on 360–830 nm, CIE 1931 2° observer, chosen illuminant. Display brightness is normalised to Y = 50 <span class="badge art">artistic</span>. Because 0–2.3 kHz maps to 650–750 THz, every vowel comes out <b>violet/lavender</b>. That is a measured result, not a styling choice (CONTRACT §7b). Ideal-mode films transmit very little light (Y ≈ 0.1–0.4 %).</li>
+      <li><b>Room.</b> The centre tube is the current frame. The tubes on the walls and ceiling are a history: every ~0.1 s of voicing pushes the current area function and colour into the room. Glow, reflections, the minimum radius and the tube path are <span class="badge art">artistic</span>.</li>
+    </ol>
+  </section>
+</main>
+<footer class="site">DA321 · Vowels That Shine, Butterflies That Speak · Live Voice Lab · runs fully offline</footer>
+<script type="module" src="js/lab.js"></script>
+</body>
+</html>

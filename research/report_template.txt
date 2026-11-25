@@ -1,0 +1,659 @@
+# Vowels That Shine, Butterflies That Speak — research report
+
+<!-- GENERATED FILE: docs/REPORT.md is rendered by `python -m research.run_all` from research/report_template.txt;
+     every number below is read from results/summary.json at render time. Edit the template, not REPORT.md. -->
+
+## Abstract
+
+A vocal tract modelled as N = 16 equal-delay lossless tubes and a 16-layer Goupillaud thin film share one
+mathematics: the same reflection coefficients c_i = (m_i − m_{i+1})/(m_i + m_{i+1}), the same characteristic
+polynomial D(z), and the same power transfer ∏(1 − c_i²)/|D|². We verify this numerically. Three independent codes
+(Abelès film matrices in optical units, an acoustic ABCD chain in physical units, and the polynomial) agree to
+{{r1.all36_max_abs_film_minus_poly|.1e}} (absolute) for all 36 Hillenbrand vowel means. Under the canonical
+mapping, one 2π period of the tube response spans 400–750 THz, so every vowel has a colour and every film has a
+voice. The main finding is that **speech lands where the eye barely sees**. F1 maps to
+{{r2.F1_image_wavelength_nm.min}}–{{r2.F1_image_wavelength_nm.max}} nm, where the luminous efficiency ȳ is at most
+{{r2.ybar_at_F1_images.max}}. All 36 vowels are violet (CIELAB hue {{r2.hue_ideal_deg.min}}–{{r2.hue_ideal_deg.max}}°),
+and vowels within a group differ by a median of only {{r2.dE00_pairs.ideal_eqY_men.median}} /
+{{r2.dE00_pairs.ideal_eqY_women.median}} / {{r2.dE00_pairs.ideal_eqY_children.median}} ΔE00 (men / women / children,
+equal luminance).
+
+Physical realizability is the bottleneck. Ideal vowel films need refractive indices up to
+{{r3.ideal_index_max.median}} (median) and {{r3.ideal_index_max.max}} (max). Compressing them into n ∈ [1, 2.5]
+broadens the formants to about {{r3.realizable.B_median_Hz.0}} Hz, which turns the vowels into near-flat
+"whispers" (median {{r3.realizable.env_peaks_below_4kHz_prom_ge_1dB.median}} envelope peaks ≥ 1 dB below 4 kHz).
+
+Metamers exist both ways:
+- **Same colour, different voices.** {{r5.atlas_metamers.n_pairs}} atlas pairs have ΔE00 < 2, with a median voice
+  distance of {{r5.atlas_metamers.dist_ln.median}} in ln-Hz, about twice the typical spacing between neighbouring
+  vowels. Inverse design gives 8 exact metamers per target colour.
+- **Same voice, different colour.** Exact layer-peeling families share one polynomial and so have identical voices.
+  At normal incidence their chromaticities are identical (xy spread {{r5.exact_family.by_angle_deg.0.xy_spread}})
+  while Y ranges over {{r5.exact_family.by_angle_deg.0.Y_range.0}}–{{r5.exact_family.by_angle_deg.0.Y_range.1}}.
+  At 60° the family members separate (median equal-luminance ΔE00 {{r5.exact_family.by_angle_deg.60.dE00_eqY_median}}).
+
+Tilting a film changes both its colour and its formants: iridescence is a diphthong.
+
+## How to reproduce
+
+```
+. .\tools\env.ps1
+python -m research.run_all            # ~10-20 s with caches; --fresh rebuilds them (~2-3 min); timings in results/runtime.json
+```
+
+The run writes:
+- figures to `results/fig_*.png`;
+- audio to `results/audio/*.wav` (16 kHz);
+- all numbers to `results/summary.json`;
+- this report to `docs/REPORT.md` (from `research/report_template.txt`);
+- copies of the figures, audio and `summary.json` to `web/results/`.
+
+It caches `results/cache_atlas_pairs.npz` (metamer pair search) and `results/cache_design_stacks.json`
+(inverse design, the slow step). The 20 000-stack atlas `results/atlas.npz` comes from `python -m tools.build_all`.
+
+## Method
+
+All conventions are those of `docs/CONTRACT.md`. A short summary:
+
+- **Shared object (§2).** The media vector is m = [m_0 … m_{N+1}]:
+  - Tube: glottis termination, then sections from glottis to lips, then radiation.
+  - Film: incident medium, then layers, then substrate.
+  - Ideal mode uses n_i = m_i / min(m).
+  - Reflection coefficients are c_i = (m_i − m_{i+1})/(m_i + m_{i+1}), and D(z) comes from the row recursion.
+- **Mapping (§4).** Every layer has the optical thickness n·d = {{r1.D_OPT_nm}} nm (Goupillaud), so
+  ω_tube = 2πf/F_s equals 2δ_film and f(ν) = F_s·frac(ν/Δν) with Δν = 350 THz.
+  - 700 THz maps to 0 Hz and 525 THz maps to 8 kHz. These are the two mirror points, because |D|² is even in ω.
+  - 400 THz maps to {{r1.f_at_400THz_Hz}} Hz.
+- **Vowels (§3).** Hillenbrand et al. (1995) group means (F0, F1–F3; 12 vowels × men, women, children) are processed
+  as follows:
+  1. Synthesise each vowel with a Rosenberg source. The bandwidths are 80/100/150 Hz (illustrative).
+  2. Take a 16th-order LPC.
+  3. Convert the reflection coefficients to an area function.
+  4. Prepend a finite glottis, R_GLOTTIS = −0.9 (illustrative).
+  5. Build the film in ideal, realizable (n ∈ [1, 2.5]) or materials mode.
+- **Film → voice.** `core.film.voice_of_film` samples T over exactly one period of ν, treats it as a power spectrum,
+  and applies an inverse FFT and Levinson. The result is exact for Goupillaud stacks and a best all-pole fit
+  otherwise.
+- **Colour.** CIE 1931 2° observer; illuminants D65, A, F11 and LED-B3; CIELAB; CIEDE2000.
+  - "Raw" ΔE00 uses the true Lab, so lightness is included.
+  - "Equal-luminance" (eqY) ΔE00 rescales XYZ to Y = 50 first, as in `tools/measure_palette.py`.
+  - Swatches use `display_rgb`, an **artistic** exposure normalisation (Y → 50) without chromatic adaptation, so
+    swatches under illuminant A look orange.
+- **Formant policy.**
+  - Primary: poles of the polynomial with bandwidth < 600 Hz (`formants_from_poly`).
+  - Secondary, for weak or broad voices (butterflies, angle sweeps, flat metamers): peaks of the LPC envelope
+    20·log10(g/|A|), together with their prominence.
+  - Section 3 matches each reference formant to the nearest pole of any bandwidth and reports that pole's bandwidth.
+- **Vowel-chart unit.** Distance in (ln F1, ln F2), measured against two references:
+  - the extent of the 36 Hillenbrand means, {{r5.vowel_extent_ln}};
+  - the median distance from a vowel to its nearest neighbour in the same group, {{r5.median_neighbour_vowel_distance_ln}}.
+- **Bulk ΔE00.** Atlas pair searches use the vectorised CIEDE2000 of `colour-science`. On 300 pairs
+  it differs from `core.colour.delta_e00` by at most {{r5.colour_science_vs_core_dE00_max_abs_diff_300_pairs}}.
+  Quoted example pairs are recomputed with `core`.
+
+---
+
+## 1. The isomorphism, verified
+
+![isomorphism](../results/fig_1_isomorphism.png)
+
+*Figure 1a. Men's /ɑ/ as an ideal 16-layer Goupillaud film with a finite glottis. Top: film transmittance from
+Abelès characteristic matrices in optical units (blue), tube power transmission from an acoustic ABCD chain in
+physical units (orange dashed), and the polynomial ∏(1−c²)/|D|² (black dotted), against optical frequency; the top
+axis shows wavelength. Bottom: absolute residuals, clipped at 10⁻¹⁸ for the log axis. Dash-dotted lines mark the
+mirror points.*
+
+| check | max abs. error |
+|---|---|
+| film − polynomial, men /ɑ/ | {{r1.example_max_abs_film_minus_poly|.2e}} |
+| tube ABCD − polynomial, men /ɑ/ | {{r1.example_max_abs_tube_minus_poly|.2e}} |
+| film − polynomial, all 36 vowels (relative error {{r1.all36_max_rel_film_minus_poly|.1e}}) | {{r1.all36_max_abs_film_minus_poly|.2e}} |
+| tube − polynomial, all 36 vowels | {{r1.all36_max_abs_tube_minus_poly|.2e}} |
+| film/tube − polynomial, 200 random media (ln m ∈ [−1.5, 1.5]) | {{r1.random200_max_abs|.2e}} |
+| time-domain Kelly–Lochbaum lattice vs impulse response of ∏(1+c)/D(z) | {{r1.kl_lattice_max_abs_vs_poly|.2e}} |
+
+The residuals sit at floating-point level. Four independent implementations (optics, acoustics, the polynomial and
+a time-domain scattering lattice) are one model.
+
+![frequency mapping](../results/fig_1_frequency_mapping.png)
+
+*Figure 1b. The frequency mapping f(ν) = F_s·frac(ν/Δν) (blue sawtooth) and the effective speech frequency
+min(f, F_s − f) (dashed). The mirror points are 525 THz (8 kHz) and 700 THz (0 Hz). Shaded bands show where the
+Hillenbrand F1 and F2 ranges land. The black curve is the CIE ȳ(λ) eye sensitivity: speech occupies the violet
+shoulder where ȳ is tiny.*
+
+## 2. The vowel palette — speech lives where the eye barely sees
+
+![palette men](../results/fig_2_palette_men.png)
+![palette women](../results/fig_2_palette_women.png)
+![palette children](../results/fig_2_palette_children.png)
+
+*Figure 2a–c. Twelve vowels per group from the Hillenbrand 1995 means. Each row shows the area function as a tube
+silhouette (glottis → lips, radius ∝ √area), then swatches under D65, A, F11 and LED-B3 for transmittance T and
+reflectance R in ideal mode, then the realizable-mode D65 swatches. Swatches are exposure-normalised (artistic) and
+not chromatically adapted.*
+
+![dE matrices](../results/fig_2_dE00_matrices.png)
+
+*Figure 2d. Pairwise ΔE00 between the 12 vowels of each group (ideal mode, D65, T, equal luminance).*
+
+![chromaticity](../results/fig_2_chromaticity.png)
+
+*Figure 2e. CIE 1931 xy chromaticities of all 36 vowel films (filled: ideal; open: realizable) against the spectral
+locus and the D65 white.*
+
+**The finding.** The canonical mapping sends 0 Hz to 700 THz (428 nm), so formants sit close to the violet end:
+
+- **Where F1 lands.** The F1 images lie at {{r2.F1_image_wavelength_nm.min}}–{{r2.F1_image_wavelength_nm.max}} nm.
+  There the eye's luminous efficiency is ȳ ≤ {{r2.ybar_at_F1_images.max}} (median {{r2.ybar_at_F1_images.median}};
+  peak ȳ = 1). F2 images have ȳ median {{r2.ybar_at_F2_images.median}} and max {{r2.ybar_at_F2_images.max}}.
+- **Luminance budget.** The part of the visible band that carries 0–4 kHz spans {{r2.speech_0_4kHz_share_of_band_THz|.0f}} of the 350 THz, but it carries only
+  {{r2.speech_0_4kHz_share_of_D65_luminance|.1%}} of the D65 luminance (0–1 kHz: {{r2.speech_0_1kHz_share_of_D65_luminance|.2%}}).
+- **Ideal-mode vowel films are deep violet.**
+  - CIELAB hue {{r2.hue_ideal_deg.min}}–{{r2.hue_ideal_deg.max}}° (median {{r2.hue_ideal_deg.median}}°).
+  - xy chromaticity x = {{r2.xy_ideal.x_min}}–{{r2.xy_ideal.x_max}}, y = {{r2.xy_ideal.y_min}}–{{r2.xy_ideal.y_max}},
+    which is on the purple line next to the 420–450 nm locus.
+  - They are almost black: Y_T = {{r2.Y_T_ideal.min}}–{{r2.Y_T_ideal.max}} (median {{r2.Y_T_ideal.median}}).
+- **Realizable films are pale lavender**: hue {{r2.hue_realizable_deg.min}}–{{r2.hue_realizable_deg.max}}°,
+  Y_T median {{r2.Y_T_realizable.median}}.
+
+The vowels are hard to tell apart by colour:
+
+| group | ideal eqY median ΔE00 (min–max) | pairs < 2 | closest pair | realizable eqY median | ideal raw median |
+|---|---|---|---|---|---|
+| men | {{r2.dE00_pairs.ideal_eqY_men.median}} ({{r2.dE00_pairs.ideal_eqY_men.min}}–{{r2.dE00_pairs.ideal_eqY_men.max}}) | {{r2.dE00_pairs.ideal_eqY_men.frac_below_2|.0%}} | {{r2.dE00_pairs.ideal_eqY_men.closest_pair}} | {{r2.dE00_pairs.realizable_eqY_men.median}} | {{r2.dE00_pairs.ideal_raw_men.median}} |
+| women | {{r2.dE00_pairs.ideal_eqY_women.median}} ({{r2.dE00_pairs.ideal_eqY_women.min}}–{{r2.dE00_pairs.ideal_eqY_women.max}}) | {{r2.dE00_pairs.ideal_eqY_women.frac_below_2|.0%}} | {{r2.dE00_pairs.ideal_eqY_women.closest_pair}} | {{r2.dE00_pairs.realizable_eqY_women.median}} | {{r2.dE00_pairs.ideal_raw_women.median}} |
+| children | {{r2.dE00_pairs.ideal_eqY_children.median}} ({{r2.dE00_pairs.ideal_eqY_children.min}}–{{r2.dE00_pairs.ideal_eqY_children.max}}) | {{r2.dE00_pairs.ideal_eqY_children.frac_below_2|.0%}} | {{r2.dE00_pairs.ideal_eqY_children.closest_pair}} | {{r2.dE00_pairs.realizable_eqY_children.median}} | {{r2.dE00_pairs.ideal_raw_children.median}} |
+
+These equal-luminance medians reproduce CONTRACT §7b (ideal 4.3 / 5.7 / 7.7; realizable 3.6 / 3.8 / 6.5).
+Children's vowels separate best because their formants are higher and therefore land further from 700 THz. Raw ΔE00
+of ideal films is dominated by lightness, because L* is only {{r2.L_raw_ideal.min}}–{{r2.L_raw_ideal.max}}.
+
+Audio of the vowels themselves is in `web/audio/vowel_*.wav` (from `tools/build_all.py`).
+
+## 3. Ideal vs realizable vs materials, and the illustrative glottis
+
+![fidelity](../results/fig_3_fidelity.png)
+
+*Figure 3a. The chain LPC 1/|A|² → ideal film (finite glottis) → realizable (n ∈ [1, 2.5]) → materials (snapped to
+{{r3.materials_distinct_used}} catalogue indices), over all 36 vowels. Top: example spectra for men /i/, mean
+relative formant error, and mean bandwidth of the matched pole. Bottom: log-spectral distance (mean-removed dB RMS)
+to 1/|A|², and ΔE00 to the ideal film, at equal luminance and raw.*
+
+All formant errors are relative to the LPC polynomial's own poles. As a baseline, the LPC estimate itself differs
+from the Hillenbrand targets by {{r3.lpc_vs_hillenbrand.mean_abs_pct.0}} / {{r3.lpc_vs_hillenbrand.mean_abs_pct.1}} /
+{{r3.lpc_vs_hillenbrand.mean_abs_pct.2}} % (F1 / F2 / F3).
+
+| stage | mean abs. ΔF1 / ΔF2 / ΔF3 (Hz) | mean abs. ΔF (%) | median bandwidth B1 / B2 / B3 (Hz) | LSD to 1/\|A\|² (median, max; dB) | ΔE00 to ideal film, eqY median (raw) |
+|---|---|---|---|---|---|
+| LPC reference | – | – | {{r3.lpc_vs_hillenbrand.mean_B_Hz.0}} / {{r3.lpc_vs_hillenbrand.mean_B_Hz.1}} / {{r3.lpc_vs_hillenbrand.mean_B_Hz.2}} (mean) | 0 | – |
+| ideal film | {{r3.ideal.dF_vs_lpc_mean_Hz.0}} / {{r3.ideal.dF_vs_lpc_mean_Hz.1}} / {{r3.ideal.dF_vs_lpc_mean_Hz.2}} | {{r3.ideal.dF_vs_lpc_mean_pct.0}} / {{r3.ideal.dF_vs_lpc_mean_pct.1}} / {{r3.ideal.dF_vs_lpc_mean_pct.2}} | {{r3.ideal.B_median_Hz.0}} / {{r3.ideal.B_median_Hz.1}} / {{r3.ideal.B_median_Hz.2}} | {{r3.ideal.lsd_vs_lpc_dB.median}}, {{r3.ideal.lsd_vs_lpc_dB.max}} | 0 (0) |
+| realizable | {{r3.realizable.dF_vs_lpc_mean_Hz.0}} / {{r3.realizable.dF_vs_lpc_mean_Hz.1}} / {{r3.realizable.dF_vs_lpc_mean_Hz.2}} | {{r3.realizable.dF_vs_lpc_mean_pct.0}} / {{r3.realizable.dF_vs_lpc_mean_pct.1}} / {{r3.realizable.dF_vs_lpc_mean_pct.2}} | {{r3.realizable.B_median_Hz.0}} / {{r3.realizable.B_median_Hz.1}} / {{r3.realizable.B_median_Hz.2}} | {{r3.realizable.lsd_vs_lpc_dB.median}}, {{r3.realizable.lsd_vs_lpc_dB.max}} | {{r3.realizable.dE00_vs_ideal_eqY.median}} ({{r3.realizable.dE00_vs_ideal_raw.median}}) |
+| materials | {{r3.materials.dF_vs_lpc_mean_Hz.0}} / {{r3.materials.dF_vs_lpc_mean_Hz.1}} / {{r3.materials.dF_vs_lpc_mean_Hz.2}} | {{r3.materials.dF_vs_lpc_mean_pct.0}} / {{r3.materials.dF_vs_lpc_mean_pct.1}} / {{r3.materials.dF_vs_lpc_mean_pct.2}} | {{r3.materials.B_median_Hz.0}} / {{r3.materials.B_median_Hz.1}} / {{r3.materials.B_median_Hz.2}} | {{r3.materials.lsd_vs_lpc_dB.median}}, {{r3.materials.lsd_vs_lpc_dB.max}} | {{r3.materials.dE00_vs_ideal_eqY.median}} ({{r3.materials.dE00_vs_ideal_raw.median}}) |
+
+What the stages do:
+
+- **Ideal mode costs only the finite glottis.** F1 shifts by {{r3.ideal.dF_vs_lpc_mean_pct.0}} % on average, the
+  higher formants by less, and the bandwidths grow.
+- **Realizability is the real loss.** Ideal vowel films need indices up to {{r3.ideal_index_max.min}}–{{r3.ideal_index_max.max}}
+  (median {{r3.ideal_index_max.median}}). The compression exponent γ = ln 2.5 / ln(max n) is
+  {{r3.realizable_gamma.min}}–{{r3.realizable_gamma.max}}, which shrinks every reflection coefficient by about {{r3.coef_shrink_factor_median}}×.
+  - The pole frequencies move by {{r3.realizable.dF_vs_lpc_mean_pct.2}}–{{r3.realizable.dF_vs_lpc_mean_pct.0}} % (F3 to F1).
+  - The median bandwidths explode to {{r3.realizable.B_median_Hz.2}}–{{r3.realizable.B_median_Hz.0}} Hz.
+  - The LPC envelope of a realizable vowel film has a median of {{r3.realizable.env_peaks_below_4kHz_prom_ge_1dB.median}}
+    peaks with ≥ 1 dB prominence below 4 kHz (max {{r3.realizable.env_peaks_below_4kHz_prom_ge_1dB.max}}). The ideal
+    films have a median of {{r3.ideal.env_peaks_below_4kHz_prom_ge_1dB.median}}.
+  - Realizable vowel films therefore **whisper**.
+  - The colour moves from deep violet to pale lavender (eqY ΔE00 ≈ {{r3.realizable.dE00_vs_ideal_eqY.median}}).
+- **Snapping to real materials adds little beyond compression.**
+- **Consistency check.** For realizable Goupillaud films, `voice_of_film` returns exactly D(z): the maximum
+  coefficient difference is {{r3.voice_of_film_vs_D_realizable_max_abs_coef|.1e}}.
+
+![glottis](../results/fig_3_glottis_sweep.png)
+
+*Figure 3b. The illustrative glottal termination R_GLOTTIS, swept from −0.7 to −0.99 and compared with the
+closed-glottis 1/|A|²: men /i/ spectra, mean absolute formant shift, and mean bandwidth increase (36 vowels).*
+
+| R_GLOTTIS | mean abs. ΔF1 / ΔF2 / ΔF3 (Hz) | mean ΔB1 / ΔB2 / ΔB3 (Hz) | median LSD (dB) |
+|---|---|---|---|
+| −0.7 | {{r3.glottis_sweep.-0.7.mean_abs_dF_Hz.0}} / {{r3.glottis_sweep.-0.7.mean_abs_dF_Hz.1}} / {{r3.glottis_sweep.-0.7.mean_abs_dF_Hz.2}} | {{r3.glottis_sweep.-0.7.mean_dB_Hz.0}} / {{r3.glottis_sweep.-0.7.mean_dB_Hz.1}} / {{r3.glottis_sweep.-0.7.mean_dB_Hz.2}} | {{r3.glottis_sweep.-0.7.lsd_median_dB}} |
+| −0.8 | {{r3.glottis_sweep.-0.8.mean_abs_dF_Hz.0}} / {{r3.glottis_sweep.-0.8.mean_abs_dF_Hz.1}} / {{r3.glottis_sweep.-0.8.mean_abs_dF_Hz.2}} | {{r3.glottis_sweep.-0.8.mean_dB_Hz.0}} / {{r3.glottis_sweep.-0.8.mean_dB_Hz.1}} / {{r3.glottis_sweep.-0.8.mean_dB_Hz.2}} | {{r3.glottis_sweep.-0.8.lsd_median_dB}} |
+| **−0.9 (default)** | {{r3.glottis_sweep.-0.9.mean_abs_dF_Hz.0}} / {{r3.glottis_sweep.-0.9.mean_abs_dF_Hz.1}} / {{r3.glottis_sweep.-0.9.mean_abs_dF_Hz.2}} | {{r3.glottis_sweep.-0.9.mean_dB_Hz.0}} / {{r3.glottis_sweep.-0.9.mean_dB_Hz.1}} / {{r3.glottis_sweep.-0.9.mean_dB_Hz.2}} | {{r3.glottis_sweep.-0.9.lsd_median_dB}} |
+| −0.95 | {{r3.glottis_sweep.-0.95.mean_abs_dF_Hz.0}} / {{r3.glottis_sweep.-0.95.mean_abs_dF_Hz.1}} / {{r3.glottis_sweep.-0.95.mean_abs_dF_Hz.2}} | {{r3.glottis_sweep.-0.95.mean_dB_Hz.0}} / {{r3.glottis_sweep.-0.95.mean_dB_Hz.1}} / {{r3.glottis_sweep.-0.95.mean_dB_Hz.2}} | {{r3.glottis_sweep.-0.95.lsd_median_dB}} |
+| −0.98 | {{r3.glottis_sweep.-0.98.mean_abs_dF_Hz.0}} / {{r3.glottis_sweep.-0.98.mean_abs_dF_Hz.1}} / {{r3.glottis_sweep.-0.98.mean_abs_dF_Hz.2}} | {{r3.glottis_sweep.-0.98.mean_dB_Hz.0}} / {{r3.glottis_sweep.-0.98.mean_dB_Hz.1}} / {{r3.glottis_sweep.-0.98.mean_dB_Hz.2}} | {{r3.glottis_sweep.-0.98.lsd_median_dB}} |
+| −0.99 | {{r3.glottis_sweep.-0.99.mean_abs_dF_Hz.0}} / {{r3.glottis_sweep.-0.99.mean_abs_dF_Hz.1}} / {{r3.glottis_sweep.-0.99.mean_abs_dF_Hz.2}} | {{r3.glottis_sweep.-0.99.mean_dB_Hz.0}} / {{r3.glottis_sweep.-0.99.mean_dB_Hz.1}} / {{r3.glottis_sweep.-0.99.mean_dB_Hz.2}} | {{r3.glottis_sweep.-0.99.lsd_median_dB}} |
+
+The finite glottis mainly broadens F1, and F1 drops slightly; F3 is essentially untouched. The effect vanishes
+smoothly as R_GLOTTIS → −1. At −0.99999 the coefficients of D(z) differ from the LPC polynomial a by
+{{r3.glottis_limit_check_max_abs_D_minus_a_at_rg_-0.99999|.1e}}. The default −0.9 is a mild, illustrative choice.
+
+## 4. Butterflies that speak
+
+![butterflies](../results/fig_4_butterflies.png)
+
+*Figure 4. Parametric Morpho-like stacks (chitin 1.56 / air, 8 pairs) and beetle-like stacks (chitin / n = 1.70,
+12 pairs), each with ±10 % thickness variants. **All parameters are approximate / illustrative** (core/stacks.py,
+after Vukusic et al. 1999). Left: normal-incidence reflectance, with numbered swatches showing the displayed
+R colour. Middle: their voices, from `voice_of_film` with order 16 (▼ marks envelope peaks). Right: position on the
+vowel chart (★ filled with the R colour), joined to the nearest Hillenbrand mean.*
+
+| stack | R peak (nm) | R colour | envelope peaks F1, F2 (Hz) [prominence dB] | nearest vowel (ln-dist, fraction of vowel extent) | audio |
+|---|---|---|---|---|---|
+| {{r4.items.0.name}} | {{r4.items.0.R_peak_nm}} | {{r4.items.0.hex_R}} | {{r4.items.0.F1}}, {{r4.items.0.F2}} [{{r4.items.0.env_prominence_dB.0}}, {{r4.items.0.env_prominence_dB.1}}] | {{r4.items.0.nearest_vowel}} ({{r4.items.0.dist_ln}}, {{r4.items.0.dist_frac_extent}}) | [wav](../results/audio/{{r4.items.0.audio}}) |
+| {{r4.items.1.name}} | {{r4.items.1.R_peak_nm}} | {{r4.items.1.hex_R}} | {{r4.items.1.F1}}, {{r4.items.1.F2}} [{{r4.items.1.env_prominence_dB.0}}, {{r4.items.1.env_prominence_dB.1}}] | {{r4.items.1.nearest_vowel}} ({{r4.items.1.dist_ln}}, {{r4.items.1.dist_frac_extent}}) | [wav](../results/audio/{{r4.items.1.audio}}) |
+| {{r4.items.2.name}} | {{r4.items.2.R_peak_nm}} | {{r4.items.2.hex_R}} | {{r4.items.2.F1}}, {{r4.items.2.F2}} [{{r4.items.2.env_prominence_dB.0}}, {{r4.items.2.env_prominence_dB.1}}] | {{r4.items.2.nearest_vowel}} ({{r4.items.2.dist_ln}}, {{r4.items.2.dist_frac_extent}}) | [wav](../results/audio/{{r4.items.2.audio}}) |
+| {{r4.items.3.name}} | {{r4.items.3.R_peak_nm}} | {{r4.items.3.hex_R}} | none ≥ 0.3 dB below 4 kHz (poles B ≥ {{r4.items.3.min_pole_bandwidth_Hz}} Hz) | – (flat voice) | [wav](../results/audio/{{r4.items.3.audio}}) |
+| {{r4.items.4.name}} | {{r4.items.4.R_peak_nm}} | {{r4.items.4.hex_R}} | none (poles B ≥ {{r4.items.4.min_pole_bandwidth_Hz}} Hz) | – (flat voice) | [wav](../results/audio/{{r4.items.4.audio}}) |
+| {{r4.items.5.name}} | {{r4.items.5.R_peak_nm}} | {{r4.items.5.hex_R}} | none (poles B ≥ {{r4.items.5.min_pole_bandwidth_Hz}} Hz) | – (flat voice) | [wav](../results/audio/{{r4.items.5.audio}}) |
+
+How to read this:
+
+- **Formants come from where the stack is *not* coloured.** A film's voice comes from its *transmittance*, so
+  formants (peaks of T) sit where the reflectance is low. The Morpho-like reflection band near 480 nm is an
+  anti-formant around {{r4.morpho_R_peak_speech_freq_Hz}} Hz.
+- **The voices are weak.** Butterfly-like stacks are not Goupillaud stacks: their layers are {{r4.morpho_layer_optical_thickness_nm}} nm optically,
+  not {{r4.D_OPT_nm}} nm. Their voices are therefore best all-pole fits to T over the visible period, with fit LSD
+  {{r4.allpole_fit_lsd_min}}–{{r4.allpole_fit_lsd_max}} dB. The peaks are weak: the default Morpho-like
+  stack's F1/F2 prominences are < 1 dB.
+- **"Nearest vowel" is only loosely defined for these voices.** For the Morpho-like stack it is
+  {{r4.items.0.dist_frac_extent}} of the vowel-space extent away.
+  - Only the ×0.9 Morpho variant lands near a real vowel ({{r4.items.1.nearest_vowel}}, distance
+    {{r4.items.1.dist_ln}}, below the neighbouring-vowel spacing of {{r4.median_neighbour_vowel_distance_ln}}).
+  - The beetle-like stacks, which have low index contrast, have no formants at all: they hiss.
+
+## 5. Metamers both ways
+
+![metamer spread](../results/fig_5_metamers_spread.png)
+
+*Figure 5a. Left: for the {{r5.atlas_metamers.n_pairs}} atlas pairs with ΔE00 < 2 (D65, T), the distribution of voice
+distance in (ln F1, ln F2), split by chroma. The dashed line is the median distance between neighbouring vowels.
+Middle: the inverse-designed metamers (3 target colours × 8 stacks, `core.inverse.design_stacks`) on the vowel chart,
+filled with their colour. Right: for the {{r5.atlas_same_voice.n_pairs}} atlas pairs whose F1 and F2 agree within
+5 %, the distribution of ΔE00.*
+
+### 5a. Same colour, different voices
+
+**Atlas.** Of the 20 000 stacks, {{r5.atlas_stacks_with_F1F2}} have two formants. Screening is exact: a Lab KD-tree
+with radius 16 and with radius 20 finds the same {{r5.metamer_pair_counts_at_radii.1}} pairs.
+
+| subset | pairs | voice distance in ln-Hz, p10 / median / p90 / max | abs. ΔF1 median (p90) Hz | abs. ΔF2 median (p90) Hz | share more different than neighbouring vowels |
+|---|---|---|---|---|---|
+| all | {{r5.atlas_metamers.n_pairs}} | {{r5.atlas_metamers.dist_ln.p10}} / {{r5.atlas_metamers.dist_ln.median}} / {{r5.atlas_metamers.dist_ln.p90}} / {{r5.atlas_metamers.dist_ln.max}} | {{r5.atlas_metamers.dF1_Hz.median}} ({{r5.atlas_metamers.dF1_Hz.p90}}) | {{r5.atlas_metamers.dF2_Hz.median}} ({{r5.atlas_metamers.dF2_Hz.p90}}) | {{r5.atlas_metamers.frac_dist_gt_neighbour_vowel|.1%}} |
+| C* ≥ 20 (chromatic) | {{r5.atlas_metamers.chroma_ge_20.n}} | {{r5.atlas_metamers.chroma_ge_20.dist_ln.p10}} / {{r5.atlas_metamers.chroma_ge_20.dist_ln.median}} / {{r5.atlas_metamers.chroma_ge_20.dist_ln.p90}} / {{r5.atlas_metamers.chroma_ge_20.dist_ln.max}} | {{r5.atlas_metamers.chroma_ge_20.dF1_Hz.median}} ({{r5.atlas_metamers.chroma_ge_20.dF1_Hz.p90}}) | {{r5.atlas_metamers.chroma_ge_20.dF2_Hz.median}} ({{r5.atlas_metamers.chroma_ge_20.dF2_Hz.p90}}) | {{r5.atlas_metamers.chroma_ge_20.frac_dist_gt_neighbour_vowel|.1%}} |
+| C* < 20 (near-neutral) | {{r5.atlas_metamers.chroma_lt_20.n}} | {{r5.atlas_metamers.chroma_lt_20.dist_ln.p10}} / {{r5.atlas_metamers.chroma_lt_20.dist_ln.median}} / {{r5.atlas_metamers.chroma_lt_20.dist_ln.p90}} / {{r5.atlas_metamers.chroma_lt_20.dist_ln.max}} | – | – | {{r5.atlas_metamers.chroma_lt_20.frac_dist_gt_neighbour_vowel|.1%}} |
+| both voices low-formant (F1 ≤ 1.5 kHz, F2 ≤ 4 kHz) | {{r5.atlas_metamers.both_low_formant.n}} | {{r5.atlas_metamers.both_low_formant.dist_ln.p10}} / {{r5.atlas_metamers.both_low_formant.dist_ln.median}} / {{r5.atlas_metamers.both_low_formant.dist_ln.p90}} / {{r5.atlas_metamers.both_low_formant.dist_ln.max}} | {{r5.atlas_metamers.both_low_formant.dF1_Hz.median}} ({{r5.atlas_metamers.both_low_formant.dF1_Hz.p90}}) | {{r5.atlas_metamers.both_low_formant.dF2_Hz.median}} ({{r5.atlas_metamers.both_low_formant.dF2_Hz.p90}}) | {{r5.atlas_metamers.both_low_formant.frac_dist_gt_neighbour_vowel|.1%}} |
+
+**Caveat.** Most atlas voices are not vowel-like. The median "F1", i.e. the first pole with bandwidth < 600 Hz, is
+{{r5.atlas_F1_percentiles_Hz.median}} Hz. Only {{r5.atlas_stacks_in_vowel_box}} of {{r5.atlas_stacks_with_F1F2}}
+stacks fall in the Hillenbrand box (F1 250–1100 Hz, F2 700–3500 Hz), and only {{r5.atlas_stacks_low_formant}} have
+F1 ≤ 1.5 kHz and F2 ≤ 4 kHz. Among the low-formant metamer pairs the voices still differ: the median distance is
+{{r5.atlas_metamers.both_low_formant.dist_ln.median}} against a neighbouring-vowel spacing of
+{{r5.median_neighbour_vowel_distance_ln}}, and {{r5.atlas_metamers.both_low_formant.frac_dist_gt_neighbour_vowel|.0%}}
+of these pairs exceed that spacing.
+
+**Example metamer pair.** Atlas stacks #{{r5.atlas_metamer_example.atlas_index.0}} and
+#{{r5.atlas_metamer_example.atlas_index.1}} have ΔE00 = {{r5.atlas_metamer_example.dE00_core}} (core), with colours
+{{r5.atlas_metamer_example.hex.0}} and {{r5.atlas_metamer_example.hex.1}}. Their (F1, F2) are
+({{r5.atlas_metamer_example.F1F2.0.0}}, {{r5.atlas_metamer_example.F1F2.0.1}}) Hz, nearest
+{{r5.atlas_metamer_example.nearest_vowels.0}}, and ({{r5.atlas_metamer_example.F1F2.1.0}},
+{{r5.atlas_metamer_example.F1F2.1.1}}) Hz, nearest {{r5.atlas_metamer_example.nearest_vowels.1}}.
+Audio: [metamer_pair_atlas.wav](../results/audio/{{r5.atlas_metamer_example.audio}}).
+
+**Inverse design.** `design_stacks` was run with 40 restarts and 8 diverse solutions per target, for three target
+colours drawn from the realizable gamut (§7). The formant-rule column counts how many of the 8 voices were read with
+the pole rule, the envelope rule, or had no formants (flat).
+
+| target (Lab) | solutions (max ΔE00 to target) | formant rule: envelope / flat | F1 range (Hz) | F2 range (Hz) | median / max pairwise ln-dist | nearest vowels | audio |
+|---|---|---|---|---|---|---|---|
+| A: realizable men /ɑ/ film ({{r5.design.A: realizable men /ɑ/ film.target_Lab.0}}, {{r5.design.A: realizable men /ɑ/ film.target_Lab.1}}, {{r5.design.A: realizable men /ɑ/ film.target_Lab.2}}) | {{r5.design.A: realizable men /ɑ/ film.n_solutions}} ({{r5.design.A: realizable men /ɑ/ film.dE00_to_target_max|.1e}}) | {{r5.design.A: realizable men /ɑ/ film.n_envelope_rule}} / {{r5.design.A: realizable men /ɑ/ film.n_flat_voice}} | {{r5.design.A: realizable men /ɑ/ film.F1_range_Hz.0}}–{{r5.design.A: realizable men /ɑ/ film.F1_range_Hz.1}} | {{r5.design.A: realizable men /ɑ/ film.F2_range_Hz.0}}–{{r5.design.A: realizable men /ɑ/ film.F2_range_Hz.1}} | {{r5.design.A: realizable men /ɑ/ film.median_pair_dist_ln}} / {{r5.design.A: realizable men /ɑ/ film.max_pair_dist_ln}} | {{r5.design.A: realizable men /ɑ/ film.nearest_vowels}} | [set A](../results/audio/metamer_set_A.wav) |
+| B: atlas saturated purple ({{r5.design.B: atlas saturated purple.target_Lab.0}}, {{r5.design.B: atlas saturated purple.target_Lab.1}}, {{r5.design.B: atlas saturated purple.target_Lab.2}}) | {{r5.design.B: atlas saturated purple.n_solutions}} ({{r5.design.B: atlas saturated purple.dE00_to_target_max|.1e}}) | {{r5.design.B: atlas saturated purple.n_envelope_rule}} / {{r5.design.B: atlas saturated purple.n_flat_voice}} | {{r5.design.B: atlas saturated purple.F1_range_Hz.0}}–{{r5.design.B: atlas saturated purple.F1_range_Hz.1}} | {{r5.design.B: atlas saturated purple.F2_range_Hz.0}}–{{r5.design.B: atlas saturated purple.F2_range_Hz.1}} | {{r5.design.B: atlas saturated purple.median_pair_dist_ln}} / {{r5.design.B: atlas saturated purple.max_pair_dist_ln}} | {{r5.design.B: atlas saturated purple.nearest_vowels}} | [set B](../results/audio/metamer_set_B.wav) |
+| C: atlas pale warm white ({{r5.design.C: atlas pale warm white.target_Lab.0}}, {{r5.design.C: atlas pale warm white.target_Lab.1}}, {{r5.design.C: atlas pale warm white.target_Lab.2}}) | {{r5.design.C: atlas pale warm white.n_solutions}} ({{r5.design.C: atlas pale warm white.dE00_to_target_max|.1e}}) | {{r5.design.C: atlas pale warm white.n_envelope_rule}} / {{r5.design.C: atlas pale warm white.n_flat_voice}} | {{r5.design.C: atlas pale warm white.F1_range_Hz.0}}–{{r5.design.C: atlas pale warm white.F1_range_Hz.1}} | {{r5.design.C: atlas pale warm white.F2_range_Hz.0}}–{{r5.design.C: atlas pale warm white.F2_range_Hz.1}} | {{r5.design.C: atlas pale warm white.median_pair_dist_ln}} / {{r5.design.C: atlas pale warm white.max_pair_dist_ln}} | {{r5.design.C: atlas pale warm white.nearest_vowels}} | [set C](../results/audio/metamer_set_C.wav) |
+
+The optimiser hits each target colour essentially exactly. Within one colour the voices spread over up to
+{{r5.design.B: atlas saturated purple.max_pair_dist_frac_extent}} × the whole Hillenbrand vowel extent. Many of the
+designed voices are weak, which is why the envelope rule is needed for them. Individual voices of set A:
+[1](../results/audio/metamer_A_1.wav) [2](../results/audio/metamer_A_2.wav) [3](../results/audio/metamer_A_3.wav)
+[4](../results/audio/metamer_A_4.wav) [5](../results/audio/metamer_A_5.wav) [6](../results/audio/metamer_A_6.wav)
+[7](../results/audio/metamer_A_7.wav) [8](../results/audio/metamer_A_8.wav).
+
+### 5b. Same voice, different colours
+
+**Atlas (approximate).** {{r5.atlas_same_voice.n_pairs}} pairs have |ΔF1| and |ΔF2| < 5 %. This is weaker than
+identical voices: F3 and the bandwidths are free. Their ΔE00 runs p10 {{r5.atlas_same_voice.dE00.p10}}, median
+{{r5.atlas_same_voice.dE00.median}}, p90 {{r5.atlas_same_voice.dE00.p90}}, max {{r5.atlas_same_voice.dE00.max}}.
+{{r5.atlas_same_voice.frac_dE00_gt_10|.1%}} of the pairs differ by more than 10 ΔE00, and only
+{{r5.atlas_same_voice.frac_dE00_lt_2|.1%}} are also colour metamers. For low-formant pairs
+(n = {{r5.atlas_same_voice.both_low_formant.n}}) the median is {{r5.atlas_same_voice.both_low_formant.dE00.median}}.
+
+Example: #{{r5.atlas_same_voice_example.atlas_index.0}} ({{r5.atlas_same_voice_example.hex.0}}, F1/F2 =
+{{r5.atlas_same_voice_example.F1F2.0.0}}/{{r5.atlas_same_voice_example.F1F2.0.1}} Hz) and
+#{{r5.atlas_same_voice_example.atlas_index.1}} ({{r5.atlas_same_voice_example.hex.1}},
+{{r5.atlas_same_voice_example.F1F2.1.0}}/{{r5.atlas_same_voice_example.F1F2.1.1}} Hz) differ by ΔE00 =
+{{r5.atlas_same_voice_example.dE00_core}}. Audio: [same_voice_pair_atlas.wav](../results/audio/{{r5.atlas_same_voice_example.audio}}).
+
+![exact family](../results/fig_5_exact_family.png)
+
+*Figure 5b. An exact same-voice family. Every film has the same polynomial D(z), taken from atlas stack
+#{{r5.exact_family.source_atlas_index}}: formants {{r5.exact_family.source_formants_Hz.0}} /
+{{r5.exact_family.source_formants_Hz.1}} / {{r5.exact_family.source_formants_Hz.2}} Hz, nearest vowel
+{{r5.exact_family.source_nearest_vowel}}. The films come from `core.inverse.exact_films_for_polynomial` with the
+end-mismatch parameter K and conjugate-pair zero flips. Left: index profiles. Middle: displayed colour and Y at 0°,
+30°, 45° and 60°. Right: normalised T(λ) at 0° (all curves coincide) and at 60° (they diverge).*
+
+**Exact families (identical polynomial ⇒ identical voice).** The family has {{r5.exact_family.n_members}} films: the
+original stack plus K ∈ {0.9, 0.5, 0.2} × {no flip, two conjugate zero-flips}. Non-conjugate flips do not preserve |G|
+and were rejected by checking that D(z) = a.
+
+To keep the incident medium air (n = 1) and avoid total internal reflection at oblique incidence, each exact film is
+reversed and rescaled. Reversal is allowed by reciprocity: at normal incidence, T of the reversed film differs from
+T of the original by at most {{r5.exact_family.reversal_T_max_abs_diff|.1e}}. The indices span
+{{r5.exact_family.index_range.0}}–{{r5.exact_family.index_range.1}}, so this is ideal mode.
+
+Checks on the family:
+- The T shapes are identical: the ratio T_k/T_0 is constant to {{r5.exact_family.T_shape_max_rel_ratio_spread|.1e}}.
+- `voice_of_film` returns the same polynomial to {{r5.exact_family.voice_coef_max_abs_diff|.1e}}, so the voices are
+  identical.
+
+| angle | eqY ΔE00 median / max | raw ΔE00 median / max | xy spread | Y range | F1 range (Hz) | F2 range (Hz) |
+|---|---|---|---|---|---|---|
+| 0° | {{r5.exact_family.by_angle_deg.0.dE00_eqY_median}} / {{r5.exact_family.by_angle_deg.0.dE00_eqY_max}} | {{r5.exact_family.by_angle_deg.0.dE00_raw_median}} / {{r5.exact_family.by_angle_deg.0.dE00_raw_max}} | {{r5.exact_family.by_angle_deg.0.xy_spread}} | {{r5.exact_family.by_angle_deg.0.Y_range.0}}–{{r5.exact_family.by_angle_deg.0.Y_range.1}} | {{r5.exact_family.by_angle_deg.0.F1_range_Hz.0}}–{{r5.exact_family.by_angle_deg.0.F1_range_Hz.1}} | {{r5.exact_family.by_angle_deg.0.F2_range_Hz.0}}–{{r5.exact_family.by_angle_deg.0.F2_range_Hz.1}} |
+| 30° | {{r5.exact_family.by_angle_deg.30.dE00_eqY_median}} / {{r5.exact_family.by_angle_deg.30.dE00_eqY_max}} | {{r5.exact_family.by_angle_deg.30.dE00_raw_median}} / {{r5.exact_family.by_angle_deg.30.dE00_raw_max}} | {{r5.exact_family.by_angle_deg.30.xy_spread}} | {{r5.exact_family.by_angle_deg.30.Y_range.0}}–{{r5.exact_family.by_angle_deg.30.Y_range.1}} | {{r5.exact_family.by_angle_deg.30.F1_range_Hz.0}}–{{r5.exact_family.by_angle_deg.30.F1_range_Hz.1}} | {{r5.exact_family.by_angle_deg.30.F2_range_Hz.0}}–{{r5.exact_family.by_angle_deg.30.F2_range_Hz.1}} |
+| 45° | {{r5.exact_family.by_angle_deg.45.dE00_eqY_median}} / {{r5.exact_family.by_angle_deg.45.dE00_eqY_max}} | {{r5.exact_family.by_angle_deg.45.dE00_raw_median}} / {{r5.exact_family.by_angle_deg.45.dE00_raw_max}} | {{r5.exact_family.by_angle_deg.45.xy_spread}} | {{r5.exact_family.by_angle_deg.45.Y_range.0}}–{{r5.exact_family.by_angle_deg.45.Y_range.1}} | {{r5.exact_family.by_angle_deg.45.F1_range_Hz.0}}–{{r5.exact_family.by_angle_deg.45.F1_range_Hz.1}} | {{r5.exact_family.by_angle_deg.45.F2_range_Hz.0}}–{{r5.exact_family.by_angle_deg.45.F2_range_Hz.1}} |
+| 60° | {{r5.exact_family.by_angle_deg.60.dE00_eqY_median}} / {{r5.exact_family.by_angle_deg.60.dE00_eqY_max}} | {{r5.exact_family.by_angle_deg.60.dE00_raw_median}} / {{r5.exact_family.by_angle_deg.60.dE00_raw_max}} | {{r5.exact_family.by_angle_deg.60.xy_spread}} | {{r5.exact_family.by_angle_deg.60.Y_range.0}}–{{r5.exact_family.by_angle_deg.60.Y_range.1}} | {{r5.exact_family.by_angle_deg.60.F1_range_Hz.0}}–{{r5.exact_family.by_angle_deg.60.F1_range_Hz.1}} | {{r5.exact_family.by_angle_deg.60.F2_range_Hz.0}}–{{r5.exact_family.by_angle_deg.60.F2_range_Hz.1}} |
+
+At normal incidence the films show the same chromaticity at different brightness, because T = K/|A|². Away from
+normal incidence the layers stop being equal-delay, and both the colours and the voices of the family members come
+apart. The F1/F2 at 0° above come from the envelope rule; the pole rule gives {{r5.exact_family.source_formants_Hz.0}}
+/ {{r5.exact_family.source_formants_Hz.1}} Hz. Audio, four members in sequence (they sound identical):
+[same_voice_family.wav](../results/audio/{{r5.exact_family.audio}}).
+
+## 6. Iridescence = diphthong
+
+![angle](../results/fig_6_angle_sweep.png)
+
+*Figure 6. Angle sweep from 0 to 80° in 2° steps, unpolarised, with the angle measured in the incident medium.
+Left: displayed colour against angle, and luminance Y. Middle: F1 and F2 (envelope rule) of
+`voice_of_film(θ)`. Right: the same voices on the vowel chart, coloured by angle.*
+
+| film | incident n | Y at 0° → 80° | eqY ΔE00 0°→40° / 0°→80° | (F1, F2) at 0° → 40° → 80° (Hz) | ln displacement 0→20° / 0→40° / 0→80° | nearest vowel at 0/20/40/60/80° | glide audio |
+|---|---|---|---|---|---|---|---|
+| {{r6.films.morpho.name}} | {{r6.films.morpho.incident_index}} | {{r6.films.morpho.Y_0}} → {{r6.films.morpho.Y_80}} | {{r6.films.morpho.dE00_eqY_0_vs_40}} / {{r6.films.morpho.dE00_eqY_0_vs_80}} | ({{r6.films.morpho.F1F2_0.0}}, {{r6.films.morpho.F1F2_0.1}}) → no 2 peaks → ({{r6.films.morpho.F1F2_80.0}}, {{r6.films.morpho.F1F2_80.1}}) | {{r6.films.morpho.displacement_ln_0_to_20}} / – / {{r6.films.morpho.displacement_ln_0_to_80}} | {{r6.films.morpho.nearest_vowel_at.0}} {{r6.films.morpho.nearest_vowel_at.20}} {{r6.films.morpho.nearest_vowel_at.40}} {{r6.films.morpho.nearest_vowel_at.60}} {{r6.films.morpho.nearest_vowel_at.80}} | [wav](../results/audio/{{r6.films.morpho.audio}}) |
+| {{r6.films.vowel_ah_ideal.name}} | {{r6.films.vowel_ah_ideal.incident_index}} | {{r6.films.vowel_ah_ideal.Y_0}} → {{r6.films.vowel_ah_ideal.Y_80|.1e}} | {{r6.films.vowel_ah_ideal.dE00_eqY_0_vs_40}} / {{r6.films.vowel_ah_ideal.dE00_eqY_0_vs_80}} | ({{r6.films.vowel_ah_ideal.F1F2_0.0}}, {{r6.films.vowel_ah_ideal.F1F2_0.1}}) → ({{r6.films.vowel_ah_ideal.F1F2_40.0}}, {{r6.films.vowel_ah_ideal.F1F2_40.1}}) → ({{r6.films.vowel_ah_ideal.F1F2_80.0}}, {{r6.films.vowel_ah_ideal.F1F2_80.1}}) | {{r6.films.vowel_ah_ideal.displacement_ln_0_to_20}} / {{r6.films.vowel_ah_ideal.displacement_ln_0_to_40}} / {{r6.films.vowel_ah_ideal.displacement_ln_0_to_80}} | {{r6.films.vowel_ah_ideal.nearest_vowel_at.0}} {{r6.films.vowel_ah_ideal.nearest_vowel_at.20}} {{r6.films.vowel_ah_ideal.nearest_vowel_at.40}} {{r6.films.vowel_ah_ideal.nearest_vowel_at.60}} {{r6.films.vowel_ah_ideal.nearest_vowel_at.80}} | [wav](../results/audio/{{r6.films.vowel_ah_ideal.audio}}) |
+| {{r6.films.atlas_eh_like.name}} | {{r6.films.atlas_eh_like.incident_index}} | {{r6.films.atlas_eh_like.Y_0}} → {{r6.films.atlas_eh_like.Y_80}} | {{r6.films.atlas_eh_like.dE00_eqY_0_vs_40}} / {{r6.films.atlas_eh_like.dE00_eqY_0_vs_80}} | ({{r6.films.atlas_eh_like.F1F2_0.0}}, {{r6.films.atlas_eh_like.F1F2_0.1}}) → ({{r6.films.atlas_eh_like.F1F2_40.0}}, {{r6.films.atlas_eh_like.F1F2_40.1}}) → ({{r6.films.atlas_eh_like.F1F2_80.0}}, {{r6.films.atlas_eh_like.F1F2_80.1}}) | {{r6.films.atlas_eh_like.displacement_ln_0_to_20}} / {{r6.films.atlas_eh_like.displacement_ln_0_to_40}} / {{r6.films.atlas_eh_like.displacement_ln_0_to_80}} | {{r6.films.atlas_eh_like.nearest_vowel_at.0}} {{r6.films.atlas_eh_like.nearest_vowel_at.20}} {{r6.films.atlas_eh_like.nearest_vowel_at.40}} {{r6.films.atlas_eh_like.nearest_vowel_at.60}} {{r6.films.atlas_eh_like.nearest_vowel_at.80}} | [wav](../results/audio/{{r6.films.atlas_eh_like.audio}}) |
+
+Tilting a film shortens the phase thickness of each layer by cos θ_j. Because n_j differs from layer to layer,
+the layers stop being equal-delay, so tilting a film both moves its colour and moves its formants: a diphthong.
+
+- **Size of the effect.** Within 20° the voices move by {{r6.films.morpho.displacement_ln_0_to_20}}–{{r6.films.atlas_eh_like.displacement_ln_0_to_20}}
+  ln-units, which is several neighbouring-vowel spacings ({{r5.median_neighbour_vowel_distance_ln}}).
+- **The trajectories are not smooth.** As the angle changes, envelope peaks appear and disappear
+  (F1 jumps > 25 %: {{r6.films.morpho.n_peak_set_changes}} / {{r6.films.vowel_ah_ideal.n_peak_set_changes}} /
+  {{r6.films.atlas_eh_like.n_peak_set_changes}} times).
+- **The /ɑ/ film goes dark.** Its incident medium is n = {{r6.films.vowel_ah_ideal.incident_index}}, which is not air,
+  and its lowest layer index is 1. Beyond the critical angle {{r6.films.vowel_ah_ideal.critical_angle_deg}}° that
+  layer becomes evanescent and Y collapses to {{r6.films.vowel_ah_ideal.Y_80|.1e}} at 80°. The voice there is the
+  shape of a vanishingly small T: physically a dark film.
+- **Glide audio.** The audio uses `core.synth.sing` over the polynomial sequence 0° → 80° → 0°, at 40 ms per step,
+  interpolating in the reflection-coefficient domain.
+
+## 7. The atlas: 20 000 random realizable films, plotted both ways
+
+![atlas](../results/fig_7_atlas.png)
+
+*Figure 7. 20 000 random realizable Goupillaud stacks (`tools/build_all.py`; incident air; D65; transmittance), in
+two arms of 10 000: even indices are log-uniform n ∈ [1, 2.5]; odd indices are bimodal, with each layer either low
+(1.0–1.25) or high (2.1–2.5). Left: the a*b* plane coloured by the voice's F1. Grey: fewer than 2 formants with
+bandwidth < 600 Hz. ×: the 36 realizable vowel films. Middle: the (F2, F1) vowel chart coloured by the stack's
+displayed colour, with the Hillenbrand means. Right: hue histograms per arm.*
+
+- **Formants.**
+  - The share of stacks with ≥ 2 formants (bandwidth < 600 Hz) is {{r7.frac_ge2_formants.0|.1%}} for the
+    log-uniform arm and {{r7.frac_ge2_formants.1|.1%}} for the bimodal arm. CONTRACT §7b quotes
+    {{r7.contract_7b_claim}}. The bimodal value agrees, but the log-uniform value measured from `atlas.npz` is lower
+    (see Limitations).
+  - Median F1 is {{r7.F1_median_Hz.0}} / {{r7.F1_median_Hz.1}} Hz and median F2 is {{r7.F2_median_Hz.0}} /
+    {{r7.F2_median_Hz.1}} Hz (log-uniform / bimodal).
+  - Only {{r7.n_within_neighbour_distance_of_a_vowel_mean}} stacks ({{r7.frac_within_neighbour_distance_of_a_vowel_mean|.2%}}
+    of those with two formants) lie within one neighbouring-vowel spacing of a Hillenbrand mean.
+  - **Random realizable films almost never say a vowel.** Vowel formants need sharp, low poles, which need large
+    index contrast.
+- **Colours.**
+  - {{r7.frac_hue_270_330_all|.1%}} of stacks have a hue between 270° and 330° (purple/violet). The rest are
+    near-neutral. Median chroma is {{r7.chroma_median.0}} / {{r7.chroma_median.1}} (log-uniform / bimodal).
+  - Mechanism, which is exact physics: at 700 THz (ω = 0) every Goupillaud layer is an absentee layer, so
+    T = T(ends). The median T there is {{r7.T_at_700THz_median}}. At 525 THz (ω = π, 571 nm, near the eye's
+    sensitivity peak) every layer is an odd number of quarter-waves, and the median T is {{r7.T_at_525THz_median}}.
+    T(700 THz) > T(525 THz) for {{r7.frac_T700_gt_T525|.1%}} of stacks. Most films therefore pass violet + red and
+    block green, which gives purple. The vowels are violet for the same reason.
+- **Colour barely predicts voice.** Spearman correlations between Lab and the formants are weak (max |ρ| = {{r7.spearman_abs_max}}, e.g.
+  b* vs F1 {{r7.spearman_colour_vs_formant.b*.F1}}, C* vs F1 {{r7.spearman_colour_vs_formant.C*.F1}}). This is the
+  statistical face of metamerism.
+
+---
+
+## 8. A second exact mapping: making vowels colourful
+
+![Mapping study](../results/fig_r8_mapping.png)
+
+**Why every thickness is allowed.** A layer of optical thickness d_opt has phase δ = 2π·d_opt·ν/c. The film
+polynomial is evaluated at ω = 2δ, so the tube frequency is f(ν) = F_s·frac(ν/Δν) with **Δν = c/(2·d_opt)**.
+Nothing else in the derivation depends on d_opt. Any common optical thickness therefore gives an exact
+tube ⟷ film identity, which `test_isomorphism_any_layer_thickness` checks for four thicknesses (|T − P| < 10⁻¹⁰,
+R + T = 1). The brief fixed d_opt = {{r8.d_opt_brief_nm}} nm (Δν = {{r8.dnu_brief_THz}} THz), and §2 shows the
+consequence: the formants sit in violet.
+
+**The full-band mapping.** With d_opt = {{r8.d_opt_full_nm}} nm every layer is half-wave at 400 nm, so
+Δν = {{r8.dnu_full_THz}} THz and f = 0 falls exactly at 750 THz.
+- **No mirror image.** The visible band 400–750 THz shows each audio frequency |f| from {{r8.full_visible_audio_range_Hz.1}}
+  down to {{r8.full_visible_audio_range_Hz.0}} Hz exactly once (panel b), instead of 0–8 kHz twice.
+- **Formants.** F1 (300–900 Hz) lands at {{r8.full_F1_300_900Hz_nm.0}}–{{r8.full_F1_300_900Hz_nm.1}} nm and F2 (0.9–2.8 kHz)
+  at {{r8.full_F2_900_2800Hz_nm.0}}–{{r8.full_F2_900_2800Hz_nm.1}} nm.
+- **Fricatives.** Their energy (3–7 kHz) spreads across {{r8.full_fricative_3_7kHz_nm.0}}–{{r8.full_fricative_3_7kHz_nm.1}} nm,
+  the part of the spectrum where the eye is most sensitive.
+
+The website uses this mapping by default and keeps the brief's mapping one click away.
+
+**Measured on what is actually displayed.** Colours are compared after the display normalisation and gamut scaling.
+Panel (a) sweeps d_opt. The median ΔE00 between the 12 vowels (mean over the three groups) is:
+
+| film, view | brief mapping | full-band | best in sweep |
+|---|---|---|---|
+| ideal, transmitted | {{r8.sweep.ideal_T.at_brief}} | {{r8.sweep.ideal_T.at_full}} | {{r8.sweep.ideal_T.best_median_dE00}} at {{r8.sweep.ideal_T.best_d_nm}} nm |
+| realizable, reflected | {{r8.sweep.realizable_R.at_brief}} | {{r8.sweep.realizable_R.at_full}} | {{r8.sweep.realizable_R.best_median_dE00}} at {{r8.sweep.realizable_R.best_d_nm}} nm |
+| realizable, transmitted | {{r8.sweep.realizable_T.at_brief}} | {{r8.sweep.realizable_T.at_full}} | {{r8.sweep.realizable_T.best_median_dE00}} at {{r8.sweep.realizable_T.best_d_nm}} nm |
+
+The curve is jagged, because a small change of d_opt moves a formant image across a steep part of the colour-matching
+functions. The full-band value was chosen for its clean physical meaning, not by optimising the sweep. It sits close to the
+best region.
+
+**All {{r8.n_tokens}} Hillenbrand tokens.** Each token goes through LPC, film and displayed colour, and is then
+classified to the nearest vowel centroid of its group (12 classes, chance 8 %). The between-centroid figures are median ΔE00.
+The same classifier on the formants themselves reaches {{r8.formant_ceiling_accuracy.men|.0%}} / {{r8.formant_ceiling_accuracy.women|.0%}} / {{r8.formant_ceiling_accuracy.children|.0%}}.
+
+| mapping, film, view | accuracy (m / w / c) | ΔE00 between vowels (m / w / c) | ΔE00 token-to-own-centroid |
+|---|---|---|---|
+| brief, ideal, T | {{r8.tokens.brief_ideal_T.men.accuracy|.0%}} / {{r8.tokens.brief_ideal_T.women.accuracy|.0%}} / {{r8.tokens.brief_ideal_T.children.accuracy|.0%}} | {{r8.tokens.brief_ideal_T.men.between_median}} / {{r8.tokens.brief_ideal_T.women.between_median}} / {{r8.tokens.brief_ideal_T.children.between_median}} | {{r8.tokens.brief_ideal_T.men.within_median}} / {{r8.tokens.brief_ideal_T.women.within_median}} / {{r8.tokens.brief_ideal_T.children.within_median}} |
+| brief, realizable, R | {{r8.tokens.brief_realizable_R.men.accuracy|.0%}} / {{r8.tokens.brief_realizable_R.women.accuracy|.0%}} / {{r8.tokens.brief_realizable_R.children.accuracy|.0%}} | {{r8.tokens.brief_realizable_R.men.between_median}} / {{r8.tokens.brief_realizable_R.women.between_median}} / {{r8.tokens.brief_realizable_R.children.between_median}} | {{r8.tokens.brief_realizable_R.men.within_median}} / {{r8.tokens.brief_realizable_R.women.within_median}} / {{r8.tokens.brief_realizable_R.children.within_median}} |
+| full-band, ideal, T | {{r8.tokens.full_ideal_T.men.accuracy|.0%}} / {{r8.tokens.full_ideal_T.women.accuracy|.0%}} / {{r8.tokens.full_ideal_T.children.accuracy|.0%}} | {{r8.tokens.full_ideal_T.men.between_median}} / {{r8.tokens.full_ideal_T.women.between_median}} / {{r8.tokens.full_ideal_T.children.between_median}} | {{r8.tokens.full_ideal_T.men.within_median}} / {{r8.tokens.full_ideal_T.women.within_median}} / {{r8.tokens.full_ideal_T.children.within_median}} |
+| **full-band, realizable, R** | {{r8.tokens.full_realizable_R.men.accuracy|.0%}} / {{r8.tokens.full_realizable_R.women.accuracy|.0%}} / {{r8.tokens.full_realizable_R.children.accuracy|.0%}} | **{{r8.tokens.full_realizable_R.men.between_median}} / {{r8.tokens.full_realizable_R.women.between_median}} / {{r8.tokens.full_realizable_R.children.between_median}}** | {{r8.tokens.full_realizable_R.men.within_median}} / {{r8.tokens.full_realizable_R.women.within_median}} / {{r8.tokens.full_realizable_R.children.within_median}} |
+
+**Reading.** Under the brief mapping, vowel colours differ by about 1–2 ΔE00, about the threshold of what a viewer can notice.
+Under the full-band mapping:
+- **Seen in reflection**, realizable films differ by about 16 ΔE00 between vowels, which is clearly visible. Front vowels
+  appear pink or salmon, back vowels orange or amber (median hue {{r8.full_hue_realizable_R_deg.median}}°).
+- **Seen in transmission**, ideal films run from cyan through blue to violet.
+
+**Colour is a coarse code for vowel identity.** A colour has only 3 dimensions, and the order-16 spectrum is squeezed into
+them. As a result, a vowel's colour identifies it in only 30–50 % of tokens, against 75–83 % for the formants
+themselves. Colours change clearly from vowel to vowel, but tokens of different vowels can share a colour.
+
+**Sensitivity to the two illustrative inputs** (full-band mapping, median / max ΔE00 relative to the defaults over the 36 means):
+
+| change | ideal, T | realizable, R |
+|---|---|---|
+| bandwidths × 0.5 | {{r8.sensitivity_full.bandwidth_x0.5_ideal_T.median}} / {{r8.sensitivity_full.bandwidth_x0.5_ideal_T.max}} | {{r8.sensitivity_full.bandwidth_x0.5_realizable_R.median}} / {{r8.sensitivity_full.bandwidth_x0.5_realizable_R.max}} |
+| bandwidths × 2 | {{r8.sensitivity_full.bandwidth_x2_ideal_T.median}} / {{r8.sensitivity_full.bandwidth_x2_ideal_T.max}} | {{r8.sensitivity_full.bandwidth_x2_realizable_R.median}} / {{r8.sensitivity_full.bandwidth_x2_realizable_R.max}} |
+| glottis r = −0.8 | {{r8.sensitivity_full.glottis_-0.8_ideal_T.median}} / {{r8.sensitivity_full.glottis_-0.8_ideal_T.max}} | {{r8.sensitivity_full.glottis_-0.8_realizable_R.median}} / {{r8.sensitivity_full.glottis_-0.8_realizable_R.max}} |
+| glottis r = −0.95 | {{r8.sensitivity_full.glottis_-0.95_ideal_T.median}} / {{r8.sensitivity_full.glottis_-0.95_ideal_T.max}} | {{r8.sensitivity_full.glottis_-0.95_realizable_R.median}} / {{r8.sensitivity_full.glottis_-0.95_realizable_R.max}} |
+
+The transmitted colour of ideal films hardly depends on these choices. The reflected colour of realizable films shifts by a
+few ΔE00 on average, which is smaller than the about 16 ΔE00 that separates vowels. A few vowels move a lot, so the
+exact shade of an individual vowel should not be over-read.
+
+R_GLOTTIS = −0.9 has a physical reading. A finite glottis is a section of area A_g ending the tract of area A_1, with
+r = (A_g − A_1)/(A_g + A_1). With the code's convention m₀ = A₁(1 + r)/(1 − r), r = −0.9 means A_g/A₁ = 0.053, i.e. A_g ≈ 0.16 cm² for A₁ = 3 cm².
+That is the order of magnitude of an open glottis. Typical values of A_g = 0.1–0.2 cm² and A₁ = 2–3 cm² give r between
+−0.82 and −0.94, and the table above shows how much the colours move across that range.
+
+## 9. Every sound has a colour: real IPA recordings
+
+{{r9.n_sounds}} sounds ({{r9.n_vowels}} vowels, {{r9.n_consonants}} others) from Wikimedia Commons IPA recordings
+(`data/ipa/ATTRIBUTION.md`) plus modelled items, analysed by `tools/build_sounds.py` (LPC-16 per class rule → film).
+Median pairwise ΔE00 between sounds (displayed colours): full-band realizable R {{r9.headline.full_realR_median_dE_all}},
+brief realizable R {{r9.headline.brief_realR_median_dE_all}}, full-band ideal T {{r9.headline.full_idealT_median_dE_all}}.
+Plosives analysed with the fallback rule (context vowel averaged in): {{r9.fallback_items}}.
+
+![sounds](../results/fig_r9_sounds.png)
+
+## 10. Every phoneme (experimental)
+
+**Status: experiment.** Every one of the {{r10.n_items}} phonemes of `web/data/sounds.json` is turned into a film
+(LPC → `vowel_media` → realizable Goupillaud stack, full-band mapping, reflected light), and each class's colours are
+collected over the item, every analysed frame of its recording, and the angles {{r10.angles}}° (unpolarised).
+Every colour is checked to come from a **physically realizable** film: |k| < 1, all indices in [1, 2.5], |c| < 1,
+R + T = 1 at normal incidence ({{r10.n_total_main_th}} film colours checked for validity, {{r10.n_valid_main_th}} pass;
+{{r10.n_gamut_colours_th}} distinct display colours are plotted in the class gamuts; the per-frame strip
+of `sounds.json` is reproduced exactly: {{r10.strip_reproduced_exactly}}). Ideal films (indices up to
+{{r10.n_ideal_max}}) are never counted as valid. Distinct colours = complete-linkage clusters of CIEDE2000 ≤ {{r10.cluster_dE00}}
+on displayed colours.
+
+| class | items | distinct: item 0° | item × angles | rule frames × angles | **all frames × angles (verdict basis)** | verdict | brief·R (item×angles + frames 0°) |
+|---|---|---|---|---|---|---|---|
+| vowel | {{r10.classes.vowel.n_items}} | {{r10.classes.vowel.item_0deg}} | {{r10.classes.vowel.item_angles}} | {{r10.classes.vowel.own_frames_angles}} | **{{r10.classes.vowel.distinct}}** ({{r10.classes.vowel.n_colours}} colours) | {{r10.classes.vowel.verdict}} | {{r10.classes.vowel.brief_R}} |
+| diphthong | {{r10.classes.diphthong.n_items}} | {{r10.classes.diphthong.item_0deg}} | {{r10.classes.diphthong.item_angles}} | {{r10.classes.diphthong.own_frames_angles}} | **{{r10.classes.diphthong.distinct}}** ({{r10.classes.diphthong.n_colours}} colours) | {{r10.classes.diphthong.verdict}} | {{r10.classes.diphthong.brief_R}} |
+| plosive | {{r10.classes.plosive.n_items}} | {{r10.classes.plosive.item_0deg}} | {{r10.classes.plosive.item_angles}} | {{r10.classes.plosive.own_frames_angles}} | **{{r10.classes.plosive.distinct}}** ({{r10.classes.plosive.n_colours}} colours) | {{r10.classes.plosive.verdict}} | {{r10.classes.plosive.brief_R}} |
+| affricate | {{r10.classes.affricate.n_items}} | {{r10.classes.affricate.item_0deg}} | {{r10.classes.affricate.item_angles}} | {{r10.classes.affricate.own_frames_angles}} | **{{r10.classes.affricate.distinct}}** ({{r10.classes.affricate.n_colours}} colours) | {{r10.classes.affricate.verdict}} | {{r10.classes.affricate.brief_R}} |
+| nasal | {{r10.classes.nasal.n_items}} | {{r10.classes.nasal.item_0deg}} | {{r10.classes.nasal.item_angles}} | {{r10.classes.nasal.own_frames_angles}} | **{{r10.classes.nasal.distinct}}** ({{r10.classes.nasal.n_colours}} colours) | {{r10.classes.nasal.verdict}} | {{r10.classes.nasal.brief_R}} |
+| fricative | {{r10.classes.fricative.n_items}} | {{r10.classes.fricative.item_0deg}} | {{r10.classes.fricative.item_angles}} | {{r10.classes.fricative.own_frames_angles}} | **{{r10.classes.fricative.distinct}}** ({{r10.classes.fricative.n_colours}} colours) | {{r10.classes.fricative.verdict}} | {{r10.classes.fricative.brief_R}} |
+| lateral | {{r10.classes.lateral.n_items}} | {{r10.classes.lateral.item_0deg}} | {{r10.classes.lateral.item_angles}} | {{r10.classes.lateral.own_frames_angles}} | **{{r10.classes.lateral.distinct}}** ({{r10.classes.lateral.n_colours}} colours) | {{r10.classes.lateral.verdict}} | {{r10.classes.lateral.brief_R}} |
+| approximant | {{r10.classes.approximant.n_items}} | {{r10.classes.approximant.item_0deg}} | {{r10.classes.approximant.item_angles}} | {{r10.classes.approximant.own_frames_angles}} | **{{r10.classes.approximant.distinct}}** ({{r10.classes.approximant.n_colours}} colours) | {{r10.classes.approximant.verdict}} | {{r10.classes.approximant.brief_R}} |
+
+**Rule "one or two colours ⇒ proof".** No class falls to ≤ 2 colours ("few"), so no proof is claimed. Each "many"
+verdict comes with a certificate in `web/data/phonemes_experiment.json`: three colours of the class whose pairwise
+CIEDE2000 all exceed the threshold. Two such colours can never share a complete-linkage cluster, so the class has at least
+three distinct colours; `tests/test_r10_proofs.py` re-checks this. The only collapses occur one level down: the
+three nasal items at normal incidence share one magenta, and the two affricates share one colour. The affricates
+do so by construction, since both are modelled from ʃ. These are observations only; no proof is offered for them.
+
+![gamut](../results/fig_r10_gamut.png)
+
+**Films vs butterflies (films, not spectrograms).** Each phoneme's reflectance spectrum (380–780 nm) is correlated
+with the butterfly films of the Garden page (Morpho-like, Beetle-like, 4 random Goupillaud "speakers") and with
+Morpho/Beetle variants whose lamellae are ×0.9 and ×1.1. The best match is {{r10.corr_best}} (ρ = {{r10.corr_max}},
+ΔE00 = {{r10.corr_best_dE}}). The most alike films are {{r10.most_alike}}. The median ρ over all phonemes is only
+{{r10.corr_median}}, and the nearest film by colour is a median ΔE00 = {{r10.dE_nearest_colour_median}} away. The fricatives
+look Morpho-like in spectral shape, though not in brightness. A
+**chitin/air twin** (8 layers, thicknesses fitted, absolute reflected Lab as target) matches the phoneme colours to
+median ΔE00 = {{r10.twin_dE_median|.2f}} (max {{r10.twin_dE_max}}; {{r10.twin_below_2}} of {{r10.n_items}} below 2). In other words, every phoneme colour is
+reachable with butterfly materials, but with a different stack and therefore a different voice. The all-pole voice
+closest to most phonemes is {{r10.voice_winner}} ({{r10.voice_winner_n}} phonemes; the Goupillaud speakers are random equal-thickness films, not insects). /s/ sounds most like
+{{r10.s_voice}} (log-spectral distance {{r10.s_voice_lsd}} dB, shape only), and all distances lie between {{r10.lsd_min}} and {{r10.lsd_max}} dB.
+
+![butterflies](../results/fig_r10_butterflies.png)
+![angle](../results/fig_r10_angle.png)
+
+**Real butterfly scales (approximate).** The butterfly films above are idealised 1-D stacks. `core/butterfly.py`
+adds measured chitin dispersion, melanin absorption and backing, 5–10 % thickness disorder, lamella tilt and a rough
+diffraction spread (thicknesses tuned to published colours are labelled ILLUSTRATIVE). The five species at 0°:
+{{r10.real_species}}. Against these the most frequent nearest species (highest reflectance correlation) is
+{{r10.real_winner}} ({{r10.real_winner_n}} of {{r10.n_items}} phonemes). The best match is {{r10.real_best}} (ρ = {{r10.real_best_corr}},
+ΔE00 = {{r10.real_best_dE}}), and the median ρ is only {{r10.real_corr_median}}. The realistic spectra are broader and dimmer, so
+they resemble the phoneme films less than the idealised stacks do.
+
+![real butterflies](../results/fig_r10_real_butterflies.png)
+
+**Fluorescence under blacklight (approximate).** `core/fluorescence.py` puts a papiliochrome-type dye (excitation
+420 nm, emission 505 nm, as in *Papilio nireus*; QY and dye strength illustrative) in every layer of each phoneme film.
+In daylight the dye adds {{r10.fluor.ff_D65_min}}–{{r10.fluor.ff_D65_max}} % of the luminance and the colours stay distinct. Under UV-A
+(365 nm) all {{r10.n_items}} films glow the same green: emission peak {{r10.fluor.peak_min}}–{{r10.fluor.peak_max}} nm and maximum pairwise
+ΔE00 = {{r10.fluor.max_dE00_UV}} ({{r10.fluor.distinct_UV}} distinct colour). Because this is a "few colours" result, it comes with a proof
+(`fluorescence_proof` in `web/data/phonemes_experiment.json`, holds = {{r10.fluor.holds}}). The emission band e(λ) is fixed by the
+fluorophore. The film only multiplies it by an escape factor η(λ) ∈ [{{r10.fluor.eta_min|.2f}}, {{r10.fluor.eta_max|.2f}}] (realizable n ∈ [1, 2.5]).
+If S(λ) = exp(−(λ−λ0)²/2σ²)·w(λ), then at the maximum (λ*−λ0)/σ² = (ln w)′(λ*), so |λ*−λ0| ≤ σ²·max|d ln η/dλ|.
+With κ ≤ {{r10.fluor.kappa_max}} /nm the bound is ≤ {{r10.fluor.bound_max|.0f}} nm; the observed shift is {{r10.fluor.shift_max|.0f}} nm. X/Y and Z/Y can change at most
+by the factor ρ = max η / min η ≤ {{r10.fluor.rho_max|.2f}}.
+
+![fluorescence](../results/fig_r10_fluor.png)
+
+**Honesty notes.** e ɛ o are modelled from Hillenbrand men's means; ʒ = ʃ polynomial; tʃ and dʒ are LAR mixes of
+t/d and ʃ (`modelled:true`). p b t d use the fallback rule (all energetic frames, including the context vowel), so their
+colour is partly the vowel's. Diphthongs are LAR trajectories between two vowel items. The all-pole film is an envelope
+model: nasals have zeros, and fricatives and plosives have a source inside the tract. The colour is well defined, but
+the tube reading is approximate. The butterfly parameters are illustrative (`core/stacks.py`). The twin optimiser
+works like `core.inverse.design_stacks` (L-BFGS-B on ΔE00) but varies thicknesses with chitin/air held fixed, because
+`design_stacks` optimises continuous indices.
+
+## Exact physics vs approximation vs artistic licence
+
+| item | status | note |
+|---|---|---|
+| r = (a−b)/(a+b) for tube junctions and film interfaces; D(z) row recursion; ∏(1−c²)/\|D\|² | **exact** | lossless, normal incidence; verified to {{r1.random200_max_abs|.0e}} (§1) |
+| Goupillaud equal optical thickness ↔ equal tube delay; f(ν) = F_s·frac(ν/Δν) | **exact** | a design choice (mapping), exact once chosen |
+| LPC ↔ closed-glottis tube (k_m = −c_m); `voice_of_film` for Goupillaud stacks | **exact** | coefficient error ≤ {{r5.exact_family.voice_coef_max_abs_diff|.0e}} (§3, §5b) |
+| Abelès matrices at oblique incidence, s/p average | **exact** | non-dispersive, lossless, 1-D |
+| exact same-voice families (spectral factorisation + layer peeling, reciprocity reversal) | **exact** (T-shape error {{r5.exact_family.T_shape_max_rel_ratio_spread|.0e}}) | ideal-mode indices up to {{r5.exact_family.index_range.1}} |
+| CIE 1931 2° colorimetry, CIELAB, CIEDE2000 | **exact** (standard) | no chromatic adaptation |
+| Hillenbrand 1995 F0/F1–F3 group means | **data** | bandwidths 80/100/150 Hz are illustrative |
+| R_GLOTTIS = −0.9 finite glottis | approximation | effect quantified in §3 |
+| realizable compression into [1, 2.5]; material snapping | approximation | large fidelity loss (§3) |
+| `voice_of_film` for non-Goupillaud stacks and at oblique incidence | approximation | best order-16 all-pole fit |
+| envelope-peak formant rule; ln-Hz vowel distance; "nearest vowel" | analysis convention | weakly defined for flat voices |
+| Morpho-like / beetle-like parameters | illustrative | 1-D, no diffraction or disorder, non-dispersive chitin |
+| Rosenberg source, jitter, f0 = 140 Hz for film voices | illustrative | |
+| swatches (`display_rgb`: Y → 50, clipping) | **artistic** | exposure normalisation for display only |
+
+## Limitations and open issues
+
+- **Lossless and non-dispersive.** There is no wall loss, no radiation impedance, no material dispersion or
+  absorption, and no scattering or diffraction. The mapping makes 0–8 kHz occupy the band twice (mirror symmetry).
+- **The canonical mapping hides speech in violet.** A π-shifted mapping was tested earlier and separates vowels worse
+  (CONTRACT §7b), so the violet palette is a property of this design, not an error.
+- **Realizable films cannot reproduce vowel formants.** About 5× compression of the reflection coefficients is
+  needed. The isomorphism is exact; physical realizability is the bottleneck.
+- **Atlas count mismatch.** CONTRACT §7b states that 39 % of log-uniform stacks have ≥ 2 formants. The atlas in
+  `results/atlas.npz` gives {{r7.frac_ge2_formants.0|.1%}} (the bimodal arm, {{r7.frac_ge2_formants.1|.1%}}, matches
+  74 %). This report uses the measured value. The 39 % probably came from an earlier or quick build.
+- **Most atlas and designed voices are not vowel-like** (high or broad formants), and "nearest vowel" is then only
+  nominal. Pair statistics use the first two sharp poles.
+- **Angle sweeps are noisy.** Envelope peaks switch identity across angles. Trajectories are shown as points rather
+  than tracked formants.
+- **Performance.** `design_stacks` (L-BFGS-B with numerical gradients over full film spectra) is the slow step of a
+  `--fresh` run. `core.colour.delta_e00` is scalar (~0.01–0.05 ms per call), so the atlas pair
+  screening uses the vectorised CIEDE2000 of `colour-science`, after checking it against core.
+
+## Audio index (16 kHz WAV, `results/audio/`, mirrored in `web/results/audio/`)
+
+- Butterflies: {{r4.items.0.audio}}, {{r4.items.1.audio}}, {{r4.items.2.audio}}, {{r4.items.3.audio}},
+  {{r4.items.4.audio}}, {{r4.items.5.audio}}.
+- Same colour, different voices: metamer_pair_atlas.wav, metamer_set_A/B/C.wav, metamer_A_1…8.wav.
+- Same voice, different colours: same_voice_pair_atlas.wav, same_voice_family.wav.
+- Iridescence glides: {{r6.films.morpho.audio}}, {{r6.films.vowel_ah_ideal.audio}}, {{r6.films.atlas_eh_like.audio}}.
+
+## References
+
+- Hillenbrand, J., Getty, L. A., Clark, M. J., & Wheeler, K. (1995). Acoustic characteristics of American English
+  vowels. *J. Acoust. Soc. Am.* 97(5), 3099–3111.
+- Kelly, J. L., & Lochbaum, C. C. (1962). Speech synthesis. *Proc. 4th Int. Congr. Acoustics*, Copenhagen, G42.
+- Markel, J. D., & Gray, A. H. (1976). *Linear Prediction of Speech*. Springer.
+- Wakita, H. (1973). Direct estimation of the vocal tract shape by inverse filtering of acoustic speech waveforms.
+  *IEEE Trans. Audio Electroacoust.* 21(5), 417–427.
+- Goupillaud, P. L. (1961). An approach to inverse filtering of near-surface layer effects from seismic records.
+  *Geophysics* 26(6), 754–760.
+- Macleod, H. A. *Thin-Film Optical Filters* (4th ed., 2010). CRC Press.
+- Vukusic, P., Sambles, J. R., Lawrence, C. R., & Wootton, R. J. (1999). Quantified interference and diffraction in
+  single Morpho butterfly scales. *Proc. R. Soc. B* 266, 1403–1411.
+- Rosenberg, A. E. (1971). Effect of glottal pulse shape on the quality of natural vowels. *J. Acoust. Soc. Am.*
+  49(2B), 583–590.
+- CIE 015:2018. *Colorimetry* (4th ed.). Commission Internationale de l'Éclairage.
+- Sharma, G., Wu, W., & Dalal, E. N. (2005). The CIEDE2000 color-difference formula: implementation notes,
+  supplementary test data, and mathematical observations. *Color Res. Appl.* 30(1), 21–30.

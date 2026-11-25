@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tube–Film Theory</title>
+<meta name="description" content="Interactive proof that a lossless tube and a Goupillaud thin-film stack share one transfer function.">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .layout { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 16px; align-items: start; }
+  .ctl { position: sticky; top: 64px; max-height: calc(100vh - 80px); overflow-y: auto; }
+  .ctl h3 { margin: 4px 0 8px; font-size: 1rem; }
+  .ctl .field { margin: 8px 0; }
+  .ctl .field > div { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); }
+  .coefs { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; }
+  .coefs label { display: flex; justify-content: space-between; font-size: .78rem; }
+  .coefs input { margin: 0 0 4px; }
+  .end { border: 1px solid rgba(63,214,198,.3); border-radius: 10px; padding: 6px 8px; margin: 6px 0; }
+  #cv-tube, #cv-film { height: 230px; }
+  #cv-morph { height: 300px; }
+  #cv-P, #cv-T { height: 250px; }
+  #cv-map { height: 210px; }
+  #cv-step { height: 230px; }
+  .sw { width: 100%; height: 74px; border-radius: 12px; border: 1px solid var(--line); }
+  .kv { font-size: .85rem; color: var(--muted); }
+  .eqgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+  .eqgrid .eq p { margin: 6px 0 0; font-size: .86rem; color: var(--muted); }
+  .check { font-family: var(--mono); font-size: .9rem; }
+  .check .good { color: var(--ok); } .check .meh { color: var(--warn); }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .seg button { appearance: none; border: 0; background: transparent; color: var(--muted); padding: 5px 10px; cursor: pointer; font: inherit; font-size: .88rem; }
+  .seg button.on { background: rgba(143,123,255,0.22); color: var(--text); }
+  .seg.vert { display: flex; flex-direction: column; width: 100%; }
+  .seg.vert button { text-align: left; padding: 6px 10px; }
+  .seg.vert button + button { border-top: 1px solid var(--line); }
+  #step-log { font-family: var(--mono); font-size: .8rem; max-height: 140px; overflow-y: auto; white-space: pre-wrap; color: var(--muted); }
+  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .ctl { position: static; max-height: none; } }
+</style>
+</head>
+<body>
+<nav id="site-nav"></nav>
+<main class="page">
+  <p class="kicker">Theory · interactive</p>
+  <h1 style="margin:0 0 8px">One set of reflection coefficients, two physical systems</h1>
+  <p class="lead">Set the reflection coefficients <span class="math"><i>c</i><sub>0</sub>…<i>c</i><sub>N</sub></span>. They define a tube
+    (cross-section areas) <em>and</em> a thin-film stack (refractive indices). Every plot below is recomputed live with
+    <span class="mono">js/physics.js</span>, the browser port of the tested Python core.</p>
+
+  <div class="layout section" style="margin-top:18px">
+    <aside class="panel ctl" aria-label="Controls">
+      <h3>Reflection coefficients</h3>
+      <div class="field"><div><span>N (sections = layers)</span><span id="N-val" class="mono">16</span></div>
+        <input type="range" id="N" min="4" max="16" step="1" value="16"></div>
+      <div class="field"><div><span>preset</span></div>
+        <div class="row">
+          <select id="preset" style="flex:1">
+            <option value="ah">vowel /ɑ/ “hod” (men, N=16)</option>
+            <option value="iy">vowel /i/ “heed” (men, N=16)</option>
+            <option value="uw">vowel /u/ “who’d” (men, N=16)</option>
+            <option value="bragg">Bragg mirror (alternating ±0.4)</option>
+            <option value="flat">no reflections (all 0)</option>
+            <option value="random">random</option>
+          </select>
+          <button class="btn" id="apply">apply</button>
+        </div></div>
+      <div class="end">
+        <div class="field"><div><span><b>c<sub>0</sub></b> glottis end / incident medium</span><span id="c0-val" class="mono"></span></div>
+          <input type="range" id="c0" min="-0.99" max="0.99" step="0.001"></div>
+        <div class="field"><div><span><b>c<sub>N</sub></b> lips→radiation / substrate</span><span id="cN-val" class="mono"></span></div>
+          <input type="range" id="cN" min="-0.99" max="0.99" step="0.001"></div>
+      </div>
+      <div class="kv" style="margin:6px 0">internal junctions / interfaces c<sub>1</sub>…c<sub>N−1</sub></div>
+      <div class="coefs" id="coefs"></div>
+      <h3 style="margin-top:14px">Frequency mapping (layer optical thickness)</h3>
+      <div class="field">
+        <div class="seg vert" id="mapsel" role="group" aria-label="frequency mapping">
+          <button data-v="brief">Brief (Δν = 350 THz, d = 428.27 nm)</button>
+          <button data-v="full" class="on">Full-band (Δν = 750 THz, d = 199.86 nm)</button>
+        </div>
+        <div class="kv" style="margin-top:4px">Both are exact: only the common optical thickness n·d of the layers changes. URL: <span class="mono">?mapping=brief|full</span></div></div>
+      <h3 style="margin-top:14px">Film</h3>
+      <div class="field"><div><span>index mapping</span></div>
+        <div class="seg" id="fmode"><button data-v="ideal" class="on">ideal n ∝ A (exact)</button><button data-v="realizable">realizable 1–2.5</button></div></div>
+      <div class="field"><div><span>illuminant</span></div>
+        <select id="ill"><option>D65</option><option>A</option><option>F11</option><option>LED</option></select></div>
+    </aside>
+
+    <div class="grid">
+      <section class="panel">
+        <div class="row" style="justify-content:space-between"><h2 style="margin:0">Tube ⟷ film</h2>
+          <span><span class="badge exact">geometry from c (exact)</span> <span class="badge art">colours/glow artistic</span></span></div>
+        <div class="split" style="margin-top:10px">
+          <div><canvas class="plot" id="cv-tube"></canvas><div class="kv">Tube: radius = √area, glottis (left) → lips (right). Faded ends = terminations m<sub>0</sub>, m<sub>N+1</sub>.</div></div>
+          <div><canvas class="plot" id="cv-film"></canvas><div class="kv">Film: light enters at the top; bar height ∝ physical thickness d = <span class="dopt">199.86</span> nm / n; colour ∝ log n.</div></div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="row" style="justify-content:space-between">
+            <label for="morph">MORPH: tube (0) ⟶ film (1)</label>
+            <div class="row"><span id="morph-val" class="mono kv">0.00</span><button class="btn" id="morph-play">▶ animate</button></div>
+          </div>
+          <input type="range" id="morph" min="0" max="1" step="0.001" value="0">
+          <canvas class="plot" id="cv-morph"></canvas>
+          <div class="kv">Each tube section becomes one layer: one sample of acoustic round-trip delay = one equal optical-thickness layer (Goupillaud medium).</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="row" style="justify-content:space-between"><h2 style="margin:0">Same spectrum, two axes</h2>
+          <span class="row"><span class="seg" id="scale"><button data-v="lin" class="on">linear</button><button data-v="db">dB</button></span><span class="badge exact">exact</span></span></div>
+        <div class="split" style="margin-top:10px">
+          <div><canvas class="plot" id="cv-P"></canvas>
+            <div class="legend"><span><i style="background:#8f7bff"></i>tube power transfer P(f) = Π(1−c²)/|D(e<sup>jω</sup>)|²</span></div></div>
+          <div><canvas class="plot" id="cv-T"></canvas>
+            <div class="legend"><span><i style="background:#3fd6c6"></i>film transmittance T(ν) (transfer-matrix)</span><span><i style="background:#ffb547"></i>tube P(f(ν)) mapped</span></div></div>
+        </div>
+        <p class="check" id="iso-check" style="margin:10px 0 0"></p>
+        <p class="kv" style="margin:4px 0 0">Hover either plot: the cursor is mirrored onto the other axis through f(ν). The film curve is computed independently
+          with Abelès characteristic matrices from n and d — it is not the tube formula re-plotted.</p>
+      </section>
+
+      <section class="split">
+        <div class="panel">
+          <div class="row" style="justify-content:space-between"><h2 style="margin:0">Frequency mapping</h2><span class="badge exact">exact identity</span></div>
+          <canvas class="plot" id="cv-map" style="margin-top:10px"></canvas>
+          <p class="kv" style="margin:6px 0 0"><span class="math"><i>f</i>(<i>ν</i>) = <i>F</i><sub>S</sub> · frac(<i>ν</i>/Δ<i>ν</i>)</span>, <span id="map-cap"></span></p>
+        </div>
+        <div class="panel">
+          <div class="row" style="justify-content:space-between"><h2 style="margin:0">Live film colour</h2><span class="badge exact">CIE 1931 (exact)</span></div>
+          <div class="split" style="margin-top:10px">
+            <div><div class="sw" id="sw-R"></div><div class="kv" id="kv-R"></div></div>
+            <div><div class="sw" id="sw-T"></div><div class="kv" id="kv-T"></div></div>
+          </div>
+          <p class="kv" style="margin:8px 0 0" id="col-map"></p>
+          <p class="kv" style="margin:8px 0 0">Spectrum → XYZ → Lab is exact; the swatch is brightness-normalised to Y = 50 for display <span class="badge art">artistic exposure</span>.
+            Y is the true luminous transmittance/reflectance (%).</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 style="margin-top:0">The equations</h2>
+        <div class="eqgrid">
+          <div class="eq"><span class="math"><i>c</i><sub>i</sub> = <span class="frac"><span><i>A</i><sub>i</sub> − <i>A</i><sub>i+1</sub></span><span><i>A</i><sub>i</sub> + <i>A</i><sub>i+1</sub></span></span>
+            &nbsp;=&nbsp; <span class="frac"><span><i>n</i><sub>i</sub> − <i>n</i><sub>i+1</sub></span><span><i>n</i><sub>i</sub> + <i>n</i><sub>i+1</sub></span></span></span>
+            <p>Pressure-wave reflection at a tube junction = E-field Fresnel reflection at normal incidence, with n ∝ A.</p></div>
+          <div class="eq"><span class="math"><i>n</i><sub>i</sub><i>d</i><sub>i</sub> = <i>d</i><sub>opt</sub> = <span class="frac"><span><i>c</i></span><span>2 Δ<i>ν</i></span></span> = <span class="dopt">199.86</span> nm</span>
+            <p>Goupillaud condition: every layer has the same optical thickness, just as every tube section has the same delay (ℓ = L/N, one sample per round trip).</p></div>
+          <div class="eq"><span class="math"><i>P</i>(<i>ω</i>) = <span class="frac"><span>Π<sub>i</sub> (1 − <i>c</i><sub>i</sub><sup>2</sup>)</span><span>|<i>D</i>(<i>e</i><sup><i>jω</i></sup>)|<sup>2</sup></span></span></span>
+            <p>Shared power transfer. Tube: ω = 2π f / F<sub>S</sub>. Film: ω = 2δ, δ = 2π (n d) ν / c.</p></div>
+          <div class="eq"><span class="math">[<i>F</i>, <i>G</i>] ← [<i>F</i> + <i>c</i><sub>i</sub> <i>z</i><sup>−1</sup><i>G</i>,&nbsp; <i>c</i><sub>i</sub><i>F</i> + <i>z</i><sup>−1</sup><i>G</i>]</span>
+            <p>Step-up (add one section / layer), starting from [1, c<sub>0</sub>]; D(z) = F after N steps. With c<sub>0</sub> = −1 (closed glottis) this is Levinson’s step-up with k<sub>m</sub> = −c<sub>m</sub>.</p></div>
+          <div class="eq"><span class="math"><i>c</i><sub>i</sub> = <i>G</i><sub>i</sub>[0],&nbsp; <i>F</i><sub>i−1</sub> = <span class="frac"><span><i>F</i><sub>i</sub> − <i>c</i><sub>i</sub><i>G</i><sub>i</sub></span><span>1 − <i>c</i><sub>i</sub><sup>2</sup></span></span></span>
+            <p>Step-down = layer peeling: the first echo reveals the next interface; divide it out and repeat (LPC step-down in the closed-glottis case).</p></div>
+          <div class="eq"><span class="math"><i>f</i>(<i>ν</i>) = <i>F</i><sub>S</sub> · frac(<i>ν</i> / Δ<i>ν</i>)</span>
+            <p id="eq-map">Exact phase identity ω = 2δ (mod 2π).</p></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="row" style="justify-content:space-between"><h2 style="margin:0">Why any common optical thickness works</h2><span class="badge exact">exact</span></div>
+        <div class="eqgrid" style="margin-top:10px">
+          <div class="eq"><span class="math"><i>δ</i> = <span class="frac"><span>2π <i>d</i><sub>opt</sub> <i>ν</i></span><span><i>c</i></span></span>,&nbsp; <i>d</i><sub>opt</sub> = <i>n</i><sub>i</sub><i>d</i><sub>i</sub> (same for every layer)</span>
+            <p>Each layer delays the wave by the same phase δ — the optical analogue of one tube section = half a sample of delay each way.</p></div>
+          <div class="eq"><span class="math"><i>ω</i> = 2<i>δ</i> = <span class="frac"><span>4π <i>d</i><sub>opt</sub> <i>ν</i></span><span><i>c</i></span></span> &nbsp;≡&nbsp; <span class="frac"><span>2π <i>f</i></span><span><i>F</i><sub>S</sub></span></span> &nbsp;(mod 2π)</span>
+            <p>The c<sub>i</sub> depend only on the indices, so T(ν) = P(ω(ν)) whatever d<sub>opt</sub> is: the thickness only rescales the frequency axis.</p></div>
+          <div class="eq"><span class="math"><i>f</i> = <i>F</i><sub>S</sub> · frac(<i>ν</i> / Δ<i>ν</i>),&nbsp; Δ<i>ν</i> = <span class="frac"><span><i>c</i></span><span>2 <i>d</i><sub>opt</sub></span></span></span>
+            <p>Brief: d<sub>opt</sub> = 428.27 nm ⇒ Δν = 350 THz; the visible band is one full period, so 0–8 kHz appears twice (mirrored at 525 and 700 THz).</p></div>
+          <div class="eq"><span class="math">|<i>f</i>| = <i>F</i><sub>S</sub> (1 − <i>ν</i> / 750 THz) &nbsp;for 400 ≤ <i>ν</i> ≤ 750 THz</span>
+            <p>Full-band: d<sub>opt</sub> = 199.86 nm (half-wave at 400 nm) ⇒ Δν = 750 THz, f = 0 sits at 750 THz and 400–750 THz shows 7.47 → 0 kHz exactly once (no mirror image).</p></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="row" style="justify-content:space-between"><h2 style="margin:0">Levinson step-up ⟷ layer peeling, one step at a time</h2><span class="badge exact">exact</span></div>
+        <div class="row" style="margin:10px 0">
+          <button class="btn" id="st-reset">⟲ start (1 interface)</button>
+          <button class="btn" id="st-down">◀ peel a layer (step-down)</button>
+          <button class="btn primary" id="st-up">add a layer (step-up) ▶</button>
+          <button class="btn" id="st-auto">▶ auto</button>
+          <span class="mono kv" id="st-label"></span>
+        </div>
+        <canvas class="plot" id="cv-step"></canvas>
+        <div class="split" style="margin-top:8px">
+          <div class="kv">Top: the partial stack (lit layers are “built”). Bottom-left: coefficients of F<sub>s</sub>(z), the polynomial so far.
+            Bottom-right: power transfer of the partial system (violet) vs the full one (grey).</div>
+          <div id="step-log"></div>
+        </div>
+        <p class="check" id="lpc-check" style="margin:8px 0 0"></p>
+      </section>
+    </div>
+  </div>
+  <footer class="site">Conventions: <span class="mono">docs/CONTRACT.md</span> §2–§4. Media vector m = [m₀, m₁…m_N, m_{N+1}] built from c with m₀ = 1; ideal film n = m / min(m).</footer>
+</main>
+<script type="module" src="js/nav.js"></script>
+<script type="module" src="js/theory.js"></script>
+</body>
+</html>

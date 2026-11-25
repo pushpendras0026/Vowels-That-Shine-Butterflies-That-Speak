@@ -1,0 +1,2206 @@
+{
+ "generated": "2026-11-25T15:17:22",
+ "generated_by": "python tools/make_results_manifest.py",
+ "figures": [
+  {
+   "file": "results/fig_1_frequency_mapping.png",
+   "name": "fig_1_frequency_mapping",
+   "caption": "frequency mapping",
+   "section": "1. The isomorphism, verified",
+   "from_report": true,
+   "bytes": 92146
+  },
+  {
+   "file": "results/fig_1_isomorphism.png",
+   "name": "fig_1_isomorphism",
+   "caption": "isomorphism",
+   "section": "1. The isomorphism, verified",
+   "from_report": true,
+   "bytes": 112999
+  },
+  {
+   "file": "results/fig_2_chromaticity.png",
+   "name": "fig_2_chromaticity",
+   "caption": "chromaticity",
+   "section": "2. The vowel palette — speech lives where the eye barely sees",
+   "from_report": true,
+   "bytes": 67359
+  },
+  {
+   "file": "results/fig_2_dE00_matrices.png",
+   "name": "fig_2_dE00_matrices",
+   "caption": "dE matrices",
+   "section": "2. The vowel palette — speech lives where the eye barely sees",
+   "from_report": true,
+   "bytes": 109856
+  },
+  {
+   "file": "results/fig_2_palette_children.png",
+   "name": "fig_2_palette_children",
+   "caption": "palette children",
+   "section": "2. The vowel palette — speech lives where the eye barely sees",
+   "from_report": true,
+   "bytes": 47153
+  },
+  {
+   "file": "results/fig_2_palette_men.png",
+   "name": "fig_2_palette_men",
+   "caption": "palette men",
+   "section": "2. The vowel palette — speech lives where the eye barely sees",
+   "from_report": true,
+   "bytes": 45342
+  },
+  {
+   "file": "results/fig_2_palette_women.png",
+   "name": "fig_2_palette_women",
+   "caption": "palette women",
+   "section": "2. The vowel palette — speech lives where the eye barely sees",
+   "from_report": true,
+   "bytes": 45812
+  },
+  {
+   "file": "results/fig_3_fidelity.png",
+   "name": "fig_3_fidelity",
+   "caption": "fidelity",
+   "section": "3. Ideal vs realizable vs materials, and the illustrative glottis",
+   "from_report": true,
+   "bytes": 155268
+  },
+  {
+   "file": "results/fig_3_glottis_sweep.png",
+   "name": "fig_3_glottis_sweep",
+   "caption": "glottis",
+   "section": "3. Ideal vs realizable vs materials, and the illustrative glottis",
+   "from_report": true,
+   "bytes": 176441
+  },
+  {
+   "file": "results/fig_4_butterflies.png",
+   "name": "fig_4_butterflies",
+   "caption": "butterflies",
+   "section": "4. Butterflies that speak",
+   "from_report": true,
+   "bytes": 206656
+  },
+  {
+   "file": "results/fig_5_exact_family.png",
+   "name": "fig_5_exact_family",
+   "caption": "exact family",
+   "section": "5b. Same voice, different colours",
+   "from_report": true,
+   "bytes": 302405
+  },
+  {
+   "file": "results/fig_5_metamers_spread.png",
+   "name": "fig_5_metamers_spread",
+   "caption": "metamer spread",
+   "section": "5. Metamers both ways",
+   "from_report": true,
+   "bytes": 107104
+  },
+  {
+   "file": "results/fig_6_angle_sweep.png",
+   "name": "fig_6_angle_sweep",
+   "caption": "angle",
+   "section": "6. Iridescence = diphthong",
+   "from_report": true,
+   "bytes": 182028
+  },
+  {
+   "file": "results/fig_7_atlas.png",
+   "name": "fig_7_atlas",
+   "caption": "atlas",
+   "section": "7. The atlas: 20 000 random realizable films, plotted both ways",
+   "from_report": true,
+   "bytes": 295109
+  },
+  {
+   "file": "results/fig_butterfly_real.png",
+   "name": "fig_butterfly_real",
+   "caption": "fig butterfly real",
+   "section": "",
+   "from_report": false,
+   "bytes": 289854
+  },
+  {
+   "file": "results/fig_fluorescence.png",
+   "name": "fig_fluorescence",
+   "caption": "fig fluorescence",
+   "section": "",
+   "from_report": false,
+   "bytes": 148374
+  },
+  {
+   "file": "results/fig_r10_angle.png",
+   "name": "fig_r10_angle",
+   "caption": "angle",
+   "section": "10. Every phoneme (experimental)",
+   "from_report": true,
+   "bytes": 87592
+  },
+  {
+   "file": "results/fig_r10_butterflies.png",
+   "name": "fig_r10_butterflies",
+   "caption": "butterflies",
+   "section": "10. Every phoneme (experimental)",
+   "from_report": true,
+   "bytes": 324546
+  },
+  {
+   "file": "results/fig_r10_fluor.png",
+   "name": "fig_r10_fluor",
+   "caption": "fluorescence",
+   "section": "10. Every phoneme (experimental)",
+   "from_report": true,
+   "bytes": 95492
+  },
+  {
+   "file": "results/fig_r10_gamut.png",
+   "name": "fig_r10_gamut",
+   "caption": "gamut",
+   "section": "10. Every phoneme (experimental)",
+   "from_report": true,
+   "bytes": 665170
+  },
+  {
+   "file": "results/fig_r10_real_butterflies.png",
+   "name": "fig_r10_real_butterflies",
+   "caption": "real butterflies",
+   "section": "10. Every phoneme (experimental)",
+   "from_report": true,
+   "bytes": 246108
+  },
+  {
+   "file": "results/fig_r8_mapping.png",
+   "name": "fig_r8_mapping",
+   "caption": "Mapping study",
+   "section": "8. A second exact mapping: making vowels colourful",
+   "from_report": true,
+   "bytes": 199627
+  },
+  {
+   "file": "results/fig_r9_sounds.png",
+   "name": "fig_r9_sounds",
+   "caption": "sounds",
+   "section": "9. Every sound has a colour: real IPA recordings",
+   "from_report": true,
+   "bytes": 156802
+  }
+ ],
+ "audio": [
+  {
+   "file": "results/audio/bfly_beetle.wav",
+   "name": "bfly_beetle",
+   "caption": "wav",
+   "section": "4. Butterflies that speak",
+   "bytes": 38444
+  },
+  {
+   "file": "results/audio/bfly_beetle_x0p9.wav",
+   "name": "bfly_beetle_x0p9",
+   "caption": "wav",
+   "section": "4. Butterflies that speak",
+   "bytes": 38444
+  },
+  {
+   "file": "results/audio/bfly_beetle_x1p1.wav",
+   "name": "bfly_beetle_x1p1",
+   "caption": "wav",
+   "section": "4. Butterflies that speak",
+   "bytes": 38444
+  },
+  {
+   "file": "results/audio/bfly_morpho.wav",
+   "name": "bfly_morpho",
+   "caption": "wav",
+   "section": "4. Butterflies that speak",
+   "bytes": 38444
+  },
+  {
+   "file": "results/audio/bfly_morpho_x0p9.wav",
+   "name": "bfly_morpho_x0p9",
+   "caption": "wav",
+   "section": "4. Butterflies that speak",
+   "bytes": 38444
+  },
+  {
+   "file": "results/audio/bfly_morpho_x1p1.wav",
+   "name": "bfly_morpho_x1p1",
+   "caption": "wav",
+   "section": "4. Butterflies that speak",
+   "bytes": 38444
+  },
+  {
+   "file": "results/audio/glide_atlas_eh_like.wav",
+   "name": "glide_atlas_eh_like",
+   "caption": "wav",
+   "section": "6. Iridescence = diphthong",
+   "bytes": 103724
+  },
+  {
+   "file": "results/audio/glide_morpho.wav",
+   "name": "glide_morpho",
+   "caption": "wav",
+   "section": "6. Iridescence = diphthong",
+   "bytes": 103724
+  },
+  {
+   "file": "results/audio/glide_vowel_ah_ideal.wav",
+   "name": "glide_vowel_ah_ideal",
+   "caption": "wav",
+   "section": "6. Iridescence = diphthong",
+   "bytes": 103724
+  },
+  {
+   "file": "results/audio/metamer_A_1.wav",
+   "name": "metamer_A_1",
+   "caption": "1",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_A_2.wav",
+   "name": "metamer_A_2",
+   "caption": "2",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_A_3.wav",
+   "name": "metamer_A_3",
+   "caption": "3",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_A_4.wav",
+   "name": "metamer_A_4",
+   "caption": "4",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_A_5.wav",
+   "name": "metamer_A_5",
+   "caption": "5",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_A_6.wav",
+   "name": "metamer_A_6",
+   "caption": "6",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_A_7.wav",
+   "name": "metamer_A_7",
+   "caption": "7",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_A_8.wav",
+   "name": "metamer_A_8",
+   "caption": "8",
+   "section": "5a. Same colour, different voices",
+   "bytes": 25644
+  },
+  {
+   "file": "results/audio/metamer_pair_atlas.wav",
+   "name": "metamer_pair_atlas",
+   "caption": "metamer_pair_atlas.wav",
+   "section": "5a. Same colour, different voices",
+   "bytes": 60844
+  },
+  {
+   "file": "results/audio/metamer_set_A.wav",
+   "name": "metamer_set_A",
+   "caption": "set A",
+   "section": "5a. Same colour, different voices",
+   "bytes": 268844
+  },
+  {
+   "file": "results/audio/metamer_set_B.wav",
+   "name": "metamer_set_B",
+   "caption": "set B",
+   "section": "5a. Same colour, different voices",
+   "bytes": 268844
+  },
+  {
+   "file": "results/audio/metamer_set_C.wav",
+   "name": "metamer_set_C",
+   "caption": "set C",
+   "section": "5a. Same colour, different voices",
+   "bytes": 268844
+  },
+  {
+   "file": "results/audio/same_voice_family.wav",
+   "name": "same_voice_family",
+   "caption": "same_voice_family.wav",
+   "section": "5b. Same voice, different colours",
+   "bytes": 134444
+  },
+  {
+   "file": "results/audio/same_voice_pair_atlas.wav",
+   "name": "same_voice_pair_atlas",
+   "caption": "same_voice_pair_atlas.wav",
+   "section": "5b. Same voice, different colours",
+   "bytes": 60844
+  }
+ ],
+ "summary": {
+  "r1": {
+   "example": "men /ɑ/ (hod), ideal mode, finite glottis R_GLOTTIS=-0.9",
+   "example_max_abs_film_minus_poly": 2.858824288409778e-13,
+   "example_max_abs_tube_minus_poly": 2.7988722450800196e-13,
+   "example_max_rel_film_minus_poly": 3.628084042767208e-13,
+   "example_T_peak": 0.9317,
+   "all36_max_abs_film_minus_poly": 2.8181901257084974e-12,
+   "all36_max_abs_tube_minus_poly": 2.811417765258284e-12,
+   "all36_max_rel_film_minus_poly": 2.951002782862452e-12,
+   "random200_max_abs": 4.584788104722293e-11,
+   "kl_lattice_max_abs_vs_poly": 8.170547571850761e-16,
+   "nu_of_0Hz_THz": 700.0,
+   "nu_of_8kHz_THz": 525.0,
+   "f_at_400THz_Hz": 2285.7,
+   "D_OPT_nm": 428.2749
+  },
+  "r2": {
+   "dE00_pairs": {
+    "ideal_eqY_men": {
+     "median": 4.33,
+     "min": 0.09,
+     "max": 11.73,
+     "frac_below_2": 0.303,
+     "closest_pair": "/ɔ/–/ʌ/"
+    },
+    "ideal_eqY_women": {
+     "median": 5.69,
+     "min": 0.43,
+     "max": 16.42,
+     "frac_below_2": 0.182,
+     "closest_pair": "/ʊ/–/ʌ/"
+    },
+    "ideal_eqY_children": {
+     "median": 7.68,
+     "min": 0.07,
+     "max": 24.82,
+     "frac_below_2": 0.076,
+     "closest_pair": "/ɑ/–/ɝ/"
+    },
+    "ideal_raw_men": {
+     "median": 2.06,
+     "min": 0.11,
+     "max": 6.84,
+     "frac_below_2": 0.5,
+     "closest_pair": "/ɔ/–/ʌ/"
+    },
+    "ideal_raw_women": {
+     "median": 6.36,
+     "min": 0.71,
+     "max": 19.3,
+     "frac_below_2": 0.106,
+     "closest_pair": "/e/–/æ/"
+    },
+    "ideal_raw_children": {
+     "median": 5.35,
+     "min": 0.6,
+     "max": 20.08,
+     "frac_below_2": 0.152,
+     "closest_pair": "/ʊ/–/ʌ/"
+    },
+    "realizable_eqY_men": {
+     "median": 3.63,
+     "min": 0.33,
+     "max": 12.06,
+     "frac_below_2": 0.197,
+     "closest_pair": "/e/–/æ/"
+    },
+    "realizable_eqY_women": {
+     "median": 3.83,
+     "min": 0.17,
+     "max": 13.36,
+     "frac_below_2": 0.106,
+     "closest_pair": "/ʌ/–/ɝ/"
+    },
+    "realizable_eqY_children": {
+     "median": 6.51,
+     "min": 0.19,
+     "max": 17.72,
+     "frac_below_2": 0.136,
+     "closest_pair": "/e/–/ɑ/"
+    },
+    "realizable_raw_men": {
+     "median": 4.4,
+     "min": 0.84,
+     "max": 13.86,
+     "frac_below_2": 0.136,
+     "closest_pair": "/e/–/æ/"
+    },
+    "realizable_raw_women": {
+     "median": 5.42,
+     "min": 0.97,
+     "max": 16.61,
+     "frac_below_2": 0.076,
+     "closest_pair": "/ɑ/–/ɔ/"
+    },
+    "realizable_raw_children": {
+     "median": 8.42,
+     "min": 0.68,
+     "max": 22.67,
+     "frac_below_2": 0.106,
+     "closest_pair": "/e/–/ɛ/"
+    }
+   },
+   "hue_ideal_deg": {
+    "min": 307.5,
+    "max": 321.5,
+    "median": 319.4
+   },
+   "hue_realizable_deg": {
+    "min": 284.7,
+    "max": 295.3,
+    "median": 291.5
+   },
+   "chroma_ideal_raw": {
+    "min": 37.52,
+    "max": 136.02
+   },
+   "Y_T_ideal": {
+    "min": 0.046,
+    "max": 0.557,
+    "median": 0.275
+   },
+   "Y_T_realizable": {
+    "min": 32.78,
+    "max": 71.75,
+    "median": 49.74
+   },
+   "L_raw_ideal": {
+    "min": 0.42,
+    "max": 5.03
+   },
+   "xy_ideal": {
+    "x_min": 0.149,
+    "x_max": 0.173,
+    "y_min": 0.009,
+    "y_max": 0.054
+   },
+   "F1_image_wavelength_nm": {
+    "min": 415.3,
+    "max": 442.0
+   },
+   "ybar_at_F1_images": {
+    "median": 0.018,
+    "max": 0.0257
+   },
+   "ybar_at_F2_images": {
+    "median": 0.0385,
+    "max": 0.1071
+   },
+   "speech_0_4kHz_share_of_band_THz": 175.0,
+   "speech_0_4kHz_share_of_D65_luminance": 0.0492,
+   "speech_0_1kHz_share_of_D65_luminance": 0.00287,
+   "cross_check_contract_7b": "CONTRACT 7b (equal-luminance median dE00): ideal 4.3/5.7/7.7, realizable 3.6/3.8/6.5"
+  },
+  "r3": {
+   "reference_poles_bw_lt_600_count": {
+    "min": 2,
+    "max": 4,
+    "n_vowels_lt_3": 4
+   },
+   "voice_of_film_vs_D_realizable_max_abs_coef": 3.885780586188048e-16,
+   "lpc_vs_hillenbrand": {
+    "mean_abs_Hz": [
+     36.3,
+     23.0,
+     31.4
+    ],
+    "mean_abs_pct": [
+     6.01,
+     1.56,
+     1.2
+    ],
+    "mean_B_Hz": [
+     148.9,
+     187.5,
+     250.4
+    ]
+   },
+   "ideal": {
+    "dF_vs_lpc_mean_Hz": [
+     10.6,
+     3.2,
+     0.9
+    ],
+    "dF_vs_lpc_mean_pct": [
+     1.97,
+     0.21,
+     0.05
+    ],
+    "dF_vs_lpc_max_pct": [
+     7.3,
+     1.5,
+     1.1
+    ],
+    "dF_vs_hill_mean_pct": [
+     7.09,
+     1.72,
+     1.16
+    ],
+    "B_mean_Hz": [
+     356.4,
+     232.9,
+     256.0
+    ],
+    "env_peaks_below_4kHz_prom_ge_1dB": {
+     "median": 3.0,
+     "min": 2,
+     "max": 4
+    },
+    "B_median_Hz": [
+     291.1,
+     178.6,
+     183.4
+    ],
+    "lsd_vs_lpc_dB": {
+     "median": 1.36,
+     "max": 2.03
+    },
+    "lsd_vs_ideal_dB": {
+     "median": 0.0,
+     "max": 0.0
+    },
+    "dE00_vs_ideal_eqY": {
+     "median": 0.0,
+     "max": 0.0
+    },
+    "dE00_vs_ideal_raw": {
+     "median": 0.0,
+     "max": 0.0
+    }
+   },
+   "realizable": {
+    "dF_vs_lpc_mean_Hz": [
+     222.3,
+     244.2,
+     252.7
+    ],
+    "dF_vs_lpc_mean_pct": [
+     40.87,
+     15.15,
+     8.9
+    ],
+    "dF_vs_lpc_max_pct": [
+     128.0,
+     39.1,
+     18.2
+    ],
+    "dF_vs_hill_mean_pct": [
+     37.42,
+     15.2,
+     9.69
+    ],
+    "B_mean_Hz": [
+     1928.1,
+     1861.5,
+     1544.2
+    ],
+    "env_peaks_below_4kHz_prom_ge_1dB": {
+     "median": 0.0,
+     "min": 0,
+     "max": 2
+    },
+    "B_median_Hz": [
+     1939.7,
+     1772.3,
+     1596.5
+    ],
+    "lsd_vs_lpc_dB": {
+     "median": 13.03,
+     "max": 23.3
+    },
+    "lsd_vs_ideal_dB": {
+     "median": 12.06,
+     "max": 22.49
+    },
+    "dE00_vs_ideal_eqY": {
+     "median": 37.43,
+     "max": 39.23
+    },
+    "dE00_vs_ideal_raw": {
+     "median": 66.98,
+     "max": 82.07
+    }
+   },
+   "materials": {
+    "dF_vs_lpc_mean_Hz": [
+     245.9,
+     304.1,
+     321.8
+    ],
+    "dF_vs_lpc_mean_pct": [
+     46.6,
+     18.66,
+     11.23
+    ],
+    "dF_vs_lpc_max_pct": [
+     174.2,
+     36.4,
+     24.6
+    ],
+    "dF_vs_hill_mean_pct": [
+     41.3,
+     18.31,
+     11.58
+    ],
+    "B_mean_Hz": [
+     2088.5,
+     1946.3,
+     1839.7
+    ],
+    "env_peaks_below_4kHz_prom_ge_1dB": {
+     "median": 0.0,
+     "min": 0,
+     "max": 2
+    },
+    "B_median_Hz": [
+     2109.9,
+     2041.2,
+     1913.8
+    ],
+    "lsd_vs_lpc_dB": {
+     "median": 13.02,
+     "max": 23.51
+    },
+    "lsd_vs_ideal_dB": {
+     "median": 12.04,
+     "max": 22.77
+    },
+    "dE00_vs_ideal_eqY": {
+     "median": 37.52,
+     "max": 39.4
+    },
+    "dE00_vs_ideal_raw": {
+     "median": 65.26,
+     "max": 87.07
+    }
+   },
+   "ideal_index_max": {
+    "min": 30.5,
+    "median": 96.8,
+    "max": 649.6
+   },
+   "realizable_gamma": {
+    "min": 0.141,
+    "median": 0.2,
+    "max": 0.268
+   },
+   "coef_shrink_factor_median": 5.0,
+   "materials_distinct_used": 7,
+   "glottis_limit_check_max_abs_D_minus_a_at_rg_-0.99999": 9.5785761999867e-06,
+   "glottis_sweep": {
+    "-0.7": {
+     "mean_abs_dF_Hz": [
+      153.7,
+      26.2,
+      1.6
+     ],
+     "mean_dF_Hz": [
+      -86.9,
+      -25.9,
+      0.0
+     ],
+     "mean_dB_Hz": [
+      744.4,
+      127.2,
+      17.9
+     ],
+     "lsd_median_dB": 3.06
+    },
+    "-0.8": {
+     "mean_abs_dF_Hz": [
+      45.9,
+      11.6,
+      1.2
+     ],
+     "mean_dF_Hz": [
+      -45.0,
+      -9.8,
+      0.9
+     ],
+     "mean_dB_Hz": [
+      441.9,
+      90.7,
+      11.8
+     ],
+     "lsd_median_dB": 2.3
+    },
+    "-0.9": {
+     "mean_abs_dF_Hz": [
+      10.6,
+      3.2,
+      0.9
+     ],
+     "mean_dF_Hz": [
+      -10.0,
+      -0.8,
+      0.9
+     ],
+     "mean_dB_Hz": [
+      207.5,
+      45.4,
+      5.6
+     ],
+     "lsd_median_dB": 1.36
+    },
+    "-0.95": {
+     "mean_abs_dF_Hz": [
+      3.4,
+      1.7,
+      0.5
+     ],
+     "mean_dF_Hz": [
+      -2.7,
+      0.5,
+      0.5
+     ],
+     "mean_dB_Hz": [
+      101.3,
+      22.2,
+      2.7
+     ],
+     "lsd_median_dB": 0.77
+    },
+    "-0.98": {
+     "mean_abs_dF_Hz": [
+      1.1,
+      0.8,
+      0.2
+     ],
+     "mean_dF_Hz": [
+      -0.6,
+      0.4,
+      0.2
+     ],
+     "mean_dB_Hz": [
+      40.0,
+      8.7,
+      1.0
+     ],
+     "lsd_median_dB": 0.34
+    },
+    "-0.99": {
+     "mean_abs_dF_Hz": [
+      0.5,
+      0.4,
+      0.1
+     ],
+     "mean_dF_Hz": [
+      -0.2,
+      0.2,
+      0.1
+     ],
+     "mean_dB_Hz": [
+      19.9,
+      4.3,
+      0.5
+     ],
+     "lsd_median_dB": 0.18
+    }
+   }
+  },
+  "r4": {
+   "label": "all stack parameters approximate/illustrative (core/stacks.py); 1-D lossless, non-dispersive",
+   "items": [
+    {
+     "name": "Morpho-like",
+     "label": "approximate/illustrative",
+     "layers": 14,
+     "R_peak_nm": 449.5,
+     "R_peak": 0.914,
+     "hex_R": "#0f6eff",
+     "Y_R": 17.7,
+     "Lab_R": [
+      49.14,
+      29.68,
+      -77.01
+     ],
+     "hex_T": "#ccbe2f",
+     "env_peaks_Hz": [],
+     "env_prominence_dB": [],
+     "min_pole_bandwidth_Hz": 1319.0,
+     "allpole_fit_lsd_dB": 0.97,
+     "audio": "bfly_morpho.wav"
+    },
+    {
+     "name": "Morpho-like (lamellae ×0.9)",
+     "label": "approximate/illustrative",
+     "layers": 14,
+     "R_peak_nm": 404.5,
+     "R_peak": 0.914,
+     "hex_R": "#7b4bff",
+     "Y_R": 8.45,
+     "Lab_R": [
+      34.89,
+      49.43,
+      -66.11
+     ],
+     "hex_T": "#bac08d",
+     "env_peaks_Hz": [
+      2741.0
+     ],
+     "env_prominence_dB": [
+      0.56
+     ],
+     "min_pole_bandwidth_Hz": 959.0,
+     "allpole_fit_lsd_dB": 1.99,
+     "audio": "bfly_morpho_x0p9.wav"
+    },
+    {
+     "name": "Morpho-like (lamellae ×1.1)",
+     "label": "approximate/illustrative",
+     "layers": 14,
+     "R_peak_nm": 494.5,
+     "R_peak": 0.914,
+     "hex_R": "#00dacf",
+     "Y_R": 46.27,
+     "Lab_R": [
+      73.72,
+      -66.48,
+      -11.42
+     ],
+     "hex_T": "#ff929f",
+     "env_peaks_Hz": [],
+     "env_prominence_dB": [],
+     "min_pole_bandwidth_Hz": 2019.0,
+     "allpole_fit_lsd_dB": 0.9,
+     "audio": "bfly_morpho_x1p1.wav"
+    },
+    {
+     "name": "Beetle-like",
+     "label": "illustrative",
+     "layers": 24,
+     "R_peak_nm": 541.0,
+     "R_peak": 0.458,
+     "hex_R": "#74d14a",
+     "Y_R": 28.31,
+     "Lab_R": [
+      60.17,
+      -42.63,
+      46.96
+     ],
+     "hex_T": "#d0b2d6",
+     "env_peaks_Hz": [
+      4614.0
+     ],
+     "env_prominence_dB": [
+      0.31
+     ],
+     "min_pole_bandwidth_Hz": 2013.0,
+     "allpole_fit_lsd_dB": 0.36,
+     "audio": "bfly_beetle.wav"
+    },
+    {
+     "name": "Beetle-like (layers ×0.9)",
+     "label": "illustrative",
+     "layers": 24,
+     "R_peak_nm": 487.0,
+     "R_peak": 0.458,
+     "hex_R": "#00dacc",
+     "Y_R": 14.93,
+     "Lab_R": [
+      45.54,
+      -44.78,
+      -6.48
+     ],
+     "hex_T": "#cfb5b9",
+     "env_peaks_Hz": [],
+     "env_prominence_dB": [],
+     "min_pole_bandwidth_Hz": 2308.0,
+     "allpole_fit_lsd_dB": 0.43,
+     "audio": "bfly_beetle_x0p9.wav"
+    },
+    {
+     "name": "Beetle-like (layers ×1.1)",
+     "label": "illustrative",
+     "layers": 24,
+     "R_peak_nm": 595.5,
+     "R_peak": 0.458,
+     "hex_R": "#ff8a58",
+     "Y_R": 19.86,
+     "Lab_R": [
+      51.67,
+      32.01,
+      36.39
+     ],
+     "hex_T": "#98c3ca",
+     "env_peaks_Hz": [],
+     "env_prominence_dB": [],
+     "min_pole_bandwidth_Hz": 1964.0,
+     "allpole_fit_lsd_dB": 0.52,
+     "audio": "bfly_beetle_x1p1.wav"
+    }
+   ],
+   "morpho_layer_optical_thickness_nm": [
+    78.6,
+    145.0
+   ],
+   "D_OPT_nm": 428.3,
+   "vowel_extent_ln": 1.619,
+   "median_neighbour_vowel_distance_ln": 0.162,
+   "allpole_fit_lsd_min": 0.36,
+   "allpole_fit_lsd_max": 1.99,
+   "morpho_R_peak_speech_freq_Hz": 1511.0
+  },
+  "r5": {
+   "vowel_extent_ln": 1.619,
+   "median_neighbour_vowel_distance_ln": 0.162,
+   "atlas_stacks_with_F1F2": 10867,
+   "atlas_stacks_in_vowel_box": 6,
+   "atlas_stacks_low_formant": 108,
+   "atlas_F1_percentiles_Hz": {
+    "p5": 2028.0,
+    "median": 3914.0,
+    "p95": 5773.0
+   },
+   "colour_science_vs_core_dE00_max_abs_diff_300_pairs": 0.0,
+   "screen_radius_dE76": [
+    16.0,
+    20.0
+   ],
+   "metamer_pair_counts_at_radii": [
+    804984,
+    804984
+   ],
+   "atlas_metamers": {
+    "n_pairs": 804984,
+    "frac_pairs_chroma_ge_20": 0.983,
+    "dF1_Hz": {
+     "n": 804984,
+     "p10": 161.0,
+     "median": 882.0,
+     "p90": 2205.0,
+     "max": 5377.0
+    },
+    "dF2_Hz": {
+     "n": 804984,
+     "p10": 187.0,
+     "median": 1026.0,
+     "p90": 2466.0,
+     "max": 5617.0
+    },
+    "dist_ln": {
+     "n": 804984,
+     "p10": 0.095,
+     "median": 0.317,
+     "p90": 0.743,
+     "max": 2.391
+    },
+    "frac_dist_gt_neighbour_vowel": 0.775,
+    "chroma_lt_20": {
+     "n": 13480,
+     "dist_ln": {
+      "n": 13480,
+      "p10": 0.108,
+      "median": 0.373,
+      "p90": 0.847,
+      "max": 2.359
+     },
+     "frac_dist_gt_neighbour_vowel": 0.82
+    },
+    "chroma_ge_20": {
+     "n": 791504,
+     "dist_ln": {
+      "n": 791504,
+      "p10": 0.095,
+      "median": 0.316,
+      "p90": 0.741,
+      "max": 2.391
+     },
+     "dF1_Hz": {
+      "n": 791504,
+      "p10": 161.0,
+      "median": 883.0,
+      "p90": 2205.0,
+      "max": 5377.0
+     },
+     "dF2_Hz": {
+      "n": 791504,
+      "p10": 187.0,
+      "median": 1025.0,
+      "p90": 2463.0,
+      "max": 5617.0
+     },
+     "frac_dist_gt_neighbour_vowel": 0.774
+    },
+    "both_low_formant": {
+     "n": 100,
+     "dist_ln": {
+      "n": 100,
+      "p10": 0.048,
+      "median": 0.109,
+      "p90": 0.307,
+      "max": 0.712
+     },
+     "dF1_Hz": {
+      "n": 100,
+      "p10": 15.0,
+      "median": 80.0,
+      "p90": 181.0,
+      "max": 624.0
+     },
+     "dF2_Hz": {
+      "n": 100,
+      "p10": 35.0,
+      "median": 173.0,
+      "p90": 639.0,
+      "max": 1488.0
+     },
+     "frac_dist_gt_neighbour_vowel": 0.34
+    }
+   },
+   "atlas_metamer_example": {
+    "atlas_index": [
+     6973,
+     11945
+    ],
+    "dE00_core": 1.279,
+    "Lab": [
+     [
+      68.16,
+      13.83,
+      -29.07
+     ],
+     [
+      69.5,
+      12.41,
+      -28.04
+     ]
+    ],
+    "F1F2": [
+     [
+      836.0,
+      2092.0
+     ],
+     [
+      1443.0,
+      3304.0
+     ]
+    ],
+    "dist_ln": 0.712,
+    "hex": [
+     "#b9b5f6",
+     "#b7b6f3"
+    ],
+    "nearest_vowels": [
+     "/ɛ/",
+     "/æ/"
+    ],
+    "audio": "metamer_pair_atlas.wav"
+   },
+   "design": {
+    "A: realizable men /ɑ/ film": {
+     "target_Lab": [
+      73.46,
+      15.13,
+      -41.89
+     ],
+     "n_solutions": 8,
+     "n_with_F1F2": 8,
+     "n_envelope_rule": 6,
+     "dE00_to_target_max": 8.422479965611019e-07,
+     "n_flat_voice": 0,
+     "F1_range_Hz": [
+      520.0,
+      6049.0
+     ],
+     "F2_range_Hz": [
+      2370.0,
+      7691.0
+     ],
+     "max_pair_dist_ln": 2.722,
+     "median_pair_dist_ln": 0.781,
+     "max_pair_dist_frac_extent": 1.682,
+     "nearest_vowels": [
+      "/æ/",
+      "/ɑ/",
+      "/ɪ/"
+     ],
+     "n_vowel_like": 1,
+     "poles_only_F1_range_Hz": [
+      5309.0,
+      6049.0
+     ],
+     "poles_only_F2_range_Hz": [
+      7175.0,
+      7691.0
+     ],
+     "audio": "metamer_set_A.wav"
+    },
+    "B: atlas saturated purple": {
+     "target_Lab": [
+      73.06,
+      20.63,
+      -28.6
+     ],
+     "n_solutions": 8,
+     "n_with_F1F2": 8,
+     "n_envelope_rule": 2,
+     "dE00_to_target_max": 5.435239940491076e-07,
+     "n_flat_voice": 0,
+     "F1_range_Hz": [
+      450.0,
+      6036.0
+     ],
+     "F2_range_Hz": [
+      1378.0,
+      6855.0
+     ],
+     "max_pair_dist_ln": 3.051,
+     "median_pair_dist_ln": 0.717,
+     "max_pair_dist_frac_extent": 1.885,
+     "nearest_vowels": [
+      "/æ/",
+      "/ɑ/",
+      "/ɝ/"
+     ],
+     "n_vowel_like": 2,
+     "poles_only_F1_range_Hz": [
+      2658.0,
+      6036.0
+     ],
+     "poles_only_F2_range_Hz": [
+      3881.0,
+      6855.0
+     ],
+     "audio": "metamer_set_B.wav"
+    },
+    "C: atlas pale warm white": {
+     "target_Lab": [
+      93.86,
+      2.57,
+      5.67
+     ],
+     "n_solutions": 8,
+     "n_with_F1F2": 7,
+     "n_envelope_rule": 7,
+     "dE00_to_target_max": 1.910498111930998e-07,
+     "n_flat_voice": 1,
+     "F1_range_Hz": [
+      533.0,
+      3397.0
+     ],
+     "F2_range_Hz": [
+      1745.0,
+      4769.0
+     ],
+     "max_pair_dist_ln": 2.091,
+     "median_pair_dist_ln": 0.855,
+     "max_pair_dist_frac_extent": 1.292,
+     "nearest_vowels": [
+      "/ɑ/",
+      "/ɝ/"
+     ],
+     "n_vowel_like": 4,
+     "poles_only_F1_range_Hz": null,
+     "poles_only_F2_range_Hz": null,
+     "audio": "metamer_set_C.wav"
+    }
+   },
+   "atlas_same_voice": {
+    "n_pairs": 1568647,
+    "dE00": {
+     "n": 1568647,
+     "p10": 3.97,
+     "median": 11.92,
+     "p90": 27.19,
+     "max": 64.54
+    },
+    "frac_dE00_gt_10": 0.582,
+    "frac_dE00_lt_2": 0.0198,
+    "note": "F1 and F2 within 5 % only (F3.. and bandwidths free): weaker than identical polynomials",
+    "both_low_formant": {
+     "n": 735,
+     "dE00": {
+      "n": 735,
+      "p10": 4.08,
+      "median": 11.91,
+      "p90": 25.3,
+      "max": 48.87
+     },
+     "frac_dE00_gt_10": 0.599
+    }
+   },
+   "atlas_same_voice_example": {
+    "atlas_index": [
+     817,
+     4989
+    ],
+    "dE00_core": 48.87,
+    "Lab": [
+     [
+      46.82,
+      33.78,
+      -65.6
+     ],
+     [
+      86.0,
+      2.05,
+      10.32
+     ]
+    ],
+    "F1F2": [
+     [
+      1244.0,
+      2367.0
+     ],
+     [
+      1280.0,
+      2303.0
+     ]
+    ],
+    "hex": [
+     "#6570ff",
+     "#c6baab"
+    ],
+    "audio": "same_voice_pair_atlas.wav"
+   },
+   "exact_family": {
+    "source_atlas_index": 6973,
+    "source_formants_Hz": [
+     836.0,
+     2092.0,
+     3741.0,
+     7228.0
+    ],
+    "source_bandwidths_Hz": [
+     573.0,
+     599.0,
+     501.0,
+     479.0
+    ],
+    "source_nearest_vowel": "/ɛ/ (women)",
+    "n_members": 10,
+    "members": [
+     "original atlas stack",
+     "K=0.9",
+     "K=0.9, zero-flip [1, 2]",
+     "K=0.9, zero-flip [3, 4]",
+     "K=0.5",
+     "K=0.5, zero-flip [1, 2]",
+     "K=0.5, zero-flip [3, 4]",
+     "K=0.2",
+     "K=0.2, zero-flip [1, 2]",
+     "K=0.2, zero-flip [3, 4]"
+    ],
+    "exact_calls_tried": 15,
+    "index_range": [
+     1.0,
+     58.037
+    ],
+    "reversal_T_max_abs_diff": 4.6074255521944e-15,
+    "T_shape_max_rel_ratio_spread": 5.241898743181667e-11,
+    "voice_coef_max_abs_diff": 4.597196538377868e-12,
+    "by_angle_deg": {
+     "0": {
+      "dE00_eqY_median": 0.0,
+      "dE00_eqY_max": 0.0,
+      "dE00_raw_median": 15.59,
+      "dE00_raw_max": 35.4,
+      "xy_spread": 0.0,
+      "Y_range": [
+       7.66,
+       38.18
+      ],
+      "F1_range_Hz": [
+       785.0,
+       785.0
+      ],
+      "F2_range_Hz": [
+       2162.0,
+       2162.0
+      ]
+     },
+     "30": {
+      "dE00_eqY_median": 2.72,
+      "dE00_eqY_max": 14.157,
+      "dE00_raw_median": 14.8,
+      "dE00_raw_max": 33.03,
+      "xy_spread": 0.04237,
+      "Y_range": [
+       7.71,
+       35.16
+      ],
+      "F1_range_Hz": [
+       717.0,
+       1992.0
+      ],
+      "F2_range_Hz": [
+       2163.0,
+       3232.0
+      ]
+     },
+     "45": {
+      "dE00_eqY_median": 6.139,
+      "dE00_eqY_max": 30.59,
+      "dE00_raw_median": 16.48,
+      "dE00_raw_max": 44.27,
+      "xy_spread": 0.11511,
+      "Y_range": [
+       7.84,
+       49.19
+      ],
+      "F1_range_Hz": [
+       426.0,
+       2706.0
+      ],
+      "F2_range_Hz": [
+       1402.0,
+       3616.0
+      ]
+     },
+     "60": {
+      "dE00_eqY_median": 8.222,
+      "dE00_eqY_max": 29.2,
+      "dE00_raw_median": 17.58,
+      "dE00_raw_max": 48.34,
+      "xy_spread": 0.11419,
+      "Y_range": [
+       8.23,
+       56.62
+      ],
+      "F1_range_Hz": [
+       784.0,
+       2740.0
+      ],
+      "F2_range_Hz": [
+       2150.0,
+       5312.0
+      ]
+     }
+    },
+    "orientation": "exact films reversed (reciprocity) and scaled so the incident medium is air (n=1)",
+    "audio": "same_voice_family.wav"
+   }
+  },
+  "r6": {
+   "angles_deg": [
+    0,
+    80,
+    2
+   ],
+   "films": {
+    "morpho": {
+     "name": "Morpho-like (R, illustrative)",
+     "incident_index": 1.0,
+     "min_layer_index": 1.0,
+     "Y_range": [
+      6.14,
+      25.08
+     ],
+     "Y_0": 17.7,
+     "Y_80": 25.08,
+     "dE00_eqY_0_vs_40": 8.94,
+     "dE00_eqY_0_vs_80": 36.59,
+     "hex_0_40_80": [
+      "#0f6eff",
+      "#7ab1ff",
+      "#79cac1"
+     ],
+     "F1F2_0": [
+      null,
+      null
+     ],
+     "F1F2_40": [
+      null,
+      null
+     ],
+     "F1F2_80": [
+      null,
+      null
+     ],
+     "n_angles_with_F1F2": 4,
+     "F1_range_Hz": [
+      1347.0,
+      2704.0
+     ],
+     "F2_range_Hz": [
+      2715.0,
+      5479.0
+     ],
+     "displacement_ln_0_to_20": null,
+     "displacement_ln_0_to_40": null,
+     "displacement_ln_0_to_80": null,
+     "nearest_vowel_at": {
+      "0": "none",
+      "20": "none",
+      "40": "none",
+      "60": "none",
+      "80": "none"
+     },
+     "critical_angle_deg": null,
+     "n_peak_set_changes": 1,
+     "audio": "glide_morpho.wav"
+    },
+    "vowel_ah_ideal": {
+     "name": "men /ɑ/ ideal Goupillaud film (T)",
+     "incident_index": 1.52,
+     "min_layer_index": 1.0,
+     "Y_range": [
+      0.0,
+      1.84
+     ],
+     "Y_0": 0.25,
+     "Y_80": 0.0,
+     "dE00_eqY_0_vs_40": 2.54,
+     "dE00_eqY_0_vs_80": 22.74,
+     "hex_0_40_80": [
+      "#6100ff",
+      "#6400ff",
+      "#a900ff"
+     ],
+     "F1F2_0": [
+      765.0,
+      1285.0
+     ],
+     "F1F2_40": [
+      1148.0,
+      2577.0
+     ],
+     "F1F2_80": [
+      959.0,
+      2516.0
+     ],
+     "n_angles_with_F1F2": 41,
+     "F1_range_Hz": [
+      305.0,
+      1148.0
+     ],
+     "F2_range_Hz": [
+      1026.0,
+      2577.0
+     ],
+     "displacement_ln_0_to_20": 0.727,
+     "displacement_ln_0_to_40": 0.806,
+     "displacement_ln_0_to_80": 0.709,
+     "nearest_vowel_at": {
+      "0": "/ɑ/",
+      "20": "/ɛ/",
+      "40": "/ɑ/",
+      "60": "/ɛ/",
+      "80": "/ɛ/"
+     },
+     "critical_angle_deg": 41.1,
+     "n_peak_set_changes": 7,
+     "audio": "glide_vowel_ah_ideal.wav"
+    },
+    "atlas_eh_like": {
+     "name": "realizable /ɛ/-like atlas stack #6973 (T)",
+     "incident_index": 1.0,
+     "min_layer_index": 1.047,
+     "Y_range": [
+      35.16,
+      63.56
+     ],
+     "Y_0": 38.18,
+     "Y_80": 44.83,
+     "dE00_eqY_0_vs_40": 19.87,
+     "dE00_eqY_0_vs_80": 18.46,
+     "hex_0_40_80": [
+      "#b9b5f6",
+      "#fa9fd5",
+      "#c2b9be"
+     ],
+     "F1F2_0": [
+      785.0,
+      2162.0
+     ],
+     "F1F2_40": [
+      1463.0,
+      2986.0
+     ],
+     "F1F2_80": [
+      548.0,
+      2797.0
+     ],
+     "n_angles_with_F1F2": 41,
+     "F1_range_Hz": [
+      469.0,
+      3379.0
+     ],
+     "F2_range_Hz": [
+      1867.0,
+      5376.0
+     ],
+     "displacement_ln_0_to_20": 0.772,
+     "displacement_ln_0_to_40": 0.702,
+     "displacement_ln_0_to_80": 0.441,
+     "nearest_vowel_at": {
+      "0": "/ɛ/",
+      "20": "/ɑ/",
+      "40": "/ɑ/",
+      "60": "/ɑ/",
+      "80": "/e/"
+     },
+     "critical_angle_deg": null,
+     "n_peak_set_changes": 16,
+     "audio": "glide_atlas_eh_like.wav"
+    }
+   }
+  },
+  "r7": {
+   "n_stacks": 20000,
+   "arms": {
+    "0": "log-uniform n in [1, 2.5]",
+    "1": "bimodal: each layer low (1.0-1.25) or high (2.1-2.5)"
+   },
+   "frac_ge2_formants": {
+    "0": 0.3432,
+    "1": 0.7435
+   },
+   "frac_ge2_formants_all": 0.5433,
+   "contract_7b_claim": "39% (log-uniform) / 74% (bimodal)",
+   "frac_hue_270_330": {
+    "0": 0.9572,
+    "1": 0.9629
+   },
+   "frac_hue_270_330_all": 0.96,
+   "chroma_median": {
+    "0": 32.9,
+    "1": 52.2
+   },
+   "L_median": {
+    "0": 74.3,
+    "1": 60.4
+   },
+   "F1_median_Hz": {
+    "0": 4518.0,
+    "1": 3624.0
+   },
+   "F2_median_Hz": {
+    "0": 6093.0,
+    "1": 5268.0
+   },
+   "frac_within_neighbour_distance_of_a_vowel_mean": 0.0004,
+   "n_within_neighbour_distance_of_a_vowel_mean": 4,
+   "spearman_colour_vs_formant": {
+    "L*": {
+     "F1": -0.039,
+     "F2": 0.026
+    },
+    "a*": {
+     "F1": 0.104,
+     "F2": 0.034
+    },
+    "b*": {
+     "F1": -0.201,
+     "F2": -0.11
+    },
+    "C*": {
+     "F1": 0.179,
+     "F2": 0.093
+    }
+   },
+   "spearman_abs_max": 0.201,
+   "T_at_700THz_median": 0.949,
+   "T_at_525THz_median": 0.522,
+   "frac_T700_gt_T525": 0.8526
+  },
+  "r8": {
+   "d_opt_brief_nm": 428.2749,
+   "d_opt_full_nm": 199.8616,
+   "dnu_brief_THz": 350.0,
+   "dnu_full_THz": 750.0,
+   "full_visible_audio_range_Hz": [
+    0.0,
+    7466.7
+   ],
+   "full_F1_300_900Hz_nm": [
+    407.4,
+    423.5
+   ],
+   "full_F2_900_2800Hz_nm": [
+    423.5,
+    484.5
+   ],
+   "full_fricative_3_7kHz_nm": [
+    492.0,
+    710.6
+   ],
+   "sweep": {
+    "ideal_T": {
+     "best_d_nm": 165.0,
+     "best_median_dE00": 24.1,
+     "at_brief": 1.3,
+     "at_full": 7.8
+    },
+    "realizable_R": {
+     "best_d_nm": 220.0,
+     "best_median_dE00": 27.4,
+     "at_brief": 2.8,
+     "at_full": 19.8
+    },
+    "realizable_T": {
+     "best_d_nm": 180.0,
+     "best_median_dE00": 11.4,
+     "at_brief": 5.6,
+     "at_full": 8.4
+    }
+   },
+   "n_tokens": 1617,
+   "tokens": {
+    "brief_ideal_T": {
+     "men": {
+      "n_tokens": 532,
+      "accuracy": 0.406,
+      "between_median": 0.76,
+      "between_min": 0.07,
+      "within_median": 0.12
+     },
+     "women": {
+      "n_tokens": 558,
+      "accuracy": 0.385,
+      "between_median": 1.43,
+      "between_min": 0.05,
+      "within_median": 0.24
+     },
+     "children": {
+      "n_tokens": 527,
+      "accuracy": 0.372,
+      "between_median": 1.58,
+      "between_min": 0.02,
+      "within_median": 0.31
+     }
+    },
+    "brief_realizable_R": {
+     "men": {
+      "n_tokens": 532,
+      "accuracy": 0.333,
+      "between_median": 1.86,
+      "between_min": 0.25,
+      "within_median": 1.01
+     },
+     "women": {
+      "n_tokens": 558,
+      "accuracy": 0.38,
+      "between_median": 2.08,
+      "between_min": 0.37,
+      "within_median": 1.01
+     },
+     "children": {
+      "n_tokens": 527,
+      "accuracy": 0.412,
+      "between_median": 2.18,
+      "between_min": 0.35,
+      "within_median": 0.96
+     }
+    },
+    "full_ideal_T": {
+     "men": {
+      "n_tokens": 532,
+      "accuracy": 0.479,
+      "between_median": 3.41,
+      "between_min": 0.12,
+      "within_median": 0.31
+     },
+     "women": {
+      "n_tokens": 558,
+      "accuracy": 0.419,
+      "between_median": 6.77,
+      "between_min": 0.03,
+      "within_median": 0.58
+     },
+     "children": {
+      "n_tokens": 527,
+      "accuracy": 0.417,
+      "between_median": 13.66,
+      "between_min": 0.0,
+      "within_median": 1.03
+     }
+    },
+    "full_realizable_R": {
+     "men": {
+      "n_tokens": 532,
+      "accuracy": 0.323,
+      "between_median": 15.86,
+      "between_min": 1.92,
+      "within_median": 5.54
+     },
+     "women": {
+      "n_tokens": 558,
+      "accuracy": 0.332,
+      "between_median": 16.64,
+      "between_min": 2.71,
+      "within_median": 6.79
+     },
+     "children": {
+      "n_tokens": 527,
+      "accuracy": 0.315,
+      "between_median": 16.47,
+      "between_min": 2.36,
+      "within_median": 8.55
+     }
+    }
+   },
+   "formant_ceiling_accuracy": {
+    "men": 0.825,
+    "women": 0.754,
+    "children": 0.746
+   },
+   "full_hue_ideal_T_deg": {
+    "min": 163.0,
+    "max": 310.0,
+    "median": 309.0
+   },
+   "full_hue_realizable_R_deg": {
+    "min": 11.0,
+    "max": 352.0,
+    "median": 51.0
+   },
+   "sensitivity_full": {
+    "bandwidth_x0.5_ideal_T": {
+     "median": 0.16,
+     "max": 8.24
+    },
+    "bandwidth_x0.5_realizable_R": {
+     "median": 6.46,
+     "max": 38.63
+    },
+    "bandwidth_x2_ideal_T": {
+     "median": 0.23,
+     "max": 12.62
+    },
+    "bandwidth_x2_realizable_R": {
+     "median": 5.53,
+     "max": 29.18
+    },
+    "glottis_-0.8_ideal_T": {
+     "median": 0.17,
+     "max": 5.39
+    },
+    "glottis_-0.8_realizable_R": {
+     "median": 4.13,
+     "max": 18.53
+    },
+    "glottis_-0.95_ideal_T": {
+     "median": 0.12,
+     "max": 6.53
+    },
+    "glottis_-0.95_realizable_R": {
+     "median": 4.73,
+     "max": 9.92
+    }
+   }
+  },
+  "meta": {
+   "generated_by": "python -m research.run_all",
+   "figures": [
+    "fig_1_frequency_mapping.png",
+    "fig_1_isomorphism.png",
+    "fig_2_chromaticity.png",
+    "fig_2_dE00_matrices.png",
+    "fig_2_palette_children.png",
+    "fig_2_palette_men.png",
+    "fig_2_palette_women.png",
+    "fig_3_fidelity.png",
+    "fig_3_glottis_sweep.png",
+    "fig_4_butterflies.png",
+    "fig_5_exact_family.png",
+    "fig_5_metamers_spread.png",
+    "fig_6_angle_sweep.png",
+    "fig_7_atlas.png",
+    "fig_butterfly_real.png",
+    "fig_fluorescence.png",
+    "fig_r10_angle.png",
+    "fig_r10_butterflies.png",
+    "fig_r10_fluor.png",
+    "fig_r10_gamut.png",
+    "fig_r10_real_butterflies.png",
+    "fig_r8_mapping.png",
+    "fig_r9_sounds.png"
+   ],
+   "audio": [
+    "bfly_beetle.wav",
+    "bfly_beetle_x0p9.wav",
+    "bfly_beetle_x1p1.wav",
+    "bfly_morpho.wav",
+    "bfly_morpho_x0p9.wav",
+    "bfly_morpho_x1p1.wav",
+    "glide_atlas_eh_like.wav",
+    "glide_morpho.wav",
+    "glide_vowel_ah_ideal.wav",
+    "metamer_A_1.wav",
+    "metamer_A_2.wav",
+    "metamer_A_3.wav",
+    "metamer_A_4.wav",
+    "metamer_A_5.wav",
+    "metamer_A_6.wav",
+    "metamer_A_7.wav",
+    "metamer_A_8.wav",
+    "metamer_pair_atlas.wav",
+    "metamer_set_A.wav",
+    "metamer_set_B.wav",
+    "metamer_set_C.wav",
+    "same_voice_family.wav",
+    "same_voice_pair_atlas.wav"
+   ],
+   "sections_run": [
+    10
+   ]
+  },
+  "r9": {
+   "source": "web/data/sounds.json (tools/build_sounds.py, Wikimedia Commons IPA recordings)",
+   "dE_convention": "CIEDE2000 on displayed sRGB (exposure-normalised hex -> Lab D65), as CONTRACT §4b",
+   "n_sounds": 43,
+   "n_vowels": 14,
+   "n_consonants": 29,
+   "views": {
+    "full_realizable_R": {
+     "label": "full-band · realizable · R",
+     "all": {
+      "n_pairs": 903,
+      "median": 28.33,
+      "min": 0.0,
+      "frac_below_2": 0.002
+     },
+     "vowels": {
+      "n_pairs": 91,
+      "median": 29.57,
+      "min": 3.57,
+      "frac_below_2": 0.0
+     },
+     "consonants": {
+      "n_pairs": 406,
+      "median": 25.52,
+      "min": 0.0,
+      "frac_below_2": 0.002
+     },
+     "vowel_vs_consonant": {
+      "n_pairs": 406,
+      "median": 30.45,
+      "min": 1.85,
+      "frac_below_2": 0.002
+     },
+     "consonant_to_nearest_vowel_median": 8.38,
+     "n_distinct_hex": 42
+    },
+    "full_ideal_T": {
+     "label": "full-band · ideal · T",
+     "all": {
+      "n_pairs": 903,
+      "median": 39.02,
+      "min": 0.0,
+      "frac_below_2": 0.006
+     },
+     "vowels": {
+      "n_pairs": 91,
+      "median": 36.99,
+      "min": 1.17,
+      "frac_below_2": 0.011
+     },
+     "consonants": {
+      "n_pairs": 406,
+      "median": 39.0,
+      "min": 0.0,
+      "frac_below_2": 0.007
+     },
+     "vowel_vs_consonant": {
+      "n_pairs": 406,
+      "median": 40.09,
+      "min": 1.05,
+      "frac_below_2": 0.002
+     },
+     "consonant_to_nearest_vowel_median": 10.77,
+     "n_distinct_hex": 41
+    },
+    "brief_realizable_R": {
+     "label": "brief · realizable · R",
+     "all": {
+      "n_pairs": 903,
+      "median": 11.08,
+      "min": 0.0,
+      "frac_below_2": 0.065
+     },
+     "vowels": {
+      "n_pairs": 91,
+      "median": 8.95,
+      "min": 0.42,
+      "frac_below_2": 0.132
+     },
+     "consonants": {
+      "n_pairs": 406,
+      "median": 13.18,
+      "min": 0.0,
+      "frac_below_2": 0.086
+     },
+     "vowel_vs_consonant": {
+      "n_pairs": 406,
+      "median": 10.97,
+      "min": 0.8,
+      "frac_below_2": 0.03
+     },
+     "consonant_to_nearest_vowel_median": 2.91,
+     "n_distinct_hex": 42
+    },
+    "brief_ideal_T": {
+     "label": "brief · ideal · T",
+     "all": {
+      "n_pairs": 903,
+      "median": 26.11,
+      "min": 0.0,
+      "frac_below_2": 0.049
+     },
+     "vowels": {
+      "n_pairs": 91,
+      "median": 22.9,
+      "min": 0.55,
+      "frac_below_2": 0.055
+     },
+     "consonants": {
+      "n_pairs": 406,
+      "median": 28.52,
+      "min": 0.0,
+      "frac_below_2": 0.059
+     },
+     "vowel_vs_consonant": {
+      "n_pairs": 406,
+      "median": 26.32,
+      "min": 0.1,
+      "frac_below_2": 0.037
+     },
+     "consonant_to_nearest_vowel_median": 4.52,
+     "n_distinct_hex": 40
+    }
+   },
+   "frames_used_median": 28.0,
+   "fallback_items": [
+    "p",
+    "b",
+    "t",
+    "d"
+   ],
+   "headline": {
+    "full_realR_median_dE_all": 28.33,
+    "brief_realR_median_dE_all": 11.08,
+    "full_idealT_median_dE_all": 39.02,
+    "brief_idealT_median_dE_all": 26.11
+   },
+   "figure": "fig_r9_sounds.png"
+  },
+  "r10": {
+   "n_items": 43,
+   "angles": [
+    0,
+    15,
+    30,
+    45,
+    60
+   ],
+   "cluster_dE00": 10.0,
+   "n_valid_main": 17135,
+   "n_total_main": 17135,
+   "n_ideal_max": 57512.6,
+   "strip_reproduced_exactly": true,
+   "few_classes": [],
+   "classes": {
+    "vowel": {
+     "n_items": 14,
+     "distinct": 78,
+     "verdict": "many",
+     "n_colours": 1951,
+     "item_0deg": 9,
+     "item_angles": 23,
+     "own_frames_angles": 71,
+     "strip_frames_angles": 78,
+     "brief_R": 21,
+     "full_T_ideal": 60
+    },
+    "diphthong": {
+     "n_items": 5,
+     "distinct": 51,
+     "verdict": "many",
+     "n_colours": 736,
+     "item_0deg": 4,
+     "item_angles": 12,
+     "own_frames_angles": 51,
+     "strip_frames_angles": 51,
+     "brief_R": 13,
+     "full_T_ideal": 26
+    },
+    "plosive": {
+     "n_items": 6,
+     "distinct": 68,
+     "verdict": "many",
+     "n_colours": 1727,
+     "item_0deg": 4,
+     "item_angles": 11,
+     "own_frames_angles": 71,
+     "strip_frames_angles": 68,
+     "brief_R": 18,
+     "full_T_ideal": 39
+    },
+    "affricate": {
+     "n_items": 2,
+     "distinct": 39,
+     "verdict": "many",
+     "n_colours": 332,
+     "item_0deg": 1,
+     "item_angles": 3,
+     "own_frames_angles": 32,
+     "strip_frames_angles": 39,
+     "brief_R": 11,
+     "full_T_ideal": 19
+    },
+    "nasal": {
+     "n_items": 3,
+     "distinct": 56,
+     "verdict": "many",
+     "n_colours": 892,
+     "item_0deg": 1,
+     "item_angles": 4,
+     "own_frames_angles": 33,
+     "strip_frames_angles": 56,
+     "brief_R": 8,
+     "full_T_ideal": 24
+    },
+    "fricative": {
+     "n_items": 9,
+     "distinct": 85,
+     "verdict": "many",
+     "n_colours": 2182,
+     "item_0deg": 7,
+     "item_angles": 18,
+     "own_frames_angles": 72,
+     "strip_frames_angles": 85,
+     "brief_R": 26,
+     "full_T_ideal": 42
+    },
+    "lateral": {
+     "n_items": 1,
+     "distinct": 41,
+     "verdict": "many",
+     "n_colours": 300,
+     "item_0deg": 1,
+     "item_angles": 4,
+     "own_frames_angles": 29,
+     "strip_frames_angles": 41,
+     "brief_R": 7,
+     "full_T_ideal": 17
+    },
+    "approximant": {
+     "n_items": 3,
+     "distinct": 67,
+     "verdict": "many",
+     "n_colours": 875,
+     "item_0deg": 3,
+     "item_angles": 8,
+     "own_frames_angles": 48,
+     "strip_frames_angles": 67,
+     "brief_R": 13,
+     "full_T_ideal": 27
+    }
+   },
+   "corr_max": 0.977,
+   "corr_median": 0.127,
+   "corr_best": "[z] vs Morpho-like ×0.9",
+   "corr_best_dE": 2.61,
+   "most_alike": [
+    "[z] +0.98",
+    "[s] +0.87",
+    "[f] +0.75",
+    "[θ] +0.69",
+    "[ʃ] +0.62"
+   ],
+   "dE_nearest_colour_median": 15.2,
+   "dE_nearest_by_corr_median": 22.8,
+   "twin_dE_median": 0.0,
+   "twin_dE_max": 5.17,
+   "twin_below_2": 42,
+   "voice_winner": "Goupillaud speaker #3",
+   "voice_winner_n": 14,
+   "s_voice": "Morpho-like",
+   "s_voice_lsd": 9.44,
+   "lsd_min": 3.1,
+   "lsd_max": 23.1,
+   "butterfly_win_counts": {
+    "Morpho-like ×0.9": 13,
+    "Beetle-like": 6,
+    "Beetle-like ×1.1": 9,
+    "Beetle-like ×0.9": 2,
+    "Goupillaud speaker #4": 8,
+    "Goupillaud speaker #1": 4,
+    "Goupillaud speaker #2": 1
+   },
+   "findings": [
+    "No phoneme class is limited to one or two colours: with every frame and 5 viewing angles the classes give 39–85 distinct colours (CIEDE2000 clusters ≤ 10), so no 'few colours' proof is claimed. Tilting the film from 0° to 60° alone multiplies the colours: per class, item × angles gives 3–23 distinct colours.",
+    "17 135 film colours of the main view were checked for validity and all come from physically realizable films (indices 1–2.5, |k| < 1, R + T = 1 checked); 8 995 of them are distinct display colours plotted in the class gamuts. The ideal-film views are not realizable (indices up to 57513).",
+    "One film per phoneme at normal incidence: the 14 vowels give 9 distinct colours and the 9 fricatives 7, but the 3 nasals collapse to 1 (magenta) and the 2 modelled affricates to 1 (both built mostly from ʃ). This is an observation, not a 'few' verdict: frames and angles spread the nasals to 56 colours, and no proof is claimed.",
+    "The most butterfly-like phoneme films: [z] (fricative) ρ = +0.98, [s] (fricative) ρ = +0.87, [f] (fricative) ρ = +0.75, [θ] (fricative) ρ = +0.69 (reflectance correlation with the nearest Morpho-/Beetle-like film, 380–780 nm; [z] also ΔE00 = 2.6). The match is in spectral SHAPE and hue only: [z] reflects at most R = 0.18, the butterfly film 0.91. Vowels, nasals and plosives are not (median ρ over all phonemes +0.13); the closest film by colour is a median ΔE00 = 15 away (these are idealised 1-D stacks). Against the realistic scale models (disorder, tilt, melanin absorption; approximate) the most frequent nearest species is Chrysochroa fulgidissima (22/43); the best match is [z] vs Morpho didius (ρ = +0.70, ΔE00 = 30), median ρ -0.26: the realistic, broader and dimmer spectra resemble phoneme films less than the idealised stacks do.",
+    "But every phoneme colour has a butterfly-material twin: an 8-layer chitin/air stack matches the absolute reflected colour to median ΔE00 = 0 (max 5.2; 42/43 below 2).",
+    "Voices: the butterfly whose all-pole voice is closest to most phonemes is Goupillaud speaker #3 (14/43; a random equal-thickness Garden film, not an insect); /s/ sounds most like Morpho-like (LSD 9.4 dB); all LSDs 3.1–23.1 dB.",
+    "Fluorescence (approximate, papiliochrome-type dye in every layer): under blacklight all 43 phoneme films glow the same green (max pairwise ΔE00 1.3, emission peak 503–510 nm) — a 'few colours' result with a proof: the film only multiplies the fixed emission band by an escape factor η ∈ [0.31, 0.51]. In daylight the dye adds 11–79 % of the luminance and the colours stay distinct.",
+    "Modelled items (e ɛ o from Hillenbrand means; ʒ tʃ dʒ from relatives) and the fallback plosives p b t d (context vowel averaged in) are approximations; the all-pole film is an envelope model for nasals, fricatives and plosives."
+   ],
+   "n_gamut_colours": 8995,
+   "n_valid_main_th": "17 135",
+   "n_total_main_th": "17 135",
+   "n_gamut_colours_th": "8 995",
+   "real_winner": "Chrysochroa fulgidissima",
+   "real_winner_n": 22,
+   "real_win_counts": {
+    "Morpho didius": 12,
+    "Chrysochroa fulgidissima": 22,
+    "Chrysiridia rhipheus": 2,
+    "Papilio blumei": 6,
+    "Morpho rhetenor": 1
+   },
+   "real_best": "[z] vs Morpho didius",
+   "real_best_corr": 0.705,
+   "real_best_dE": 30.45,
+   "real_corr_median": -0.261,
+   "real_species": "Morpho rhetenor (#44a9ff, 448 nm), Morpho didius (#56a1ff, 432 nm), Papilio blumei (#afc29e, 526 nm), Chrysiridia rhipheus (#8ecb7e, 548 nm), Chrysochroa fulgidissima (#4ed1aa, 540 nm)",
+   "fluor": {
+    "peak_min": 503.0,
+    "peak_max": 510.0,
+    "shift_max": 5.0,
+    "bound_max": 37.1871,
+    "kappa_max": 0.0165,
+    "eta_min": 0.3084,
+    "eta_max": 0.5076,
+    "rho_max": 1.635,
+    "max_dE00_UV": 1.3,
+    "max_dE00_UV_unclipped": 2.8,
+    "distinct_UV": 1,
+    "fluor_share_UV_min": 0.9997,
+    "holds": true,
+    "ff_D65_min": 11,
+    "ff_D65_max": 79,
+    "ref_hex": "#00de74"
+   },
+   "seconds": 41.8,
+   "figures": [
+    "results/fig_r10_gamut.png",
+    "results/fig_r10_butterflies.png",
+    "results/fig_r10_angle.png",
+    "results/fig_r10_real_butterflies.png",
+    "results/fig_r10_fluor.png"
+   ]
+  }
+ },
+ "report": {
+  "source": "docs/REPORT.md",
+  "markdown": "# Vowels That Shine, Butterflies That Speak — research report\n\n<!-- GENERATED FILE: docs/REPORT.md is rendered by `python -m research.run_all` from research/report_template.txt;\n     every number below is read from results/summary.json at render time. Edit the template, not REPORT.md. -->\n\n## Abstract\n\nA vocal tract modelled as N = 16 equal-delay lossless tubes and a 16-layer Goupillaud thin film share one\nmathematics: the same reflection coefficients c_i = (m_i − m_{i+1})/(m_i + m_{i+1}), the same characteristic\npolynomial D(z), and the same power transfer ∏(1 − c_i²)/|D|². We verify this numerically. Three independent codes\n(Abelès film matrices in optical units, an acoustic ABCD chain in physical units, and the polynomial) agree to\n2.8e-12 (absolute) for all 36 Hillenbrand vowel means. Under the canonical\nmapping, one 2π period of the tube response spans 400–750 THz, so every vowel has a colour and every film has a\nvoice. The main finding is that **speech lands where the eye barely sees**. F1 maps to\n415.3–442 nm, where the luminous efficiency ȳ is at most\n0.0257. All 36 vowels are violet (CIELAB hue 307.5–321.5°),\nand vowels within a group differ by a median of only 4.33 /\n5.69 / 7.68 ΔE00 (men / women / children,\nequal luminance).\n\nPhysical realizability is the bottleneck. Ideal vowel films need refractive indices up to\n96.8 (median) and 649.6 (max). Compressing them into n ∈ [1, 2.5]\nbroadens the formants to about 1939.7 Hz, which turns the vowels into near-flat\n\"whispers\" (median 0 envelope peaks ≥ 1 dB below 4 kHz).\n\nMetamers exist both ways:\n- **Same colour, different voices.** 804984 atlas pairs have ΔE00 < 2, with a median voice\n  distance of 0.317 in ln-Hz, about twice the typical spacing between neighbouring\n  vowels. Inverse design gives 8 exact metamers per target colour.\n- **Same voice, different colour.** Exact layer-peeling families share one polynomial and so have identical voices.\n  At normal incidence their chromaticities are identical (xy spread 0)\n  while Y ranges over 7.66–38.18.\n  At 60° the family members separate (median equal-luminance ΔE00 8.222).\n\nTilting a film changes both its colour and its formants: iridescence is a diphthong.\n\n## How to reproduce\n\n```\n. .\\tools\\env.ps1\npython -m research.run_all            # ~10-20 s with caches; --fresh rebuilds them (~2-3 min); timings in results/runtime.json\n```\n\nThe run writes:\n- figures to `results/fig_*.png`;\n- audio to `results/audio/*.wav` (16 kHz);\n- all numbers to `results/summary.json`;\n- this report to `docs/REPORT.md` (from `research/report_template.txt`);\n- copies of the figures, audio and `summary.json` to `web/results/`.\n\nIt caches `results/cache_atlas_pairs.npz` (metamer pair search) and `results/cache_design_stacks.json`\n(inverse design, the slow step). The 20 000-stack atlas `results/atlas.npz` comes from `python -m tools.build_all`.\n\n## Method\n\nAll conventions are those of `docs/CONTRACT.md`. A short summary:\n\n- **Shared object (§2).** The media vector is m = [m_0 … m_{N+1}]:\n  - Tube: glottis termination, then sections from glottis to lips, then radiation.\n  - Film: incident medium, then layers, then substrate.\n  - Ideal mode uses n_i = m_i / min(m).\n  - Reflection coefficients are c_i = (m_i − m_{i+1})/(m_i + m_{i+1}), and D(z) comes from the row recursion.\n- **Mapping (§4).** Every layer has the optical thickness n·d = 428.275 nm (Goupillaud), so\n  ω_tube = 2πf/F_s equals 2δ_film and f(ν) = F_s·frac(ν/Δν) with Δν = 350 THz.\n  - 700 THz maps to 0 Hz and 525 THz maps to 8 kHz. These are the two mirror points, because |D|² is even in ω.\n  - 400 THz maps to 2285.7 Hz.\n- **Vowels (§3).** Hillenbrand et al. (1995) group means (F0, F1–F3; 12 vowels × men, women, children) are processed\n  as follows:\n  1. Synthesise each vowel with a Rosenberg source. The bandwidths are 80/100/150 Hz (illustrative).\n  2. Take a 16th-order LPC.\n  3. Convert the reflection coefficients to an area function.\n  4. Prepend a finite glottis, R_GLOTTIS = −0.9 (illustrative).\n  5. Build the film in ideal, realizable (n ∈ [1, 2.5]) or materials mode.\n- **Film → voice.** `core.film.voice_of_film` samples T over exactly one period of ν, treats it as a power spectrum,\n  and applies an inverse FFT and Levinson. The result is exact for Goupillaud stacks and a best all-pole fit\n  otherwise.\n- **Colour.** CIE 1931 2° observer; illuminants D65, A, F11 and LED-B3; CIELAB; CIEDE2000.\n  - \"Raw\" ΔE00 uses the true Lab, so lightness is included.\n  - \"Equal-luminance\" (eqY) ΔE00 rescales XYZ to Y = 50 first, as in `tools/measure_palette.py`.\n  - Swatches use `display_rgb`, an **artistic** exposure normalisation (Y → 50) without chromatic adaptation, so\n    swatches under illuminant A look orange.\n- **Formant policy.**\n  - Primary: poles of the polynomial with bandwidth < 600 Hz (`formants_from_poly`).\n  - Secondary, for weak or broad voices (butterflies, angle sweeps, flat metamers): peaks of the LPC envelope\n    20·log10(g/|A|), together with their prominence.\n  - Section 3 matches each reference formant to the nearest pole of any bandwidth and reports that pole's bandwidth.\n- **Vowel-chart unit.** Distance in (ln F1, ln F2), measured against two references:\n  - the extent of the 36 Hillenbrand means, 1.619;\n  - the median distance from a vowel to its nearest neighbour in the same group, 0.162.\n- **Bulk ΔE00.** Atlas pair searches use the vectorised CIEDE2000 of `colour-science`. On 300 pairs\n  it differs from `core.colour.delta_e00` by at most 0.\n  Quoted example pairs are recomputed with `core`.\n\n---\n\n## 1. The isomorphism, verified\n\n![isomorphism](../results/fig_1_isomorphism.png)\n\n*Figure 1a. Men's /ɑ/ as an ideal 16-layer Goupillaud film with a finite glottis. Top: film transmittance from\nAbelès characteristic matrices in optical units (blue), tube power transmission from an acoustic ABCD chain in\nphysical units (orange dashed), and the polynomial ∏(1−c²)/|D|² (black dotted), against optical frequency; the top\naxis shows wavelength. Bottom: absolute residuals, clipped at 10⁻¹⁸ for the log axis. Dash-dotted lines mark the\nmirror points.*\n\n| check | max abs. error |\n|---|---|\n| film − polynomial, men /ɑ/ | 2.86e-13 |\n| tube ABCD − polynomial, men /ɑ/ | 2.80e-13 |\n| film − polynomial, all 36 vowels (relative error 3.0e-12) | 2.82e-12 |\n| tube − polynomial, all 36 vowels | 2.81e-12 |\n| film/tube − polynomial, 200 random media (ln m ∈ [−1.5, 1.5]) | 4.58e-11 |\n| time-domain Kelly–Lochbaum lattice vs impulse response of ∏(1+c)/D(z) | 8.17e-16 |\n\nThe residuals sit at floating-point level. Four independent implementations (optics, acoustics, the polynomial and\na time-domain scattering lattice) are one model.\n\n![frequency mapping](../results/fig_1_frequency_mapping.png)\n\n*Figure 1b. The frequency mapping f(ν) = F_s·frac(ν/Δν) (blue sawtooth) and the effective speech frequency\nmin(f, F_s − f) (dashed). The mirror points are 525 THz (8 kHz) and 700 THz (0 Hz). Shaded bands show where the\nHillenbrand F1 and F2 ranges land. The black curve is the CIE ȳ(λ) eye sensitivity: speech occupies the violet\nshoulder where ȳ is tiny.*\n\n## 2. The vowel palette — speech lives where the eye barely sees\n\n![palette men](../results/fig_2_palette_men.png)\n![palette women](../results/fig_2_palette_women.png)\n![palette children](../results/fig_2_palette_children.png)\n\n*Figure 2a–c. Twelve vowels per group from the Hillenbrand 1995 means. Each row shows the area function as a tube\nsilhouette (glottis → lips, radius ∝ √area), then swatches under D65, A, F11 and LED-B3 for transmittance T and\nreflectance R in ideal mode, then the realizable-mode D65 swatches. Swatches are exposure-normalised (artistic) and\nnot chromatically adapted.*\n\n![dE matrices](../results/fig_2_dE00_matrices.png)\n\n*Figure 2d. Pairwise ΔE00 between the 12 vowels of each group (ideal mode, D65, T, equal luminance).*\n\n![chromaticity](../results/fig_2_chromaticity.png)\n\n*Figure 2e. CIE 1931 xy chromaticities of all 36 vowel films (filled: ideal; open: realizable) against the spectral\nlocus and the D65 white.*\n\n**The finding.** The canonical mapping sends 0 Hz to 700 THz (428 nm), so formants sit close to the violet end:\n\n- **Where F1 lands.** The F1 images lie at 415.3–442 nm.\n  There the eye's luminous efficiency is ȳ ≤ 0.0257 (median 0.018;\n  peak ȳ = 1). F2 images have ȳ median 0.0385 and max 0.1071.\n- **Luminance budget.** The part of the visible band that carries 0–4 kHz spans 175 of the 350 THz, but it carries only\n  4.9% of the D65 luminance (0–1 kHz: 0.29%).\n- **Ideal-mode vowel films are deep violet.**\n  - CIELAB hue 307.5–321.5° (median 319.4°).\n  - xy chromaticity x = 0.149–0.173, y = 0.009–0.054,\n    which is on the purple line next to the 420–450 nm locus.\n  - They are almost black: Y_T = 0.046–0.557 (median 0.275).\n- **Realizable films are pale lavender**: hue 284.7–295.3°,\n  Y_T median 49.74.\n\nThe vowels are hard to tell apart by colour:\n\n| group | ideal eqY median ΔE00 (min–max) | pairs < 2 | closest pair | realizable eqY median | ideal raw median |\n|---|---|---|---|---|---|\n| men | 4.33 (0.09–11.73) | 30% | /ɔ/–/ʌ/ | 3.63 | 2.06 |\n| women | 5.69 (0.43–16.42) | 18% | /ʊ/–/ʌ/ | 3.83 | 6.36 |\n| children | 7.68 (0.07–24.82) | 8% | /ɑ/–/ɝ/ | 6.51 | 5.35 |\n\nThese equal-luminance medians reproduce CONTRACT §7b (ideal 4.3 / 5.7 / 7.7; realizable 3.6 / 3.8 / 6.5).\nChildren's vowels separate best because their formants are higher and therefore land further from 700 THz. Raw ΔE00\nof ideal films is dominated by lightness, because L* is only 0.42–5.03.\n\nAudio of the vowels themselves is in `web/audio/vowel_*.wav` (from `tools/build_all.py`).\n\n## 3. Ideal vs realizable vs materials, and the illustrative glottis\n\n![fidelity](../results/fig_3_fidelity.png)\n\n*Figure 3a. The chain LPC 1/|A|² → ideal film (finite glottis) → realizable (n ∈ [1, 2.5]) → materials (snapped to\n7 catalogue indices), over all 36 vowels. Top: example spectra for men /i/, mean\nrelative formant error, and mean bandwidth of the matched pole. Bottom: log-spectral distance (mean-removed dB RMS)\nto 1/|A|², and ΔE00 to the ideal film, at equal luminance and raw.*\n\nAll formant errors are relative to the LPC polynomial's own poles. As a baseline, the LPC estimate itself differs\nfrom the Hillenbrand targets by 6.01 / 1.56 /\n1.2 % (F1 / F2 / F3).\n\n| stage | mean abs. ΔF1 / ΔF2 / ΔF3 (Hz) | mean abs. ΔF (%) | median bandwidth B1 / B2 / B3 (Hz) | LSD to 1/\\|A\\|² (median, max; dB) | ΔE00 to ideal film, eqY median (raw) |\n|---|---|---|---|---|---|\n| LPC reference | – | – | 148.9 / 187.5 / 250.4 (mean) | 0 | – |\n| ideal film | 10.6 / 3.2 / 0.9 | 1.97 / 0.21 / 0.05 | 291.1 / 178.6 / 183.4 | 1.36, 2.03 | 0 (0) |\n| realizable | 222.3 / 244.2 / 252.7 | 40.87 / 15.15 / 8.9 | 1939.7 / 1772.3 / 1596.5 | 13.03, 23.3 | 37.43 (66.98) |\n| materials | 245.9 / 304.1 / 321.8 | 46.6 / 18.66 / 11.23 | 2109.9 / 2041.2 / 1913.8 | 13.02, 23.51 | 37.52 (65.26) |\n\nWhat the stages do:\n\n- **Ideal mode costs only the finite glottis.** F1 shifts by 1.97 % on average, the\n  higher formants by less, and the bandwidths grow.\n- **Realizability is the real loss.** Ideal vowel films need indices up to 30.5–649.6\n  (median 96.8). The compression exponent γ = ln 2.5 / ln(max n) is\n  0.141–0.268, which shrinks every reflection coefficient by about 5×.\n  - The pole frequencies move by 8.9–40.87 % (F3 to F1).\n  - The median bandwidths explode to 1596.5–1939.7 Hz.\n  - The LPC envelope of a realizable vowel film has a median of 0\n    peaks with ≥ 1 dB prominence below 4 kHz (max 2). The ideal\n    films have a median of 3.\n  - Realizable vowel films therefore **whisper**.\n  - The colour moves from deep violet to pale lavender (eqY ΔE00 ≈ 37.43).\n- **Snapping to real materials adds little beyond compression.**\n- **Consistency check.** For realizable Goupillaud films, `voice_of_film` returns exactly D(z): the maximum\n  coefficient difference is 3.9e-16.\n\n![glottis](../results/fig_3_glottis_sweep.png)\n\n*Figure 3b. The illustrative glottal termination R_GLOTTIS, swept from −0.7 to −0.99 and compared with the\nclosed-glottis 1/|A|²: men /i/ spectra, mean absolute formant shift, and mean bandwidth increase (36 vowels).*\n\n| R_GLOTTIS | mean abs. ΔF1 / ΔF2 / ΔF3 (Hz) | mean ΔB1 / ΔB2 / ΔB3 (Hz) | median LSD (dB) |\n|---|---|---|---|\n| −0.7 | 153.7 / 26.2 / 1.6 | 744.4 / 127.2 / 17.9 | 3.06 |\n| −0.8 | 45.9 / 11.6 / 1.2 | 441.9 / 90.7 / 11.8 | 2.3 |\n| **−0.9 (default)** | 10.6 / 3.2 / 0.9 | 207.5 / 45.4 / 5.6 | 1.36 |\n| −0.95 | 3.4 / 1.7 / 0.5 | 101.3 / 22.2 / 2.7 | 0.77 |\n| −0.98 | 1.1 / 0.8 / 0.2 | 40 / 8.7 / 1 | 0.34 |\n| −0.99 | 0.5 / 0.4 / 0.1 | 19.9 / 4.3 / 0.5 | 0.18 |\n\nThe finite glottis mainly broadens F1, and F1 drops slightly; F3 is essentially untouched. The effect vanishes\nsmoothly as R_GLOTTIS → −1. At −0.99999 the coefficients of D(z) differ from the LPC polynomial a by\n9.6e-06. The default −0.9 is a mild, illustrative choice.\n\n## 4. Butterflies that speak\n\n![butterflies](../results/fig_4_butterflies.png)\n\n*Figure 4. Parametric Morpho-like stacks (chitin 1.56 / air, 8 pairs) and beetle-like stacks (chitin / n = 1.70,\n12 pairs), each with ±10 % thickness variants. **All parameters are approximate / illustrative** (core/stacks.py,\nafter Vukusic et al. 1999). Left: normal-incidence reflectance, with numbered swatches showing the displayed\nR colour. Middle: their voices, from `voice_of_film` with order 16 (▼ marks envelope peaks). Right: position on the\nvowel chart (★ filled with the R colour), joined to the nearest Hillenbrand mean.*\n\n| stack | R peak (nm) | R colour | envelope peaks F1, F2 (Hz) [prominence dB] | nearest vowel (ln-dist, fraction of vowel extent) | audio |\n|---|---|---|---|---|---|\n| Morpho-like | 449.5 | #0f6eff | –, – [–, –] | – (–, –) | [wav](../results/audio/bfly_morpho.wav) |\n| Morpho-like (lamellae ×0.9) | 404.5 | #7b4bff | –, – [0.56, –] | – (–, –) | [wav](../results/audio/bfly_morpho_x0p9.wav) |\n| Morpho-like (lamellae ×1.1) | 494.5 | #00dacf | –, – [–, –] | – (–, –) | [wav](../results/audio/bfly_morpho_x1p1.wav) |\n| Beetle-like | 541 | #74d14a | none ≥ 0.3 dB below 4 kHz (poles B ≥ 2013 Hz) | – (flat voice) | [wav](../results/audio/bfly_beetle.wav) |\n| Beetle-like (layers ×0.9) | 487 | #00dacc | none (poles B ≥ 2308 Hz) | – (flat voice) | [wav](../results/audio/bfly_beetle_x0p9.wav) |\n| Beetle-like (layers ×1.1) | 595.5 | #ff8a58 | none (poles B ≥ 1964 Hz) | – (flat voice) | [wav](../results/audio/bfly_beetle_x1p1.wav) |\n\nHow to read this:\n\n- **Formants come from where the stack is *not* coloured.** A film's voice comes from its *transmittance*, so\n  formants (peaks of T) sit where the reflectance is low. The Morpho-like reflection band near 480 nm is an\n  anti-formant around 1511 Hz.\n- **The voices are weak.** Butterfly-like stacks are not Goupillaud stacks: their layers are 78.6, 145 nm optically,\n  not 428.3 nm. Their voices are therefore best all-pole fits to T over the visible period, with fit LSD\n  0.36–1.99 dB. The peaks are weak: the default Morpho-like\n  stack's F1/F2 prominences are < 1 dB.\n- **\"Nearest vowel\" is only loosely defined for these voices.** For the Morpho-like stack it is\n  – of the vowel-space extent away.\n  - Only the ×0.9 Morpho variant lands near a real vowel (–, distance\n    –, below the neighbouring-vowel spacing of 0.162).\n  - The beetle-like stacks, which have low index contrast, have no formants at all: they hiss.\n\n## 5. Metamers both ways\n\n![metamer spread](../results/fig_5_metamers_spread.png)\n\n*Figure 5a. Left: for the 804984 atlas pairs with ΔE00 < 2 (D65, T), the distribution of voice\ndistance in (ln F1, ln F2), split by chroma. The dashed line is the median distance between neighbouring vowels.\nMiddle: the inverse-designed metamers (3 target colours × 8 stacks, `core.inverse.design_stacks`) on the vowel chart,\nfilled with their colour. Right: for the 1568647 atlas pairs whose F1 and F2 agree within\n5 %, the distribution of ΔE00.*\n\n### 5a. Same colour, different voices\n\n**Atlas.** Of the 20 000 stacks, 10867 have two formants. Screening is exact: a Lab KD-tree\nwith radius 16 and with radius 20 finds the same 804984 pairs.\n\n| subset | pairs | voice distance in ln-Hz, p10 / median / p90 / max | abs. ΔF1 median (p90) Hz | abs. ΔF2 median (p90) Hz | share more different than neighbouring vowels |\n|---|---|---|---|---|---|\n| all | 804984 | 0.095 / 0.317 / 0.743 / 2.391 | 882 (2205) | 1026 (2466) | 77.5% |\n| C* ≥ 20 (chromatic) | 791504 | 0.095 / 0.316 / 0.741 / 2.391 | 883 (2205) | 1025 (2463) | 77.4% |\n| C* < 20 (near-neutral) | 13480 | 0.108 / 0.373 / 0.847 / 2.359 | – | – | 82.0% |\n| both voices low-formant (F1 ≤ 1.5 kHz, F2 ≤ 4 kHz) | 100 | 0.048 / 0.109 / 0.307 / 0.712 | 80 (181) | 173 (639) | 34.0% |\n\n**Caveat.** Most atlas voices are not vowel-like. The median \"F1\", i.e. the first pole with bandwidth < 600 Hz, is\n3914 Hz. Only 6 of 10867\nstacks fall in the Hillenbrand box (F1 250–1100 Hz, F2 700–3500 Hz), and only 108 have\nF1 ≤ 1.5 kHz and F2 ≤ 4 kHz. Among the low-formant metamer pairs the voices still differ: the median distance is\n0.109 against a neighbouring-vowel spacing of\n0.162, and 34%\nof these pairs exceed that spacing.\n\n**Example metamer pair.** Atlas stacks #6973 and\n#11945 have ΔE00 = 1.279 (core), with colours\n#b9b5f6 and #b7b6f3. Their (F1, F2) are\n(836, 2092) Hz, nearest\n/ɛ/, and (1443,\n3304) Hz, nearest /æ/.\nAudio: [metamer_pair_atlas.wav](../results/audio/metamer_pair_atlas.wav).\n\n**Inverse design.** `design_stacks` was run with 40 restarts and 8 diverse solutions per target, for three target\ncolours drawn from the realizable gamut (§7). The formant-rule column counts how many of the 8 voices were read with\nthe pole rule, the envelope rule, or had no formants (flat).\n\n| target (Lab) | solutions (max ΔE00 to target) | formant rule: envelope / flat | F1 range (Hz) | F2 range (Hz) | median / max pairwise ln-dist | nearest vowels | audio |\n|---|---|---|---|---|---|---|---|\n| A: realizable men /ɑ/ film (73.46, 15.13, -41.89) | 8 (8.4e-07) | 6 / 0 | 520–6049 | 2370–7691 | 0.781 / 2.722 | /æ/, /ɑ/, /ɪ/ | [set A](../results/audio/metamer_set_A.wav) |\n| B: atlas saturated purple (73.06, 20.63, -28.6) | 8 (5.4e-07) | 2 / 0 | 450–6036 | 1378–6855 | 0.717 / 3.051 | /æ/, /ɑ/, /ɝ/ | [set B](../results/audio/metamer_set_B.wav) |\n| C: atlas pale warm white (93.86, 2.57, 5.67) | 8 (1.9e-07) | 7 / 1 | 533–3397 | 1745–4769 | 0.855 / 2.091 | /ɑ/, /ɝ/ | [set C](../results/audio/metamer_set_C.wav) |\n\nThe optimiser hits each target colour essentially exactly. Within one colour the voices spread over up to\n1.885 × the whole Hillenbrand vowel extent. Many of the\ndesigned voices are weak, which is why the envelope rule is needed for them. Individual voices of set A:\n[1](../results/audio/metamer_A_1.wav) [2](../results/audio/metamer_A_2.wav) [3](../results/audio/metamer_A_3.wav)\n[4](../results/audio/metamer_A_4.wav) [5](../results/audio/metamer_A_5.wav) [6](../results/audio/metamer_A_6.wav)\n[7](../results/audio/metamer_A_7.wav) [8](../results/audio/metamer_A_8.wav).\n\n### 5b. Same voice, different colours\n\n**Atlas (approximate).** 1568647 pairs have |ΔF1| and |ΔF2| < 5 %. This is weaker than\nidentical voices: F3 and the bandwidths are free. Their ΔE00 runs p10 3.97, median\n11.92, p90 27.19, max 64.54.\n58.2% of the pairs differ by more than 10 ΔE00, and only\n2.0% are also colour metamers. For low-formant pairs\n(n = 735) the median is 11.91.\n\nExample: #817 (#6570ff, F1/F2 =\n1244/2367 Hz) and\n#4989 (#c6baab,\n1280/2303 Hz) differ by ΔE00 =\n48.87. Audio: [same_voice_pair_atlas.wav](../results/audio/same_voice_pair_atlas.wav).\n\n![exact family](../results/fig_5_exact_family.png)\n\n*Figure 5b. An exact same-voice family. Every film has the same polynomial D(z), taken from atlas stack\n#6973: formants 836 /\n2092 / 3741 Hz, nearest vowel\n/ɛ/ (women). The films come from `core.inverse.exact_films_for_polynomial` with the\nend-mismatch parameter K and conjugate-pair zero flips. Left: index profiles. Middle: displayed colour and Y at 0°,\n30°, 45° and 60°. Right: normalised T(λ) at 0° (all curves coincide) and at 60° (they diverge).*\n\n**Exact families (identical polynomial ⇒ identical voice).** The family has 10 films: the\noriginal stack plus K ∈ {0.9, 0.5, 0.2} × {no flip, two conjugate zero-flips}. Non-conjugate flips do not preserve |G|\nand were rejected by checking that D(z) = a.\n\nTo keep the incident medium air (n = 1) and avoid total internal reflection at oblique incidence, each exact film is\nreversed and rescaled. Reversal is allowed by reciprocity: at normal incidence, T of the reversed film differs from\nT of the original by at most 4.6e-15. The indices span\n1–58.037, so this is ideal mode.\n\nChecks on the family:\n- The T shapes are identical: the ratio T_k/T_0 is constant to 5.2e-11.\n- `voice_of_film` returns the same polynomial to 4.6e-12, so the voices are\n  identical.\n\n| angle | eqY ΔE00 median / max | raw ΔE00 median / max | xy spread | Y range | F1 range (Hz) | F2 range (Hz) |\n|---|---|---|---|---|---|---|\n| 0° | 0 / 0 | 15.59 / 35.4 | 0 | 7.66–38.18 | 785–785 | 2162–2162 |\n| 30° | 2.72 / 14.157 | 14.8 / 33.03 | 0.04237 | 7.71–35.16 | 717–1992 | 2163–3232 |\n| 45° | 6.139 / 30.59 | 16.48 / 44.27 | 0.11511 | 7.84–49.19 | 426–2706 | 1402–3616 |\n| 60° | 8.222 / 29.2 | 17.58 / 48.34 | 0.11419 | 8.23–56.62 | 784–2740 | 2150–5312 |\n\nAt normal incidence the films show the same chromaticity at different brightness, because T = K/|A|². Away from\nnormal incidence the layers stop being equal-delay, and both the colours and the voices of the family members come\napart. The F1/F2 at 0° above come from the envelope rule; the pole rule gives 836\n/ 2092 Hz. Audio, four members in sequence (they sound identical):\n[same_voice_family.wav](../results/audio/same_voice_family.wav).\n\n## 6. Iridescence = diphthong\n\n![angle](../results/fig_6_angle_sweep.png)\n\n*Figure 6. Angle sweep from 0 to 80° in 2° steps, unpolarised, with the angle measured in the incident medium.\nLeft: displayed colour against angle, and luminance Y. Middle: F1 and F2 (envelope rule) of\n`voice_of_film(θ)`. Right: the same voices on the vowel chart, coloured by angle.*\n\n| film | incident n | Y at 0° → 80° | eqY ΔE00 0°→40° / 0°→80° | (F1, F2) at 0° → 40° → 80° (Hz) | ln displacement 0→20° / 0→40° / 0→80° | nearest vowel at 0/20/40/60/80° | glide audio |\n|---|---|---|---|---|---|---|---|\n| Morpho-like (R, illustrative) | 1 | 17.7 → 25.08 | 8.94 / 36.59 | (None, None) → no 2 peaks → (None, None) | None / – / None | none none none none none | [wav](../results/audio/glide_morpho.wav) |\n| men /ɑ/ ideal Goupillaud film (T) | 1.52 | 0.25 → 0.0e+00 | 2.54 / 22.74 | (765, 1285) → (1148, 2577) → (959, 2516) | 0.727 / 0.806 / 0.709 | /ɑ/ /ɛ/ /ɑ/ /ɛ/ /ɛ/ | [wav](../results/audio/glide_vowel_ah_ideal.wav) |\n| realizable /ɛ/-like atlas stack #6973 (T) | 1 | 38.18 → 44.83 | 19.87 / 18.46 | (785, 2162) → (1463, 2986) → (548, 2797) | 0.772 / 0.702 / 0.441 | /ɛ/ /ɑ/ /ɑ/ /ɑ/ /e/ | [wav](../results/audio/glide_atlas_eh_like.wav) |\n\nTilting a film shortens the phase thickness of each layer by cos θ_j. Because n_j differs from layer to layer,\nthe layers stop being equal-delay, so tilting a film both moves its colour and moves its formants: a diphthong.\n\n- **Size of the effect.** Within 20° the voices move by None–0.772\n  ln-units, which is several neighbouring-vowel spacings (0.162).\n- **The trajectories are not smooth.** As the angle changes, envelope peaks appear and disappear\n  (F1 jumps > 25 %: 1 / 7 /\n  16 times).\n- **The /ɑ/ film goes dark.** Its incident medium is n = 1.52, which is not air,\n  and its lowest layer index is 1. Beyond the critical angle 41.1° that\n  layer becomes evanescent and Y collapses to 0.0e+00 at 80°. The voice there is the\n  shape of a vanishingly small T: physically a dark film.\n- **Glide audio.** The audio uses `core.synth.sing` over the polynomial sequence 0° → 80° → 0°, at 40 ms per step,\n  interpolating in the reflection-coefficient domain.\n\n## 7. The atlas: 20 000 random realizable films, plotted both ways\n\n![atlas](../results/fig_7_atlas.png)\n\n*Figure 7. 20 000 random realizable Goupillaud stacks (`tools/build_all.py`; incident air; D65; transmittance), in\ntwo arms of 10 000: even indices are log-uniform n ∈ [1, 2.5]; odd indices are bimodal, with each layer either low\n(1.0–1.25) or high (2.1–2.5). Left: the a*b* plane coloured by the voice's F1. Grey: fewer than 2 formants with\nbandwidth < 600 Hz. ×: the 36 realizable vowel films. Middle: the (F2, F1) vowel chart coloured by the stack's\ndisplayed colour, with the Hillenbrand means. Right: hue histograms per arm.*\n\n- **Formants.**\n  - The share of stacks with ≥ 2 formants (bandwidth < 600 Hz) is 34.3% for the\n    log-uniform arm and 74.4% for the bimodal arm. CONTRACT §7b quotes\n    39% (log-uniform) / 74% (bimodal). The bimodal value agrees, but the log-uniform value measured from `atlas.npz` is lower\n    (see Limitations).\n  - Median F1 is 4518 / 3624 Hz and median F2 is 6093 /\n    5268 Hz (log-uniform / bimodal).\n  - Only 4 stacks (0.04%\n    of those with two formants) lie within one neighbouring-vowel spacing of a Hillenbrand mean.\n  - **Random realizable films almost never say a vowel.** Vowel formants need sharp, low poles, which need large\n    index contrast.\n- **Colours.**\n  - 96.0% of stacks have a hue between 270° and 330° (purple/violet). The rest are\n    near-neutral. Median chroma is 32.9 / 52.2 (log-uniform / bimodal).\n  - Mechanism, which is exact physics: at 700 THz (ω = 0) every Goupillaud layer is an absentee layer, so\n    T = T(ends). The median T there is 0.949. At 525 THz (ω = π, 571 nm, near the eye's\n    sensitivity peak) every layer is an odd number of quarter-waves, and the median T is 0.522.\n    T(700 THz) > T(525 THz) for 85.3% of stacks. Most films therefore pass violet + red and\n    block green, which gives purple. The vowels are violet for the same reason.\n- **Colour barely predicts voice.** Spearman correlations between Lab and the formants are weak (max |ρ| = 0.201, e.g.\n  b* vs F1 -0.201, C* vs F1 0.179). This is the\n  statistical face of metamerism.\n\n---\n\n## 8. A second exact mapping: making vowels colourful\n\n![Mapping study](../results/fig_r8_mapping.png)\n\n**Why every thickness is allowed.** A layer of optical thickness d_opt has phase δ = 2π·d_opt·ν/c. The film\npolynomial is evaluated at ω = 2δ, so the tube frequency is f(ν) = F_s·frac(ν/Δν) with **Δν = c/(2·d_opt)**.\nNothing else in the derivation depends on d_opt. Any common optical thickness therefore gives an exact\ntube ⟷ film identity, which `test_isomorphism_any_layer_thickness` checks for four thicknesses (|T − P| < 10⁻¹⁰,\nR + T = 1). The brief fixed d_opt = 428.275 nm (Δν = 350 THz), and §2 shows the\nconsequence: the formants sit in violet.\n\n**The full-band mapping.** With d_opt = 199.862 nm every layer is half-wave at 400 nm, so\nΔν = 750 THz and f = 0 falls exactly at 750 THz.\n- **No mirror image.** The visible band 400–750 THz shows each audio frequency |f| from 7466.7\n  down to 0 Hz exactly once (panel b), instead of 0–8 kHz twice.\n- **Formants.** F1 (300–900 Hz) lands at 407.4–423.5 nm and F2 (0.9–2.8 kHz)\n  at 423.5–484.5 nm.\n- **Fricatives.** Their energy (3–7 kHz) spreads across 492–710.6 nm,\n  the part of the spectrum where the eye is most sensitive.\n\nThe website uses this mapping by default and keeps the brief's mapping one click away.\n\n**Measured on what is actually displayed.** Colours are compared after the display normalisation and gamut scaling.\nPanel (a) sweeps d_opt. The median ΔE00 between the 12 vowels (mean over the three groups) is:\n\n| film, view | brief mapping | full-band | best in sweep |\n|---|---|---|---|\n| ideal, transmitted | 1.3 | 7.8 | 24.1 at 165 nm |\n| realizable, reflected | 2.8 | 19.8 | 27.4 at 220 nm |\n| realizable, transmitted | 5.6 | 8.4 | 11.4 at 180 nm |\n\nThe curve is jagged, because a small change of d_opt moves a formant image across a steep part of the colour-matching\nfunctions. The full-band value was chosen for its clean physical meaning, not by optimising the sweep. It sits close to the\nbest region.\n\n**All 1617 Hillenbrand tokens.** Each token goes through LPC, film and displayed colour, and is then\nclassified to the nearest vowel centroid of its group (12 classes, chance 8 %). The between-centroid figures are median ΔE00.\nThe same classifier on the formants themselves reaches 82% / 75% / 75%.\n\n| mapping, film, view | accuracy (m / w / c) | ΔE00 between vowels (m / w / c) | ΔE00 token-to-own-centroid |\n|---|---|---|---|\n| brief, ideal, T | 41% / 38% / 37% | 0.76 / 1.43 / 1.58 | 0.12 / 0.24 / 0.31 |\n| brief, realizable, R | 33% / 38% / 41% | 1.86 / 2.08 / 2.18 | 1.01 / 1.01 / 0.96 |\n| full-band, ideal, T | 48% / 42% / 42% | 3.41 / 6.77 / 13.66 | 0.31 / 0.58 / 1.03 |\n| **full-band, realizable, R** | 32% / 33% / 32% | **15.86 / 16.64 / 16.47** | 5.54 / 6.79 / 8.55 |\n\n**Reading.** Under the brief mapping, vowel colours differ by about 1–2 ΔE00, about the threshold of what a viewer can notice.\nUnder the full-band mapping:\n- **Seen in reflection**, realizable films differ by about 16 ΔE00 between vowels, which is clearly visible. Front vowels\n  appear pink or salmon, back vowels orange or amber (median hue 51°).\n- **Seen in transmission**, ideal films run from cyan through blue to violet.\n\n**Colour is a coarse code for vowel identity.** A colour has only 3 dimensions, and the order-16 spectrum is squeezed into\nthem. As a result, a vowel's colour identifies it in only 30–50 % of tokens, against 75–83 % for the formants\nthemselves. Colours change clearly from vowel to vowel, but tokens of different vowels can share a colour.\n\n**Sensitivity to the two illustrative inputs** (full-band mapping, median / max ΔE00 relative to the defaults over the 36 means):\n\n| change | ideal, T | realizable, R |\n|---|---|---|\n| bandwidths × 0.5 | 0.16 / 8.24 | 6.46 / 38.63 |\n| bandwidths × 2 | 0.23 / 12.62 | 5.53 / 29.18 |\n| glottis r = −0.8 | 0.17 / 5.39 | 4.13 / 18.53 |\n| glottis r = −0.95 | 0.12 / 6.53 | 4.73 / 9.92 |\n\nThe transmitted colour of ideal films hardly depends on these choices. The reflected colour of realizable films shifts by a\nfew ΔE00 on average, which is smaller than the about 16 ΔE00 that separates vowels. A few vowels move a lot, so the\nexact shade of an individual vowel should not be over-read.\n\nR_GLOTTIS = −0.9 has a physical reading. A finite glottis is a section of area A_g ending the tract of area A_1, with\nr = (A_g − A_1)/(A_g + A_1). With the code's convention m₀ = A₁(1 + r)/(1 − r), r = −0.9 means A_g/A₁ = 0.053, i.e. A_g ≈ 0.16 cm² for A₁ = 3 cm².\nThat is the order of magnitude of an open glottis. Typical values of A_g = 0.1–0.2 cm² and A₁ = 2–3 cm² give r between\n−0.82 and −0.94, and the table above shows how much the colours move across that range.\n\n## 9. Every sound has a colour: real IPA recordings\n\n43 sounds (14 vowels, 29 others) from Wikimedia Commons IPA recordings\n(`data/ipa/ATTRIBUTION.md`) plus modelled items, analysed by `tools/build_sounds.py` (LPC-16 per class rule → film).\nMedian pairwise ΔE00 between sounds (displayed colours): full-band realizable R 28.33,\nbrief realizable R 11.08, full-band ideal T 39.02.\nPlosives analysed with the fallback rule (context vowel averaged in): p, b, t, d.\n\n![sounds](../results/fig_r9_sounds.png)\n\n## 10. Every phoneme (experimental)\n\n**Status: experiment.** Every one of the 43 phonemes of `web/data/sounds.json` is turned into a film\n(LPC → `vowel_media` → realizable Goupillaud stack, full-band mapping, reflected light), and each class's colours are\ncollected over the item, every analysed frame of its recording, and the angles 0, 15, 30, 45, 60° (unpolarised).\nEvery colour is checked to come from a **physically realizable** film: |k| < 1, all indices in [1, 2.5], |c| < 1,\nR + T = 1 at normal incidence (17 135 film colours checked for validity, 17 135 pass;\n8 995 distinct display colours are plotted in the class gamuts; the per-frame strip\nof `sounds.json` is reproduced exactly: True). Ideal films (indices up to\n57512.6) are never counted as valid. Distinct colours = complete-linkage clusters of CIEDE2000 ≤ 10\non displayed colours.\n\n| class | items | distinct: item 0° | item × angles | rule frames × angles | **all frames × angles (verdict basis)** | verdict | brief·R (item×angles + frames 0°) |\n|---|---|---|---|---|---|---|---|\n| vowel | 14 | 9 | 23 | 71 | **78** (1951 colours) | many | 21 |\n| diphthong | 5 | 4 | 12 | 51 | **51** (736 colours) | many | 13 |\n| plosive | 6 | 4 | 11 | 71 | **68** (1727 colours) | many | 18 |\n| affricate | 2 | 1 | 3 | 32 | **39** (332 colours) | many | 11 |\n| nasal | 3 | 1 | 4 | 33 | **56** (892 colours) | many | 8 |\n| fricative | 9 | 7 | 18 | 72 | **85** (2182 colours) | many | 26 |\n| lateral | 1 | 1 | 4 | 29 | **41** (300 colours) | many | 7 |\n| approximant | 3 | 3 | 8 | 48 | **67** (875 colours) | many | 13 |\n\n**Rule \"one or two colours ⇒ proof\".** No class falls to ≤ 2 colours (\"few\"), so no proof is claimed. Each \"many\"\nverdict comes with a certificate in `web/data/phonemes_experiment.json`: three colours of the class whose pairwise\nCIEDE2000 all exceed the threshold. Two such colours can never share a complete-linkage cluster, so the class has at least\nthree distinct colours; `tests/test_r10_proofs.py` re-checks this. The only collapses occur one level down: the\nthree nasal items at normal incidence share one magenta, and the two affricates share one colour. The affricates\ndo so by construction, since both are modelled from ʃ. These are observations only; no proof is offered for them.\n\n![gamut](../results/fig_r10_gamut.png)\n\n**Films vs butterflies (films, not spectrograms).** Each phoneme's reflectance spectrum (380–780 nm) is correlated\nwith the butterfly films of the Garden page (Morpho-like, Beetle-like, 4 random Goupillaud \"speakers\") and with\nMorpho/Beetle variants whose lamellae are ×0.9 and ×1.1. The best match is [z] vs Morpho-like ×0.9 (ρ = 0.977,\nΔE00 = 2.61). The most alike films are [z] +0.98, [s] +0.87, [f] +0.75, [θ] +0.69, [ʃ] +0.62. The median ρ over all phonemes is only\n0.127, and the nearest film by colour is a median ΔE00 = 15.2 away. The fricatives\nlook Morpho-like in spectral shape, though not in brightness. A\n**chitin/air twin** (8 layers, thicknesses fitted, absolute reflected Lab as target) matches the phoneme colours to\nmedian ΔE00 = 0.00 (max 5.17; 42 of 43 below 2). In other words, every phoneme colour is\nreachable with butterfly materials, but with a different stack and therefore a different voice. The all-pole voice\nclosest to most phonemes is Goupillaud speaker #3 (14 phonemes; the Goupillaud speakers are random equal-thickness films, not insects). /s/ sounds most like\nMorpho-like (log-spectral distance 9.44 dB, shape only), and all distances lie between 3.1 and 23.1 dB.\n\n![butterflies](../results/fig_r10_butterflies.png)\n![angle](../results/fig_r10_angle.png)\n\n**Real butterfly scales (approximate).** The butterfly films above are idealised 1-D stacks. `core/butterfly.py`\nadds measured chitin dispersion, melanin absorption and backing, 5–10 % thickness disorder, lamella tilt and a rough\ndiffraction spread (thicknesses tuned to published colours are labelled ILLUSTRATIVE). The five species at 0°:\nMorpho rhetenor (#44a9ff, 448 nm), Morpho didius (#56a1ff, 432 nm), Papilio blumei (#afc29e, 526 nm), Chrysiridia rhipheus (#8ecb7e, 548 nm), Chrysochroa fulgidissima (#4ed1aa, 540 nm). Against these the most frequent nearest species (highest reflectance correlation) is\nChrysochroa fulgidissima (22 of 43 phonemes). The best match is [z] vs Morpho didius (ρ = 0.705,\nΔE00 = 30.45), and the median ρ is only -0.261. The realistic spectra are broader and dimmer, so\nthey resemble the phoneme films less than the idealised stacks do.\n\n![real butterflies](../results/fig_r10_real_butterflies.png)\n\n**Fluorescence under blacklight (approximate).** `core/fluorescence.py` puts a papiliochrome-type dye (excitation\n420 nm, emission 505 nm, as in *Papilio nireus*; QY and dye strength illustrative) in every layer of each phoneme film.\nIn daylight the dye adds 11–79 % of the luminance and the colours stay distinct. Under UV-A\n(365 nm) all 43 films glow the same green: emission peak 503–510 nm and maximum pairwise\nΔE00 = 1.3 (1 distinct colour). Because this is a \"few colours\" result, it comes with a proof\n(`fluorescence_proof` in `web/data/phonemes_experiment.json`, holds = True). The emission band e(λ) is fixed by the\nfluorophore. The film only multiplies it by an escape factor η(λ) ∈ [0.31, 0.51] (realizable n ∈ [1, 2.5]).\nIf S(λ) = exp(−(λ−λ0)²/2σ²)·w(λ), then at the maximum (λ*−λ0)/σ² = (ln w)′(λ*), so |λ*−λ0| ≤ σ²·max|d ln η/dλ|.\nWith κ ≤ 0.0165 /nm the bound is ≤ 37 nm; the observed shift is 5 nm. X/Y and Z/Y can change at most\nby the factor ρ = max η / min η ≤ 1.64.\n\n![fluorescence](../results/fig_r10_fluor.png)\n\n**Honesty notes.** e ɛ o are modelled from Hillenbrand men's means; ʒ = ʃ polynomial; tʃ and dʒ are LAR mixes of\nt/d and ʃ (`modelled:true`). p b t d use the fallback rule (all energetic frames, including the context vowel), so their\ncolour is partly the vowel's. Diphthongs are LAR trajectories between two vowel items. The all-pole film is an envelope\nmodel: nasals have zeros, and fricatives and plosives have a source inside the tract. The colour is well defined, but\nthe tube reading is approximate. The butterfly parameters are illustrative (`core/stacks.py`). The twin optimiser\nworks like `core.inverse.design_stacks` (L-BFGS-B on ΔE00) but varies thicknesses with chitin/air held fixed, because\n`design_stacks` optimises continuous indices.\n\n## Exact physics vs approximation vs artistic licence\n\n| item | status | note |\n|---|---|---|\n| r = (a−b)/(a+b) for tube junctions and film interfaces; D(z) row recursion; ∏(1−c²)/\\|D\\|² | **exact** | lossless, normal incidence; verified to 5e-11 (§1) |\n| Goupillaud equal optical thickness ↔ equal tube delay; f(ν) = F_s·frac(ν/Δν) | **exact** | a design choice (mapping), exact once chosen |\n| LPC ↔ closed-glottis tube (k_m = −c_m); `voice_of_film` for Goupillaud stacks | **exact** | coefficient error ≤ 5e-12 (§3, §5b) |\n| Abelès matrices at oblique incidence, s/p average | **exact** | non-dispersive, lossless, 1-D |\n| exact same-voice families (spectral factorisation + layer peeling, reciprocity reversal) | **exact** (T-shape error 5e-11) | ideal-mode indices up to 58.037 |\n| CIE 1931 2° colorimetry, CIELAB, CIEDE2000 | **exact** (standard) | no chromatic adaptation |\n| Hillenbrand 1995 F0/F1–F3 group means | **data** | bandwidths 80/100/150 Hz are illustrative |\n| R_GLOTTIS = −0.9 finite glottis | approximation | effect quantified in §3 |\n| realizable compression into [1, 2.5]; material snapping | approximation | large fidelity loss (§3) |\n| `voice_of_film` for non-Goupillaud stacks and at oblique incidence | approximation | best order-16 all-pole fit |\n| envelope-peak formant rule; ln-Hz vowel distance; \"nearest vowel\" | analysis convention | weakly defined for flat voices |\n| Morpho-like / beetle-like parameters | illustrative | 1-D, no diffraction or disorder, non-dispersive chitin |\n| Rosenberg source, jitter, f0 = 140 Hz for film voices | illustrative | |\n| swatches (`display_rgb`: Y → 50, clipping) | **artistic** | exposure normalisation for display only |\n\n## Limitations and open issues\n\n- **Lossless and non-dispersive.** There is no wall loss, no radiation impedance, no material dispersion or\n  absorption, and no scattering or diffraction. The mapping makes 0–8 kHz occupy the band twice (mirror symmetry).\n- **The canonical mapping hides speech in violet.** A π-shifted mapping was tested earlier and separates vowels worse\n  (CONTRACT §7b), so the violet palette is a property of this design, not an error.\n- **Realizable films cannot reproduce vowel formants.** About 5× compression of the reflection coefficients is\n  needed. The isomorphism is exact; physical realizability is the bottleneck.\n- **Atlas count mismatch.** CONTRACT §7b states that 39 % of log-uniform stacks have ≥ 2 formants. The atlas in\n  `results/atlas.npz` gives 34.3% (the bimodal arm, 74.4%, matches\n  74 %). This report uses the measured value. The 39 % probably came from an earlier or quick build.\n- **Most atlas and designed voices are not vowel-like** (high or broad formants), and \"nearest vowel\" is then only\n  nominal. Pair statistics use the first two sharp poles.\n- **Angle sweeps are noisy.** Envelope peaks switch identity across angles. Trajectories are shown as points rather\n  than tracked formants.\n- **Performance.** `design_stacks` (L-BFGS-B with numerical gradients over full film spectra) is the slow step of a\n  `--fresh` run. `core.colour.delta_e00` is scalar (~0.01–0.05 ms per call), so the atlas pair\n  screening uses the vectorised CIEDE2000 of `colour-science`, after checking it against core.\n\n## Audio index (16 kHz WAV, `results/audio/`, mirrored in `web/results/audio/`)\n\n- Butterflies: bfly_morpho.wav, bfly_morpho_x0p9.wav, bfly_morpho_x1p1.wav, bfly_beetle.wav,\n  bfly_beetle_x0p9.wav, bfly_beetle_x1p1.wav.\n- Same colour, different voices: metamer_pair_atlas.wav, metamer_set_A/B/C.wav, metamer_A_1…8.wav.\n- Same voice, different colours: same_voice_pair_atlas.wav, same_voice_family.wav.\n- Iridescence glides: glide_morpho.wav, glide_vowel_ah_ideal.wav, glide_atlas_eh_like.wav.\n\n## References\n\n- Hillenbrand, J., Getty, L. A., Clark, M. J., & Wheeler, K. (1995). Acoustic characteristics of American English\n  vowels. *J. Acoust. Soc. Am.* 97(5), 3099–3111.\n- Kelly, J. L., & Lochbaum, C. C. (1962). Speech synthesis. *Proc. 4th Int. Congr. Acoustics*, Copenhagen, G42.\n- Markel, J. D., & Gray, A. H. (1976). *Linear Prediction of Speech*. Springer.\n- Wakita, H. (1973). Direct estimation of the vocal tract shape by inverse filtering of acoustic speech waveforms.\n  *IEEE Trans. Audio Electroacoust.* 21(5), 417–427.\n- Goupillaud, P. L. (1961). An approach to inverse filtering of near-surface layer effects from seismic records.\n  *Geophysics* 26(6), 754–760.\n- Macleod, H. A. *Thin-Film Optical Filters* (4th ed., 2010). CRC Press.\n- Vukusic, P., Sambles, J. R., Lawrence, C. R., & Wootton, R. J. (1999). Quantified interference and diffraction in\n  single Morpho butterfly scales. *Proc. R. Soc. B* 266, 1403–1411.\n- Rosenberg, A. E. (1971). Effect of glottal pulse shape on the quality of natural vowels. *J. Acoust. Soc. Am.*\n  49(2B), 583–590.\n- CIE 015:2018. *Colorimetry* (4th ed.). Commission Internationale de l'Éclairage.\n- Sharma, G., Wu, W., & Dalal, E. N. (2005). The CIEDE2000 color-difference formula: implementation notes,\n  supplementary test data, and mathematical observations. *Color Res. Appl.* 30(1), 21–30.\n"
+ },
+ "narration": {
+  "source": "video/NARRATION.md",
+  "markdown": "# Explainer voice-over script: \"Vowels That Shine, Butterflies That Speak\"\n\nVideo: `video/final/explainer_1080p.mp4` (= `video/final/explainer_original_1080p.mp4`), 1920×1080, 30 fps, **4:05.7** (245.7 s). The website copy `web/video/explainer.mp4` is this video + the phonemes segment S12 at the end (**5:35.7**, 335.7 s; see the last section).\nThe timestamps below are taken from the rendered timeline (`video/final/timeline_1080p30.json`; to print it,\nrun `python -m video.assemble --timeline h`).\nThe mixed audio track already contains:\n- a quiet synthetic pad bed at about −32 dBFS,\n- every **[CLIP]** below, all real audio synthesised with `core.synth`.\n\nSpeak only in the gaps around the clips. The budget is about 2.3–2.8 words/s.\n\nLegend for on-screen honesty tags: **EXACT** (green), **APPROXIMATE** (amber), **ARTISTIC LICENSE** (pink).\n\n---\n\n## S01 · Hook (0:00.0 – 0:16.6)\n| time | voice-over / sound |\n|---|---|\n| 0:00.0 – 0:03.2 | \"Listen to this butterfly.\" |\n| 0:03.4 – 0:04.6 | **[CLIP]** Morpho-like film voice, `web/audio/bfly_morpho.wav` |\n| 0:05.4 – 0:06.6 | **[CLIP]** same voice again |\n| 0:07.0 – 0:16.6 | \"That sound is the wing's colour filter, played as a voice. Vowels that shine, butterflies that speak: one equation for tubes of air and for stacks of thin films.\" |\n\nOn screen: ARTISTIC LICENSE tag for the wing flapping. The wing colour at each tilt angle is the computed thin-film reflectance (D65).\n\n## S02 · Light (0:16.6 – 0:39.1)\n| time | voice-over |\n|---|---|\n| 0:16.6 – 0:24.0 | \"What colour is a wing? Daylight brings a spectrum, E of lambda. The wing's thin-film stack reflects a fraction R of each wavelength.\" |\n| 0:24.0 – 0:30.0 | \"What reaches your eye is the product: C equals E times R.\" |\n| 0:30.0 – 0:39.1 | \"Your eye squeezes it into three numbers. Weight it with the CIE colour-matching functions and add up: X, Y, Z. Here, a bright cyan-blue.\" |\n\nTags: APPROXIMATE (Morpho-like stack parameters are illustrative); ARTISTIC (swatch brightness normalised).\n\n## S03 · Sound: source and filter (0:39.1 – 1:00.0)\n| time | voice-over / sound |\n|---|---|\n| 0:39.1 – 0:43.0 | \"Now sound. Your vocal folds make a buzz:\" |\n| 0:43.2 – 0:44.1 | **[CLIP]** raw glottal source, `video/audio/glottal_buzz.wav` |\n| 0:44.3 – 0:53.0 | \"a ladder of harmonics. The vocal tract, a tube of sixteen sections, filters it, and its resonances (the formants) shape the vowel.\" |\n| 0:53.2 – 0:53.9 | **[CLIP]** /ɑ/ \"hod\", men, `web/audio/vowel_men_ah.wav` |\n| 0:54.5 – 0:55.2 | **[CLIP]** same vowel again |\n| 0:55.5 – 1:00.0 | \"Source times filter. That is 'ah'.\" |\n\n## S04 · One equation (1:00.0 – 1:24.3)\n| time | voice-over |\n|---|---|\n| 1:00.0 – 1:06.5 | \"Here is the bridge. When a sound wave meets a change of tube area, part of it bounces back: A-i minus A-i-plus-one, over their sum.\" |\n| 1:06.5 – 1:12.5 | \"When light meets a change of refractive index, at normal incidence: n-i minus n-i-plus-one, over their sum.\" |\n| 1:12.5 – 1:17.0 | \"The same rule, with the same sign convention: r equals a minus b over a plus b.\" |\n| 1:17.0 – 1:24.3 | \"One more match. Each tube section takes exactly one sample of round-trip time, so each film layer gets the same optical thickness: 428.27 nanometres.\" |\n\nTag: EXACT (lossless plane waves, normal incidence).\n\n## S05 · Morph: tube → film (1:24.3 – 1:47.2)\n| time | voice-over |\n|---|---|\n| 1:24.3 – 1:31.0 | \"So take the vocal tract of 'ah', turn it on its side, and let every section become a layer,\" |\n| 1:31.0 – 1:37.5 | \"with refractive index proportional to its area. In ideal mode that means indices from 1 to 148, and no material does that.\" |\n| 1:37.5 – 1:47.2 | \"A realizable version compresses them into 1 to 2.5. Each layer's physical thickness is 428 nanometres divided by n. And this film has a colour.\" |\n\nTag: APPROXIMATE (γ compression; finite glottis r = −0.9).\n\n## S06 · Levinson = layer peeling (1:47.2 – 2:16.4)\n| time | voice-over |\n|---|---|\n| 1:47.2 – 1:55.0 | \"Speech scientists recover the tract with linear prediction, the Levinson–Durbin recursion. Run it backwards, the step-down,\" |\n| 1:55.0 – 2:04.0 | \"and every step peels off one reflection coefficient, starting at the lips. That is layer peeling, the way optical engineers take a thin-film stack apart, one interface at a time.\" |\n| 2:04.0 – 2:10.0 | \"Run it forwards and the areas grow back from glottis to lips. The round-trip error is ten to the minus eight.\" |\n| 2:10.0 – 2:16.4 | \"Linear prediction of speech is layer peeling of a film.\" |\n\n## S07 · Frequency mapping (2:16.4 – 2:44.6)\n| time | voice-over |\n|---|---|\n| 2:16.4 – 2:24.0 | \"Which colours stand for which pitches? One tube section's phase at sound frequency f equals one layer's phase at light frequency nu.\" |\n| 2:24.0 – 2:31.0 | \"The 428-nanometre layers make 400 to 750 terahertz exactly one period. 400 terahertz maps to 2286 hertz, 525 to 8 kilohertz, 700 to zero.\" |\n| 2:31.0 – 2:37.5 | \"Folded, the speech band appears twice, mirrored about 700 terahertz. So the formants of 'ah' land between 670 and 730 terahertz: violet.\" |\n| 2:37.5 – 2:44.6 | \"And the film's transmittance and the tube's power transfer are the same curve, to nine decimal places.\" |\n\nTag: EXACT (isomorphism; max difference 1.8 × 10⁻⁹).\n\n## S08 · The colours of vowels (2:44.6 – 3:08.2)\n| time | voice-over / sound |\n|---|---|\n| 2:44.6 – 2:48.5 | \"So here are the vowels of American English, as films.\" |\n| 2:48.7 – 2:53.1 | **[CLIPS]** \"heed\", \"had\", \"hod\", \"who'd\" (men): `web/audio/vowel_men_{iy,ae,ah,uw}.wav` |\n| 2:53.5 – 3:01.0 | \"The honest result: they are all violet to lavender. Formants live at the violet end, so the vowels differ only slightly.\" |\n| 3:01.0 – 3:08.2 | \"Median colour differences are 4 to 8 units, where 1 or 2 is just noticeable. Realizable films are paler still.\" |\n\nTags: ARTISTIC (ideal films transmit only Y ≈ 0.1–0.4 %, brightness normalised); APPROXIMATE (realizable compression).\n\n## S09 · The voices of butterflies (3:08.2 – 3:29.5)\n| time | voice-over / sound |\n|---|---|\n| 3:08.2 – 3:12.0 | \"Now run it the other way: a wing becomes a voice.\" |\n| 3:12.1 – 3:15.0 | **[CLIP ×2]** Morpho-like voice, `web/audio/bfly_morpho.wav` |\n| 3:15.2 – 3:19.2 | \"The Morpho-like stack hums, breathy and bright.\" |\n| 3:19.3 – 3:22.2 | **[CLIP ×2]** beetle-like voice, `web/audio/bfly_beetle.wav` |\n| 3:22.4 – 3:29.5 | \"The beetle-like stack buzzes flatly. Their layers aren't equal in optical thickness, so these voices are best fits, and neither says a clear vowel.\" |\n\nTags: APPROXIMATE (illustrative stack parameters; all-pole fit voices); ARTISTIC (flapping). The colour-vs-angle strips are computed (TMM, D65).\n\n## S10 · Metamers: same colour, different voices (3:29.5 – 3:51.3)\n| time | voice-over / sound |\n|---|---|\n| 3:29.5 – 3:36.8 | \"Four films, picked from twenty thousand random stacks. To your eye, the same gold: every pair within 2 colour units.\" |\n| 3:37.0 – 3:44.6 | **[CLIPS]** the four film voices, `video/audio/metamer_{0..3}.wav` |\n| 3:45.0 – 3:51.3 | \"Four different voices. Colour keeps three numbers from a spectrum; a voice keeps sixteen.\" |\n\nData: `results/atlas.npz`, reflected colour under D65, maximum pairwise ΔE00 = 1.93. The voice envelopes differ by at least 6.8 dB RMS.\n\n## S11 · Outro (3:51.4 – 4:05.7)\n| time | voice-over / sound |\n|---|---|\n| 3:51.3 – 3:52.5 | \"Finally, a film that sings.\" |\n| 3:52.6 – 3:54.6 | **[CLIP]** \"ah – ee – oo\", women's vowels sung with `core.synth.sing`, `video/audio/outro_sing.wav` |\n| 3:55.0 – 4:05.7 | \"Exact, approximate, artistic: it's all on screen. A throat and a butterfly wing share one equation: r equals a minus b over a plus b.\" |\n\n---\n\n# Extra segment S12 · \"Every phoneme: an experiment\" (4:05.7 – 5:35.7)\n\nAdded 2026-11-23. Rendered with matplotlib + ffmpeg by `python -m video.phonemes_segment --quality h` → `video/final/phonemes_segment_1080p.mp4` (90.0 s), appended to the explainer with `python -m video.phonemes_segment --concat` (original kept as `video/final/explainer_original_1080p.mp4`). No voice-over: the captions below are on screen. Times are in the combined `web/video/explainer.mp4`; segment-local times are in `video/final/timeline_phonemes_1080p.json`. All numbers come from `web/data/phonemes_experiment.json` and `web/data/sounds.json`.\n\nAudio: the same quiet pad bed + a ≈0.4 s excerpt (loudest window) of each IPA recording (`web/audio/ipa/<id>.wav`; the film's own voice `<id>_synth.wav` where no recording exists) as its tile lights up; /s/ recording and its film voice; `ai_synth.wav` ×4 during the diphthong glide.\n\n\n## S12.1 · Title (4:05.7 – 4:10.7)\n| time | on-screen caption |\n|---|---|\n| 4:06.0 – 4:10.7 | \"So far, vowels. Here we push the same film recipe to all 43 phonemes in 8 classes, and report what came out.\" |\n\n## S12.2 · The IPA chart, class by class (4:10.7 – 4:34.7)\n| time | on-screen caption |\n|---|---|\n| 4:10.9 – 4:22.3 | \"The IPA chart, class by class. Each tile lights up in its film's colour while its recording plays (32 real recordings).\" |\n| 4:22.3 – 4:32.3 | \"Recording → averaged LPC polynomial → realizable film (n 1–2.5) → reflected colour under daylight (D65).\" |\n| 4:32.3 – 4:34.7 | \"* modelled (no clean recording: you hear the film's own voice)   † fallback plosive (context vowel averaged in)   ~ trajectory model\" |\n\n## S12.3 · One fricative: /s/ (4:34.7 – 4:52.2)\n| time | on-screen caption |\n|---|---|\n| 4:34.9 – 4:38.9 | \"One fricative: /s/ as in 'sip'. Its LPC envelope is the hiss shaped by the mouth: most energy high up.\" |\n| 4:38.9 – 4:42.7 | \"Layer peeling turns the 16 reflection coefficients into 16 film layers: bars of refractive index, each of equal optical thickness.\" |\n| 4:42.7 – 4:45.7 | \"That film reflects daylight as #ab63ff. Played back, the film has a voice too.\" |\n| 4:45.7 – 4:48.7 | \"Its nearest butterfly: the Morpho-like ×0.9 film, spectral shape correlation ρ = 0.87, ΔE00 = 10.4.\" |\n| 4:48.7 – 4:52.2 | \"Caveat: same shape, not the same strength: peak R 0.18 for /s/ vs 0.91. (Best match overall: [z], ρ = 0.98.)\" |\n\n## S12.4 · Gamut per class (4:52.2 – 5:05.7)\n| time | on-screen caption |\n|---|---|\n| 4:52.4 – 5:01.2 | \"Every valid colour of each class in the a*b* plane: all frames of every recording, viewed at 0, 15, 30, 45, 60°.\" |\n| 5:01.2 – 5:05.7 | \"No class is limited to one or two colours: 39–85 distinct colours per class, and in every class 3 colours lie more than ΔE00 = 10 apart. So we show them all.\" |\n\n## S12.5 · Iridescence (5:05.7 – 5:14.7)\n| time | on-screen caption |\n|---|---|\n| 5:05.9 – 5:10.2 | \"Iridescence: tilt each film from 0° to 60° and its reflected colour drifts, like a wing turning in the light.\" |\n| 5:10.2 – 5:14.7 | \"Tilting alone multiplies the colours: one film per phoneme × 5 angles already gives 3–23 distinct colours per class.\" |\n\n## S12.6 · Diphthong /aɪ/ (5:14.7 – 5:22.2)\n| time | on-screen caption |\n|---|---|\n| 5:14.9 – 5:18.6 | \"A diphthong is a moving film. /aɪ/ as in 'price' glides from /a/ to /ɪ/, and its colour glides with it.\" |\n| 5:18.6 – 5:22.2 | \"30 interpolation steps between the two vowel polynomials (log-area ratios); the sound is the film's own synthesised voice.\" |\n\n## S12.7 · Caveats (5:22.2 – 5:30.7)\n| time | on-screen caption |\n|---|---|\n| 5:22.4 – 5:30.7 | \"What to keep in mind: these are experiments, labelled as such.\" |\n\n## S12.8 · End card (5:30.7 – 5:35.7)\n| time | on-screen caption |\n|---|---|\n| 5:31.0 – 5:35.7 | \"Every phoneme has a film, and every film has colours. Explore them all on the Experiments page.\" |\n\nTags on screen: APPROXIMATE (experimental track; /s/ vs butterfly reflectance; diphthong trajectory model; modelled phonemes, envelope model, fallback plosives), ARTISTIC LICENSE (exposure-normalised swatches), EXACT PHYSICS (all plotted colours from realizable films).\n"
+ },
+ "video": {
+  "file": "video/explainer.mp4",
+  "exists": true,
+  "bytes": 27479023
+ }
+}

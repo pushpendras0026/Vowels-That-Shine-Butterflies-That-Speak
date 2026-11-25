@@ -1,0 +1,139 @@
+{
+ "source": "web/data/sounds.json (tools/build_sounds.py, Wikimedia Commons IPA recordings)",
+ "dE_convention": "CIEDE2000 on displayed sRGB (exposure-normalised hex -> Lab D65), as CONTRACT §4b",
+ "n_sounds": 43,
+ "n_vowels": 14,
+ "n_consonants": 29,
+ "views": {
+  "full_realizable_R": {
+   "label": "full-band · realizable · R",
+   "all": {
+    "n_pairs": 903,
+    "median": 28.33,
+    "min": 0.0,
+    "frac_below_2": 0.002
+   },
+   "vowels": {
+    "n_pairs": 91,
+    "median": 29.57,
+    "min": 3.57,
+    "frac_below_2": 0.0
+   },
+   "consonants": {
+    "n_pairs": 406,
+    "median": 25.52,
+    "min": 0.0,
+    "frac_below_2": 0.002
+   },
+   "vowel_vs_consonant": {
+    "n_pairs": 406,
+    "median": 30.45,
+    "min": 1.85,
+    "frac_below_2": 0.002
+   },
+   "consonant_to_nearest_vowel_median": 8.38,
+   "n_distinct_hex": 42
+  },
+  "full_ideal_T": {
+   "label": "full-band · ideal · T",
+   "all": {
+    "n_pairs": 903,
+    "median": 39.02,
+    "min": 0.0,
+    "frac_below_2": 0.006
+   },
+   "vowels": {
+    "n_pairs": 91,
+    "median": 36.99,
+    "min": 1.17,
+    "frac_below_2": 0.011
+   },
+   "consonants": {
+    "n_pairs": 406,
+    "median": 39.0,
+    "min": 0.0,
+    "frac_below_2": 0.007
+   },
+   "vowel_vs_consonant": {
+    "n_pairs": 406,
+    "median": 40.09,
+    "min": 1.05,
+    "frac_below_2": 0.002
+   },
+   "consonant_to_nearest_vowel_median": 10.77,
+   "n_distinct_hex": 41
+  },
+  "brief_realizable_R": {
+   "label": "brief · realizable · R",
+   "all": {
+    "n_pairs": 903,
+    "median": 11.08,
+    "min": 0.0,
+    "frac_below_2": 0.065
+   },
+   "vowels": {
+    "n_pairs": 91,
+    "median": 8.95,
+    "min": 0.42,
+    "frac_below_2": 0.132
+   },
+   "consonants": {
+    "n_pairs": 406,
+    "median": 13.18,
+    "min": 0.0,
+    "frac_below_2": 0.086
+   },
+   "vowel_vs_consonant": {
+    "n_pairs": 406,
+    "median": 10.97,
+    "min": 0.8,
+    "frac_below_2": 0.03
+   },
+   "consonant_to_nearest_vowel_median": 2.91,
+   "n_distinct_hex": 42
+  },
+  "brief_ideal_T": {
+   "label": "brief · ideal · T",
+   "all": {
+    "n_pairs": 903,
+    "median": 26.11,
+    "min": 0.0,
+    "frac_below_2": 0.049
+   },
+   "vowels": {
+    "n_pairs": 91,
+    "median": 22.9,
+    "min": 0.55,
+    "frac_below_2": 0.055
+   },
+   "consonants": {
+    "n_pairs": 406,
+    "median": 28.52,
+    "min": 0.0,
+    "frac_below_2": 0.059
+   },
+   "vowel_vs_consonant": {
+    "n_pairs": 406,
+    "median": 26.32,
+    "min": 0.1,
+    "frac_below_2": 0.037
+   },
+   "consonant_to_nearest_vowel_median": 4.52,
+   "n_distinct_hex": 40
+  }
+ },
+ "frames_used_median": 28.0,
+ "fallback_items": [
+  "p",
+  "b",
+  "t",
+  "d"
+ ],
+ "headline": {
+  "full_realR_median_dE_all": 28.33,
+  "brief_realR_median_dE_all": 11.08,
+  "full_idealT_median_dE_all": 39.02,
+  "brief_idealT_median_dE_all": 26.11
+ },
+ "figure": "fig_r9_sounds.png"
+}

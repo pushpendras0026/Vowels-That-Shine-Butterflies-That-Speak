@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Butterfly Garden — Vowels That Shine, Butterflies That Speak</title>
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/garden.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
+</head>
+<body class="garden-page">
+<nav id="site-nav"></nav>
+<div class="garden-wrap">
+  <!-- ======================= controls ======================= -->
+  <aside id="controls" class="panel gpanel">
+    <h2>Butterfly Garden</h2>
+    <p class="muted small">Every wing is a thin-film stack; its colour is computed from the film model, and the same
+      stack read as a tube is a voice. Click a butterfly to hear it.</p>
+
+    <details open><summary>Garden</summary>
+      <div class="row"><label for="seed">seed</label><input id="seed" type="text" value="morpho-1">
+        <button class="btn sm" id="seedRand" title="random seed">random</button></div>
+      <div class="row"><label for="count">butterflies <b id="countV">7</b></label><input id="count" type="range" min="2" max="12" value="7"></div>
+      <div class="row"><label for="layers">layers N <b id="layersV">16</b></label><input id="layers" type="range" min="2" max="24" value="16"></div>
+      <div class="row"><label for="mode">materials</label>
+        <select id="mode">
+          <option value="realizable">continuous realizable n ∈ [1, 2.5]</option>
+          <option value="materials">material palette (cie.json)</option>
+          <option value="ideal">ideal (any n, 0.2–20)</option>
+        </select></div>
+      <div id="matBox" class="chips hidden"></div>
+      <div class="row"><label for="thick">thickness</label>
+        <select id="thick">
+          <option value="goup">Goupillaud: n·d = 428.27 nm (exact voice)</option>
+          <option value="custom">custom optical-thickness scale</option>
+        </select></div>
+      <div class="row hidden" id="scaleRow"><label for="scale">scale <b id="scaleV">1.00</b>× (n·d = <b id="ndV">428</b> nm)</label>
+        <input id="scale" type="range" min="0.25" max="1.6" step="0.01" value="1"></div>
+      <div class="row"><label for="ill">illuminant</label>
+        <select id="ill"><option>D65</option><option>A</option><option>F11</option><option value="LED">LED (CIE LED-B3)</option></select></div>
+      <div class="row"><label for="qty">wings show</label>
+        <select id="qty"><option value="R">reflection R (how butterflies look)</option><option value="T">transmission T (vowel-colour convention)</option></select></div>
+      <div class="row"><label><input type="checkbox" id="ovOn"> fix viewing angle θ <b id="ovV">0</b>°</label>
+        <input id="ov" type="range" min="0" max="89" value="0"></div>
+      <button class="btn primary" id="regrow">Regrow garden</button>
+    </details>
+
+    <details open><summary>Presets <span class="badge approx">approximate / illustrative</span></summary>
+      <div class="chips" id="presets"></div>
+      <p class="muted small">Parametric stacks from <code>butterflies.json</code> (Morpho-like: Vukusic 1999 / Kinoshita 2002 structure;
+        beetle-like: Stavenga 2011 type) — values illustrative, thicknesses not Goupillaud ⇒ voices are LPC fits.</p>
+    </details>
+
+    <details open><summary>Metamers: one colour, many voices</summary>
+      <div class="row"><label for="pick">target colour</label><input id="pick" type="color" value="#b0c474">
+        <button class="btn primary sm" id="design">Design</button></div>
+      <div class="muted small">or pick a reachable colour from the atlas:</div>
+      <div class="swatches" id="atlasSw"></div>
+      <div id="designMsg" class="muted small"></div>
+      <div id="metaList"></div>
+    </details>
+
+    <details open><summary>Evolve</summary>
+      <div class="row"><button class="btn" id="evolve">Evolve 1 generation</button>
+        <label><input type="checkbox" id="autoEvo"> auto</label></div>
+      <div class="row"><label><input type="checkbox" id="evoLayers"> mutate layer count</label></div>
+      <div class="row"><label for="sigma">mutation σ (log n) <b id="sigmaV">0.08</b></label><input id="sigma" type="range" min="0.01" max="0.3" step="0.01" value="0.08"></div>
+      <div class="muted small">lineage of the selected butterfly (click to restore):</div>
+      <div class="lineage" id="lineage"></div>
+    </details>
+
+    <details open><summary>Make it sing a word</summary>
+      <div class="row"><input id="word" type="text" value="heed hid had hod who'd" title="vowel codes (iy ih ei eh ae ah aw oa oo uw uh er), IPA, example words (heed hid…), a e i o u, or any word"></div>
+      <div class="row"><label for="group">speaker</label><select id="group"><option>women</option><option>men</option><option>children</option></select>
+        <label for="src">voice</label><select id="src"><option value="film">wing film (exact voice of the realizable film)</option><option value="lpc">Hillenbrand vowel LPC</option></select></div>
+      <button class="btn primary" id="sing">Sing</button>
+      <div class="chips" id="seq"></div>
+      <p class="muted small">vowel LPC → finite-glottis media (R<sub>g</sub> = −0.9) → realizable film (n ∈ [1, 2.5]) → wing colour;
+        audio: reflection-coefficient interpolation between vowels, Rosenberg glottal source, all-pole filter.
+        <span class="badge approx">approx</span> realizable compression &amp; finite glottis; spelling→vowel guesses are <span class="badge art">artistic</span>.</p>
+    </details>
+  </aside>
+
+  <!-- ======================= 3D stage ======================= -->
+  <main id="stage">
+    <canvas id="gl"></canvas>
+    <div id="hud">
+      <span class="badge exact">wing colour: thin-film TMM → CIE → LUT per pixel angle</span>
+      <span class="badge art">exposure normalisation, flight, flapping, veins</span>
+      <span id="hudAngle" class="badge"></span>
+    </div>
+    <div id="hint">drag to orbit · scroll to zoom · click a butterfly to hear it</div>
+    <div id="loading">growing the garden…</div>
+  </main>
+
+  <!-- ======================= info ======================= -->
+  <aside id="info" class="panel gpanel">
+    <div id="infoEmpty" class="muted">Click a butterfly.</div>
+    <div id="infoBody" class="hidden">
+      <h3 id="bName">—</h3>
+      <div id="bBadges"></div>
+      <div class="row"><button class="btn primary" id="speak">Speak (θ now)</button><button class="btn" id="speak0">Speak at θ = 0°</button></div>
+      <div class="kv">
+        <div>colour at 0°</div><div><span class="sw" id="bSw"></span> <code id="bHex"></code> <span class="muted small" id="bLab"></span></div>
+        <div>voice</div><div id="bVoice"></div>
+        <div>formants</div><div id="bF"></div>
+        <div>nearest vowel</div><div id="bVowel"></div>
+      </div>
+      <h4>Stack <span class="badge exact">n per layer</span> <span class="muted small">bar width ∝ physical thickness, colour ∝ n</span></h4>
+      <canvas id="cStack" width="320" height="90"></canvas>
+      <h4>Spectrum <span class="badge exact">TMM, unpolarised</span> <span class="muted small" id="specTh"></span></h4>
+      <canvas id="cSpec" width="320" height="140"></canvas>
+      <h4>Voice envelope <span id="envBadge"></span></h4>
+      <canvas id="cEnv" width="320" height="120"></canvas>
+    </div>
+    <details class="legend"><summary>What is exact here?</summary>
+      <ul class="small">
+        <li><span class="badge exact">exact</span> wing colour vs angle (Abelès TMM, lossless, non-dispersive, CIE 1931 2°, chosen illuminant); T/R spectra; metamer ΔE00 (re-checked with TMM); voice of a Goupillaud stack at θ = 0 (its characteristic polynomial D(z)).</li>
+        <li><span class="badge approx">approx</span> voices of non-Goupillaud stacks or at θ ≠ 0 (all-pole LPC fit of T(ν)); presets; material snapping; vowel films (finite glottis, realizable compression); nearest vowel (log F1/F2 distance); broad resonances (B &gt; 600 Hz) shown as envelope peaks.</li>
+        <li><span class="badge art">artistic</span> display exposure normalisation (Y→50), wing outline/veins/margins, bending, flapping, flight, the garden.</li>
+      </ul>
+    </details>
+  </aside>
+</div>
+<script type="module" src="js/nav.js"></script>
+<script type="module" src="js/garden.js"></script>
+</body>
+</html>

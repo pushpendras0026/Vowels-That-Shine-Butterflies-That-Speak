@@ -1,0 +1,54 @@
+/* Butterfly Garden layout (uses tokens from site.css). */
+body.garden-page { overflow: hidden; }
+.garden-wrap { display: grid; grid-template-columns: 310px 1fr 350px; height: calc(100vh - 53px); }
+.gpanel { border-radius: 0; border-top: none; border-bottom: none; overflow-y: auto; padding: 12px 14px 40px; }
+#controls { border-left: none; }
+#info { border-right: none; }
+.gpanel h2 { margin: 2px 0 4px; font-size: 1.2rem; }
+.gpanel h3 { margin: 4px 0 6px; font-size: 1.05rem; }
+.gpanel h4 { margin: 14px 0 4px; font-size: 0.88rem; font-weight: 600; }
+.small { font-size: 0.8rem; }
+.hidden { display: none !important; }
+details { border-top: 1px solid var(--line); padding: 8px 0; }
+details > summary { cursor: pointer; font-weight: 600; font-size: 0.93rem; margin-bottom: 6px; }
+.row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+.row label { flex: 1 1 auto; }
+.row input[type=text] { flex: 1 1 120px; min-width: 0; }
+.row input[type=range] { flex: 1 1 100%; }
+.row select { flex: 1 1 140px; min-width: 0; max-width: 100%; }
+.btn.sm { padding: 4px 9px; font-size: 0.85rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
+.chip { font-size: 0.78rem; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); background: #141725; cursor: pointer; color: var(--text); }
+.chip.on { border-color: var(--accent-2); }
+.chip .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; }
+.chip.now { box-shadow: 0 0 0 2px var(--accent); }
+.swatches { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin: 6px 0; }
+.swatches button { height: 22px; border-radius: 5px; border: 1px solid var(--line); cursor: pointer; padding: 0; }
+.swatches button:hover { outline: 2px solid var(--accent-2); }
+.lineage { display: flex; flex-wrap: wrap; gap: 2px; min-height: 18px; margin: 6px 0; }
+.lineage span { width: 14px; height: 18px; border-radius: 3px; cursor: pointer; border: 1px solid rgba(255,255,255,0.08); }
+.meta { display: grid; grid-template-columns: 22px 1fr auto; gap: 6px; align-items: center; padding: 5px; border-radius: 8px; border: 1px solid var(--line); margin: 4px 0; font-size: 0.8rem; cursor: pointer; }
+.meta:hover { border-color: var(--accent); }
+.meta .sw { width: 22px; height: 22px; }
+.sw { display: inline-block; width: 16px; height: 16px; border-radius: 4px; border: 1px solid var(--line); vertical-align: -3px; }
+.kv { display: grid; grid-template-columns: 96px 1fr; gap: 4px 8px; font-size: 0.85rem; margin: 8px 0; }
+.kv > div:nth-child(odd) { color: var(--muted); }
+#info canvas { width: 100%; height: auto; background: #0b0d16; border: 1px solid var(--line); border-radius: 8px; }
+#bBadges .badge { margin: 0 4px 4px 0; }
+.legend ul { padding-left: 16px; margin: 4px 0; }
+.legend li { margin: 4px 0; }
+
+#stage { position: relative; min-width: 0; min-height: 0; }
+#gl { display: block; width: 100%; height: 100%; }
+#hud { position: absolute; left: 10px; top: 10px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none; }
+#hud .badge { background: rgba(7, 8, 13, 0.7); }
+#hint { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: var(--muted); font-size: 0.8rem;
+  background: rgba(7, 8, 13, 0.6); padding: 4px 12px; border-radius: 999px; pointer-events: none; }
+#loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); background: rgba(4, 5, 10, 0.6); }
+
+@media (max-width: 1100px) {
+  body.garden-page { overflow: auto; }
+  .garden-wrap { grid-template-columns: 1fr; height: auto; }
+  #stage { height: 62vh; order: -1; }
+  .gpanel { overflow: visible; border: 1px solid var(--line); }
+}

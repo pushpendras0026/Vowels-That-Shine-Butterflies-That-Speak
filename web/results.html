@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Results</title>
+<meta name="description" content="Figures, key numbers and audio from the research scripts (python -m research.run_all).">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .figs { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  figure.fig { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  figure.fig button { appearance: none; border: 0; padding: 0; background: #fff; cursor: zoom-in; display: block; }
+  figure.fig img { width: 100%; height: 220px; object-fit: contain; display: block; }
+  figure.fig figcaption { padding: 10px 12px; font-size: .88rem; color: var(--muted); }
+  figure.fig figcaption b { color: var(--text); font-weight: 600; }
+  .grp-h { margin: 26px 0 10px; display: flex; gap: 10px; align-items: baseline; }
+  .grp-h h3 { margin: 0; }
+  .audios { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+  .aud { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+  .aud audio { width: 100%; margin-top: 6px; }
+  dialog#lb { border: 1px solid var(--line); border-radius: var(--radius); background: #0b0d14; color: var(--text); padding: 10px; max-width: 96vw; max-height: 94vh; }
+  dialog#lb::backdrop { background: rgba(0,0,0,.75); }
+  dialog#lb img { max-width: 92vw; max-height: 80vh; display: block; background: #fff; border-radius: 8px; }
+  details.raw pre { max-height: 420px; overflow: auto; background: #0b0d14; border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: .78rem; }
+  #report.prose h1 { font-size: 1.6rem; } #report.prose h2 { margin-top: 1.6em; }
+</style>
+</head>
+<body>
+<nav id="site-nav"></nav>
+<main class="page">
+  <p class="kicker">Results</p>
+  <h1 style="margin:0 0 8px">What the simulations found</h1>
+  <p class="lead">Everything here is produced by <span class="mono">python -m research.run_all</span> from the tested core physics
+    and collected by <span class="mono">python tools/make_results_manifest.py</span>. Nothing is hand-edited.</p>
+  <p class="muted" id="meta"></p>
+
+  <section class="section" id="sec-stats" hidden>
+    <h2>Key numbers</h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="section" id="sec-figs">
+    <h2>Figures</h2>
+    <div id="figs"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="section" id="sec-audio" hidden>
+    <h2>Audio <span class="badge approx">synthesized</span></h2>
+    <div class="audios" id="audios"></div>
+  </section>
+
+  <section class="section" id="sec-report" hidden>
+    <details open>
+      <summary style="cursor:pointer"><h2 style="display:inline">Full report</h2> <span class="muted">(docs/REPORT.md)</span></summary>
+      <article class="prose panel" id="report" style="margin-top:12px"></article>
+    </details>
+  </section>
+
+  <section class="section" id="sec-raw" hidden>
+    <details class="raw"><summary style="cursor:pointer">Raw summary.json</summary><pre id="raw"></pre></details>
+  </section>
+
+  <dialog id="lb"><form method="dialog" style="text-align:right;margin:0 0 6px"><button class="btn">close ✕</button></form><img id="lb-img" alt=""><p id="lb-cap" class="muted" style="margin:8px 4px 0"></p></dialog>
+  <footer class="site">Regenerate: <span class="mono">python -m research.run_all</span> then <span class="mono">python tools/make_results_manifest.py</span> (start_demo.bat refreshes the manifest automatically).</footer>
+</main>
+<script type="module" src="js/nav.js"></script>
+<script type="module" src="js/results.js"></script>
+</body>
+</html>

@@ -1,0 +1,1155 @@
+{
+ "generated_by": "research/fluorescence_run.py (core/fluorescence.py)",
+ "date": "2026-11-23",
+ "label": "approximate",
+ "settings": {
+  "film": "full mapping, realizable indices (same as sounds.json colours.full.realizable)",
+  "dye": "in every layer of the phoneme film",
+  "theta_deg": 0,
+  "illuminants": {
+   "D65": "CIE D65",
+   "UV": "365 nm LED, Gaussian FWHM 10 nm (illustrative)",
+   "violet": "405 nm LED, Gaussian FWHM 15 nm (illustrative)"
+  },
+  "hex": "exposure-normalised display colour (artistic), Lab vs D65 white"
+ },
+ "fluorophore": {
+  "name": "papiliochrome-type (P. nireus)",
+  "exc_peak_nm": 420.0,
+  "em_peak_nm": 505.0,
+  "stokes_shift_nm": 85.0,
+  "stokes_shift_cm1": 4008.0,
+  "qy": 0.3,
+  "k_max": 0.02,
+  "label": "approximate (peaks cited; shapes fitted; QY and k_max illustrative)"
+ },
+ "papilio": {
+  "structure": "air | 2-D PC slab as effective medium n=1.336, 1300 nm, dye | air gap 1200-1800 nm (averaged) | DBR cuticle 75 / air 35 / cuticle 75 nm | air",
+  "with_DBR": {
+   "D65": {
+    "hex": "#17d1c6",
+    "Lab": [
+     39.16,
+     -26.32,
+     -3.89
+    ],
+    "fluor_fraction": 0.339,
+    "peak_emission_nm": 503.0,
+    "photon_yield": 0.1558
+   },
+   "UV": {
+    "hex": "#00de7d",
+    "Lab": [
+     23.89,
+     -37.91,
+     13.85
+    ],
+    "fluor_fraction": 0.9998,
+    "peak_emission_nm": 503.0,
+    "photon_yield": 0.1558
+   },
+   "violet": {
+    "hex": "#00daa9",
+    "Lab": [
+     44.4,
+     -46.72,
+     5.86
+    ],
+    "fluor_fraction": 0.9977,
+    "peak_emission_nm": 503.0,
+    "photon_yield": 0.1558
+   },
+   "eta_505": 0.5285
+  },
+  "no_DBR": {
+   "D65": {
+    "hex": "#7bcd91",
+    "Lab": [
+     32.14,
+     -19.81,
+     11.53
+    ],
+    "fluor_fraction": 0.4375,
+    "peak_emission_nm": 504.0,
+    "photon_yield": 0.15
+   },
+   "UV": {
+    "hex": "#00de75",
+    "Lab": [
+     20.3,
+     -34.66,
+     14.03
+    ],
+    "fluor_fraction": 0.9999,
+    "peak_emission_nm": 504.0,
+    "photon_yield": 0.15
+   },
+   "violet": {
+    "hex": "#00dc8d",
+    "Lab": [
+     41.19,
+     -49.81,
+     14.55
+    ],
+    "fluor_fraction": 0.999,
+    "peak_emission_nm": 504.0,
+    "photon_yield": 0.15
+   },
+   "eta_505": 0.5
+  }
+ },
+ "items": [
+  {
+   "id": "i",
+   "ipa": "i",
+   "class": "vowel",
+   "hex_D65": "#d4adf1",
+   "hex_UV": "#00de7a",
+   "hex_violet": "#00dba0",
+   "hex_D65_no_dye": "#d83fff",
+   "fluor_fraction_D65": 0.441,
+   "fluor_fraction_violet": 0.998,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4784,
+    0.4999
+   ],
+   "photon_yield_UV": 0.1483,
+   "ideal_unphysical": {
+    "hex_UV": "#6f00ff",
+    "eta_450_650": [
+     0.1241,
+     0.5255
+    ]
+   }
+  },
+  {
+   "id": "ih",
+   "ipa": "\u026a",
+   "class": "vowel",
+   "hex_D65": "#94ca85",
+   "hex_UV": "#00de79",
+   "hex_violet": "#00dba3",
+   "hex_D65_no_dye": "#b8beac",
+   "fluor_fraction_D65": 0.2658,
+   "fluor_fraction_violet": 0.9979,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.4651,
+    0.4993
+   ],
+   "photon_yield_UV": 0.1465,
+   "ideal_unphysical": {
+    "hex_UV": "#6400ff",
+    "eta_450_650": [
+     0.1348,
+     0.5487
+    ]
+   }
+  },
+  {
+   "id": "ae",
+   "ipa": "\u00e6",
+   "class": "vowel",
+   "hex_D65": "#cdba8b",
+   "hex_UV": "#00de77",
+   "hex_violet": "#00d9b3",
+   "hex_D65_no_dye": "#ebae93",
+   "fluor_fraction_D65": 0.2228,
+   "fluor_fraction_violet": 0.997,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.4549,
+    0.4886
+   ],
+   "photon_yield_UV": 0.1437,
+   "ideal_unphysical": {
+    "hex_UV": "#4f63ff",
+    "eta_450_650": [
+     0.1277,
+     0.3112
+    ]
+   }
+  },
+  {
+   "id": "a",
+   "ipa": "a",
+   "class": "vowel",
+   "hex_D65": "#00de90",
+   "hex_UV": "#00de74",
+   "hex_violet": "#00da9f",
+   "hex_D65_no_dye": "#00dda2",
+   "fluor_fraction_D65": 0.297,
+   "fluor_fraction_violet": 0.9981,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4698,
+    0.4973
+   ],
+   "photon_yield_UV": 0.1437,
+   "ideal_unphysical": {
+    "hex_UV": "#00d6aa",
+    "eta_450_650": [
+     0.1222,
+     0.4886
+    ]
+   }
+  },
+  {
+   "id": "aa",
+   "ipa": "\u0251",
+   "class": "vowel",
+   "hex_D65": "#85cd75",
+   "hex_UV": "#00de76",
+   "hex_violet": "#00dc8e",
+   "hex_D65_no_dye": "#a1c68e",
+   "fluor_fraction_D65": 0.228,
+   "fluor_fraction_violet": 0.999,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.4628,
+    0.4951
+   ],
+   "photon_yield_UV": 0.1416,
+   "ideal_unphysical": {
+    "hex_UV": "#4eabff",
+    "eta_450_650": [
+     0.0746,
+     0.4414
+    ]
+   }
+  },
+  {
+   "id": "aw",
+   "ipa": "\u0254",
+   "class": "vowel",
+   "hex_D65": "#00d873",
+   "hex_UV": "#00dd78",
+   "hex_violet": "#00dc8b",
+   "hex_D65_no_dye": "#2cd58f",
+   "fluor_fraction_D65": 0.156,
+   "fluor_fraction_violet": 0.9992,
+   "peak_emission_nm": 503.0,
+   "eta_450_650": [
+    0.4372,
+    0.4866
+   ],
+   "photon_yield_UV": 0.1374,
+   "ideal_unphysical": {
+    "hex_UV": "#478aff",
+    "eta_450_650": [
+     0.0469,
+     0.4775
+    ]
+   }
+  },
+  {
+   "id": "uh",
+   "ipa": "\u028c",
+   "class": "vowel",
+   "hex_D65": "#c9bc84",
+   "hex_UV": "#00df77",
+   "hex_violet": "#00dc9c",
+   "hex_D65_no_dye": "#e1b294",
+   "fluor_fraction_D65": 0.1866,
+   "fluor_fraction_violet": 0.9983,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4466,
+    0.4847
+   ],
+   "photon_yield_UV": 0.1417,
+   "ideal_unphysical": {
+    "hex_UV": "#00d1fa",
+    "eta_450_650": [
+     0.0926,
+     0.3681
+    ]
+   }
+  },
+  {
+   "id": "uu",
+   "ipa": "\u028a",
+   "class": "vowel",
+   "hex_D65": "#ccb9a1",
+   "hex_UV": "#00df75",
+   "hex_violet": "#00dd8c",
+   "hex_D65_no_dye": "#dfafbd",
+   "fluor_fraction_D65": 0.1477,
+   "fluor_fraction_violet": 0.999,
+   "peak_emission_nm": 508.0,
+   "eta_450_650": [
+    0.4485,
+    0.5043
+   ],
+   "photon_yield_UV": 0.1439,
+   "ideal_unphysical": {
+    "hex_UV": "#08aaff",
+    "eta_450_650": [
+     0.1141,
+     0.6469
+    ]
+   }
+  },
+  {
+   "id": "u",
+   "ipa": "u",
+   "class": "vowel",
+   "hex_D65": "#a4c68b",
+   "hex_UV": "#00de77",
+   "hex_violet": "#00de76",
+   "hex_D65_no_dye": "#b3c19b",
+   "fluor_fraction_D65": 0.1307,
+   "fluor_fraction_violet": 1.0,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.4177,
+    0.4661
+   ],
+   "photon_yield_UV": 0.1311,
+   "ideal_unphysical": {
+    "hex_UV": "#7000ff",
+    "eta_450_650": [
+     0.0244,
+     0.1675
+    ]
+   }
+  },
+  {
+   "id": "schwa",
+   "ipa": "\u0259",
+   "class": "vowel",
+   "hex_D65": "#a1c59b",
+   "hex_UV": "#00df76",
+   "hex_violet": "#00dc91",
+   "hex_D65_no_dye": "#bfbabc",
+   "fluor_fraction_D65": 0.2455,
+   "fluor_fraction_violet": 0.9988,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.4604,
+    0.4975
+   ],
+   "photon_yield_UV": 0.145,
+   "ideal_unphysical": {
+    "hex_UV": "#00d5fd",
+    "eta_450_650": [
+     0.0784,
+     0.4258
+    ]
+   }
+  },
+  {
+   "id": "er",
+   "ipa": "\u025c",
+   "class": "vowel",
+   "hex_D65": "#8acd6e",
+   "hex_UV": "#00de76",
+   "hex_violet": "#00dd8e",
+   "hex_D65_no_dye": "#acc483",
+   "fluor_fraction_D65": 0.263,
+   "fluor_fraction_violet": 0.999,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4639,
+    0.5005
+   ],
+   "photon_yield_UV": 0.1445,
+   "ideal_unphysical": {
+    "hex_UV": "#00d9b6",
+    "eta_450_650": [
+     0.1508,
+     0.4534
+    ]
+   }
+  },
+  {
+   "id": "p",
+   "ipa": "p",
+   "class": "plosive",
+   "hex_D65": "#b6c275",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00dc90",
+   "hex_D65_no_dye": "#f5aa8e",
+   "fluor_fraction_D65": 0.4041,
+   "fluor_fraction_violet": 0.9989,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4605,
+    0.5017
+   ],
+   "photon_yield_UV": 0.1459,
+   "ideal_unphysical": {
+    "hex_UV": "#00c0ff",
+    "eta_450_650": [
+     0.0618,
+     0.3998
+    ]
+   }
+  },
+  {
+   "id": "b",
+   "ipa": "b",
+   "class": "plosive",
+   "hex_D65": "#a4c68b",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00dc94",
+   "hex_D65_no_dye": "#c7baa1",
+   "fluor_fraction_D65": 0.2725,
+   "fluor_fraction_violet": 0.9987,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.4506,
+    0.4911
+   ],
+   "photon_yield_UV": 0.1427,
+   "ideal_unphysical": {
+    "hex_UV": "#00beff",
+    "eta_450_650": [
+     0.0512,
+     0.3328
+    ]
+   }
+  },
+  {
+   "id": "t",
+   "ipa": "t",
+   "class": "plosive",
+   "hex_D65": "#b4c37b",
+   "hex_UV": "#00de76",
+   "hex_violet": "#00db9b",
+   "hex_D65_no_dye": "#dab685",
+   "fluor_fraction_D65": 0.2789,
+   "fluor_fraction_violet": 0.9984,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.4477,
+    0.4953
+   ],
+   "photon_yield_UV": 0.1433,
+   "ideal_unphysical": {
+    "hex_UV": "#00d9e8",
+    "eta_450_650": [
+     0.0604,
+     0.2994
+    ]
+   }
+  },
+  {
+   "id": "d",
+   "ipa": "d",
+   "class": "plosive",
+   "hex_D65": "#9cc69d",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00db98",
+   "hex_D65_no_dye": "#c1bbb5",
+   "fluor_fraction_D65": 0.2873,
+   "fluor_fraction_violet": 0.9985,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.4625,
+    0.4879
+   ],
+   "photon_yield_UV": 0.1431,
+   "ideal_unphysical": {
+    "hex_UV": "#00d7ec",
+    "eta_450_650": [
+     0.0634,
+     0.3413
+    ]
+   }
+  },
+  {
+   "id": "k",
+   "ipa": "k",
+   "class": "plosive",
+   "hex_D65": "#63cf9f",
+   "hex_UV": "#00de74",
+   "hex_violet": "#00db98",
+   "hex_D65_no_dye": "#c9b4d7",
+   "fluor_fraction_D65": 0.6115,
+   "fluor_fraction_violet": 0.9985,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4873,
+    0.4968
+   ],
+   "photon_yield_UV": 0.1481,
+   "ideal_unphysical": {
+    "hex_UV": "#00d9d2",
+    "eta_450_650": [
+     0.1473,
+     0.4419
+    ]
+   }
+  },
+  {
+   "id": "g",
+   "ipa": "\u0261",
+   "class": "plosive",
+   "hex_D65": "#afc386",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00d9b2",
+   "hex_D65_no_dye": "#e1b299",
+   "fluor_fraction_D65": 0.3465,
+   "fluor_fraction_violet": 0.9971,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4654,
+    0.4974
+   ],
+   "photon_yield_UV": 0.1458,
+   "ideal_unphysical": {
+    "hex_UV": "#00c9ff",
+    "eta_450_650": [
+     0.1143,
+     0.4383
+    ]
+   }
+  },
+  {
+   "id": "m",
+   "ipa": "m",
+   "class": "nasal",
+   "hex_D65": "#fca1c2",
+   "hex_UV": "#00df75",
+   "hex_violet": "#00db9d",
+   "hex_D65_no_dye": "#ff5dbf",
+   "fluor_fraction_D65": 0.3231,
+   "fluor_fraction_violet": 0.9981,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.4127,
+    0.4976
+   ],
+   "photon_yield_UV": 0.146,
+   "ideal_unphysical": {
+    "hex_UV": "#0368ff",
+    "eta_450_650": [
+     0.0472,
+     0.4665
+    ]
+   }
+  },
+  {
+   "id": "n",
+   "ipa": "n",
+   "class": "nasal",
+   "hex_D65": "#ff9cb9",
+   "hex_UV": "#00df75",
+   "hex_violet": "#00dba4",
+   "hex_D65_no_dye": "#ff51b2",
+   "fluor_fraction_D65": 0.3403,
+   "fluor_fraction_violet": 0.9978,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.4182,
+    0.4987
+   ],
+   "photon_yield_UV": 0.1464,
+   "ideal_unphysical": {
+    "hex_UV": "#0098ff",
+    "eta_450_650": [
+     0.0654,
+     0.4705
+    ]
+   }
+  },
+  {
+   "id": "ng",
+   "ipa": "\u014b",
+   "class": "nasal",
+   "hex_D65": "#fd9fcf",
+   "hex_UV": "#00de76",
+   "hex_violet": "#00dc92",
+   "hex_D65_no_dye": "#ff68d1",
+   "fluor_fraction_D65": 0.2641,
+   "fluor_fraction_violet": 0.9987,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.3915,
+    0.4909
+   ],
+   "photon_yield_UV": 0.1442,
+   "ideal_unphysical": {
+    "hex_UV": "#275bff",
+    "eta_450_650": [
+     0.0368,
+     0.4427
+    ]
+   }
+  },
+  {
+   "id": "f",
+   "ipa": "f",
+   "class": "fricative",
+   "hex_D65": "#74ccb3",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00d9b1",
+   "hex_D65_no_dye": "#d1aeed",
+   "fluor_fraction_D65": 0.5695,
+   "fluor_fraction_violet": 0.9971,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4901,
+    0.496
+   ],
+   "photon_yield_UV": 0.1482,
+   "ideal_unphysical": {
+    "hex_UV": "#7200ff",
+    "eta_450_650": [
+     0.2039,
+     0.3469
+    ]
+   }
+  },
+  {
+   "id": "v",
+   "ipa": "v",
+   "class": "fricative",
+   "hex_D65": "#73cd9f",
+   "hex_UV": "#00de74",
+   "hex_violet": "#00db95",
+   "hex_D65_no_dye": "#c1b7d9",
+   "fluor_fraction_D65": 0.5181,
+   "fluor_fraction_violet": 0.9986,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4724,
+    0.5016
+   ],
+   "photon_yield_UV": 0.1479,
+   "ideal_unphysical": {
+    "hex_UV": "#00cdfe",
+    "eta_450_650": [
+     0.1803,
+     0.4944
+    ]
+   }
+  },
+  {
+   "id": "th",
+   "ipa": "\u03b8",
+   "class": "fricative",
+   "hex_D65": "#47d1b1",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00daa9",
+   "hex_D65_no_dye": "#b1b8f4",
+   "fluor_fraction_D65": 0.6157,
+   "fluor_fraction_violet": 0.9975,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4907,
+    0.4972
+   ],
+   "photon_yield_UV": 0.1485,
+   "ideal_unphysical": {
+    "hex_UV": "#7200ff",
+    "eta_450_650": [
+     0.1767,
+     0.3752
+    ]
+   }
+  },
+  {
+   "id": "dh",
+   "ipa": "\u00f0",
+   "class": "fricative",
+   "hex_D65": "#c0b6dd",
+   "hex_UV": "#00de76",
+   "hex_violet": "#00d6c5",
+   "hex_D65_no_dye": "#ea96ff",
+   "fluor_fraction_D65": 0.3417,
+   "fluor_fraction_violet": 0.9957,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4641,
+    0.4926
+   ],
+   "photon_yield_UV": 0.1459,
+   "ideal_unphysical": {
+    "hex_UV": "#610aff",
+    "eta_450_650": [
+     0.146,
+     0.337
+    ]
+   }
+  },
+  {
+   "id": "s",
+   "ipa": "s",
+   "class": "fricative",
+   "hex_D65": "#32d1bc",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00daa8",
+   "hex_D65_no_dye": "#ab63ff",
+   "fluor_fraction_D65": 0.7896,
+   "fluor_fraction_violet": 0.9976,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4939,
+    0.4993
+   ],
+   "photon_yield_UV": 0.1494,
+   "ideal_unphysical": {
+    "hex_UV": "#7200ff",
+    "eta_450_650": [
+     0.2939,
+     0.6964
+    ]
+   }
+  },
+  {
+   "id": "z",
+   "ipa": "z",
+   "class": "fricative",
+   "hex_D65": "#37cbf3",
+   "hex_UV": "#00de76",
+   "hex_violet": "#00d8bb",
+   "hex_D65_no_dye": "#7a3eff",
+   "fluor_fraction_D65": 0.7285,
+   "fluor_fraction_violet": 0.9964,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4873,
+    0.499
+   ],
+   "photon_yield_UV": 0.1493,
+   "ideal_unphysical": {
+    "hex_UV": "#7100ff",
+    "eta_450_650": [
+     0.3569,
+     0.8841
+    ]
+   }
+  },
+  {
+   "id": "sh",
+   "ipa": "\u0283",
+   "class": "fricative",
+   "hex_D65": "#2cd58a",
+   "hex_UV": "#00de74",
+   "hex_violet": "#00db99",
+   "hex_D65_no_dye": "#e3abcf",
+   "fluor_fraction_D65": 0.7887,
+   "fluor_fraction_violet": 0.9984,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4946,
+    0.499
+   ],
+   "photon_yield_UV": 0.1493,
+   "ideal_unphysical": {
+    "hex_UV": "#7100ff",
+    "eta_450_650": [
+     0.2078,
+     0.4856
+    ]
+   }
+  },
+  {
+   "id": "h",
+   "ipa": "h",
+   "class": "fricative",
+   "hex_D65": "#86cc8e",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00dc97",
+   "hex_D65_no_dye": "#d5b5ab",
+   "fluor_fraction_D65": 0.513,
+   "fluor_fraction_violet": 0.9985,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4767,
+    0.4968
+   ],
+   "photon_yield_UV": 0.1475,
+   "ideal_unphysical": {
+    "hex_UV": "#00bbff",
+    "eta_450_650": [
+     0.1191,
+     0.3354
+    ]
+   }
+  },
+  {
+   "id": "l",
+   "ipa": "l",
+   "class": "lateral",
+   "hex_D65": "#afbcd7",
+   "hex_UV": "#00de73",
+   "hex_violet": "#00dc8e",
+   "hex_D65_no_dye": "#ceabff",
+   "fluor_fraction_D65": 0.2486,
+   "fluor_fraction_violet": 0.9988,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.4037,
+    0.4881
+   ],
+   "photon_yield_UV": 0.1405,
+   "ideal_unphysical": {
+    "hex_UV": "#00e3b2",
+    "eta_450_650": [
+     0.038,
+     0.3722
+    ]
+   }
+  },
+  {
+   "id": "r",
+   "ipa": "\u0279",
+   "class": "approximant",
+   "hex_D65": "#ddb75a",
+   "hex_UV": "#00df7c",
+   "hex_violet": "#00dd98",
+   "hex_D65_no_dye": "#efb057",
+   "fluor_fraction_D65": 0.1244,
+   "fluor_fraction_violet": 0.9987,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.3632,
+    0.4833
+   ],
+   "photon_yield_UV": 0.134,
+   "ideal_unphysical": {
+    "hex_UV": "#00dae1",
+    "eta_450_650": [
+     0.0201,
+     0.3089
+    ]
+   }
+  },
+  {
+   "id": "w",
+   "ipa": "w",
+   "class": "approximant",
+   "hex_D65": "#e0b481",
+   "hex_UV": "#00df78",
+   "hex_violet": "#00df7b",
+   "hex_D65_no_dye": "#f2ab95",
+   "fluor_fraction_D65": 0.1258,
+   "fluor_fraction_violet": 0.9999,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.3586,
+    0.4693
+   ],
+   "photon_yield_UV": 0.1327,
+   "ideal_unphysical": {
+    "hex_UV": "#6800ff",
+    "eta_450_650": [
+     0.0104,
+     0.2189
+    ]
+   }
+  },
+  {
+   "id": "j",
+   "ipa": "j",
+   "class": "approximant",
+   "hex_D65": "#eca3ec",
+   "hex_UV": "#00de78",
+   "hex_violet": "#00db9c",
+   "hex_D65_no_dye": "#f800ff",
+   "fluor_fraction_D65": 0.5098,
+   "fluor_fraction_violet": 0.9982,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4447,
+    0.4964
+   ],
+   "photon_yield_UV": 0.148,
+   "ideal_unphysical": {
+    "hex_UV": "#6600ff",
+    "eta_450_650": [
+     0.1193,
+     0.419
+    ]
+   }
+  },
+  {
+   "id": "e",
+   "ipa": "e",
+   "class": "vowel",
+   "hex_D65": "#ff9b74",
+   "hex_UV": "#00e078",
+   "hex_violet": "#00e081",
+   "hex_D65_no_dye": "#ff8681",
+   "fluor_fraction_D65": 0.1194,
+   "fluor_fraction_violet": 0.9995,
+   "peak_emission_nm": 510.0,
+   "eta_450_650": [
+    0.3095,
+    0.5042
+   ],
+   "photon_yield_UV": 0.1394,
+   "ideal_unphysical": {
+    "hex_UV": "#0094ff",
+    "eta_450_650": [
+     0.0529,
+     0.3963
+    ]
+   }
+  },
+  {
+   "id": "eh",
+   "ipa": "\u025b",
+   "class": "vowel",
+   "hex_D65": "#ffa455",
+   "hex_UV": "#00e07b",
+   "hex_violet": "#00df8c",
+   "hex_D65_no_dye": "#ff915e",
+   "fluor_fraction_D65": 0.1112,
+   "fluor_fraction_violet": 0.9992,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.3307,
+    0.5076
+   ],
+   "photon_yield_UV": 0.1396,
+   "ideal_unphysical": {
+    "hex_UV": "#00dad6",
+    "eta_450_650": [
+     0.0554,
+     0.4698
+    ]
+   }
+  },
+  {
+   "id": "o",
+   "ipa": "o",
+   "class": "vowel",
+   "hex_D65": "#ff9114",
+   "hex_UV": "#00e079",
+   "hex_violet": "#00df89",
+   "hex_D65_no_dye": "#ff7a1a",
+   "fluor_fraction_D65": 0.1312,
+   "fluor_fraction_violet": 0.9993,
+   "peak_emission_nm": 507.0,
+   "eta_450_650": [
+    0.3438,
+    0.507
+   ],
+   "photon_yield_UV": 0.1436,
+   "ideal_unphysical": {
+    "hex_UV": "#00d5d9",
+    "eta_450_650": [
+     0.1308,
+     0.7048
+    ]
+   }
+  },
+  {
+   "id": "zh",
+   "ipa": "\u0292",
+   "class": "fricative",
+   "hex_D65": "#2cd58a",
+   "hex_UV": "#00de74",
+   "hex_violet": "#00db99",
+   "hex_D65_no_dye": "#e3abcf",
+   "fluor_fraction_D65": 0.7887,
+   "fluor_fraction_violet": 0.9984,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4946,
+    0.499
+   ],
+   "photon_yield_UV": 0.1493,
+   "ideal_unphysical": {
+    "hex_UV": "#7100ff",
+    "eta_450_650": [
+     0.2078,
+     0.4856
+    ]
+   }
+  },
+  {
+   "id": "ch",
+   "ipa": "t\u0283",
+   "class": "affricate",
+   "hex_D65": "#53d385",
+   "hex_UV": "#00de75",
+   "hex_violet": "#00db9a",
+   "hex_D65_no_dye": "#dfb0af",
+   "fluor_fraction_D65": 0.7147,
+   "fluor_fraction_violet": 0.9984,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4923,
+    0.4984
+   ],
+   "photon_yield_UV": 0.1489,
+   "ideal_unphysical": {
+    "hex_UV": "#6d00ff",
+    "eta_450_650": [
+     0.1951,
+     0.5092
+    ]
+   }
+  },
+  {
+   "id": "jh",
+   "ipa": "d\u0292",
+   "class": "affricate",
+   "hex_D65": "#4ad388",
+   "hex_UV": "#00de74",
+   "hex_violet": "#00db99",
+   "hex_D65_no_dye": "#d7b3b3",
+   "fluor_fraction_D65": 0.7164,
+   "fluor_fraction_violet": 0.9984,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.493,
+    0.4981
+   ],
+   "photon_yield_UV": 0.1489,
+   "ideal_unphysical": {
+    "hex_UV": "#6e00ff",
+    "eta_450_650": [
+     0.1973,
+     0.4831
+    ]
+   }
+  },
+  {
+   "id": "ei",
+   "ipa": "e\u026a",
+   "class": "diphthong",
+   "hex_D65": "#e6b276",
+   "hex_UV": "#00df76",
+   "hex_violet": "#00dc9d",
+   "hex_D65_no_dye": "#ffa177",
+   "fluor_fraction_D65": 0.2117,
+   "fluor_fraction_violet": 0.9982,
+   "peak_emission_nm": 508.0,
+   "eta_450_650": [
+    0.4123,
+    0.4951
+   ],
+   "photon_yield_UV": 0.1436,
+   "ideal_unphysical": {
+    "hex_UV": "#00dcec",
+    "eta_450_650": [
+     0.0564,
+     0.3152
+    ]
+   }
+  },
+  {
+   "id": "ai",
+   "ipa": "a\u026a",
+   "class": "diphthong",
+   "hex_D65": "#57d291",
+   "hex_UV": "#00de76",
+   "hex_violet": "#00daa1",
+   "hex_D65_no_dye": "#88c9b1",
+   "fluor_fraction_D65": 0.3511,
+   "fluor_fraction_violet": 0.998,
+   "peak_emission_nm": 505.0,
+   "eta_450_650": [
+    0.4812,
+    0.4998
+   ],
+   "photon_yield_UV": 0.1456,
+   "ideal_unphysical": {
+    "hex_UV": "#5b8aff",
+    "eta_450_650": [
+     0.158,
+     0.5252
+    ]
+   }
+  },
+  {
+   "id": "oi",
+   "ipa": "\u0254\u026a",
+   "class": "diphthong",
+   "hex_D65": "#71d159",
+   "hex_UV": "#00de78",
+   "hex_violet": "#00db9e",
+   "hex_D65_no_dye": "#89cd62",
+   "fluor_fraction_D65": 0.1952,
+   "fluor_fraction_violet": 0.9983,
+   "peak_emission_nm": 504.0,
+   "eta_450_650": [
+    0.4572,
+    0.4997
+   ],
+   "photon_yield_UV": 0.1412,
+   "ideal_unphysical": {
+    "hex_UV": "#00dab4",
+    "eta_450_650": [
+     0.0798,
+     0.3567
+    ]
+   }
+  },
+  {
+   "id": "au",
+   "ipa": "a\u028a",
+   "class": "diphthong",
+   "hex_D65": "#90c7ae",
+   "hex_UV": "#00de74",
+   "hex_violet": "#00db96",
+   "hex_D65_no_dye": "#b6bbcf",
+   "fluor_fraction_D65": 0.303,
+   "fluor_fraction_violet": 0.9985,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.472,
+    0.4897
+   ],
+   "photon_yield_UV": 0.1443,
+   "ideal_unphysical": {
+    "hex_UV": "#4ec9f5",
+    "eta_450_650": [
+     0.1193,
+     0.3604
+    ]
+   }
+  },
+  {
+   "id": "ou",
+   "ipa": "o\u028a",
+   "class": "diphthong",
+   "hex_D65": "#fca870",
+   "hex_UV": "#00e079",
+   "hex_violet": "#00dd97",
+   "hex_D65_no_dye": "#ff917c",
+   "fluor_fraction_D65": 0.1392,
+   "fluor_fraction_violet": 0.9987,
+   "peak_emission_nm": 506.0,
+   "eta_450_650": [
+    0.3519,
+    0.5021
+   ],
+   "photon_yield_UV": 0.1429,
+   "ideal_unphysical": {
+    "hex_UV": "#00dad5",
+    "eta_450_650": [
+     0.0355,
+     0.7076
+    ]
+   }
+  }
+ ],
+ "findings": [
+  "P. nireus preset: extracted emission peaks at 503.0 nm (cited ~505 nm); under UV-A the scale glows #00de7d.",
+  "The 3-layer DBR raises the top escape factor at 505 nm from 0.500 to 0.528 (model).",
+  "Realizable phoneme films (n 1-2.5) only reshape extraction mildly: escape factor over 450-650 nm ranges 0.31-0.51 across all 43 items, so under blacklight every phoneme glows nearly the same green; in daylight the dye adds 11-79% of Y on top of the film's own reflection.",
+  "With the unphysical 'ideal' indices (up to n~200) the films do filter the emission strongly (escape factor down to ~0.1) and blacklight colours diverge - reported only as ideal_unphysical."
+ ],
+ "citations": [
+  "Vukusic P. & Hooper I. (2005) Directionally controlled fluorescence emission in butterflies. Science 310:1151. doi:10.1126/science.1116612",
+  "Van Hooijdonk E., Vandenbem C., Berthier S. & Vigneron J.P. (2012) Bi-functional photonic structure in the Papilio nireus (Papilionidae): modeling by scattering-matrix optical simulations. Opt. Express 20:22001. doi:10.1364/OE.20.022001 (peak excitation ~420 nm, peak emission ~505 nm, band 450-650 nm; 2-D PC 1300 nm thick, air cylinders 240 nm diameter / 340 nm hexagonal spacing; lamina gap 1500 nm; DBR 75/35/75 nm)",
+  "Wilts B.D., Matsushita A., Arikawa K. & Stavenga D.G. (2015) Spectrally tuned structural and pigmentary coloration of birdwing butterfly wing scales. J. R. Soc. Interface 12:20150717. doi:10.1098/rsif.2015.0717 (fluorescent papiliochromes in Ornithoptera/Troides scales; violet- and UV-absorbing pigments)",
+  "CIE 1931 2deg observer and D65 via the colour-science package (as core.colour)."
+ ],
+ "caveats": [
+  "Spectral shapes are Gaussian fits to cited peaks and band edges, not digitised spectra.",
+  "Quantum yield 0.3 and dye extinction k_max 0.02 are ILLUSTRATIVE (no literature value found).",
+  "Extraction is Purcell-free: eta = P_top/(P_top+P_bottom) for in-plane dipole sheets, s/p averaged; vertical dipoles, re-absorption of emission and the 2-D PC's in-plane band gap are ignored.",
+  "Reflection is specular, fluorescence is spread over angles; fluor_fraction is indicative only.",
+  "Display hexes are exposure-normalised, so a dim blacklight scene shows its hue at display brightness.",
+  "Phoneme films use the project pipeline's media (incident medium = film n[0], not necessarily air)."
+ ]
+}

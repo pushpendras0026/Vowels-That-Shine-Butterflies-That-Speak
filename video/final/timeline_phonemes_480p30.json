@@ -1,0 +1,400 @@
+{
+ "duration": 90.0,
+ "frames": 2700,
+ "fps": 30,
+ "scenes": [
+  {
+   "scene": "Title",
+   "dur": 5.0
+  },
+  {
+   "scene": "Chart",
+   "dur": 23.99999999999999
+  },
+  {
+   "scene": "Fricative",
+   "dur": 17.5
+  },
+  {
+   "scene": "Gamut",
+   "dur": 13.5
+  },
+  {
+   "scene": "Angle",
+   "dur": 9.0
+  },
+  {
+   "scene": "Diphthong",
+   "dur": 7.5
+  },
+  {
+   "scene": "Caveats",
+   "dur": 8.5
+  },
+  {
+   "scene": "End",
+   "dur": 5.0
+  }
+ ],
+ "captions": [
+  {
+   "t0": 0.3,
+   "t1": 5.0,
+   "scene": "Title",
+   "text": "So far, vowels. Here we push the same film recipe to all 43 phonemes in 8 classes, and report what came out."
+  },
+  {
+   "t0": 5.2,
+   "t1": 16.6,
+   "scene": "Chart",
+   "text": "The IPA chart, class by class. Each tile lights up in its film's colour while its recording plays (32 real recordings)."
+  },
+  {
+   "t0": 16.6,
+   "t1": 26.6,
+   "scene": "Chart",
+   "text": "Recording → averaged LPC polynomial → realizable film (n 1–2.5) → reflected colour under daylight (D65)."
+  },
+  {
+   "t0": 26.6,
+   "t1": 29.0,
+   "scene": "Chart",
+   "text": "* modelled (no clean recording: you hear the film's own voice)   † fallback plosive (context vowel averaged in)   ~ trajectory model"
+  },
+  {
+   "t0": 29.2,
+   "t1": 33.2,
+   "scene": "Fricative",
+   "text": "One fricative: /s/ as in 'sip'. Its LPC envelope is the hiss shaped by the mouth: most energy high up."
+  },
+  {
+   "t0": 33.2,
+   "t1": 37.0,
+   "scene": "Fricative",
+   "text": "Layer peeling turns the 16 reflection coefficients into 16 film layers: bars of refractive index, each of equal optical thickness."
+  },
+  {
+   "t0": 37.0,
+   "t1": 40.0,
+   "scene": "Fricative",
+   "text": "That film reflects daylight as #ab63ff. Played back, the film has a voice too."
+  },
+  {
+   "t0": 40.0,
+   "t1": 43.0,
+   "scene": "Fricative",
+   "text": "Its nearest butterfly: the Morpho-like ×0.9 film, spectral shape correlation ρ = 0.87, ΔE00 = 10.4."
+  },
+  {
+   "t0": 43.0,
+   "t1": 46.5,
+   "scene": "Fricative",
+   "text": "Caveat: same shape, not the same strength: peak R 0.18 for /s/ vs 0.91. (Best match overall: [z], ρ = 0.98.)"
+  },
+  {
+   "t0": 46.7,
+   "t1": 55.5,
+   "scene": "Gamut",
+   "text": "Every valid colour of each class in the a*b* plane: all frames of every recording, viewed at 0, 15, 30, 45, 60°."
+  },
+  {
+   "t0": 55.5,
+   "t1": 60.0,
+   "scene": "Gamut",
+   "text": "No class is limited to one or two colours: 39–85 distinct colours per class, and in every class 3 colours lie more than ΔE00 = 10 apart. So we show them all."
+  },
+  {
+   "t0": 60.2,
+   "t1": 64.5,
+   "scene": "Angle",
+   "text": "Iridescence: tilt each film from 0° to 60° and its reflected colour drifts, like a wing turning in the light."
+  },
+  {
+   "t0": 64.5,
+   "t1": 69.0,
+   "scene": "Angle",
+   "text": "Tilting alone multiplies the colours: one film per phoneme × 5 angles already gives 3–23 distinct colours per class."
+  },
+  {
+   "t0": 69.2,
+   "t1": 72.9,
+   "scene": "Diphthong",
+   "text": "A diphthong is a moving film. /aɪ/ as in 'price' glides from /a/ to /ɪ/, and its colour glides with it."
+  },
+  {
+   "t0": 72.9,
+   "t1": 76.5,
+   "scene": "Diphthong",
+   "text": "30 interpolation steps between the two vowel polynomials (log-area ratios); the sound is the film's own synthesised voice."
+  },
+  {
+   "t0": 76.7,
+   "t1": 85.0,
+   "scene": "Caveats",
+   "text": "What to keep in mind: these are experiments, labelled as such."
+  },
+  {
+   "t0": 85.3,
+   "t1": 90.0,
+   "scene": "End",
+   "text": "Every phoneme has a film, and every film has colours. Explore them all on the Experiments page."
+  }
+ ],
+ "cues": [
+  {
+   "t": 6.95,
+   "wav": "web/audio/ipa/i.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 7.35,
+   "wav": "web/audio/ipa/ih.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 7.75,
+   "wav": "web/audio/ipa/ae.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 8.15,
+   "wav": "web/audio/ipa/a.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 8.55,
+   "wav": "web/audio/ipa/aa.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 8.95,
+   "wav": "web/audio/ipa/aw.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 9.35,
+   "wav": "web/audio/ipa/uh.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 9.75,
+   "wav": "web/audio/ipa/uu.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 10.15,
+   "wav": "web/audio/ipa/u.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 10.55,
+   "wav": "web/audio/ipa/schwa.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 10.95,
+   "wav": "web/audio/ipa/er.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 11.35,
+   "wav": "web/audio/ipa/e_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 11.75,
+   "wav": "web/audio/ipa/eh_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 12.15,
+   "wav": "web/audio/ipa/o_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 12.9,
+   "wav": "web/audio/ipa/ei_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 13.3,
+   "wav": "web/audio/ipa/ai_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 13.7,
+   "wav": "web/audio/ipa/oi_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 14.1,
+   "wav": "web/audio/ipa/au_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 14.5,
+   "wav": "web/audio/ipa/ou_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 15.25,
+   "wav": "web/audio/ipa/p.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 15.65,
+   "wav": "web/audio/ipa/b.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 16.05,
+   "wav": "web/audio/ipa/t.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 16.45,
+   "wav": "web/audio/ipa/d.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 16.85,
+   "wav": "web/audio/ipa/k.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 17.25,
+   "wav": "web/audio/ipa/g.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 18.0,
+   "wav": "web/audio/ipa/ch_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 18.4,
+   "wav": "web/audio/ipa/jh_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 19.15,
+   "wav": "web/audio/ipa/m.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 19.55,
+   "wav": "web/audio/ipa/n.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 19.95,
+   "wav": "web/audio/ipa/ng.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 20.7,
+   "wav": "web/audio/ipa/f.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 21.1,
+   "wav": "web/audio/ipa/v.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 21.5,
+   "wav": "web/audio/ipa/th.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 21.9,
+   "wav": "web/audio/ipa/dh.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 22.3,
+   "wav": "web/audio/ipa/s.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 22.7,
+   "wav": "web/audio/ipa/z.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 23.1,
+   "wav": "web/audio/ipa/sh.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 23.5,
+   "wav": "web/audio/ipa/h.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 23.9,
+   "wav": "web/audio/ipa/zh_synth.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 24.65,
+   "wav": "web/audio/ipa/l.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 25.4,
+   "wav": "web/audio/ipa/r.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 25.8,
+   "wav": "web/audio/ipa/w.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 26.2,
+   "wav": "web/audio/ipa/j.wav",
+   "scene": "Chart"
+  },
+  {
+   "t": 29.6,
+   "wav": "web/audio/ipa/s.wav",
+   "scene": "Fricative"
+  },
+  {
+   "t": 38.0,
+   "wav": "web/audio/ipa/s_synth.wav",
+   "scene": "Fricative"
+  },
+  {
+   "t": 69.9,
+   "wav": "web/audio/ipa/ai_synth.wav",
+   "scene": "Diphthong"
+  },
+  {
+   "t": 71.4,
+   "wav": "web/audio/ipa/ai_synth.wav",
+   "scene": "Diphthong"
+  },
+  {
+   "t": 72.9,
+   "wav": "web/audio/ipa/ai_synth.wav",
+   "scene": "Diphthong"
+  },
+  {
+   "t": 74.4,
+   "wav": "web/audio/ipa/ai_synth.wav",
+   "scene": "Diphthong"
+  }
+ ],
+ "checks": {
+  "Fricative": {
+   "R_peak": 0.1836438255224729,
+   "R_peak_nearest": 0.9138084970356601,
+   "hex_recomputed": "#ab63ff",
+   "hex_json": "#ab63ff",
+   "rho_recomputed": 0.8640343300449674
+  },
+  "Angle_max_rgb_mismatch_vs_json_0_15_30_45_60": 0.0
+ }
+}

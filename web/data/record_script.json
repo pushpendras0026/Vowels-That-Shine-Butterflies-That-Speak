@@ -1,0 +1,474 @@
+{
+ "prompts": [
+  {
+   "id": "i",
+   "ipa": "i",
+   "group": "vowel",
+   "example": "fleece",
+   "name": "close front unrounded vowel",
+   "say": "eeee  (as in 'see')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "ih",
+   "ipa": "ɪ",
+   "group": "vowel",
+   "example": "kit",
+   "name": "near-close near-front unrounded vowel",
+   "say": "ih  (as in 'sit', held)",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "e",
+   "ipa": "e",
+   "group": "vowel",
+   "example": "face (start)",
+   "name": "close-mid front unrounded vowel",
+   "say": "ay WITHOUT gliding to ee (start of 'say')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "eh",
+   "ipa": "ɛ",
+   "group": "vowel",
+   "example": "dress",
+   "name": "open-mid front unrounded vowel",
+   "say": "eh  (as in 'bed')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "ae",
+   "ipa": "æ",
+   "group": "vowel",
+   "example": "trap",
+   "name": "near-open front unrounded vowel",
+   "say": "aa  (as in 'cat', held)",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "a",
+   "ipa": "a",
+   "group": "vowel",
+   "example": "price (start)",
+   "name": "open front unrounded vowel",
+   "say": "a  (start of 'my', no glide)",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "aa",
+   "ipa": "ɑ",
+   "group": "vowel",
+   "example": "palm",
+   "name": "open back unrounded vowel",
+   "say": "aah  (as in 'father')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "aw",
+   "ipa": "ɔ",
+   "group": "vowel",
+   "example": "thought",
+   "name": "open-mid back rounded vowel",
+   "say": "aw  (as in 'law')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "uh",
+   "ipa": "ʌ",
+   "group": "vowel",
+   "example": "strut",
+   "name": "open-mid back unrounded vowel",
+   "say": "uh  (as in 'cup', held)",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "o",
+   "ipa": "o",
+   "group": "vowel",
+   "example": "goat (start)",
+   "name": "close-mid back rounded vowel",
+   "say": "oh WITHOUT gliding to oo (start of 'go')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "uu",
+   "ipa": "ʊ",
+   "group": "vowel",
+   "example": "foot",
+   "name": "near-close near-back rounded vowel",
+   "say": "u  (as in 'book', held)",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "u",
+   "ipa": "u",
+   "group": "vowel",
+   "example": "goose",
+   "name": "close back rounded vowel",
+   "say": "oooo  (as in 'food')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "schwa",
+   "ipa": "ə",
+   "group": "vowel",
+   "example": "about",
+   "name": "mid central vowel",
+   "say": "relaxed 'uh'  (first sound of 'about')",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "er",
+   "ipa": "ɜ",
+   "group": "vowel",
+   "example": "nurse",
+   "name": "open-mid central unrounded vowel",
+   "say": "er  (as in 'bird', tongue relaxed, no r-curl)",
+   "how": "Hold it steady for about 2 seconds. Normal loudness, one breath.",
+   "seconds": 3
+  },
+  {
+   "id": "p",
+   "ipa": "p",
+   "group": "plosive",
+   "example": "pin",
+   "name": "voiceless bilabial plosive",
+   "say": "p  p  p",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it (a tiny puff is fine).",
+   "seconds": 4
+  },
+  {
+   "id": "b",
+   "ipa": "b",
+   "group": "plosive",
+   "example": "bin",
+   "name": "voiced bilabial plosive",
+   "say": "b  b  b",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it (a tiny puff is fine).",
+   "seconds": 4
+  },
+  {
+   "id": "t",
+   "ipa": "t",
+   "group": "plosive",
+   "example": "tin",
+   "name": "voiceless alveolar plosive",
+   "say": "t  t  t",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it (a tiny puff is fine).",
+   "seconds": 4
+  },
+  {
+   "id": "d",
+   "ipa": "d",
+   "group": "plosive",
+   "example": "din",
+   "name": "voiced alveolar plosive",
+   "say": "d  d  d",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it (a tiny puff is fine).",
+   "seconds": 4
+  },
+  {
+   "id": "k",
+   "ipa": "k",
+   "group": "plosive",
+   "example": "kin",
+   "name": "voiceless velar plosive",
+   "say": "k  k  k",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it (a tiny puff is fine).",
+   "seconds": 4
+  },
+  {
+   "id": "g",
+   "ipa": "ɡ",
+   "group": "plosive",
+   "example": "go",
+   "name": "voiced velar plosive",
+   "say": "g  g  g",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it (a tiny puff is fine).",
+   "seconds": 4
+  },
+  {
+   "id": "m",
+   "ipa": "m",
+   "group": "nasal",
+   "example": "man",
+   "name": "bilabial nasal",
+   "say": "mmmm  (lips closed)",
+   "how": "Hold it steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "n",
+   "ipa": "n",
+   "group": "nasal",
+   "example": "no",
+   "name": "alveolar nasal",
+   "say": "nnnn",
+   "how": "Hold it steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "ng",
+   "ipa": "ŋ",
+   "group": "nasal",
+   "example": "sing",
+   "name": "velar nasal",
+   "say": "nggg  (end of 'sing', held)",
+   "how": "Hold it steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "f",
+   "ipa": "f",
+   "group": "fricative",
+   "example": "fan",
+   "name": "voiceless labiodental fricative",
+   "say": "ffff",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "v",
+   "ipa": "v",
+   "group": "fricative",
+   "example": "van",
+   "name": "voiced labiodental fricative",
+   "say": "vvvv",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "th",
+   "ipa": "θ",
+   "group": "fricative",
+   "example": "thin",
+   "name": "voiceless dental fricative",
+   "say": "thhh  (as in 'thin')",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "dh",
+   "ipa": "ð",
+   "group": "fricative",
+   "example": "this",
+   "name": "voiced dental fricative",
+   "say": "thhh voiced  (as in 'this')",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "s",
+   "ipa": "s",
+   "group": "fricative",
+   "example": "sip",
+   "name": "voiceless alveolar sibilant",
+   "say": "ssss",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "z",
+   "ipa": "z",
+   "group": "fricative",
+   "example": "zip",
+   "name": "voiced alveolar sibilant",
+   "say": "zzzz",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "sh",
+   "ipa": "ʃ",
+   "group": "fricative",
+   "example": "ship",
+   "name": "voiceless postalveolar fricative",
+   "say": "shhhh",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "zh",
+   "ipa": "ʒ",
+   "group": "fricative",
+   "example": "vision",
+   "name": "voiced postalveolar fricative",
+   "say": "zhhh  (middle of 'vision')",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "h",
+   "ipa": "h",
+   "group": "fricative",
+   "example": "hat",
+   "name": "voiceless glottal fricative",
+   "say": "hhhh  (a breathy sigh)",
+   "how": "Hold the hiss/buzz steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "ch",
+   "ipa": "tʃ",
+   "group": "affricate",
+   "example": "chin",
+   "name": "voiceless postalveolar affricate",
+   "say": "ch  ch  ch",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it.",
+   "seconds": 4
+  },
+  {
+   "id": "jh",
+   "ipa": "dʒ",
+   "group": "affricate",
+   "example": "jam",
+   "name": "voiced postalveolar affricate",
+   "say": "j  j  j  (as in 'jam')",
+   "how": "Say ONLY the consonant 3 times with a 1-second pause between — no vowel after it.",
+   "seconds": 4
+  },
+  {
+   "id": "l",
+   "ipa": "l",
+   "group": "lateral",
+   "example": "leaf",
+   "name": "alveolar lateral approximant",
+   "say": "llll  (tongue tip up, held)",
+   "how": "Hold it steady for about 2 seconds.",
+   "seconds": 3
+  },
+  {
+   "id": "r",
+   "ipa": "ɹ",
+   "group": "approximant",
+   "example": "red",
+   "name": "alveolar approximant",
+   "say": "rrrr  (as in 'red', held, no vowel)",
+   "how": "Hold it steady for about 2 seconds (no vowel after it).",
+   "seconds": 3
+  },
+  {
+   "id": "w",
+   "ipa": "w",
+   "group": "approximant",
+   "example": "wet",
+   "name": "labial-velar approximant",
+   "say": "wwww  (rounded lips, held 'oo-w')",
+   "how": "Hold it steady for about 2 seconds (no vowel after it).",
+   "seconds": 3
+  },
+  {
+   "id": "j",
+   "ipa": "j",
+   "group": "approximant",
+   "example": "yes",
+   "name": "palatal approximant",
+   "say": "yyyy  (as in 'yes', held)",
+   "how": "Hold it steady for about 2 seconds (no vowel after it).",
+   "seconds": 3
+  },
+  {
+   "id": "ei",
+   "ipa": "eɪ",
+   "group": "diphthong",
+   "example": "face",
+   "name": "diphthong",
+   "say": "ay-ee — slowly, 'ayyy-ee'",
+   "how": "One slow glide, about 1 second, start vowel to end vowel. Say it 2 times with a pause.",
+   "seconds": 4
+  },
+  {
+   "id": "ai",
+   "ipa": "aɪ",
+   "group": "diphthong",
+   "example": "price",
+   "name": "diphthong",
+   "say": "ah-ee — slowly, as in 'my'",
+   "how": "One slow glide, about 1 second, start vowel to end vowel. Say it 2 times with a pause.",
+   "seconds": 4
+  },
+  {
+   "id": "oi",
+   "ipa": "ɔɪ",
+   "group": "diphthong",
+   "example": "choice",
+   "name": "diphthong",
+   "say": "aw-ee — slowly, as in 'boy'",
+   "how": "One slow glide, about 1 second, start vowel to end vowel. Say it 2 times with a pause.",
+   "seconds": 4
+  },
+  {
+   "id": "au",
+   "ipa": "aʊ",
+   "group": "diphthong",
+   "example": "mouth",
+   "name": "diphthong",
+   "say": "ah-oo — slowly, as in 'now'",
+   "how": "One slow glide, about 1 second, start vowel to end vowel. Say it 2 times with a pause.",
+   "seconds": 4
+  },
+  {
+   "id": "ou",
+   "ipa": "oʊ",
+   "group": "diphthong",
+   "example": "goat",
+   "name": "diphthong",
+   "say": "oh-oo — slowly, as in 'go'",
+   "how": "One slow glide, about 1 second, start vowel to end vowel. Say it 2 times with a pause.",
+   "seconds": 4
+  },
+  {
+   "id": "sent_butterfly",
+   "ipa": "",
+   "group": "sentence",
+   "example": "",
+   "name": "sentence",
+   "say": "Every vowel has a colour, and every butterfly can speak.",
+   "how": "Read it naturally, at your normal speed.",
+   "seconds": 6
+  },
+  {
+   "id": "sent_shells",
+   "ipa": "",
+   "group": "sentence",
+   "example": "",
+   "name": "sentence",
+   "say": "She sells sea shells by the sea shore.",
+   "how": "Read it naturally, at your normal speed.",
+   "seconds": 6
+  },
+  {
+   "id": "sent_birch",
+   "ipa": "",
+   "group": "sentence",
+   "example": "",
+   "name": "sentence",
+   "say": "The birch canoe slid on the smooth planks.",
+   "how": "Read it naturally, at your normal speed.",
+   "seconds": 6
+  },
+  {
+   "id": "sent_rainbow",
+   "ipa": "",
+   "group": "sentence",
+   "example": "",
+   "name": "sentence",
+   "say": "When the sunlight strikes raindrops in the air, they act as a prism and form a rainbow.",
+   "how": "Read it naturally, at your normal speed.",
+   "seconds": 6
+  }
+ ]
+}

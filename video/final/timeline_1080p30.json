@@ -1,0 +1,196 @@
+{
+ "total": 245.66666666666666,
+ "scenes": [
+  {
+   "scene": "S01_Hook",
+   "start": 0.0,
+   "frames": 498,
+   "duration": 16.6,
+   "cues": [
+    {
+     "t": 3.3999999999999977,
+     "wav": "web/audio/bfly_morpho.wav",
+     "gain": 0.75,
+     "t_global": 3.3999999999999977
+    },
+    {
+     "t": 5.399999999999991,
+     "wav": "web/audio/bfly_morpho.wav",
+     "gain": 0.75,
+     "t_global": 5.399999999999991
+    }
+   ]
+  },
+  {
+   "scene": "S02_Light",
+   "start": 16.6,
+   "frames": 675,
+   "duration": 22.5,
+   "cues": []
+  },
+  {
+   "scene": "S03_Sound",
+   "start": 39.1,
+   "frames": 627,
+   "duration": 20.9,
+   "cues": [
+    {
+     "t": 4.099999999999995,
+     "wav": "video/audio/glottal_buzz.wav",
+     "gain": 0.6,
+     "t_global": 43.199999999999996
+    },
+    {
+     "t": 14.099999999999968,
+     "wav": "web/audio/vowel_men_ah.wav",
+     "gain": 0.75,
+     "t_global": 53.19999999999997
+    },
+    {
+     "t": 15.399999999999965,
+     "wav": "web/audio/vowel_men_ah.wav",
+     "gain": 0.75,
+     "t_global": 54.499999999999964
+    }
+   ]
+  },
+  {
+   "scene": "S04_Equation",
+   "start": 60.0,
+   "frames": 729,
+   "duration": 24.3,
+   "cues": []
+  },
+  {
+   "scene": "S05_Morph",
+   "start": 84.3,
+   "frames": 687,
+   "duration": 22.9,
+   "cues": []
+  },
+  {
+   "scene": "S06_Levinson",
+   "start": 107.19999999999999,
+   "frames": 875,
+   "duration": 29.166666666666668,
+   "cues": []
+  },
+  {
+   "scene": "S07_Mapping",
+   "start": 136.36666666666665,
+   "frames": 846,
+   "duration": 28.2,
+   "cues": []
+  },
+  {
+   "scene": "S08_VowelColours",
+   "start": 164.56666666666663,
+   "frames": 710,
+   "duration": 23.666666666666668,
+   "cues": [
+    {
+     "t": 4.099999999999995,
+     "wav": "web/audio/vowel_men_iy.wav",
+     "gain": 0.75,
+     "t_global": 168.66666666666663
+    },
+    {
+     "t": 5.366666666666657,
+     "wav": "web/audio/vowel_men_ae.wav",
+     "gain": 0.75,
+     "t_global": 169.93333333333328
+    },
+    {
+     "t": 6.6333333333333195,
+     "wav": "web/audio/vowel_men_ah.wav",
+     "gain": 0.75,
+     "t_global": 171.19999999999996
+    },
+    {
+     "t": 7.899999999999982,
+     "wav": "web/audio/vowel_men_uw.wav",
+     "gain": 0.75,
+     "t_global": 172.4666666666666
+    }
+   ]
+  },
+  {
+   "scene": "S09_ButterflyVoices",
+   "start": 188.2333333333333,
+   "frames": 639,
+   "duration": 21.3,
+   "cues": [
+    {
+     "t": 3.899999999999996,
+     "wav": "web/audio/bfly_morpho.wav",
+     "gain": 0.75,
+     "t_global": 192.1333333333333
+    },
+    {
+     "t": 5.59999999999999,
+     "wav": "web/audio/bfly_morpho.wav",
+     "gain": 0.75,
+     "t_global": 193.8333333333333
+    },
+    {
+     "t": 11.099999999999971,
+     "wav": "web/audio/bfly_beetle.wav",
+     "gain": 0.75,
+     "t_global": 199.33333333333326
+    },
+    {
+     "t": 12.799999999999965,
+     "wav": "web/audio/bfly_beetle.wav",
+     "gain": 0.75,
+     "t_global": 201.03333333333325
+    }
+   ]
+  },
+  {
+   "scene": "S10_Metamers",
+   "start": 209.5333333333333,
+   "frames": 655,
+   "duration": 21.833333333333332,
+   "cues": [
+    {
+     "t": 7.566666666666654,
+     "wav": "video/audio/metamer_0.wav",
+     "gain": 0.75,
+     "t_global": 217.09999999999997
+    },
+    {
+     "t": 9.699999999999982,
+     "wav": "video/audio/metamer_1.wav",
+     "gain": 0.75,
+     "t_global": 219.2333333333333
+    },
+    {
+     "t": 11.833333333333309,
+     "wav": "video/audio/metamer_2.wav",
+     "gain": 0.75,
+     "t_global": 221.36666666666662
+    },
+    {
+     "t": 13.966666666666637,
+     "wav": "video/audio/metamer_3.wav",
+     "gain": 0.75,
+     "t_global": 223.49999999999994
+    }
+   ]
+  },
+  {
+   "scene": "S11_Outro",
+   "start": 231.36666666666665,
+   "frames": 429,
+   "duration": 14.3,
+   "cues": [
+    {
+     "t": 1.3000000000000007,
+     "wav": "video/audio/outro_sing.wav",
+     "gain": 0.75,
+     "t_global": 232.66666666666666
+    }
+   ]
+  }
+ ]
+}

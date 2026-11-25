@@ -1,0 +1,5 @@
+# Optional: only needed to re-render the explainer video (video/). No LaTeX is used.
+# On Linux, if pip has to build pycairo/manimpango from source, first install the system libraries:
+#   sudo apt install build-essential pkg-config python3-dev libcairo2-dev libpango1.0-dev ffmpeg
+-r requirements.txt
+manim==0.22.1

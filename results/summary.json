@@ -1,0 +1,1840 @@
+{
+ "r1": {
+  "example": "men /ɑ/ (hod), ideal mode, finite glottis R_GLOTTIS=-0.9",
+  "example_max_abs_film_minus_poly": 2.858824288409778e-13,
+  "example_max_abs_tube_minus_poly": 2.7988722450800196e-13,
+  "example_max_rel_film_minus_poly": 3.628084042767208e-13,
+  "example_T_peak": 0.9317,
+  "all36_max_abs_film_minus_poly": 2.8181901257084974e-12,
+  "all36_max_abs_tube_minus_poly": 2.811417765258284e-12,
+  "all36_max_rel_film_minus_poly": 2.951002782862452e-12,
+  "random200_max_abs": 4.584788104722293e-11,
+  "kl_lattice_max_abs_vs_poly": 8.170547571850761e-16,
+  "nu_of_0Hz_THz": 700.0,
+  "nu_of_8kHz_THz": 525.0,
+  "f_at_400THz_Hz": 2285.7,
+  "D_OPT_nm": 428.2749
+ },
+ "r2": {
+  "dE00_pairs": {
+   "ideal_eqY_men": {
+    "median": 4.33,
+    "min": 0.09,
+    "max": 11.73,
+    "frac_below_2": 0.303,
+    "closest_pair": "/ɔ/–/ʌ/"
+   },
+   "ideal_eqY_women": {
+    "median": 5.69,
+    "min": 0.43,
+    "max": 16.42,
+    "frac_below_2": 0.182,
+    "closest_pair": "/ʊ/–/ʌ/"
+   },
+   "ideal_eqY_children": {
+    "median": 7.68,
+    "min": 0.07,
+    "max": 24.82,
+    "frac_below_2": 0.076,
+    "closest_pair": "/ɑ/–/ɝ/"
+   },
+   "ideal_raw_men": {
+    "median": 2.06,
+    "min": 0.11,
+    "max": 6.84,
+    "frac_below_2": 0.5,
+    "closest_pair": "/ɔ/–/ʌ/"
+   },
+   "ideal_raw_women": {
+    "median": 6.36,
+    "min": 0.71,
+    "max": 19.3,
+    "frac_below_2": 0.106,
+    "closest_pair": "/e/–/æ/"
+   },
+   "ideal_raw_children": {
+    "median": 5.35,
+    "min": 0.6,
+    "max": 20.08,
+    "frac_below_2": 0.152,
+    "closest_pair": "/ʊ/–/ʌ/"
+   },
+   "realizable_eqY_men": {
+    "median": 3.63,
+    "min": 0.33,
+    "max": 12.06,
+    "frac_below_2": 0.197,
+    "closest_pair": "/e/–/æ/"
+   },
+   "realizable_eqY_women": {
+    "median": 3.83,
+    "min": 0.17,
+    "max": 13.36,
+    "frac_below_2": 0.106,
+    "closest_pair": "/ʌ/–/ɝ/"
+   },
+   "realizable_eqY_children": {
+    "median": 6.51,
+    "min": 0.19,
+    "max": 17.72,
+    "frac_below_2": 0.136,
+    "closest_pair": "/e/–/ɑ/"
+   },
+   "realizable_raw_men": {
+    "median": 4.4,
+    "min": 0.84,
+    "max": 13.86,
+    "frac_below_2": 0.136,
+    "closest_pair": "/e/–/æ/"
+   },
+   "realizable_raw_women": {
+    "median": 5.42,
+    "min": 0.97,
+    "max": 16.61,
+    "frac_below_2": 0.076,
+    "closest_pair": "/ɑ/–/ɔ/"
+   },
+   "realizable_raw_children": {
+    "median": 8.42,
+    "min": 0.68,
+    "max": 22.67,
+    "frac_below_2": 0.106,
+    "closest_pair": "/e/–/ɛ/"
+   }
+  },
+  "hue_ideal_deg": {
+   "min": 307.5,
+   "max": 321.5,
+   "median": 319.4
+  },
+  "hue_realizable_deg": {
+   "min": 284.7,
+   "max": 295.3,
+   "median": 291.5
+  },
+  "chroma_ideal_raw": {
+   "min": 37.52,
+   "max": 136.02
+  },
+  "Y_T_ideal": {
+   "min": 0.046,
+   "max": 0.557,
+   "median": 0.275
+  },
+  "Y_T_realizable": {
+   "min": 32.78,
+   "max": 71.75,
+   "median": 49.74
+  },
+  "L_raw_ideal": {
+   "min": 0.42,
+   "max": 5.03
+  },
+  "xy_ideal": {
+   "x_min": 0.149,
+   "x_max": 0.173,
+   "y_min": 0.009,
+   "y_max": 0.054
+  },
+  "F1_image_wavelength_nm": {
+   "min": 415.3,
+   "max": 442.0
+  },
+  "ybar_at_F1_images": {
+   "median": 0.018,
+   "max": 0.0257
+  },
+  "ybar_at_F2_images": {
+   "median": 0.0385,
+   "max": 0.1071
+  },
+  "speech_0_4kHz_share_of_band_THz": 175.0,
+  "speech_0_4kHz_share_of_D65_luminance": 0.0492,
+  "speech_0_1kHz_share_of_D65_luminance": 0.00287,
+  "cross_check_contract_7b": "CONTRACT 7b (equal-luminance median dE00): ideal 4.3/5.7/7.7, realizable 3.6/3.8/6.5"
+ },
+ "r3": {
+  "reference_poles_bw_lt_600_count": {
+   "min": 2,
+   "max": 4,
+   "n_vowels_lt_3": 4
+  },
+  "voice_of_film_vs_D_realizable_max_abs_coef": 3.885780586188048e-16,
+  "lpc_vs_hillenbrand": {
+   "mean_abs_Hz": [
+    36.3,
+    23.0,
+    31.4
+   ],
+   "mean_abs_pct": [
+    6.01,
+    1.56,
+    1.2
+   ],
+   "mean_B_Hz": [
+    148.9,
+    187.5,
+    250.4
+   ]
+  },
+  "ideal": {
+   "dF_vs_lpc_mean_Hz": [
+    10.6,
+    3.2,
+    0.9
+   ],
+   "dF_vs_lpc_mean_pct": [
+    1.97,
+    0.21,
+    0.05
+   ],
+   "dF_vs_lpc_max_pct": [
+    7.3,
+    1.5,
+    1.1
+   ],
+   "dF_vs_hill_mean_pct": [
+    7.09,
+    1.72,
+    1.16
+   ],
+   "B_mean_Hz": [
+    356.4,
+    232.9,
+    256.0
+   ],
+   "env_peaks_below_4kHz_prom_ge_1dB": {
+    "median": 3.0,
+    "min": 2,
+    "max": 4
+   },
+   "B_median_Hz": [
+    291.1,
+    178.6,
+    183.4
+   ],
+   "lsd_vs_lpc_dB": {
+    "median": 1.36,
+    "max": 2.03
+   },
+   "lsd_vs_ideal_dB": {
+    "median": 0.0,
+    "max": 0.0
+   },
+   "dE00_vs_ideal_eqY": {
+    "median": 0.0,
+    "max": 0.0
+   },
+   "dE00_vs_ideal_raw": {
+    "median": 0.0,
+    "max": 0.0
+   }
+  },
+  "realizable": {
+   "dF_vs_lpc_mean_Hz": [
+    222.3,
+    244.2,
+    252.7
+   ],
+   "dF_vs_lpc_mean_pct": [
+    40.87,
+    15.15,
+    8.9
+   ],
+   "dF_vs_lpc_max_pct": [
+    128.0,
+    39.1,
+    18.2
+   ],
+   "dF_vs_hill_mean_pct": [
+    37.42,
+    15.2,
+    9.69
+   ],
+   "B_mean_Hz": [
+    1928.1,
+    1861.5,
+    1544.2
+   ],
+   "env_peaks_below_4kHz_prom_ge_1dB": {
+    "median": 0.0,
+    "min": 0,
+    "max": 2
+   },
+   "B_median_Hz": [
+    1939.7,
+    1772.3,
+    1596.5
+   ],
+   "lsd_vs_lpc_dB": {
+    "median": 13.03,
+    "max": 23.3
+   },
+   "lsd_vs_ideal_dB": {
+    "median": 12.06,
+    "max": 22.49
+   },
+   "dE00_vs_ideal_eqY": {
+    "median": 37.43,
+    "max": 39.23
+   },
+   "dE00_vs_ideal_raw": {
+    "median": 66.98,
+    "max": 82.07
+   }
+  },
+  "materials": {
+   "dF_vs_lpc_mean_Hz": [
+    245.9,
+    304.1,
+    321.8
+   ],
+   "dF_vs_lpc_mean_pct": [
+    46.6,
+    18.66,
+    11.23
+   ],
+   "dF_vs_lpc_max_pct": [
+    174.2,
+    36.4,
+    24.6
+   ],
+   "dF_vs_hill_mean_pct": [
+    41.3,
+    18.31,
+    11.58
+   ],
+   "B_mean_Hz": [
+    2088.5,
+    1946.3,
+    1839.7
+   ],
+   "env_peaks_below_4kHz_prom_ge_1dB": {
+    "median": 0.0,
+    "min": 0,
+    "max": 2
+   },
+   "B_median_Hz": [
+    2109.9,
+    2041.2,
+    1913.8
+   ],
+   "lsd_vs_lpc_dB": {
+    "median": 13.02,
+    "max": 23.51
+   },
+   "lsd_vs_ideal_dB": {
+    "median": 12.04,
+    "max": 22.77
+   },
+   "dE00_vs_ideal_eqY": {
+    "median": 37.52,
+    "max": 39.4
+   },
+   "dE00_vs_ideal_raw": {
+    "median": 65.26,
+    "max": 87.07
+   }
+  },
+  "ideal_index_max": {
+   "min": 30.5,
+   "median": 96.8,
+   "max": 649.6
+  },
+  "realizable_gamma": {
+   "min": 0.141,
+   "median": 0.2,
+   "max": 0.268
+  },
+  "coef_shrink_factor_median": 5.0,
+  "materials_distinct_used": 7,
+  "glottis_limit_check_max_abs_D_minus_a_at_rg_-0.99999": 9.5785761999867e-06,
+  "glottis_sweep": {
+   "-0.7": {
+    "mean_abs_dF_Hz": [
+     153.7,
+     26.2,
+     1.6
+    ],
+    "mean_dF_Hz": [
+     -86.9,
+     -25.9,
+     0.0
+    ],
+    "mean_dB_Hz": [
+     744.4,
+     127.2,
+     17.9
+    ],
+    "lsd_median_dB": 3.06
+   },
+   "-0.8": {
+    "mean_abs_dF_Hz": [
+     45.9,
+     11.6,
+     1.2
+    ],
+    "mean_dF_Hz": [
+     -45.0,
+     -9.8,
+     0.9
+    ],
+    "mean_dB_Hz": [
+     441.9,
+     90.7,
+     11.8
+    ],
+    "lsd_median_dB": 2.3
+   },
+   "-0.9": {
+    "mean_abs_dF_Hz": [
+     10.6,
+     3.2,
+     0.9
+    ],
+    "mean_dF_Hz": [
+     -10.0,
+     -0.8,
+     0.9
+    ],
+    "mean_dB_Hz": [
+     207.5,
+     45.4,
+     5.6
+    ],
+    "lsd_median_dB": 1.36
+   },
+   "-0.95": {
+    "mean_abs_dF_Hz": [
+     3.4,
+     1.7,
+     0.5
+    ],
+    "mean_dF_Hz": [
+     -2.7,
+     0.5,
+     0.5
+    ],
+    "mean_dB_Hz": [
+     101.3,
+     22.2,
+     2.7
+    ],
+    "lsd_median_dB": 0.77
+   },
+   "-0.98": {
+    "mean_abs_dF_Hz": [
+     1.1,
+     0.8,
+     0.2
+    ],
+    "mean_dF_Hz": [
+     -0.6,
+     0.4,
+     0.2
+    ],
+    "mean_dB_Hz": [
+     40.0,
+     8.7,
+     1.0
+    ],
+    "lsd_median_dB": 0.34
+   },
+   "-0.99": {
+    "mean_abs_dF_Hz": [
+     0.5,
+     0.4,
+     0.1
+    ],
+    "mean_dF_Hz": [
+     -0.2,
+     0.2,
+     0.1
+    ],
+    "mean_dB_Hz": [
+     19.9,
+     4.3,
+     0.5
+    ],
+    "lsd_median_dB": 0.18
+   }
+  }
+ },
+ "r4": {
+  "label": "all stack parameters approximate/illustrative (core/stacks.py); 1-D lossless, non-dispersive",
+  "items": [
+   {
+    "name": "Morpho-like",
+    "label": "approximate/illustrative",
+    "layers": 14,
+    "R_peak_nm": 449.5,
+    "R_peak": 0.914,
+    "hex_R": "#0f6eff",
+    "Y_R": 17.7,
+    "Lab_R": [
+     49.14,
+     29.68,
+     -77.01
+    ],
+    "hex_T": "#ccbe2f",
+    "env_peaks_Hz": [],
+    "env_prominence_dB": [],
+    "min_pole_bandwidth_Hz": 1319.0,
+    "allpole_fit_lsd_dB": 0.97,
+    "audio": "bfly_morpho.wav"
+   },
+   {
+    "name": "Morpho-like (lamellae ×0.9)",
+    "label": "approximate/illustrative",
+    "layers": 14,
+    "R_peak_nm": 404.5,
+    "R_peak": 0.914,
+    "hex_R": "#7b4bff",
+    "Y_R": 8.45,
+    "Lab_R": [
+     34.89,
+     49.43,
+     -66.11
+    ],
+    "hex_T": "#bac08d",
+    "env_peaks_Hz": [
+     2741.0
+    ],
+    "env_prominence_dB": [
+     0.56
+    ],
+    "min_pole_bandwidth_Hz": 959.0,
+    "allpole_fit_lsd_dB": 1.99,
+    "audio": "bfly_morpho_x0p9.wav"
+   },
+   {
+    "name": "Morpho-like (lamellae ×1.1)",
+    "label": "approximate/illustrative",
+    "layers": 14,
+    "R_peak_nm": 494.5,
+    "R_peak": 0.914,
+    "hex_R": "#00dacf",
+    "Y_R": 46.27,
+    "Lab_R": [
+     73.72,
+     -66.48,
+     -11.42
+    ],
+    "hex_T": "#ff929f",
+    "env_peaks_Hz": [],
+    "env_prominence_dB": [],
+    "min_pole_bandwidth_Hz": 2019.0,
+    "allpole_fit_lsd_dB": 0.9,
+    "audio": "bfly_morpho_x1p1.wav"
+   },
+   {
+    "name": "Beetle-like",
+    "label": "illustrative",
+    "layers": 24,
+    "R_peak_nm": 541.0,
+    "R_peak": 0.458,
+    "hex_R": "#74d14a",
+    "Y_R": 28.31,
+    "Lab_R": [
+     60.17,
+     -42.63,
+     46.96
+    ],
+    "hex_T": "#d0b2d6",
+    "env_peaks_Hz": [
+     4614.0
+    ],
+    "env_prominence_dB": [
+     0.31
+    ],
+    "min_pole_bandwidth_Hz": 2013.0,
+    "allpole_fit_lsd_dB": 0.36,
+    "audio": "bfly_beetle.wav"
+   },
+   {
+    "name": "Beetle-like (layers ×0.9)",
+    "label": "illustrative",
+    "layers": 24,
+    "R_peak_nm": 487.0,
+    "R_peak": 0.458,
+    "hex_R": "#00dacc",
+    "Y_R": 14.93,
+    "Lab_R": [
+     45.54,
+     -44.78,
+     -6.48
+    ],
+    "hex_T": "#cfb5b9",
+    "env_peaks_Hz": [],
+    "env_prominence_dB": [],
+    "min_pole_bandwidth_Hz": 2308.0,
+    "allpole_fit_lsd_dB": 0.43,
+    "audio": "bfly_beetle_x0p9.wav"
+   },
+   {
+    "name": "Beetle-like (layers ×1.1)",
+    "label": "illustrative",
+    "layers": 24,
+    "R_peak_nm": 595.5,
+    "R_peak": 0.458,
+    "hex_R": "#ff8a58",
+    "Y_R": 19.86,
+    "Lab_R": [
+     51.67,
+     32.01,
+     36.39
+    ],
+    "hex_T": "#98c3ca",
+    "env_peaks_Hz": [],
+    "env_prominence_dB": [],
+    "min_pole_bandwidth_Hz": 1964.0,
+    "allpole_fit_lsd_dB": 0.52,
+    "audio": "bfly_beetle_x1p1.wav"
+   }
+  ],
+  "morpho_layer_optical_thickness_nm": [
+   78.6,
+   145.0
+  ],
+  "D_OPT_nm": 428.3,
+  "vowel_extent_ln": 1.619,
+  "median_neighbour_vowel_distance_ln": 0.162,
+  "allpole_fit_lsd_min": 0.36,
+  "allpole_fit_lsd_max": 1.99,
+  "morpho_R_peak_speech_freq_Hz": 1511.0
+ },
+ "r5": {
+  "vowel_extent_ln": 1.619,
+  "median_neighbour_vowel_distance_ln": 0.162,
+  "atlas_stacks_with_F1F2": 10867,
+  "atlas_stacks_in_vowel_box": 6,
+  "atlas_stacks_low_formant": 108,
+  "atlas_F1_percentiles_Hz": {
+   "p5": 2028.0,
+   "median": 3914.0,
+   "p95": 5773.0
+  },
+  "colour_science_vs_core_dE00_max_abs_diff_300_pairs": 0.0,
+  "screen_radius_dE76": [
+   16.0,
+   20.0
+  ],
+  "metamer_pair_counts_at_radii": [
+   804984,
+   804984
+  ],
+  "atlas_metamers": {
+   "n_pairs": 804984,
+   "frac_pairs_chroma_ge_20": 0.983,
+   "dF1_Hz": {
+    "n": 804984,
+    "p10": 161.0,
+    "median": 882.0,
+    "p90": 2205.0,
+    "max": 5377.0
+   },
+   "dF2_Hz": {
+    "n": 804984,
+    "p10": 187.0,
+    "median": 1026.0,
+    "p90": 2466.0,
+    "max": 5617.0
+   },
+   "dist_ln": {
+    "n": 804984,
+    "p10": 0.095,
+    "median": 0.317,
+    "p90": 0.743,
+    "max": 2.391
+   },
+   "frac_dist_gt_neighbour_vowel": 0.775,
+   "chroma_lt_20": {
+    "n": 13480,
+    "dist_ln": {
+     "n": 13480,
+     "p10": 0.108,
+     "median": 0.373,
+     "p90": 0.847,
+     "max": 2.359
+    },
+    "frac_dist_gt_neighbour_vowel": 0.82
+   },
+   "chroma_ge_20": {
+    "n": 791504,
+    "dist_ln": {
+     "n": 791504,
+     "p10": 0.095,
+     "median": 0.316,
+     "p90": 0.741,
+     "max": 2.391
+    },
+    "dF1_Hz": {
+     "n": 791504,
+     "p10": 161.0,
+     "median": 883.0,
+     "p90": 2205.0,
+     "max": 5377.0
+    },
+    "dF2_Hz": {
+     "n": 791504,
+     "p10": 187.0,
+     "median": 1025.0,
+     "p90": 2463.0,
+     "max": 5617.0
+    },
+    "frac_dist_gt_neighbour_vowel": 0.774
+   },
+   "both_low_formant": {
+    "n": 100,
+    "dist_ln": {
+     "n": 100,
+     "p10": 0.048,
+     "median": 0.109,
+     "p90": 0.307,
+     "max": 0.712
+    },
+    "dF1_Hz": {
+     "n": 100,
+     "p10": 15.0,
+     "median": 80.0,
+     "p90": 181.0,
+     "max": 624.0
+    },
+    "dF2_Hz": {
+     "n": 100,
+     "p10": 35.0,
+     "median": 173.0,
+     "p90": 639.0,
+     "max": 1488.0
+    },
+    "frac_dist_gt_neighbour_vowel": 0.34
+   }
+  },
+  "atlas_metamer_example": {
+   "atlas_index": [
+    6973,
+    11945
+   ],
+   "dE00_core": 1.279,
+   "Lab": [
+    [
+     68.16,
+     13.83,
+     -29.07
+    ],
+    [
+     69.5,
+     12.41,
+     -28.04
+    ]
+   ],
+   "F1F2": [
+    [
+     836.0,
+     2092.0
+    ],
+    [
+     1443.0,
+     3304.0
+    ]
+   ],
+   "dist_ln": 0.712,
+   "hex": [
+    "#b9b5f6",
+    "#b7b6f3"
+   ],
+   "nearest_vowels": [
+    "/ɛ/",
+    "/æ/"
+   ],
+   "audio": "metamer_pair_atlas.wav"
+  },
+  "design": {
+   "A: realizable men /ɑ/ film": {
+    "target_Lab": [
+     73.46,
+     15.13,
+     -41.89
+    ],
+    "n_solutions": 8,
+    "n_with_F1F2": 8,
+    "n_envelope_rule": 6,
+    "dE00_to_target_max": 8.422479965611019e-07,
+    "n_flat_voice": 0,
+    "F1_range_Hz": [
+     520.0,
+     6049.0
+    ],
+    "F2_range_Hz": [
+     2370.0,
+     7691.0
+    ],
+    "max_pair_dist_ln": 2.722,
+    "median_pair_dist_ln": 0.781,
+    "max_pair_dist_frac_extent": 1.682,
+    "nearest_vowels": [
+     "/æ/",
+     "/ɑ/",
+     "/ɪ/"
+    ],
+    "n_vowel_like": 1,
+    "poles_only_F1_range_Hz": [
+     5309.0,
+     6049.0
+    ],
+    "poles_only_F2_range_Hz": [
+     7175.0,
+     7691.0
+    ],
+    "audio": "metamer_set_A.wav"
+   },
+   "B: atlas saturated purple": {
+    "target_Lab": [
+     73.06,
+     20.63,
+     -28.6
+    ],
+    "n_solutions": 8,
+    "n_with_F1F2": 8,
+    "n_envelope_rule": 2,
+    "dE00_to_target_max": 5.435239940491076e-07,
+    "n_flat_voice": 0,
+    "F1_range_Hz": [
+     450.0,
+     6036.0
+    ],
+    "F2_range_Hz": [
+     1378.0,
+     6855.0
+    ],
+    "max_pair_dist_ln": 3.051,
+    "median_pair_dist_ln": 0.717,
+    "max_pair_dist_frac_extent": 1.885,
+    "nearest_vowels": [
+     "/æ/",
+     "/ɑ/",
+     "/ɝ/"
+    ],
+    "n_vowel_like": 2,
+    "poles_only_F1_range_Hz": [
+     2658.0,
+     6036.0
+    ],
+    "poles_only_F2_range_Hz": [
+     3881.0,
+     6855.0
+    ],
+    "audio": "metamer_set_B.wav"
+   },
+   "C: atlas pale warm white": {
+    "target_Lab": [
+     93.86,
+     2.57,
+     5.67
+    ],
+    "n_solutions": 8,
+    "n_with_F1F2": 7,
+    "n_envelope_rule": 7,
+    "dE00_to_target_max": 1.910498111930998e-07,
+    "n_flat_voice": 1,
+    "F1_range_Hz": [
+     533.0,
+     3397.0
+    ],
+    "F2_range_Hz": [
+     1745.0,
+     4769.0
+    ],
+    "max_pair_dist_ln": 2.091,
+    "median_pair_dist_ln": 0.855,
+    "max_pair_dist_frac_extent": 1.292,
+    "nearest_vowels": [
+     "/ɑ/",
+     "/ɝ/"
+    ],
+    "n_vowel_like": 4,
+    "poles_only_F1_range_Hz": null,
+    "poles_only_F2_range_Hz": null,
+    "audio": "metamer_set_C.wav"
+   }
+  },
+  "atlas_same_voice": {
+   "n_pairs": 1568647,
+   "dE00": {
+    "n": 1568647,
+    "p10": 3.97,
+    "median": 11.92,
+    "p90": 27.19,
+    "max": 64.54
+   },
+   "frac_dE00_gt_10": 0.582,
+   "frac_dE00_lt_2": 0.0198,
+   "note": "F1 and F2 within 5 % only (F3.. and bandwidths free): weaker than identical polynomials",
+   "both_low_formant": {
+    "n": 735,
+    "dE00": {
+     "n": 735,
+     "p10": 4.08,
+     "median": 11.91,
+     "p90": 25.3,
+     "max": 48.87
+    },
+    "frac_dE00_gt_10": 0.599
+   }
+  },
+  "atlas_same_voice_example": {
+   "atlas_index": [
+    817,
+    4989
+   ],
+   "dE00_core": 48.87,
+   "Lab": [
+    [
+     46.82,
+     33.78,
+     -65.6
+    ],
+    [
+     86.0,
+     2.05,
+     10.32
+    ]
+   ],
+   "F1F2": [
+    [
+     1244.0,
+     2367.0
+    ],
+    [
+     1280.0,
+     2303.0
+    ]
+   ],
+   "hex": [
+    "#6570ff",
+    "#c6baab"
+   ],
+   "audio": "same_voice_pair_atlas.wav"
+  },
+  "exact_family": {
+   "source_atlas_index": 6973,
+   "source_formants_Hz": [
+    836.0,
+    2092.0,
+    3741.0,
+    7228.0
+   ],
+   "source_bandwidths_Hz": [
+    573.0,
+    599.0,
+    501.0,
+    479.0
+   ],
+   "source_nearest_vowel": "/ɛ/ (women)",
+   "n_members": 10,
+   "members": [
+    "original atlas stack",
+    "K=0.9",
+    "K=0.9, zero-flip [1, 2]",
+    "K=0.9, zero-flip [3, 4]",
+    "K=0.5",
+    "K=0.5, zero-flip [1, 2]",
+    "K=0.5, zero-flip [3, 4]",
+    "K=0.2",
+    "K=0.2, zero-flip [1, 2]",
+    "K=0.2, zero-flip [3, 4]"
+   ],
+   "exact_calls_tried": 15,
+   "index_range": [
+    1.0,
+    58.037
+   ],
+   "reversal_T_max_abs_diff": 4.6074255521944e-15,
+   "T_shape_max_rel_ratio_spread": 5.241898743181667e-11,
+   "voice_coef_max_abs_diff": 4.597196538377868e-12,
+   "by_angle_deg": {
+    "0": {
+     "dE00_eqY_median": 0.0,
+     "dE00_eqY_max": 0.0,
+     "dE00_raw_median": 15.59,
+     "dE00_raw_max": 35.4,
+     "xy_spread": 0.0,
+     "Y_range": [
+      7.66,
+      38.18
+     ],
+     "F1_range_Hz": [
+      785.0,
+      785.0
+     ],
+     "F2_range_Hz": [
+      2162.0,
+      2162.0
+     ]
+    },
+    "30": {
+     "dE00_eqY_median": 2.72,
+     "dE00_eqY_max": 14.157,
+     "dE00_raw_median": 14.8,
+     "dE00_raw_max": 33.03,
+     "xy_spread": 0.04237,
+     "Y_range": [
+      7.71,
+      35.16
+     ],
+     "F1_range_Hz": [
+      717.0,
+      1992.0
+     ],
+     "F2_range_Hz": [
+      2163.0,
+      3232.0
+     ]
+    },
+    "45": {
+     "dE00_eqY_median": 6.139,
+     "dE00_eqY_max": 30.59,
+     "dE00_raw_median": 16.48,
+     "dE00_raw_max": 44.27,
+     "xy_spread": 0.11511,
+     "Y_range": [
+      7.84,
+      49.19
+     ],
+     "F1_range_Hz": [
+      426.0,
+      2706.0
+     ],
+     "F2_range_Hz": [
+      1402.0,
+      3616.0
+     ]
+    },
+    "60": {
+     "dE00_eqY_median": 8.222,
+     "dE00_eqY_max": 29.2,
+     "dE00_raw_median": 17.58,
+     "dE00_raw_max": 48.34,
+     "xy_spread": 0.11419,
+     "Y_range": [
+      8.23,
+      56.62
+     ],
+     "F1_range_Hz": [
+      784.0,
+      2740.0
+     ],
+     "F2_range_Hz": [
+      2150.0,
+      5312.0
+     ]
+    }
+   },
+   "orientation": "exact films reversed (reciprocity) and scaled so the incident medium is air (n=1)",
+   "audio": "same_voice_family.wav"
+  }
+ },
+ "r6": {
+  "angles_deg": [
+   0,
+   80,
+   2
+  ],
+  "films": {
+   "morpho": {
+    "name": "Morpho-like (R, illustrative)",
+    "incident_index": 1.0,
+    "min_layer_index": 1.0,
+    "Y_range": [
+     6.14,
+     25.08
+    ],
+    "Y_0": 17.7,
+    "Y_80": 25.08,
+    "dE00_eqY_0_vs_40": 8.94,
+    "dE00_eqY_0_vs_80": 36.59,
+    "hex_0_40_80": [
+     "#0f6eff",
+     "#7ab1ff",
+     "#79cac1"
+    ],
+    "F1F2_0": [
+     null,
+     null
+    ],
+    "F1F2_40": [
+     null,
+     null
+    ],
+    "F1F2_80": [
+     null,
+     null
+    ],
+    "n_angles_with_F1F2": 4,
+    "F1_range_Hz": [
+     1347.0,
+     2704.0
+    ],
+    "F2_range_Hz": [
+     2715.0,
+     5479.0
+    ],
+    "displacement_ln_0_to_20": null,
+    "displacement_ln_0_to_40": null,
+    "displacement_ln_0_to_80": null,
+    "nearest_vowel_at": {
+     "0": "none",
+     "20": "none",
+     "40": "none",
+     "60": "none",
+     "80": "none"
+    },
+    "critical_angle_deg": null,
+    "n_peak_set_changes": 1,
+    "audio": "glide_morpho.wav"
+   },
+   "vowel_ah_ideal": {
+    "name": "men /ɑ/ ideal Goupillaud film (T)",
+    "incident_index": 1.52,
+    "min_layer_index": 1.0,
+    "Y_range": [
+     0.0,
+     1.84
+    ],
+    "Y_0": 0.25,
+    "Y_80": 0.0,
+    "dE00_eqY_0_vs_40": 2.54,
+    "dE00_eqY_0_vs_80": 22.74,
+    "hex_0_40_80": [
+     "#6100ff",
+     "#6400ff",
+     "#a900ff"
+    ],
+    "F1F2_0": [
+     765.0,
+     1285.0
+    ],
+    "F1F2_40": [
+     1148.0,
+     2577.0
+    ],
+    "F1F2_80": [
+     959.0,
+     2516.0
+    ],
+    "n_angles_with_F1F2": 41,
+    "F1_range_Hz": [
+     305.0,
+     1148.0
+    ],
+    "F2_range_Hz": [
+     1026.0,
+     2577.0
+    ],
+    "displacement_ln_0_to_20": 0.727,
+    "displacement_ln_0_to_40": 0.806,
+    "displacement_ln_0_to_80": 0.709,
+    "nearest_vowel_at": {
+     "0": "/ɑ/",
+     "20": "/ɛ/",
+     "40": "/ɑ/",
+     "60": "/ɛ/",
+     "80": "/ɛ/"
+    },
+    "critical_angle_deg": 41.1,
+    "n_peak_set_changes": 7,
+    "audio": "glide_vowel_ah_ideal.wav"
+   },
+   "atlas_eh_like": {
+    "name": "realizable /ɛ/-like atlas stack #6973 (T)",
+    "incident_index": 1.0,
+    "min_layer_index": 1.047,
+    "Y_range": [
+     35.16,
+     63.56
+    ],
+    "Y_0": 38.18,
+    "Y_80": 44.83,
+    "dE00_eqY_0_vs_40": 19.87,
+    "dE00_eqY_0_vs_80": 18.46,
+    "hex_0_40_80": [
+     "#b9b5f6",
+     "#fa9fd5",
+     "#c2b9be"
+    ],
+    "F1F2_0": [
+     785.0,
+     2162.0
+    ],
+    "F1F2_40": [
+     1463.0,
+     2986.0
+    ],
+    "F1F2_80": [
+     548.0,
+     2797.0
+    ],
+    "n_angles_with_F1F2": 41,
+    "F1_range_Hz": [
+     469.0,
+     3379.0
+    ],
+    "F2_range_Hz": [
+     1867.0,
+     5376.0
+    ],
+    "displacement_ln_0_to_20": 0.772,
+    "displacement_ln_0_to_40": 0.702,
+    "displacement_ln_0_to_80": 0.441,
+    "nearest_vowel_at": {
+     "0": "/ɛ/",
+     "20": "/ɑ/",
+     "40": "/ɑ/",
+     "60": "/ɑ/",
+     "80": "/e/"
+    },
+    "critical_angle_deg": null,
+    "n_peak_set_changes": 16,
+    "audio": "glide_atlas_eh_like.wav"
+   }
+  }
+ },
+ "r7": {
+  "n_stacks": 20000,
+  "arms": {
+   "0": "log-uniform n in [1, 2.5]",
+   "1": "bimodal: each layer low (1.0-1.25) or high (2.1-2.5)"
+  },
+  "frac_ge2_formants": {
+   "0": 0.3432,
+   "1": 0.7435
+  },
+  "frac_ge2_formants_all": 0.5433,
+  "contract_7b_claim": "39% (log-uniform) / 74% (bimodal)",
+  "frac_hue_270_330": {
+   "0": 0.9572,
+   "1": 0.9629
+  },
+  "frac_hue_270_330_all": 0.96,
+  "chroma_median": {
+   "0": 32.9,
+   "1": 52.2
+  },
+  "L_median": {
+   "0": 74.3,
+   "1": 60.4
+  },
+  "F1_median_Hz": {
+   "0": 4518.0,
+   "1": 3624.0
+  },
+  "F2_median_Hz": {
+   "0": 6093.0,
+   "1": 5268.0
+  },
+  "frac_within_neighbour_distance_of_a_vowel_mean": 0.0004,
+  "n_within_neighbour_distance_of_a_vowel_mean": 4,
+  "spearman_colour_vs_formant": {
+   "L*": {
+    "F1": -0.039,
+    "F2": 0.026
+   },
+   "a*": {
+    "F1": 0.104,
+    "F2": 0.034
+   },
+   "b*": {
+    "F1": -0.201,
+    "F2": -0.11
+   },
+   "C*": {
+    "F1": 0.179,
+    "F2": 0.093
+   }
+  },
+  "spearman_abs_max": 0.201,
+  "T_at_700THz_median": 0.949,
+  "T_at_525THz_median": 0.522,
+  "frac_T700_gt_T525": 0.8526
+ },
+ "r8": {
+  "d_opt_brief_nm": 428.2749,
+  "d_opt_full_nm": 199.8616,
+  "dnu_brief_THz": 350.0,
+  "dnu_full_THz": 750.0,
+  "full_visible_audio_range_Hz": [
+   0.0,
+   7466.7
+  ],
+  "full_F1_300_900Hz_nm": [
+   407.4,
+   423.5
+  ],
+  "full_F2_900_2800Hz_nm": [
+   423.5,
+   484.5
+  ],
+  "full_fricative_3_7kHz_nm": [
+   492.0,
+   710.6
+  ],
+  "sweep": {
+   "ideal_T": {
+    "best_d_nm": 165.0,
+    "best_median_dE00": 24.1,
+    "at_brief": 1.3,
+    "at_full": 7.8
+   },
+   "realizable_R": {
+    "best_d_nm": 220.0,
+    "best_median_dE00": 27.4,
+    "at_brief": 2.8,
+    "at_full": 19.8
+   },
+   "realizable_T": {
+    "best_d_nm": 180.0,
+    "best_median_dE00": 11.4,
+    "at_brief": 5.6,
+    "at_full": 8.4
+   }
+  },
+  "n_tokens": 1617,
+  "tokens": {
+   "brief_ideal_T": {
+    "men": {
+     "n_tokens": 532,
+     "accuracy": 0.406,
+     "between_median": 0.76,
+     "between_min": 0.07,
+     "within_median": 0.12
+    },
+    "women": {
+     "n_tokens": 558,
+     "accuracy": 0.385,
+     "between_median": 1.43,
+     "between_min": 0.05,
+     "within_median": 0.24
+    },
+    "children": {
+     "n_tokens": 527,
+     "accuracy": 0.372,
+     "between_median": 1.58,
+     "between_min": 0.02,
+     "within_median": 0.31
+    }
+   },
+   "brief_realizable_R": {
+    "men": {
+     "n_tokens": 532,
+     "accuracy": 0.333,
+     "between_median": 1.86,
+     "between_min": 0.25,
+     "within_median": 1.01
+    },
+    "women": {
+     "n_tokens": 558,
+     "accuracy": 0.38,
+     "between_median": 2.08,
+     "between_min": 0.37,
+     "within_median": 1.01
+    },
+    "children": {
+     "n_tokens": 527,
+     "accuracy": 0.412,
+     "between_median": 2.18,
+     "between_min": 0.35,
+     "within_median": 0.96
+    }
+   },
+   "full_ideal_T": {
+    "men": {
+     "n_tokens": 532,
+     "accuracy": 0.479,
+     "between_median": 3.41,
+     "between_min": 0.12,
+     "within_median": 0.31
+    },
+    "women": {
+     "n_tokens": 558,
+     "accuracy": 0.419,
+     "between_median": 6.77,
+     "between_min": 0.03,
+     "within_median": 0.58
+    },
+    "children": {
+     "n_tokens": 527,
+     "accuracy": 0.417,
+     "between_median": 13.66,
+     "between_min": 0.0,
+     "within_median": 1.03
+    }
+   },
+   "full_realizable_R": {
+    "men": {
+     "n_tokens": 532,
+     "accuracy": 0.323,
+     "between_median": 15.86,
+     "between_min": 1.92,
+     "within_median": 5.54
+    },
+    "women": {
+     "n_tokens": 558,
+     "accuracy": 0.332,
+     "between_median": 16.64,
+     "between_min": 2.71,
+     "within_median": 6.79
+    },
+    "children": {
+     "n_tokens": 527,
+     "accuracy": 0.315,
+     "between_median": 16.47,
+     "between_min": 2.36,
+     "within_median": 8.55
+    }
+   }
+  },
+  "formant_ceiling_accuracy": {
+   "men": 0.825,
+   "women": 0.754,
+   "children": 0.746
+  },
+  "full_hue_ideal_T_deg": {
+   "min": 163.0,
+   "max": 310.0,
+   "median": 309.0
+  },
+  "full_hue_realizable_R_deg": {
+   "min": 11.0,
+   "max": 352.0,
+   "median": 51.0
+  },
+  "sensitivity_full": {
+   "bandwidth_x0.5_ideal_T": {
+    "median": 0.16,
+    "max": 8.24
+   },
+   "bandwidth_x0.5_realizable_R": {
+    "median": 6.46,
+    "max": 38.63
+   },
+   "bandwidth_x2_ideal_T": {
+    "median": 0.23,
+    "max": 12.62
+   },
+   "bandwidth_x2_realizable_R": {
+    "median": 5.53,
+    "max": 29.18
+   },
+   "glottis_-0.8_ideal_T": {
+    "median": 0.17,
+    "max": 5.39
+   },
+   "glottis_-0.8_realizable_R": {
+    "median": 4.13,
+    "max": 18.53
+   },
+   "glottis_-0.95_ideal_T": {
+    "median": 0.12,
+    "max": 6.53
+   },
+   "glottis_-0.95_realizable_R": {
+    "median": 4.73,
+    "max": 9.92
+   }
+  }
+ },
+ "meta": {
+  "generated_by": "python -m research.run_all",
+  "figures": [
+   "fig_1_frequency_mapping.png",
+   "fig_1_isomorphism.png",
+   "fig_2_chromaticity.png",
+   "fig_2_dE00_matrices.png",
+   "fig_2_palette_children.png",
+   "fig_2_palette_men.png",
+   "fig_2_palette_women.png",
+   "fig_3_fidelity.png",
+   "fig_3_glottis_sweep.png",
+   "fig_4_butterflies.png",
+   "fig_5_exact_family.png",
+   "fig_5_metamers_spread.png",
+   "fig_6_angle_sweep.png",
+   "fig_7_atlas.png",
+   "fig_butterfly_real.png",
+   "fig_fluorescence.png",
+   "fig_r10_angle.png",
+   "fig_r10_butterflies.png",
+   "fig_r10_fluor.png",
+   "fig_r10_gamut.png",
+   "fig_r10_real_butterflies.png",
+   "fig_r8_mapping.png",
+   "fig_r9_sounds.png"
+  ],
+  "audio": [
+   "bfly_beetle.wav",
+   "bfly_beetle_x0p9.wav",
+   "bfly_beetle_x1p1.wav",
+   "bfly_morpho.wav",
+   "bfly_morpho_x0p9.wav",
+   "bfly_morpho_x1p1.wav",
+   "glide_atlas_eh_like.wav",
+   "glide_morpho.wav",
+   "glide_vowel_ah_ideal.wav",
+   "metamer_A_1.wav",
+   "metamer_A_2.wav",
+   "metamer_A_3.wav",
+   "metamer_A_4.wav",
+   "metamer_A_5.wav",
+   "metamer_A_6.wav",
+   "metamer_A_7.wav",
+   "metamer_A_8.wav",
+   "metamer_pair_atlas.wav",
+   "metamer_set_A.wav",
+   "metamer_set_B.wav",
+   "metamer_set_C.wav",
+   "same_voice_family.wav",
+   "same_voice_pair_atlas.wav"
+  ],
+  "sections_run": [
+   10
+  ]
+ },
+ "r9": {
+  "source": "web/data/sounds.json (tools/build_sounds.py, Wikimedia Commons IPA recordings)",
+  "dE_convention": "CIEDE2000 on displayed sRGB (exposure-normalised hex -> Lab D65), as CONTRACT §4b",
+  "n_sounds": 43,
+  "n_vowels": 14,
+  "n_consonants": 29,
+  "views": {
+   "full_realizable_R": {
+    "label": "full-band · realizable · R",
+    "all": {
+     "n_pairs": 903,
+     "median": 28.33,
+     "min": 0.0,
+     "frac_below_2": 0.002
+    },
+    "vowels": {
+     "n_pairs": 91,
+     "median": 29.57,
+     "min": 3.57,
+     "frac_below_2": 0.0
+    },
+    "consonants": {
+     "n_pairs": 406,
+     "median": 25.52,
+     "min": 0.0,
+     "frac_below_2": 0.002
+    },
+    "vowel_vs_consonant": {
+     "n_pairs": 406,
+     "median": 30.45,
+     "min": 1.85,
+     "frac_below_2": 0.002
+    },
+    "consonant_to_nearest_vowel_median": 8.38,
+    "n_distinct_hex": 42
+   },
+   "full_ideal_T": {
+    "label": "full-band · ideal · T",
+    "all": {
+     "n_pairs": 903,
+     "median": 39.02,
+     "min": 0.0,
+     "frac_below_2": 0.006
+    },
+    "vowels": {
+     "n_pairs": 91,
+     "median": 36.99,
+     "min": 1.17,
+     "frac_below_2": 0.011
+    },
+    "consonants": {
+     "n_pairs": 406,
+     "median": 39.0,
+     "min": 0.0,
+     "frac_below_2": 0.007
+    },
+    "vowel_vs_consonant": {
+     "n_pairs": 406,
+     "median": 40.09,
+     "min": 1.05,
+     "frac_below_2": 0.002
+    },
+    "consonant_to_nearest_vowel_median": 10.77,
+    "n_distinct_hex": 41
+   },
+   "brief_realizable_R": {
+    "label": "brief · realizable · R",
+    "all": {
+     "n_pairs": 903,
+     "median": 11.08,
+     "min": 0.0,
+     "frac_below_2": 0.065
+    },
+    "vowels": {
+     "n_pairs": 91,
+     "median": 8.95,
+     "min": 0.42,
+     "frac_below_2": 0.132
+    },
+    "consonants": {
+     "n_pairs": 406,
+     "median": 13.18,
+     "min": 0.0,
+     "frac_below_2": 0.086
+    },
+    "vowel_vs_consonant": {
+     "n_pairs": 406,
+     "median": 10.97,
+     "min": 0.8,
+     "frac_below_2": 0.03
+    },
+    "consonant_to_nearest_vowel_median": 2.91,
+    "n_distinct_hex": 42
+   },
+   "brief_ideal_T": {
+    "label": "brief · ideal · T",
+    "all": {
+     "n_pairs": 903,
+     "median": 26.11,
+     "min": 0.0,
+     "frac_below_2": 0.049
+    },
+    "vowels": {
+     "n_pairs": 91,
+     "median": 22.9,
+     "min": 0.55,
+     "frac_below_2": 0.055
+    },
+    "consonants": {
+     "n_pairs": 406,
+     "median": 28.52,
+     "min": 0.0,
+     "frac_below_2": 0.059
+    },
+    "vowel_vs_consonant": {
+     "n_pairs": 406,
+     "median": 26.32,
+     "min": 0.1,
+     "frac_below_2": 0.037
+    },
+    "consonant_to_nearest_vowel_median": 4.52,
+    "n_distinct_hex": 40
+   }
+  },
+  "frames_used_median": 28.0,
+  "fallback_items": [
+   "p",
+   "b",
+   "t",
+   "d"
+  ],
+  "headline": {
+   "full_realR_median_dE_all": 28.33,
+   "brief_realR_median_dE_all": 11.08,
+   "full_idealT_median_dE_all": 39.02,
+   "brief_idealT_median_dE_all": 26.11
+  },
+  "figure": "fig_r9_sounds.png"
+ },
+ "r10": {
+  "n_items": 43,
+  "angles": [
+   0,
+   15,
+   30,
+   45,
+   60
+  ],
+  "cluster_dE00": 10.0,
+  "n_valid_main": 17135,
+  "n_total_main": 17135,
+  "n_ideal_max": 57512.6,
+  "strip_reproduced_exactly": true,
+  "few_classes": [],
+  "classes": {
+   "vowel": {
+    "n_items": 14,
+    "distinct": 78,
+    "verdict": "many",
+    "n_colours": 1951,
+    "item_0deg": 9,
+    "item_angles": 23,
+    "own_frames_angles": 71,
+    "strip_frames_angles": 78,
+    "brief_R": 21,
+    "full_T_ideal": 60
+   },
+   "diphthong": {
+    "n_items": 5,
+    "distinct": 51,
+    "verdict": "many",
+    "n_colours": 736,
+    "item_0deg": 4,
+    "item_angles": 12,
+    "own_frames_angles": 51,
+    "strip_frames_angles": 51,
+    "brief_R": 13,
+    "full_T_ideal": 26
+   },
+   "plosive": {
+    "n_items": 6,
+    "distinct": 68,
+    "verdict": "many",
+    "n_colours": 1727,
+    "item_0deg": 4,
+    "item_angles": 11,
+    "own_frames_angles": 71,
+    "strip_frames_angles": 68,
+    "brief_R": 18,
+    "full_T_ideal": 39
+   },
+   "affricate": {
+    "n_items": 2,
+    "distinct": 39,
+    "verdict": "many",
+    "n_colours": 332,
+    "item_0deg": 1,
+    "item_angles": 3,
+    "own_frames_angles": 32,
+    "strip_frames_angles": 39,
+    "brief_R": 11,
+    "full_T_ideal": 19
+   },
+   "nasal": {
+    "n_items": 3,
+    "distinct": 56,
+    "verdict": "many",
+    "n_colours": 892,
+    "item_0deg": 1,
+    "item_angles": 4,
+    "own_frames_angles": 33,
+    "strip_frames_angles": 56,
+    "brief_R": 8,
+    "full_T_ideal": 24
+   },
+   "fricative": {
+    "n_items": 9,
+    "distinct": 85,
+    "verdict": "many",
+    "n_colours": 2182,
+    "item_0deg": 7,
+    "item_angles": 18,
+    "own_frames_angles": 72,
+    "strip_frames_angles": 85,
+    "brief_R": 26,
+    "full_T_ideal": 42
+   },
+   "lateral": {
+    "n_items": 1,
+    "distinct": 41,
+    "verdict": "many",
+    "n_colours": 300,
+    "item_0deg": 1,
+    "item_angles": 4,
+    "own_frames_angles": 29,
+    "strip_frames_angles": 41,
+    "brief_R": 7,
+    "full_T_ideal": 17
+   },
+   "approximant": {
+    "n_items": 3,
+    "distinct": 67,
+    "verdict": "many",
+    "n_colours": 875,
+    "item_0deg": 3,
+    "item_angles": 8,
+    "own_frames_angles": 48,
+    "strip_frames_angles": 67,
+    "brief_R": 13,
+    "full_T_ideal": 27
+   }
+  },
+  "corr_max": 0.977,
+  "corr_median": 0.127,
+  "corr_best": "[z] vs Morpho-like ×0.9",
+  "corr_best_dE": 2.61,
+  "most_alike": [
+   "[z] +0.98",
+   "[s] +0.87",
+   "[f] +0.75",
+   "[θ] +0.69",
+   "[ʃ] +0.62"
+  ],
+  "dE_nearest_colour_median": 15.2,
+  "dE_nearest_by_corr_median": 22.8,
+  "twin_dE_median": 0.0,
+  "twin_dE_max": 5.17,
+  "twin_below_2": 42,
+  "voice_winner": "Goupillaud speaker #3",
+  "voice_winner_n": 14,
+  "s_voice": "Morpho-like",
+  "s_voice_lsd": 9.44,
+  "lsd_min": 3.1,
+  "lsd_max": 23.1,
+  "butterfly_win_counts": {
+   "Morpho-like ×0.9": 13,
+   "Beetle-like": 6,
+   "Beetle-like ×1.1": 9,
+   "Beetle-like ×0.9": 2,
+   "Goupillaud speaker #4": 8,
+   "Goupillaud speaker #1": 4,
+   "Goupillaud speaker #2": 1
+  },
+  "findings": [
+   "No phoneme class is limited to one or two colours: with every frame and 5 viewing angles the classes give 39–85 distinct colours (CIEDE2000 clusters ≤ 10), so no 'few colours' proof is claimed. Tilting the film from 0° to 60° alone multiplies the colours: per class, item × angles gives 3–23 distinct colours.",
+   "17 135 film colours of the main view were checked for validity and all come from physically realizable films (indices 1–2.5, |k| < 1, R + T = 1 checked); 8 995 of them are distinct display colours plotted in the class gamuts. The ideal-film views are not realizable (indices up to 57513).",
+   "One film per phoneme at normal incidence: the 14 vowels give 9 distinct colours and the 9 fricatives 7, but the 3 nasals collapse to 1 (magenta) and the 2 modelled affricates to 1 (both built mostly from ʃ). This is an observation, not a 'few' verdict: frames and angles spread the nasals to 56 colours, and no proof is claimed.",
+   "The most butterfly-like phoneme films: [z] (fricative) ρ = +0.98, [s] (fricative) ρ = +0.87, [f] (fricative) ρ = +0.75, [θ] (fricative) ρ = +0.69 (reflectance correlation with the nearest Morpho-/Beetle-like film, 380–780 nm; [z] also ΔE00 = 2.6). The match is in spectral SHAPE and hue only: [z] reflects at most R = 0.18, the butterfly film 0.91. Vowels, nasals and plosives are not (median ρ over all phonemes +0.13); the closest film by colour is a median ΔE00 = 15 away (these are idealised 1-D stacks). Against the realistic scale models (disorder, tilt, melanin absorption; approximate) the most frequent nearest species is Chrysochroa fulgidissima (22/43); the best match is [z] vs Morpho didius (ρ = +0.70, ΔE00 = 30), median ρ -0.26: the realistic, broader and dimmer spectra resemble phoneme films less than the idealised stacks do.",
+   "But every phoneme colour has a butterfly-material twin: an 8-layer chitin/air stack matches the absolute reflected colour to median ΔE00 = 0 (max 5.2; 42/43 below 2).",
+   "Voices: the butterfly whose all-pole voice is closest to most phonemes is Goupillaud speaker #3 (14/43; a random equal-thickness Garden film, not an insect); /s/ sounds most like Morpho-like (LSD 9.4 dB); all LSDs 3.1–23.1 dB.",
+   "Fluorescence (approximate, papiliochrome-type dye in every layer): under blacklight all 43 phoneme films glow the same green (max pairwise ΔE00 1.3, emission peak 503–510 nm) — a 'few colours' result with a proof: the film only multiplies the fixed emission band by an escape factor η ∈ [0.31, 0.51]. In daylight the dye adds 11–79 % of the luminance and the colours stay distinct.",
+   "Modelled items (e ɛ o from Hillenbrand means; ʒ tʃ dʒ from relatives) and the fallback plosives p b t d (context vowel averaged in) are approximations; the all-pole film is an envelope model for nasals, fricatives and plosives."
+  ],
+  "n_gamut_colours": 8995,
+  "n_valid_main_th": "17 135",
+  "n_total_main_th": "17 135",
+  "n_gamut_colours_th": "8 995",
+  "real_winner": "Chrysochroa fulgidissima",
+  "real_winner_n": 22,
+  "real_win_counts": {
+   "Morpho didius": 12,
+   "Chrysochroa fulgidissima": 22,
+   "Chrysiridia rhipheus": 2,
+   "Papilio blumei": 6,
+   "Morpho rhetenor": 1
+  },
+  "real_best": "[z] vs Morpho didius",
+  "real_best_corr": 0.705,
+  "real_best_dE": 30.45,
+  "real_corr_median": -0.261,
+  "real_species": "Morpho rhetenor (#44a9ff, 448 nm), Morpho didius (#56a1ff, 432 nm), Papilio blumei (#afc29e, 526 nm), Chrysiridia rhipheus (#8ecb7e, 548 nm), Chrysochroa fulgidissima (#4ed1aa, 540 nm)",
+  "fluor": {
+   "peak_min": 503.0,
+   "peak_max": 510.0,
+   "shift_max": 5.0,
+   "bound_max": 37.1871,
+   "kappa_max": 0.0165,
+   "eta_min": 0.3084,
+   "eta_max": 0.5076,
+   "rho_max": 1.635,
+   "max_dE00_UV": 1.3,
+   "max_dE00_UV_unclipped": 2.8,
+   "distinct_UV": 1,
+   "fluor_share_UV_min": 0.9997,
+   "holds": true,
+   "ff_D65_min": 11,
+   "ff_D65_max": 79,
+   "ref_hex": "#00de74"
+  },
+  "seconds": 41.8,
+  "figures": [
+   "results/fig_r10_gamut.png",
+   "results/fig_r10_butterflies.png",
+   "results/fig_r10_angle.png",
+   "results/fig_r10_real_butterflies.png",
+   "results/fig_r10_fluor.png"
+  ]
+ }
+}

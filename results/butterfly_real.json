@@ -1,0 +1,1651 @@
+{
+ "generated_by": "core/butterfly.py",
+ "date": "2026-11-23",
+ "settings": {
+  "wl_nm": [
+   380,
+   780,
+   2
+  ],
+  "illuminant": "D65",
+  "n_ens": 32,
+  "seed": 0,
+  "angles_deg": [
+   0,
+   15,
+   30,
+   45,
+   60,
+   75
+  ],
+  "colour": "hex = exposure-normalised display colour; Lab_abs = absolute reflected Lab"
+ },
+ "model": "Realistic butterfly-/beetle-scale optics. Replaces the idealised 1-D 'Morpho-like' film of",
+ "not_modelled": "full 2-D/3-D ridge geometry (FDTD), true diffraction orders, cover/ground scale overlap, measured BRDFs; ILLUSTRATIVE thicknesses where papers give none",
+ "species": {
+  "Morpho rhetenor": {
+   "kind": "ridge lamellae",
+   "published": "blue, R peak ≈ 450-470 nm, iridescent over a wide angle (Vukusic 1999)",
+   "ideal": {
+    "peak_nm": 480.0,
+    "R_max": 0.9884,
+    "fwhm_nm": 114.0,
+    "hex": "#00d0ff",
+    "angular_halfwidth_deg": 24.0
+   },
+   "realistic": {
+    "peak_nm": 448.0,
+    "R_max": 0.7529,
+    "fwhm_nm": 132.0,
+    "hex": "#44a9ff",
+    "angular_halfwidth_deg": 80.0
+   },
+   "dE00_ideal_vs_realistic_0deg": 16.05,
+   "ablation_dE00_max_0_45": {
+    "disorder": 3.31,
+    "tilt": 0.27,
+    "diffraction": 11.64,
+    "backing": 5.19,
+    "absorption": 2.47
+   },
+   "colours_realistic": [
+    {
+     "angle": 0.0,
+     "hex": "#44a9ff",
+     "Lab": [
+      67.14,
+      -1.31,
+      -50.97
+     ],
+     "Lab_abs": [
+      59.66,
+      -1.14,
+      -46.44
+     ],
+     "hue_deg": 268.6,
+     "R_peak": 0.7529,
+     "peak_nm": 448.0,
+     "R_mean": 0.308
+    },
+    {
+     "angle": 15.0,
+     "hex": "#4faaff",
+     "Lab": [
+      67.75,
+      -0.41,
+      -50.0
+     ],
+     "Lab_abs": [
+      59.1,
+      -0.55,
+      -44.72
+     ],
+     "hue_deg": 269.3,
+     "R_peak": 0.7173,
+     "peak_nm": 446.0,
+     "R_mean": 0.3035
+    },
+    {
+     "angle": 30.0,
+     "hex": "#68afff",
+     "Lab": [
+      70.05,
+      0.91,
+      -46.31
+     ],
+     "Lab_abs": [
+      57.86,
+      0.57,
+      -39.52
+     ],
+     "hue_deg": 270.8,
+     "R_peak": 0.6274,
+     "peak_nm": 444.0,
+     "R_mean": 0.292
+    },
+    {
+     "angle": 45.0,
+     "hex": "#88baff",
+     "Lab": [
+      74.55,
+      1.56,
+      -39.16
+     ],
+     "Lab_abs": [
+      56.98,
+      1.1,
+      -31.43
+     ],
+     "hue_deg": 272.0,
+     "R_peak": 0.5234,
+     "peak_nm": 440.0,
+     "R_mean": 0.2796
+    },
+    {
+     "angle": 60.0,
+     "hex": "#9dbdef",
+     "Lab": [
+      75.94,
+      0.98,
+      -28.3
+     ],
+     "Lab_abs": [
+      57.32,
+      0.74,
+      -22.54
+     ],
+     "hue_deg": 271.9,
+     "R_peak": 0.4602,
+     "peak_nm": 380.0,
+     "R_mean": 0.2752
+    },
+    {
+     "angle": 75.0,
+     "hex": "#a8bdde",
+     "Lab": [
+      76.06,
+      0.03,
+      -18.86
+     ],
+     "Lab_abs": [
+      59.01,
+      -0.01,
+      -15.44
+     ],
+     "hue_deg": 270.0,
+     "R_peak": 0.4637,
+     "peak_nm": 380.0,
+     "R_mean": 0.2842
+    }
+   ],
+   "colours_ideal": [
+    {
+     "angle": 0.0,
+     "hex": "#00d0ff",
+     "Lab": [
+      77.48,
+      -26.36,
+      -34.88
+     ],
+     "Lab_abs": [
+      70.8,
+      -47.77,
+      -39.34
+     ],
+     "hue_deg": 219.5,
+     "R_peak": 0.9884,
+     "peak_nm": 480.0,
+     "R_mean": 0.3226
+    },
+    {
+     "angle": 15.0,
+     "hex": "#00a5ff",
+     "Lab": [
+      65.06,
+      -3.4,
+      -54.33
+     ],
+     "Lab_abs": [
+      62.48,
+      -18.35,
+      -59.83
+     ],
+     "hue_deg": 252.9,
+     "R_peak": 0.9884,
+     "peak_nm": 466.0,
+     "R_mean": 0.3121
+    },
+    {
+     "angle": 30.0,
+     "hex": "#2b50ff",
+     "Lab": [
+      43.46,
+      50.27,
+      -89.28
+     ],
+     "Lab_abs": [
+      42.55,
+      49.78,
+      -88.2
+     ],
+     "hue_deg": 299.4,
+     "R_peak": 0.98,
+     "peak_nm": 428.0,
+     "R_mean": 0.2789
+    },
+    {
+     "angle": 45.0,
+     "hex": "#6c67ff",
+     "Lab": [
+      51.96,
+      43.99,
+      -75.23
+     ],
+     "Lab_abs": [
+      29.97,
+      29.83,
+      -51.02
+     ],
+     "hue_deg": 300.3,
+     "R_peak": 0.8358,
+     "peak_nm": 380.0,
+     "R_mean": 0.1433
+    },
+    {
+     "angle": 60.0,
+     "hex": "#a7b9fd",
+     "Lab": [
+      76.07,
+      9.47,
+      -35.58
+     ],
+     "Lab_abs": [
+      33.03,
+      4.97,
+      -18.86
+     ],
+     "hue_deg": 284.8,
+     "R_peak": 0.5052,
+     "peak_nm": 382.0,
+     "R_mean": 0.1015
+    },
+    {
+     "angle": 75.0,
+     "hex": "#bdbac7",
+     "Lab": [
+      76.11,
+      3.51,
+      -6.17
+     ],
+     "Lab_abs": [
+      55.3,
+      2.73,
+      -4.78
+     ],
+     "hue_deg": 299.7,
+     "R_peak": 0.5033,
+     "peak_nm": 418.0,
+     "R_mean": 0.2508
+    }
+   ],
+   "params": {
+    "kind": "ridge lamellae",
+    "n_pairs": 10,
+    "d_hi": 70.0,
+    "d_lo": 145.0,
+    "hi": "lamella",
+    "lo": "air",
+    "fill": 0.6,
+    "melanin": 0.12,
+    "sigma_d": 0.1,
+    "tilt_deg": 8.0,
+    "lamella_width_nm": 300.0,
+    "backing": "melanin"
+   },
+   "param_labels": {
+    "n_pairs": "APPROXIMATE (Morpho ridges carry ~6-12 lamellae; rhetenor at the high end)",
+    "d_hi": "APPROXIMATE (cuticle lamellae ~55-80 nm)",
+    "d_lo": "APPROXIMATE (air gaps ~100-150 nm)",
+    "fill": "ILLUSTRATIVE lateral fill of the lamella (tuned so the peak lands in the published band)",
+    "melanin": "ILLUSTRATIVE (k ≈ 0.016 at 400 nm)",
+    "sigma_d": "APPROXIMATE (5-15 % layer scatter in TEM)",
+    "tilt_deg": "APPROXIMATE (lamella + scale tilt spread)",
+    "lamella_width_nm": "APPROXIMATE (shelf width a few hundred nm)",
+    "backing": "APPROXIMATE (melanised ground scales / lower lamina)"
+   },
+   "citations": [
+    "Vukusic, Sambles, Lawrence & Wootton 1999, Proc. R. Soc. B 266:1403 (single Morpho scales: interference + diffraction, ridge lamellae)",
+    "Kinoshita, Yoshioka & Kawagoe 2002, Proc. R. Soc. B 269:1417 (Morpho: alternating shelves, broad angular reflection, melanised base)",
+    "Leertouwer, Wilts & Stavenga 2011, Opt. Express 19:24061 (chitin Cauchy A=1.517, B=8.80e3 nm²)",
+    "Stavenga, Leertouwer, Hariyama, De Raedt & Wilts 2012, PLoS ONE 7:e49743 (melanin layer n 1.79→1.64)"
+   ]
+  },
+  "Morpho didius": {
+   "kind": "ridge lamellae",
+   "published": "blue, R peak ≈ 440-480 nm; cover scales add diffuse spread (Kinoshita 2002)",
+   "ideal": {
+    "peak_nm": 462.0,
+    "R_max": 0.9733,
+    "fwhm_nm": 140.0,
+    "hex": "#00b7ff",
+    "angular_halfwidth_deg": 24.0
+   },
+   "realistic": {
+    "peak_nm": 432.0,
+    "R_max": 0.7997,
+    "fwhm_nm": 140.0,
+    "hex": "#56a1ff",
+    "angular_halfwidth_deg": 80.0
+   },
+   "dE00_ideal_vs_realistic_0deg": 11.13,
+   "ablation_dE00_max_0_45": {
+    "disorder": 2.42,
+    "tilt": 0.43,
+    "diffraction": 8.7,
+    "backing": 5.55,
+    "absorption": 1.09
+   },
+   "colours_realistic": [
+    {
+     "angle": 0.0,
+     "hex": "#56a1ff",
+     "Lab": [
+      65.5,
+      5.8,
+      -53.53
+     ],
+     "Lab_abs": [
+      59.65,
+      5.5,
+      -49.82
+     ],
+     "hue_deg": 276.3,
+     "R_peak": 0.7997,
+     "peak_nm": 432.0,
+     "R_mean": 0.3416
+    },
+    {
+     "angle": 15.0,
+     "hex": "#5ea3ff",
+     "Lab": [
+      66.36,
+      5.95,
+      -52.16
+     ],
+     "Lab_abs": [
+      59.31,
+      5.37,
+      -47.72
+     ],
+     "hue_deg": 276.4,
+     "R_peak": 0.7684,
+     "peak_nm": 430.0,
+     "R_mean": 0.3362
+    },
+    {
+     "angle": 30.0,
+     "hex": "#72abff",
+     "Lab": [
+      69.41,
+      5.11,
+      -47.28
+     ],
+     "Lab_abs": [
+      58.66,
+      4.63,
+      -41.61
+     ],
+     "hue_deg": 276.3,
+     "R_peak": 0.6911,
+     "peak_nm": 422.0,
+     "R_mean": 0.3227
+    },
+    {
+     "angle": 45.0,
+     "hex": "#8cb8ff",
+     "Lab": [
+      74.24,
+      3.61,
+      -39.63
+     ],
+     "Lab_abs": [
+      58.53,
+      2.85,
+      -32.52
+     ],
+     "hue_deg": 275.0,
+     "R_peak": 0.6047,
+     "peak_nm": 412.0,
+     "R_mean": 0.3092
+    },
+    {
+     "angle": 60.0,
+     "hex": "#9dbeee",
+     "Lab": [
+      76.17,
+      0.18,
+      -27.41
+     ],
+     "Lab_abs": [
+      59.52,
+      0.34,
+      -22.75
+     ],
+     "hue_deg": 270.9,
+     "R_peak": 0.5473,
+     "peak_nm": 380.0,
+     "R_mean": 0.3052
+    },
+    {
+     "angle": 75.0,
+     "hex": "#a4bedb",
+     "Lab": [
+      75.97,
+      -2.41,
+      -17.42
+     ],
+     "Lab_abs": [
+      61.61,
+      -2.17,
+      -14.72
+     ],
+     "hue_deg": 261.6,
+     "R_peak": 0.5343,
+     "peak_nm": 380.0,
+     "R_mean": 0.3156
+    }
+   ],
+   "colours_ideal": [
+    {
+     "angle": 0.0,
+     "hex": "#00b7ff",
+     "Lab": [
+      70.23,
+      -13.4,
+      -46.16
+     ],
+     "Lab_abs": [
+      68.7,
+      -27.49,
+      -50.54
+     ],
+     "hue_deg": 241.5,
+     "R_peak": 0.9733,
+     "peak_nm": 462.0,
+     "R_mean": 0.3652
+    },
+    {
+     "angle": 15.0,
+     "hex": "#0098ff",
+     "Lab": [
+      61.37,
+      4.16,
+      -60.21
+     ],
+     "Lab_abs": [
+      61.0,
+      -4.28,
+      -64.06
+     ],
+     "hue_deg": 266.2,
+     "R_peak": 0.9739,
+     "peak_nm": 448.0,
+     "R_mean": 0.3532
+    },
+    {
+     "angle": 30.0,
+     "hex": "#265bff",
+     "Lab": [
+      45.79,
+      43.37,
+      -85.46
+     ],
+     "Lab_abs": [
+      44.09,
+      41.97,
+      -82.95
+     ],
+     "hue_deg": 296.8,
+     "R_peak": 0.9651,
+     "peak_nm": 412.0,
+     "R_mean": 0.2916
+    },
+    {
+     "angle": 45.0,
+     "hex": "#8269ff",
+     "Lab": [
+      54.1,
+      46.78,
+      -71.68
+     ],
+     "Lab_abs": [
+      32.93,
+      32.6,
+      -49.97
+     ],
+     "hue_deg": 303.1,
+     "R_peak": 0.8015,
+     "peak_nm": 380.0,
+     "R_mean": 0.1587
+    },
+    {
+     "angle": 60.0,
+     "hex": "#c0adff",
+     "Lab": [
+      75.02,
+      23.63,
+      -38.14
+     ],
+     "Lab_abs": [
+      34.5,
+      13.1,
+      -21.11
+     ],
+     "hue_deg": 301.8,
+     "R_peak": 0.5016,
+     "peak_nm": 380.0,
+     "R_mean": 0.1171
+    },
+    {
+     "angle": 75.0,
+     "hex": "#8bc5cf",
+     "Lab": [
+      76.02,
+      -16.2,
+      -10.99
+     ],
+     "Lab_abs": [
+      59.14,
+      -13.18,
+      -8.91
+     ],
+     "hue_deg": 214.1,
+     "R_peak": 0.5095,
+     "peak_nm": 434.0,
+     "R_mean": 0.2729
+    }
+   ],
+   "params": {
+    "kind": "ridge lamellae",
+    "n_pairs": 7,
+    "d_hi": 55.0,
+    "d_lo": 150.0,
+    "hi": "lamella",
+    "lo": "air",
+    "fill": 0.85,
+    "melanin": 0.08,
+    "sigma_d": 0.1,
+    "tilt_deg": 10.0,
+    "lamella_width_nm": 300.0,
+    "backing": "melanin"
+   },
+   "param_labels": {
+    "n_pairs": "MEASURED range 6-8 (Kinoshita 2002), 7 used",
+    "d_hi": "MEASURED ~55 nm (TEM, Kinoshita 2002)",
+    "d_lo": "MEASURED ~150 nm (TEM, Kinoshita 2002)",
+    "fill": "ILLUSTRATIVE 0.85 (core/stacks.py uses 0.5; tuned so the realistic peak is blue)",
+    "melanin": "ILLUSTRATIVE",
+    "sigma_d": "APPROXIMATE",
+    "tilt_deg": "APPROXIMATE",
+    "lamella_width_nm": "APPROXIMATE",
+    "backing": "APPROXIMATE"
+   },
+   "citations": [
+    "Kinoshita, Yoshioka, Fujii & Okamoto 2002, Forma 17:103 (M. didius: 6-8 lamellae, cuticle ~55 nm, air ~150 nm; averaged-lamella model)",
+    "Kinoshita, Yoshioka & Kawagoe 2002, Proc. R. Soc. B 269:1417 (Morpho: alternating shelves, broad angular reflection, melanised base)",
+    "Leertouwer, Wilts & Stavenga 2011, Opt. Express 19:24061 (chitin Cauchy A=1.517, B=8.80e3 nm²)",
+    "Stavenga, Leertouwer, Hariyama, De Raedt & Wilts 2012, PLoS ONE 7:e49743 (melanin layer n 1.79→1.64)"
+   ]
+  },
+  "Papilio blumei": {
+   "kind": "concave multilayer",
+   "published": "green (concavity centre yellow-green + edges blue); P. palinurus is structurally similar",
+   "ideal": {
+    "peak_nm": 562.0,
+    "R_max": 0.9993,
+    "fwhm_nm": 180.0,
+    "hex": "#bac351",
+    "angular_halfwidth_deg": 44.0
+   },
+   "realistic": {
+    "peak_nm": 526.0,
+    "R_max": 0.742,
+    "fwhm_nm": 236.0,
+    "hex": "#afc29e",
+    "angular_halfwidth_deg": 80.0
+   },
+   "dE00_ideal_vs_realistic_0deg": 15.47,
+   "ablation_dE00_max_0_45": {
+    "disorder": 2.61,
+    "tilt": 8.81,
+    "backing": 1.23,
+    "absorption": 1.84,
+    "walls": 10.03
+   },
+   "colours_realistic": [
+    {
+     "angle": 0.0,
+     "hex": "#afc29e",
+     "Lab": [
+      76.17,
+      -13.03,
+      15.97
+     ],
+     "Lab_abs": [
+      86.57,
+      -14.32,
+      17.84
+     ],
+     "hue_deg": 128.8,
+     "R_peak": 0.742,
+     "peak_nm": 526.0,
+     "R_mean": 0.4561
+    },
+    {
+     "angle": 15.0,
+     "hex": "#a0c69a",
+     "Lab": [
+      76.19,
+      -21.04,
+      17.99
+     ],
+     "Lab_abs": [
+      86.56,
+      -23.39,
+      19.88
+     ],
+     "hue_deg": 139.6,
+     "R_peak": 0.8027,
+     "peak_nm": 510.0,
+     "R_mean": 0.4393
+    },
+    {
+     "angle": 30.0,
+     "hex": "#82c9b8",
+     "Lab": [
+      76.06,
+      -26.07,
+      1.45
+     ],
+     "Lab_abs": [
+      82.2,
+      -28.06,
+      1.65
+     ],
+     "hue_deg": 176.6,
+     "R_peak": 0.7828,
+     "peak_nm": 494.0,
+     "R_mean": 0.4037
+    },
+    {
+     "angle": 45.0,
+     "hex": "#79c7d9",
+     "Lab": [
+      76.02,
+      -19.37,
+      -16.48
+     ],
+     "Lab_abs": [
+      72.05,
+      -18.33,
+      -15.91
+     ],
+     "hue_deg": 221.0,
+     "R_peak": 0.6514,
+     "peak_nm": 478.0,
+     "R_mean": 0.3499
+    },
+    {
+     "angle": 60.0,
+     "hex": "#98c2d3",
+     "Lab": [
+      76.04,
+      -9.97,
+      -13.04
+     ],
+     "Lab_abs": [
+      67.92,
+      -9.07,
+      -11.65
+     ],
+     "hue_deg": 232.1,
+     "R_peak": 0.5055,
+     "peak_nm": 488.0,
+     "R_mean": 0.3385
+    },
+    {
+     "angle": 75.0,
+     "hex": "#b6bdbc",
+     "Lab": [
+      76.05,
+      -2.61,
+      -0.34
+     ],
+     "Lab_abs": [
+      77.08,
+      -2.84,
+      -0.31
+     ],
+     "hue_deg": 186.3,
+     "R_peak": 0.5961,
+     "peak_nm": 514.0,
+     "R_mean": 0.4685
+    }
+   ],
+   "colours_ideal": [
+    {
+     "angle": 0.0,
+     "hex": "#bac351",
+     "Lab": [
+      76.11,
+      -18.46,
+      54.89
+     ],
+     "Lab_abs": [
+      98.32,
+      -22.52,
+      67.9
+     ],
+     "hue_deg": 108.4,
+     "R_peak": 0.9993,
+     "peak_nm": 562.0,
+     "R_mean": 0.5348
+    },
+    {
+     "angle": 15.0,
+     "hex": "#b1c468",
+     "Lab": [
+      75.96,
+      -20.54,
+      43.77
+     ],
+     "Lab_abs": [
+      98.54,
+      -25.66,
+      54.83
+     ],
+     "hue_deg": 115.1,
+     "R_peak": 0.9993,
+     "peak_nm": 548.0,
+     "R_mean": 0.529
+    },
+    {
+     "angle": 30.0,
+     "hex": "#79cbaf",
+     "Lab": [
+      75.99,
+      -31.5,
+      6.15
+     ],
+     "Lab_abs": [
+      94.19,
+      -37.87,
+      7.61
+     ],
+     "hue_deg": 168.6,
+     "R_peak": 0.9981,
+     "peak_nm": 508.0,
+     "R_mean": 0.4911
+    },
+    {
+     "angle": 45.0,
+     "hex": "#55bdff",
+     "Lab": [
+      73.25,
+      -10.03,
+      -41.35
+     ],
+     "Lab_abs": [
+      72.77,
+      -9.8,
+      -41.36
+     ],
+     "hue_deg": 256.7,
+     "R_peak": 0.9724,
+     "peak_nm": 448.0,
+     "R_mean": 0.4151
+    },
+    {
+     "angle": 60.0,
+     "hex": "#6cc6f5",
+     "Lab": [
+      76.17,
+      -13.89,
+      -31.38
+     ],
+     "Lab_abs": [
+      60.89,
+      -11.34,
+      -26.38
+     ],
+     "hue_deg": 246.7,
+     "R_peak": 0.6202,
+     "peak_nm": 380.0,
+     "R_mean": 0.301
+    },
+    {
+     "angle": 75.0,
+     "hex": "#9fbfe3",
+     "Lab": [
+      76.18,
+      -2.52,
+      -21.45
+     ],
+     "Lab_abs": [
+      70.29,
+      -2.05,
+      -20.12
+     ],
+     "hue_deg": 264.2,
+     "R_peak": 0.8026,
+     "peak_nm": 380.0,
+     "R_mean": 0.4237
+    }
+   ],
+   "params": {
+    "kind": "concave multilayer",
+    "n_pairs": 10,
+    "d_hi": 85.0,
+    "d_lo": 150.0,
+    "hi": "chitin",
+    "lo": "air",
+    "fill": 1.0,
+    "melanin": 0.05,
+    "sigma_d": 0.08,
+    "tilt_deg": 10.0,
+    "lamella_width_nm": null,
+    "backing": "melanin",
+    "f_wall": 0.3
+   },
+   "param_labels": {
+    "n_pairs": "APPROXIMATE (~10 cuticle layers; Diao 2011 counts 21 alternating layers)",
+    "d_hi": "ILLUSTRATIVE (tuned: centre ≈ yellow-green at normal incidence)",
+    "d_lo": "ILLUSTRATIVE",
+    "fill": "cuticle layers are continuous (f = 1)",
+    "melanin": "ILLUSTRATIVE",
+    "sigma_d": "APPROXIMATE",
+    "tilt_deg": "APPROXIMATE (concavity floor curvature)",
+    "f_wall": "ILLUSTRATIVE area fraction of the 45° walls (0.3)",
+    "backing": "APPROXIMATE"
+   },
+   "citations": [
+    "Vukusic, Sambles & Lawrence 2000, Nature 404:457 (P. blumei: concave multilayer, yellow centre + blue edges via double reflection & polarisation conversion → green)",
+    "Diao & Liu 2011, Opt. Express 19:9232 (Papilio concavities: 21 alternating cuticle/air layers)",
+    "Kolle et al. 2010, Nat. Nanotechnol. 5:511 (P. blumei mimic; concavities ~5-10 µm)",
+    "Leertouwer, Wilts & Stavenga 2011, Opt. Express 19:24061 (chitin Cauchy A=1.517, B=8.80e3 nm²)"
+   ]
+  },
+  "Chrysiridia rhipheus": {
+   "kind": "curved-scale multilayer",
+   "published": "green area C5 (CIE x,y ≈ 0.24, 0.50), second-order interference (Yoshioka 2008)",
+   "ideal": {
+    "peak_nm": 548.0,
+    "R_max": 0.8837,
+    "fwhm_nm": 108.0,
+    "hex": "#82d100",
+    "angular_halfwidth_deg": 38.0
+   },
+   "realistic": {
+    "peak_nm": 548.0,
+    "R_max": 0.7157,
+    "fwhm_nm": 124.0,
+    "hex": "#8ecb7e",
+    "angular_halfwidth_deg": 80.0
+   },
+   "dE00_ideal_vs_realistic_0deg": 12.35,
+   "ablation_dE00_max_0_45": {
+    "disorder": 9.52,
+    "tilt": 10.03,
+    "backing": 2.97,
+    "absorption": 1.06
+   },
+   "colours_realistic": [
+    {
+     "angle": 0.0,
+     "hex": "#8ecb7e",
+     "Lab": [
+      76.05,
+      -34.08,
+      32.33
+     ],
+     "Lab_abs": [
+      79.43,
+      -35.45,
+      33.29
+     ],
+     "hue_deg": 136.8,
+     "R_peak": 0.7157,
+     "peak_nm": 548.0,
+     "R_mean": 0.3272
+    },
+    {
+     "angle": 15.0,
+     "hex": "#84cc89",
+     "Lab": [
+      76.01,
+      -36.08,
+      26.47
+     ],
+     "Lab_abs": [
+      77.71,
+      -36.91,
+      26.86
+     ],
+     "hue_deg": 144.0,
+     "R_peak": 0.6742,
+     "peak_nm": 542.0,
+     "R_mean": 0.3187
+    },
+    {
+     "angle": 30.0,
+     "hex": "#6fcdaa",
+     "Lab": [
+      76.03,
+      -36.14,
+      8.84
+     ],
+     "Lab_abs": [
+      72.19,
+      -34.75,
+      8.75
+     ],
+     "hue_deg": 165.9,
+     "R_peak": 0.5807,
+     "peak_nm": 520.0,
+     "R_mean": 0.2987
+    },
+    {
+     "angle": 45.0,
+     "hex": "#74c9d3",
+     "Lab": [
+      76.18,
+      -23.14,
+      -13.02
+     ],
+     "Lab_abs": [
+      65.09,
+      -20.41,
+      -11.49
+     ],
+     "hue_deg": 209.4,
+     "R_peak": 0.501,
+     "peak_nm": 492.0,
+     "R_mean": 0.2959
+    },
+    {
+     "angle": 60.0,
+     "hex": "#99c0e5",
+     "Lab": [
+      76.15,
+      -4.27,
+      -22.61
+     ],
+     "Lab_abs": [
+      63.91,
+      -3.64,
+      -19.75
+     ],
+     "hue_deg": 259.5,
+     "R_peak": 0.5052,
+     "peak_nm": 448.0,
+     "R_mean": 0.3618
+    },
+    {
+     "angle": 75.0,
+     "hex": "#afbcdb",
+     "Lab": [
+      76.19,
+      2.04,
+      -17.01
+     ],
+     "Lab_abs": [
+      70.63,
+      2.1,
+      -16.1
+     ],
+     "hue_deg": 277.4,
+     "R_peak": 0.6536,
+     "peak_nm": 780.0,
+     "R_mean": 0.4954
+    }
+   ],
+   "colours_ideal": [
+    {
+     "angle": 0.0,
+     "hex": "#82d100",
+     "Lab": [
+      76.28,
+      -49.9,
+      75.23
+     ],
+     "Lab_abs": [
+      85.47,
+      -56.45,
+      96.84
+     ],
+     "hue_deg": 120.2,
+     "R_peak": 0.8837,
+     "peak_nm": 548.0,
+     "R_mean": 0.2563
+    },
+    {
+     "angle": 15.0,
+     "hex": "#4bd700",
+     "Lab": [
+      76.13,
+      -67.6,
+      74.26
+     ],
+     "Lab_abs": [
+      84.18,
+      -74.1,
+      84.62
+     ],
+     "hue_deg": 131.2,
+     "R_peak": 0.8823,
+     "peak_nm": 538.0,
+     "R_mean": 0.242
+    },
+    {
+     "angle": 30.0,
+     "hex": "#00e181",
+     "Lab": [
+      79.29,
+      -66.98,
+      34.39
+     ],
+     "Lab_abs": [
+      74.81,
+      -97.15,
+      29.32
+     ],
+     "hue_deg": 163.2,
+     "R_peak": 0.8577,
+     "peak_nm": 512.0,
+     "R_mean": 0.2174
+    },
+    {
+     "angle": 45.0,
+     "hex": "#00abff",
+     "Lab": [
+      66.78,
+      -6.79,
+      -51.61
+     ],
+     "Lab_abs": [
+      52.95,
+      -18.85,
+      -48.61
+     ],
+     "hue_deg": 248.8,
+     "R_peak": 0.7111,
+     "peak_nm": 470.0,
+     "R_mean": 0.1863
+    },
+    {
+     "angle": 60.0,
+     "hex": "#0084ff",
+     "Lab": [
+      55.81,
+      16.29,
+      -69.16
+     ],
+     "Lab_abs": [
+      42.28,
+      13.15,
+      -56.09
+     ],
+     "hue_deg": 283.2,
+     "R_peak": 0.5192,
+     "peak_nm": 426.0,
+     "R_mean": 0.2261
+    },
+    {
+     "angle": 75.0,
+     "hex": "#41adff",
+     "Lab": [
+      68.19,
+      -3.93,
+      -49.33
+     ],
+     "Lab_abs": [
+      54.66,
+      -3.46,
+      -41.25
+     ],
+     "hue_deg": 265.2,
+     "R_peak": 0.936,
+     "peak_nm": 386.0,
+     "R_mean": 0.4566
+    }
+   ],
+   "params": {
+    "kind": "curved-scale multilayer",
+    "n_pairs": 4,
+    "d_hi": 270.0,
+    "d_lo": 130.0,
+    "hi": "chitin",
+    "lo": "air",
+    "fill": 1.0,
+    "melanin": 0.03,
+    "sigma_d": 0.1,
+    "tilt_deg": 15.0,
+    "lamella_width_nm": null,
+    "backing": "melanin"
+   },
+   "param_labels": {
+    "n_pairs": "MEASURED 4 cuticle + 3 air layers (area C5)",
+    "d_hi": "MEASURED 270 nm",
+    "d_lo": "MEASURED 130 nm",
+    "fill": "f = 1",
+    "melanin": "ILLUSTRATIVE",
+    "sigma_d": "APPROXIMATE (paper notes non-uniform thicknesses)",
+    "tilt_deg": "APPROXIMATE (curved scales)",
+    "backing": "APPROXIMATE"
+   },
+   "citations": [
+    "Yoshioka, Nakano, Nozue & Kinoshita 2008, J. R. Soc. Interface 5:457 (C. rhipheus area C5 green: 4 cuticle 270 nm + 3 air 130 nm, n 1.55; higher-order interference)",
+    "Yoshioka & Kinoshita 2007, Proc. R. Soc. B 274:1717 (sunset moth: curved scales, polarisation-sensitive colour mixing)",
+    "Leertouwer, Wilts & Stavenga 2011, Opt. Express 19:24061 (chitin Cauchy A=1.517, B=8.80e3 nm²)"
+   ]
+  },
+  "Chrysochroa fulgidissima": {
+   "kind": "beetle elytron multilayer",
+   "published": "green elytra, specular (glossy), blue-shifted at oblique angles (Stavenga 2011)",
+   "ideal": {
+    "peak_nm": 544.0,
+    "R_max": 0.3512,
+    "fwhm_nm": 44.0,
+    "hex": "#72d168",
+    "angular_halfwidth_deg": 80.0
+   },
+   "realistic": {
+    "peak_nm": 540.0,
+    "R_max": 0.205,
+    "fwhm_nm": 28.0,
+    "hex": "#4ed1aa",
+    "angular_halfwidth_deg": 80.0
+   },
+   "dE00_ideal_vs_realistic_0deg": 14.65,
+   "ablation_dE00_max_0_45": {
+    "disorder": 1.67,
+    "tilt": 0.61,
+    "backing": 0.0,
+    "absorption": 34.18
+   },
+   "colours_realistic": [
+    {
+     "angle": 0.0,
+     "hex": "#4ed1aa",
+     "Lab": [
+      76.14,
+      -45.06,
+      8.85
+     ],
+     "Lab_abs": [
+      33.81,
+      -24.31,
+      4.71
+     ],
+     "hue_deg": 169.0,
+     "R_peak": 0.205,
+     "peak_nm": 540.0,
+     "R_mean": 0.0602
+    },
+    {
+     "angle": 15.0,
+     "hex": "#44d1b2",
+     "Lab": [
+      76.09,
+      -44.77,
+      4.46
+     ],
+     "Lab_abs": [
+      32.76,
+      -23.6,
+      2.26
+     ],
+     "hue_deg": 174.5,
+     "R_peak": 0.1937,
+     "peak_nm": 534.0,
+     "R_mean": 0.0596
+    },
+    {
+     "angle": 30.0,
+     "hex": "#6bcad2",
+     "Lab": [
+      76.08,
+      -25.95,
+      -12.67
+     ],
+     "Lab_abs": [
+      29.31,
+      -12.71,
+      -6.35
+     ],
+     "hue_deg": 206.5,
+     "R_peak": 0.1711,
+     "peak_nm": 514.0,
+     "R_mean": 0.0593
+    },
+    {
+     "angle": 45.0,
+     "hex": "#b9b5f8",
+     "Lab": [
+      76.15,
+      15.54,
+      -32.66
+     ],
+     "Lab_abs": [
+      27.79,
+      7.6,
+      -15.68
+     ],
+     "hue_deg": 295.9,
+     "R_peak": 0.154,
+     "peak_nm": 486.0,
+     "R_mean": 0.0657
+    },
+    {
+     "angle": 60.0,
+     "hex": "#c8b4dc",
+     "Lab": [
+      76.12,
+      14.6,
+      -17.46
+     ],
+     "Lab_abs": [
+      36.48,
+      8.48,
+      -10.03
+     ],
+     "hue_deg": 310.2,
+     "R_peak": 0.1744,
+     "peak_nm": 456.0,
+     "R_mean": 0.1027
+    },
+    {
+     "angle": 75.0,
+     "hex": "#bebbb3",
+     "Lab": [
+      75.91,
+      -0.39,
+      4.42
+     ],
+     "Lab_abs": [
+      58.57,
+      -0.38,
+      3.56
+     ],
+     "hue_deg": 96.2,
+     "R_peak": 0.3283,
+     "peak_nm": 432.0,
+     "R_mean": 0.2685
+    }
+   ],
+   "colours_ideal": [
+    {
+     "angle": 0.0,
+     "hex": "#72d168",
+     "Lab": [
+      76.18,
+      -48.62,
+      43.23
+     ],
+     "Lab_abs": [
+      46.43,
+      -32.95,
+      29.1
+     ],
+     "hue_deg": 138.5,
+     "R_peak": 0.3512,
+     "peak_nm": 544.0,
+     "R_mean": 0.0813
+    },
+    {
+     "angle": 15.0,
+     "hex": "#48d56a",
+     "Lab": [
+      76.07,
+      -60.0,
+      41.83
+     ],
+     "Lab_abs": [
+      46.51,
+      -40.75,
+      28.56
+     ],
+     "hue_deg": 145.0,
+     "R_peak": 0.3596,
+     "peak_nm": 538.0,
+     "R_mean": 0.0816
+    },
+    {
+     "angle": 30.0,
+     "hex": "#00dc7b",
+     "Lab": [
+      77.65,
+      -66.4,
+      35.26
+     ],
+     "Lab_abs": [
+      44.72,
+      -52.88,
+      21.55
+     ],
+     "hue_deg": 157.8,
+     "R_peak": 0.3863,
+     "peak_nm": 518.0,
+     "R_mean": 0.0843
+    },
+    {
+     "angle": 45.0,
+     "hex": "#00d4c6",
+     "Lab": [
+      76.78,
+      -45.9,
+      -5.38
+     ],
+     "Lab_abs": [
+      38.92,
+      -30.76,
+      -3.73
+     ],
+     "hue_deg": 186.9,
+     "R_peak": 0.4286,
+     "peak_nm": 492.0,
+     "R_mean": 0.095
+    },
+    {
+     "angle": 60.0,
+     "hex": "#91a7ff",
+     "Lab": [
+      70.09,
+      14.37,
+      -46.1
+     ],
+     "Lab_abs": [
+      40.85,
+      9.41,
+      -30.43
+     ],
+     "hue_deg": 287.2,
+     "R_peak": 0.4808,
+     "peak_nm": 464.0,
+     "R_mean": 0.1349
+    },
+    {
+     "angle": 75.0,
+     "hex": "#bdb6e9",
+     "Lab": [
+      76.17,
+      12.77,
+      -24.52
+     ],
+     "Lab_abs": [
+      59.11,
+      10.34,
+      -19.95
+     ],
+     "hue_deg": 297.4,
+     "R_peak": 0.5802,
+     "peak_nm": 442.0,
+     "R_mean": 0.2916
+    }
+   ],
+   "params": {
+    "kind": "beetle elytron multilayer",
+    "n_pairs": 20,
+    "d_hi": 95.0,
+    "d_lo": 80.0,
+    "hi": "chitin",
+    "lo": "melanin_chitin",
+    "fill": 1.0,
+    "melanin": 0.0,
+    "mel_frac": 0.5,
+    "sigma_d": 0.05,
+    "tilt_deg": 3.0,
+    "lamella_width_nm": null,
+    "backing": "substrate"
+   },
+   "param_labels": {
+    "n_pairs": "APPROXIMATE (tens of layers)",
+    "d_hi": "ILLUSTRATIVE (tuned to a green peak ≈ 540-560 nm)",
+    "d_lo": "ILLUSTRATIVE",
+    "mel_frac": "ILLUSTRATIVE melanin fraction of the high-index layers",
+    "sigma_d": "APPROXIMATE",
+    "tilt_deg": "APPROXIMATE (smooth glossy elytron)",
+    "backing": "melanised cuticle substrate (coherent)"
+   },
+   "citations": [
+    "Stavenga, Wilts, Leertouwer & Hariyama 2011, Phil. Trans. R. Soc. B 366:709 (Chrysochroa fulgidissima elytra: chitin / melanin-rich multilayer, polarised iridescence)",
+    "Leertouwer, Wilts & Stavenga 2011, Opt. Express 19:24061 (chitin Cauchy A=1.517, B=8.80e3 nm²)",
+    "Stavenga, Leertouwer, Hariyama, De Raedt & Wilts 2012, PLoS ONE 7:e49743 (melanin layer n 1.79→1.64)"
+   ]
+  }
+ },
+ "effective_films": {
+  "Morpho rhetenor": {
+   "n": [
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.0,
+    1.3543,
+    1.5461
+   ],
+   "d_nm": [
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0,
+    145.0,
+    70.0
+   ],
+   "note": "no disorder/tilt/diffraction/backing/absorption; exit medium = chitin lower lamina"
+  },
+  "Morpho didius": {
+   "n": [
+    1.0,
+    1.4771,
+    1.0,
+    1.4771,
+    1.0,
+    1.4771,
+    1.0,
+    1.4771,
+    1.0,
+    1.4771,
+    1.0,
+    1.4771,
+    1.0,
+    1.4771,
+    1.5461
+   ],
+   "d_nm": [
+    55.0,
+    150.0,
+    55.0,
+    150.0,
+    55.0,
+    150.0,
+    55.0,
+    150.0,
+    55.0,
+    150.0,
+    55.0,
+    150.0,
+    55.0
+   ],
+   "note": "no disorder/tilt/diffraction/backing/absorption; exit medium = chitin lower lamina"
+  },
+  "Papilio blumei": {
+   "n": [
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.5461
+   ],
+   "d_nm": [
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0,
+    150.0,
+    85.0
+   ],
+   "note": "no disorder/tilt/diffraction/backing/absorption; exit medium = chitin lower lamina"
+  },
+  "Chrysiridia rhipheus": {
+   "n": [
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.0,
+    1.5461,
+    1.5461
+   ],
+   "d_nm": [
+    270.0,
+    130.0,
+    270.0,
+    130.0,
+    270.0,
+    130.0,
+    270.0
+   ],
+   "note": "no disorder/tilt/diffraction/backing/absorption; exit medium = chitin lower lamina"
+  },
+  "Chrysochroa fulgidissima": {
+   "n": [
+    1.0,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.5461,
+    1.6165,
+    1.6165
+   ],
+   "d_nm": [
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0,
+    95.0,
+    80.0
+   ],
+   "note": "no disorder/tilt/diffraction/backing/absorption; exit medium = chitin lower lamina"
+  }
+ },
+ "figure": "results/fig_butterfly_real.png"
+}

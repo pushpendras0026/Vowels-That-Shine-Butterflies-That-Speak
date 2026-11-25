@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vowels That Shine</title>
+<meta name="description" content="A vocal tract and a butterfly-wing thin film obey the same mathematics: every vowel has a colour, every film has a voice.">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  #hero-canvas { width: 100%; height: 300px; border-radius: var(--radius); border: 1px solid var(--line);
+    background: radial-gradient(ellipse at 30% 40%, #151233 0%, #07080d 70%); display: block; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 10px; }
+  .sw { appearance: none; border: 1px solid var(--line); background: #11131d; color: var(--text); border-radius: 12px;
+    padding: 10px 6px 8px; cursor: pointer; font: inherit; text-align: center; transition: border-color .15s, transform .15s; }
+  .sw:hover, .sw:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
+  .sw.on { border-color: var(--accent-2); box-shadow: 0 0 0 1px var(--accent-2) inset; }
+  .sw .dot { width: 46px; height: 46px; border-radius: 50%; margin: 0 auto 6px; position: relative; }
+  .sw .dot b { position: absolute; right: -3px; bottom: -3px; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #11131d; }
+  .sw .pair { display: flex; justify-content: center; gap: 4px; margin: 0 auto 6px; }
+  .sw .pair i { display: block; width: 34px; height: 34px; border-radius: 50%; font-style: normal; font-size: .62rem; line-height: 34px;
+    color: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.12); }
+  .sw .ipa { font-family: "Cambria Math", "Segoe UI", serif; font-size: 1.1rem; }
+  .sw .ex { font-size: 0.75rem; color: var(--muted); }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .seg button { appearance: none; border: 0; background: transparent; color: var(--muted); padding: 6px 12px; cursor: pointer; font: inherit; }
+  .seg button.on { background: rgba(143,123,255,0.22); color: var(--text); }
+  .bfly { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .bfly:last-child { border-bottom: 0; }
+  .bfly .strip { height: 14px; border-radius: 7px; grid-column: 1 / -1; }
+  .chain { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 0.92rem; }
+  .chain span { background: #141725; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  .chain em { color: var(--muted); font-style: normal; }
+  #now { min-height: 3.2em; }
+</style>
+</head>
+<body>
+<nav id="site-nav"></nav>
+<main class="page">
+
+  <section class="hero">
+    <div>
+      <p class="kicker">DA321 · one equation, two worlds</p>
+      <h1>A vowel has a <span class="glow">colour</span>.<br>A butterfly has a <span class="glow">voice</span>.</h1>
+      <p class="lead">When you say “ah”, your vocal tract behaves like a chain of short tubes of different widths.
+        A Morpho butterfly’s wing scale is a stack of very thin layers of different materials.
+        Sound bouncing between tube sections and light bouncing between layers follow <em>the same equation</em>,
+        so we can translate one into the other exactly: every vowel becomes a coloured film, and every film can be made to speak.</p>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary" href="lab.html">Try it with your voice →</a>
+        <a class="btn" href="theory.html">See the maths move</a>
+        <a class="btn" href="garden.html">Visit the butterflies</a>
+      </div>
+    </div>
+    <div>
+      <canvas id="hero-canvas" aria-label="Selected vowel as a tube and as a thin-film stack"></canvas>
+      <p id="now" class="muted" style="margin:8px 2px 0">Click a vowel below to hear it and see its tube and its film.</p>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <div class="row" style="justify-content:space-between; margin-bottom:12px">
+      <h2 style="margin:0">Twelve English vowels, as colours <span class="badge approx">measured formants → model</span></h2>
+      <div class="row">
+        <div class="seg" data-key="map" role="group" aria-label="Frequency mapping">
+          <button data-v="full" class="on" title="layers 199.86 nm: 0–7.5 kHz spread once over 400–750 THz (CONTRACT §4b)">Full-band (vivid, exact)</button><button data-v="brief" title="layers 428.27 nm: one period on 400–750 THz (the brief's mapping)">Brief (400–750 THz = one period)</button>
+        </div>
+        <div class="seg" id="grp" role="group" aria-label="Speaker group">
+          <button data-g="men" class="on">men</button><button data-g="women">women</button><button data-g="children">children</button>
+        </div>
+        <div class="seg" id="mode" data-key="mode" role="group" aria-label="Film mode">
+          <button data-m="ideal" class="on" title="n ∝ area, any index (exact isomorphism)">ideal film</button>
+          <button data-m="real" title="indices compressed into 1.0–2.5 (real materials)">realizable film</button>
+        </div>
+        <select id="ill" aria-label="Illuminant"><option>D65</option><option>A</option><option>F11</option><option>LED</option></select>
+      </div>
+    </div>
+    <div class="swatches" id="swatches"></div>
+    <p class="muted" style="font-size:.85rem; margin:12px 0 0">
+      Each vowel is a pair of discs: <b>R</b> = colour <b>reflected</b> by the vowel’s film (how a wing is seen), <b>T</b> = colour
+      of light <b>transmitted</b> through it. Both mappings are exact; they differ only in the common layer thickness
+      (full-band 199.86 nm puts the 0–7.5 kHz speech band once across the visible; brief 428.27 nm wraps one period, so vowels crowd into violet).
+      Colours are computed exactly from the film spectrum (CIE 1931, chosen illuminant) and then brightness-normalised for display
+      <span class="badge art">display exposure = artistic</span>. Formants: Hillenbrand et al. (1995) group means. Audio: synthesized from each vowel’s LPC filter.
+    </p>
+  </section>
+
+
+  <section class="section panel" id="sounds-sec">
+    <div class="row" style="justify-content:space-between; margin-bottom:12px">
+      <h2 style="margin:0">Every sound has a colour <span class="badge approx">real recordings → LPC → film</span></h2>
+      <div class="row">
+        <div class="seg" data-key="map" role="group" aria-label="Frequency mapping">
+          <button data-v="full" class="on">Full-band</button><button data-v="brief">Brief</button>
+        </div>
+        <div class="seg" data-key="mode" role="group" aria-label="Film mode">
+          <button data-v="ideal" class="on">ideal film</button><button data-v="real">realizable film</button>
+        </div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:0">Real human recordings of IPA vowels and consonants (Wikimedia Commons IPA chart).
+      Click a sound to hear the original recording. Its film colour comes from the frames of the target sound only
+      (vowel: steady voiced part; fricative: the hiss; nasal/approximant: the low-F1 murmur; plosive: the release burst).
+      The bar under each sound is the colour of every frame of the recording in time order (full-band, realizable film, reflected).</p>
+    <div id="snd-detail" class="snd-detail"></div>
+    <h3 class="snd-h">Vowels</h3>
+    <div class="swatches snd-grid" id="snd-vowels"></div>
+    <h3 class="snd-h">Consonants</h3>
+    <div class="swatches snd-grid" id="snd-cons"></div>
+    <p class="muted" style="font-size:.85rem; margin:12px 0 0">
+      <span class="badge approx">approximate</span> A 16-pole all-pole (LPC) model is exact for a lossless tube but only an
+      approximation for nasals (side branch: zeros) and fricatives/plosives (noise source inside the tract, not at the glottis):
+      for those the film reproduces the <em>spectral envelope</em>, not a physical vocal-tract shape. Colours: D65, display exposure
+      normalised <span class="badge art">artistic</span>. Recordings: one speaker per sound, often in a syllable context, so treat each
+      colour as one example, not a norm. Credits: <a href="https://commons.wikimedia.org/" rel="noopener">Wikimedia Commons</a> authors
+      listed on each sound (CC BY-SA); full list in <span class="mono">data/ipa/ATTRIBUTION.md</span>.</p>
+  </section>
+
+  <section class="section split">
+    <div class="panel">
+      <h2 style="margin-top:0">…and butterflies that speak <span class="badge approx">illustrative stacks</span></h2>
+      <p class="muted" style="margin-top:0">Run the bridge backwards: a film’s reflection coefficients become a vocal filter, excited by a glottal buzz.
+        The strip shows the film’s reflected colour from 0° to 80° viewing angle (computed, display-normalised).</p>
+      <div id="bflies"></div>
+    </div>
+    <div class="panel">
+      <h2 style="margin-top:0">The bridge in one line</h2>
+      <div class="eq" style="margin-bottom:12px">
+        <span class="math"><i>r</i> = <span class="frac"><span><i>A</i><sub>i</sub> − <i>A</i><sub>i+1</sub></span><span><i>A</i><sub>i</sub> + <i>A</i><sub>i+1</sub></span></span></span>
+        &nbsp;⟷&nbsp;
+        <span class="math"><i>r</i> = <span class="frac"><span><i>n</i><sub>i</sub> − <i>n</i><sub>i+1</sub></span><span><i>n</i><sub>i</sub> + <i>n</i><sub>i+1</sub></span></span></span>
+      </div>
+      <p style="margin-top:0">Tube cross-section area <i>A</i> plays the role of refractive index <i>n</i>. If every tube section takes the sound
+        one sample to cross and back, and every layer has the same optical thickness (<span class="mono">n·d = 428.27 nm</span>), the two
+        systems share one polynomial — so the film’s transmission spectrum <em>is</em> the vowel’s filter, wrapped onto 400–750 THz.</p>
+      <div class="chain"><span>voice</span><em>→</em><span>LPC (Levinson)</span><em>→</em><span>reflection coefficients</span><em>→</em><span>layer indices</span><em>→</em><span>film spectrum</span><em>→</em><span>CIE colour</span></div>
+      <div class="chain" style="margin-top:6px"><span>film</span><em>→</em><span>layer peeling</span><em>→</em><span>all-pole filter</span><em>→</em><span>glottal buzz</span><em>→</em><span>voice</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Explore</h2>
+    <div class="cards">
+      <a class="card" href="theory.html"><h3>Theory</h3><p>Drag reflection coefficients; watch a tube morph into a film and the two spectra coincide to ~1e‑15.</p></a>
+      <a class="card" href="lab.html"><h3>Live Voice Lab</h3><p>Your microphone → LPC in the browser → a glowing neon tube and the colour of what you just said.</p></a>
+      <a class="card" href="garden.html"><h3>Butterfly Garden</h3><p>Iridescent wings from the film model. Click one to hear it; pick a colour to breed metamers with different voices.</p></a>
+      <a class="card" href="results.html"><h3>Results</h3><p>Figures, numbers and audio from the research scripts: isomorphism, palettes, fidelity, butterflies.</p></a>
+      <a class="card" href="video.html"><h3>Video</h3><p>A 3–5 minute animated explainer with narration text.</p></a>
+      <a class="card" href="tests.html"><h3>JS ⇄ Python tests</h3><p>The browser physics re-checked live against the Python reference vectors.</p></a>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <h2 style="margin-top:0">What is exact, and what is not</h2>
+    <div class="split">
+      <div>
+        <p><span class="badge exact">exact</span> The tube ⇄ film correspondence: reflection coefficients, the shared polynomial, power transfer = transmittance,
+          LPC ⇄ layer peeling, and the frequency mapping. Lossless, non-dispersive layers, normal incidence (angle effects are computed exactly with
+          the transfer-matrix method). Checked numerically to ~1e‑12 for all 36 vowels.</p>
+        <p><span class="badge approx">approximate</span> A real glottis is not a closed end: we use an illustrative termination (reflection −0.9).
+          “Realizable” films squeeze the needed refractive indices (up to ~650 in ideal mode!) into real materials (1.0–2.5), which blurs the formants.
+          Butterfly stacks are parametric look-alikes, not measured wings.</p>
+        <p><span class="badge art">artistic</span> Display brightness normalisation, glows, flight and wing-flap animation, the neon room.</p>
+      </div>
+      <div class="note">
+        <p style="margin-top:0"><b>Honest finding: vowels are violet.</b> Mapping one period of the tube’s response onto 400–750 THz puts the speech band
+          that carries vowel identity (0–2.3 kHz) at 650–750 THz — the deep violet edge of vision, where our eyes are least sensitive.
+          So all vowels come out violet/lavender: their hue spans only ≈307°–322°, and neighbouring vowels differ by a median ΔE₀₀ of about 4–8
+          (just noticeable is ≈1–2; some pairs are ≈0.1, i.e. indistinguishable). Ideal-mode films also transmit very little light (Y ≈ 0.05–0.6 %), which is
+          why colours are shown brightness-normalised.</p>
+        <p style="margin-bottom:0">A shifted mapping that is also exact was tested and separated vowels <em>worse</em>, so we kept the canonical one
+          and report the limitation instead of hiding it. Details: <a href="results.html">Results</a>.</p>
+        <p style="margin-bottom:0">That finding is for the <b>brief</b> mapping (layers 428.27 nm). The isomorphism holds for any common layer
+          thickness, so the default <b>full-band</b> mapping (199.86 nm) spreads 0–7.5 kHz once across 400–750 THz and the same vowels
+          become clearly different colours (median ΔE₀₀ ≈ 16 for realizable films, reflected). Use the toggle to compare.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">DA321 course project · fully simulated, runs offline · physics in <span class="mono">core/</span> (Python) and <span class="mono">js/physics.js</span> (browser), cross-checked.</footer>
+</main>
+<script type="module" src="js/nav.js"></script>
+<script type="module" src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.venv/
+venv/
+.cache/
+__pycache__/
+*.pyc
+video/media/
+video/logs/
+results/runtime.json
+github.txt
+
+# local-only files
+~$*
+*.pptx
+data/user_voice/
