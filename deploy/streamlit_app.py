@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import mimetypes
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urlsplit, urlunsplit
 
 import streamlit as st
 from starlette.routing import Mount
@@ -38,6 +38,25 @@ app = st.App(
     routes=[Mount("/site", app=StaticFiles(directory=str(WEB), html=True), name="site")],
 )
 
+def site_url(page: str) -> str:
+    """Absolute URL of a page of the mounted site.
+
+    On Streamlit Community Cloud, https://<name>.streamlit.app/ is Cloud's own shell page;
+    the app's server (and so the /site/ route) is reached through the /~/+/ prefix.
+    Without that prefix the iframe loads the Cloud shell and spins forever.
+    """
+    base = st.context.url or ""
+    parts = urlsplit(base)
+    if not parts.scheme or not parts.netloc:
+        return f"/site/{page}"
+    path = parts.path
+    if parts.netloc.endswith(".streamlit.app") and "/~/+" not in path:
+        path = "/~/+/"
+    if not path.endswith("/"):
+        path = path.rsplit("/", 1)[0] + "/" if "/" in path else "/"
+    return urlunsplit((parts.scheme, parts.netloc, path, "", "")) + f"site/{page}"
+
+
 PAGES = {
     "Home": "index.html",
     "Theory": "theory.html",
@@ -57,10 +76,7 @@ if __name__ == "__main__":  # the Streamlit page (not executed when the ASGI app
     left, right = st.columns([3, 1])
     with left:
         name = st.radio("Page", list(PAGES), horizontal=True, label_visibility="collapsed")
-    # Absolute URL built from the app's own address (e.g. https://<name>.streamlit.app),
-    # so it also works if the host puts the app under a path prefix.
-    base = (st.context.url or "").rstrip("/") + "/"
-    url = urljoin(base, f"site/{PAGES[name]}") if base != "/" else f"/site/{PAGES[name]}"
+    url = site_url(PAGES[name])
     with right:
         st.link_button("Open full screen ↗", url, width="stretch")
 
