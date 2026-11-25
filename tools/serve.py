@@ -63,6 +63,22 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         if self.path.split("?")[0] == "/api/voice":
             VOICE.mkdir(parents=True, exist_ok=True)
             return self._json(200, {"have": sorted(p.stem for p in VOICE.glob("*.wav"))})
+        if self.path.split("?")[0] == "/api/voice.zip":
+            import io
+            import zipfile
+            VOICE.mkdir(parents=True, exist_ok=True)
+            buf = io.BytesIO()
+            with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+                for f in sorted(VOICE.glob("*.wav")):
+                    z.write(f, f"user_voice/{f.name}")
+            b = buf.getvalue()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/zip")
+            self.send_header("Content-Disposition", 'attachment; filename="user_voice.zip"')
+            self.send_header("Content-Length", str(len(b)))
+            self.end_headers()
+            self.wfile.write(b)
+            return None
         m = re.match(r"^/api/voice/([a-z0-9_]+)\.wav", self.path)
         if m:
             f = VOICE / f"{m.group(1)}.wav"

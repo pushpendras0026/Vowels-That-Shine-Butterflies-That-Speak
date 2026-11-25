@@ -1,4 +1,5 @@
-// Phoneme recorder: raw PCM (no browser DSP) -> 16-bit mono WAV -> POST /api/voice/<id> (tools/serve.py).
+// Phoneme recorder: raw PCM (no browser DSP) -> 16-bit mono WAV -> POST api/voice/<id>
+// (tools/serve.py locally, or deploy/streamlit_app.py online; relative path so both work).
 const $ = (id) => document.getElementById(id);
 let prompts = [], have = new Set(), cur = 0;
 let ctx = null, stream = null, node = null, src = null, chunks = [], recording = false, timer = null, peakHold = 0;
@@ -24,6 +25,7 @@ function show() {
   $("say").textContent = p.say;
   $("how").textContent = p.how;
   $("btn-play").disabled = !have.has(p.id);
+  const dl = $("dl-all"); if (dl) dl.hidden = have.size === 0;
   $("status").textContent = have.has(p.id) ? "✓ recorded. Play it back, or record again to replace it." : "";
   $("chips").innerHTML = prompts.map((q, i) =>
     `<span class="chip${have.has(q.id) ? " done" : ""}${i === cur ? " cur" : ""}" data-i="${i}">${q.ipa || "✎" + (i - prompts.findIndex(x => x.group === "sentence") + 1)}</span>`).join("");
@@ -49,7 +51,7 @@ async function ensureMic() {
 
 async function start() {
   try { await ensureMic(); } catch (e) {
-    $("status").innerHTML = `<span class="warn">Microphone blocked: ${e.message}. Open this page as http://localhost:8000/record.html in Chrome and allow the mic.</span>`;
+    $("status").innerHTML = `<span class="warn">Microphone blocked: ${e.message}. Allow the microphone in your browser (on the Streamlit app, use <b>Open full screen</b> if the embedded view blocks it).</span>`;
     return;
   }
   await ctx.resume();
@@ -70,8 +72,8 @@ async function stop() {
   if (n < ctx.sampleRate * 0.5 || pk < 0.01) { $("status").innerHTML = `<span class="warn">Too short or too quiet. Try again, a bit closer.</span>`; return; }
   const id = prompts[cur].id;
   $("status").textContent = "Saving…";
-  const r = await fetch(`/api/voice/${id}`, { method: "POST", body: encodeWav(all, ctx.sampleRate) });
-  if (!r.ok) { $("status").innerHTML = `<span class="warn">Save failed (${r.status}). Is tools/serve.py running?</span>`; return; }
+  const r = await fetch(`api/voice/${id}`, { method: "POST", body: encodeWav(all, ctx.sampleRate) });
+  if (!r.ok) { $("status").innerHTML = `<span class="warn">Save failed (${r.status}). Is the server running (tools/serve.py or the Streamlit app)?</span>`; return; }
   have.add(id);
   const clip = pk > 0.97 ? ` <span class="warn">⚠ clipped. Please record again, a bit further away.</span>` : "";
   show();
@@ -80,14 +82,14 @@ async function stop() {
 }
 
 $("btn-rec").onclick = () => (recording ? stop() : start());
-$("btn-play").onclick = () => new Audio(`/api/voice/${prompts[cur].id}.wav?t=${Date.now()}`).play();
+$("btn-play").onclick = () => new Audio(`api/voice/${prompts[cur].id}.wav?t=${Date.now()}`).play();
 $("btn-prev").onclick = () => { if (cur > 0 && !recording) { cur--; show(); } };
 $("btn-next").onclick = () => { if (cur < prompts.length - 1 && !recording) { cur++; show(); } };
 $("chips").onclick = (e) => { const i = e.target.dataset?.i; if (i != null && !recording) { cur = +i; show(); } };
 
 (async () => {
   prompts = (await (await fetch("data/record_script.json")).json()).prompts;
-  try { have = new Set((await (await fetch("/api/voice")).json()).have); } catch { /* static server: no API */ }
+  try { have = new Set((await (await fetch("api/voice")).json()).have); } catch { /* static server: no API */ }
   cur = Math.max(0, prompts.findIndex(p => !have.has(p.id)));
   show();
 })();
